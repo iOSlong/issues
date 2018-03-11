@@ -17,3 +17,7 @@ mindnote
 pages
 codes
 }
+
+example: 
+create one module shells from  demo_issue: 
+lxw$ cp -r demo_issue/ shells   
