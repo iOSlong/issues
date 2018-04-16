@@ -444,7 +444,7 @@ typedef <#returnType#>(^<#name#>)(<#arguments#>);
 
 ### 第51条：精简initialize 与 load 的实现代码
 
-
+### 第52条：别忘了NSTimer会保留其目标对象
 
 
 
