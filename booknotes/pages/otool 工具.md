@@ -104,6 +104,8 @@ Mach header
 
 
 ## Mach-O
+[管网链接](https://developer.apple.com/library/content/documentation/DeveloperTools/Conceptual/MachOTopics/0-Introduction/introduction.html#//apple_ref/doc/uid/TP40001827-SW1)
+
 我们知道Windows下的文件都是PE文件，同样在OS X和iOS中可执行文件是Mach-o格式的。
 Mach-O 是 Mach object 文件格式的缩写，它是一种用于记录可执行文件、对象代码、共享库、动态加载代码和内存转储的文件格式。作为 a.out 格式的替代品，Mach-O 提供了更好的扩展性，并提升了符号表中信息的访问速度。
 
@@ -926,6 +928,9 @@ dyld: loaded: /usr/lib/libauto.dylib
 ##### [Mach-O 可执行文件](https://objccn.io/issue-6-3/)
 ##### [Mach-O 学习](https://elliotsomething.github.io/2017/06/01/Mach-O%E5%AD%A6%E4%B9%A0/)
 ##### [iOS 安装包瘦身指南](http://www.zoomfeng.com/blog/ipa-size-thin.html)
+
+##### [五种 Mach-O 类型的浅要分析](https://juejin.im/post/59799780f265da3e1e5bc53e)
+
 
 ## 专业词解释
 * [1]ARM：
