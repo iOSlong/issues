@@ -807,7 +807,7 @@ void Connect(int timeout, bool use_encryption) { ... }
 Connect(/* timeout_ms = */ 10, /* use_encryption = */ false);
 ```
 
-#### 采用信息含量高德词
+#### 采用信息含量高的词
 
 # 第二部分 简化循环和逻辑
 
@@ -1217,11 +1217,6 @@ var vote_changed = function (old_vote, new_vote) {  
 #### 熟悉你周边的库
 > 经常性地通读标准库的整个API，保持对它们的熟悉程度。
 
-# 第四部分 精选话题
-
-## 第十四章 测试与可读性
-
-## 第十五章 
 
 
 
