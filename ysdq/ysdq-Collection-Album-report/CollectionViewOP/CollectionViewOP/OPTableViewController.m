@@ -7,16 +7,20 @@
 //
 
 #import "OPTableViewController.h"
+#import "UITableViewController+OP.h"
 
-@interface OPTableViewController ()
+@interface OPTableViewController ()<OPCollectionViewReportProtocol>
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
 @property (nonatomic, assign) NSInteger cellCount;
 @property (nonatomic, assign) NSInteger reloadTimes;
+#if !USE_OP_REPORTPROTOCOL
 @property (nonatomic, assign) BOOL  reportFilterReduplicativeSwith;//如果是YES，表示有去重机制开启，如果是NO，不进行去重
+@property (nonatomic, strong) NSMutableSet *reportIndexPathSet;//去重IndexPath容器
+#endif
+
 @property (nonatomic, assign) BOOL  havAllCellDisplayOverMark;//
 
-@property (nonatomic, strong) NSMutableSet *reportIndexPathSet;
 
 @end
 
@@ -27,7 +31,12 @@
     NSLog(@"%@界面生成",self.title);
     
     self.cellCount = 20;
+#if !USE_OP_REPORTPROTOCOL
     self.reportIndexPathSet = [NSMutableSet set];
+#else
+    self.opReportDelegate = self;
+#endif
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -112,15 +121,16 @@
         }
     }
 }
-
+#if !USE_OP_REPORTPROTOCOL
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     self.reportFilterReduplicativeSwith = YES;
     //FIXME:存在漏洞-如果页面的移位不是通过手指拖拽，那么reportFilterReduplicativeSwith开关将没有机会设置为YES。
     //TODO:规避方案（在页面移位的方法譬如此例子scrollNoAnimationTop直接操作开关）
-    //MARK:这个开关操作时机还可以房子scrollViewDidEndDragging:方法的最开始。
+    //MARK:这个开关操作时机还可以放在scrollViewDidEndDragging:方法的最开始。
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    //self.reportFilterReduplicativeSwith = YES;如此可以舍弃scrollViewWillBeginDragging。
     if (!decelerate) {
         NSLog(@"滚动抬起手指没有减速惯性停止监听");
         [self reportCellsDisplayedWithoutReduplicative];
@@ -140,6 +150,8 @@
     //FIXME:存在漏洞-若设置页面setContentOffset时候没有添加动画，那么移位后没有监听。
     //TODO:规避方案（可以通过setContentOffset使用animation：YES）
 }
+#endif
+
 
 #pragma mark 上报及上报去重机制处理
 - (void)reportCellsDisplayedWithoutReduplicative {

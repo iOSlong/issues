@@ -59,24 +59,5 @@
     return self.controllers[index];
 }
 
-//- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
-//    // The number of items reflected in the page indicator.
-//    return [self.myViewControllers count];
-//}
-//
-//- (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
-//    // The selected item reflected in the page indicator.
-//    return 0;
-//}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -20,6 +20,7 @@
 		B1873CA320A29D0400E9A347 /* OPCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1873CA120A29D0400E9A347 /* OPCollectionViewCell.xib */; };
 		B1873CAB20A2DA8D00E9A347 /* StaticTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1873CAA20A2DA8D00E9A347 /* StaticTableViewController.m */; };
 		B1873CAE20A41D5300E9A347 /* OPPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1873CAD20A41D5300E9A347 /* OPPageViewController.m */; };
+		B1873CB220A4292700E9A347 /* UITableViewController+OP.m in Sources */ = {isa = PBXBuildFile; fileRef = B1873CB120A4292700E9A347 /* UITableViewController+OP.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,8 @@
 		B1873CAA20A2DA8D00E9A347 /* StaticTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaticTableViewController.m; sourceTree = "<group>"; };
 		B1873CAC20A41D5300E9A347 /* OPPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OPPageViewController.h; sourceTree = "<group>"; };
 		B1873CAD20A41D5300E9A347 /* OPPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OPPageViewController.m; sourceTree = "<group>"; };
+		B1873CB020A4292700E9A347 /* UITableViewController+OP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableViewController+OP.h"; sourceTree = "<group>"; };
+		B1873CB120A4292700E9A347 /* UITableViewController+OP.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableViewController+OP.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +118,7 @@
 		B1873C6320A296FC00E9A347 /* CollectionViewOP */ = {
 			isa = PBXGroup;
 			children = (
+				B1873CAF20A428EE00E9A347 /* Category */,
 				B1873CA920A2DA8D00E9A347 /* StaticTableViewController.h */,
 				B1873CAA20A2DA8D00E9A347 /* StaticTableViewController.m */,
 				B1873C6420A296FC00E9A347 /* AppDelegate.h */,
@@ -153,6 +157,15 @@
 				B1873C8A20A296FE00E9A347 /* Info.plist */,
 			);
 			path = CollectionViewOPUITests;
+			sourceTree = "<group>";
+		};
+		B1873CAF20A428EE00E9A347 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				B1873CB020A4292700E9A347 /* UITableViewController+OP.h */,
+				B1873CB120A4292700E9A347 /* UITableViewController+OP.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,6 +303,7 @@
 				B1873CAE20A41D5300E9A347 /* OPPageViewController.m in Sources */,
 				B1873CA220A29D0400E9A347 /* OPCollectionViewCell.m in Sources */,
 				B1873C9B20A2975500E9A347 /* OPCollectionViewController.m in Sources */,
+				B1873CB220A4292700E9A347 /* UITableViewController+OP.m in Sources */,
 				B1873CAB20A2DA8D00E9A347 /* StaticTableViewController.m in Sources */,
 				B1873C7420A296FE00E9A347 /* main.m in Sources */,
 				B1873C6620A296FC00E9A347 /* AppDelegate.m in Sources */,
