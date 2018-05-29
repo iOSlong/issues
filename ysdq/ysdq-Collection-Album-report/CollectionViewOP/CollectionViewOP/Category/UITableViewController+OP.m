@@ -45,32 +45,62 @@
 }
 
 
+#pragma mark -
+#pragma mark <监听上报相关内容>
+
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     self.reportFilterReduplicativeSwith = YES;
-    //FIXME:存在漏洞-如果页面的移位不是通过手指拖拽，那么reportFilterReduplicativeSwith开关将没有机会设置为YES。
-    //TODO:规避方案（在页面移位的方法譬如此例子scrollNoAnimationTop直接操作开关）
-    //MARK:这个开关操作时机还可以房子scrollViewDidEndDragging:方法的最开始。
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     if (!decelerate) {
-        NSLog(@"滚动抬起手指没有减速惯性停止监听");
-        [self.opReportDelegate reportCellsDisplayedWithoutReduplicative];
+        [self reportCellsDisplayedWithoutReduplicative];
     }else{
-        NSLog(@"滚动抬起手指有减速惯性，依赖scrollViewDidEndDecelerating：监听停止");
     }
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    NSLog(@"滚动抬起手指有减速惯性停止监听");
-    [self.opReportDelegate reportCellsDisplayedWithoutReduplicative];
+    [self reportCellsDisplayedWithoutReduplicative];
 }
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
-    NSLog(@"非手指动画滚动停止监听");
-    [self.opReportDelegate reportCellsDisplayedWithoutReduplicative];
-    //FIXME:存在漏洞-若设置页面setContentOffset时候没有添加动画，那么移位后没有监听。
-    //TODO:规避方案（可以通过setContentOffset使用animation：YES）
+    [self reportCellsDisplayedWithoutReduplicative];
+}
+
+#pragma mark 上报及上报去重机制处理
+- (void)reportCellsDisplayedWithoutReduplicative {
+    for (NSIndexPath *indexPath in [self.opReportDelegate reportCellIndexPathForVisibleItems]) {
+        if (![self.reportIndexPathSet containsObject:indexPath]) {
+            [self reportHandleIndexPath:indexPath];
+        }
+    }
+    //去重：上一次曝光过的就不用再上报，所以保留曝光完后界面可见的所有indexPath，用于下一次偏移或滚动的曝光去重。
+    if (self.reportFilterReduplicativeSwith) {
+        [self.reportIndexPathSet removeAllObjects];
+    }
+    for (NSIndexPath *indexPath in [self.opReportDelegate reportCellIndexPathForVisibleItems]) {
+        [self.reportIndexPathSet addObject:[indexPath copy]];
+    }
+}
+
+- (void)reportCellDisplayedIndexPath:(NSIndexPath *)indexPath {
+    if (!self.reportFilterReduplicativeSwith) {
+        [self reportHandleIndexPath:indexPath];
+    }
+    if (!self.reportFilterReduplicativeSwith) {
+        if (indexPath.row == [[self.opReportDelegate reportCellIndexPathForVisibleItems] lastObject].row) {
+            self.reportFilterReduplicativeSwith = YES;
+        }
+    }
+}
+
+- (void)reportHandleIndexPath:(NSIndexPath *)indexPath {
+    if ([self.reportIndexPathSet containsObject:indexPath]) {
+        return;
+    } else {
+        [self.reportIndexPathSet addObject:[indexPath copy]];
+    }
+    [self.opReportDelegate reportCellHaudleForIndexPath:indexPath];
 }
 
 @end

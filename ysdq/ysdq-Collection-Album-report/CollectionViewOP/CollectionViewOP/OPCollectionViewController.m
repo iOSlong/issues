@@ -192,5 +192,7 @@ static NSString * const reuseIdentifier = @"collectioncellReuseIdentifer";
     }
     NSLog(@"%@reportItem:----%@---",self.title,[NSString stringWithFormat:@"[%ld,%ld]",(long)indexPath.section,(long)indexPath.row]);
 }
-
+- (NSArray<NSIndexPath *> *)reportCellIndexPathForVisibleItems {
+    return self.collectionView.indexPathsForVisibleItems;
+}
 @end

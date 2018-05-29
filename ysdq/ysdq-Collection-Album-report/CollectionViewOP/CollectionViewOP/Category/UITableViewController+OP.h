@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-#define USE_OP_REPORTPROTOCOL 0
+#define USE_OP_REPORTPROTOCOL 1
 
 @protocol OPCollectionViewReportProtocol<NSObject>
 @required
-- (void)reportCellsDisplayedWithoutReduplicative;
-- (void)reportCellDisplayedInIndexPath:(NSIndexPath *)indexPath;
+- (NSArray<NSIndexPath *> *)reportCellIndexPathForVisibleItems;
+- (void)reportCellHaudleForIndexPath:(NSIndexPath *)indexPath;
 @end
 
 
@@ -22,21 +22,9 @@
 
 //如果是YES，表示有去重机制开启，如果是NO，不进行去重
 @property (nonatomic, assign) BOOL reportFilterReduplicativeSwith;
-
 @property (nonatomic, strong) NSMutableSet *reportIndexPathSet;//去重IndexPath容器
+
+- (void)reportCellsDisplayedWithoutReduplicative;
+- (void)reportCellDisplayedIndexPath:(NSIndexPath *)indexPath;
 @end
 
-//@interface UITableViewController (OP)
-//@property (nonatomic, weak) id<OPCollectionViewReportProtocol>opReportDelegate;
-//@property (nonatomic, assign) BOOL  reportFilterReduplicativeSwith;//如果是YES，表示有去重机制开启，如果是NO，不进行去重
-//@property (nonatomic, strong) NSMutableSet *reportIndexPathSet;//去重IndexPath容器
-//
-//@end
-//
-//
-//@interface UICollectionViewController (OP)
-//@property (nonatomic, weak) id<OPCollectionViewReportProtocol>opReportDelegate;
-//@property (nonatomic, assign) BOOL  reportFilterReduplicativeSwith;//如果是YES，表示有去重机制开启，如果是NO，不进行去重
-//@property (nonatomic, strong) NSMutableSet *reportIndexPathSet;//去重IndexPath容器
-//
-//@end
