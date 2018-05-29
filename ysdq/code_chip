@@ -1,0 +1,42 @@
+- (void)advertTestChangeAdvertModel:(AdvertModel *)advertModel {
+    NSString *path = [Path pathForResource:@"advert_id.plist"];
+    NSDictionary *advertIDInfo = [NSDictionary dictionaryWithContentsOfFile:path];
+#if IS_SDSP_TARGET
+    advertIDInfo = [advertIDInfo objectForKey:@"sdsp"];
+#endif
+
+#if IS_SDSPEX1_TARGET
+    advertIDInfo = [advertIDInfo objectForKey:@"sdspex1"];
+#endif
+
+#if IS_KKYS_TARGET
+    advertIDInfo = [advertIDInfo objectForKey:@"kkys"];
+#endif
+
+#if IS_YSDQ_TARGET
+    advertIDInfo = [advertIDInfo objectForKey:@"ysdq"];
+#endif
+
+#if IS_YSDQ_IPAD_TARGET
+    advertIDInfo = [advertIDInfo objectForKey:@"ysdq_ipad"];
+#endif
+
+    NSLogInfo(@"%@",advertIDInfo);
+    if (advertModel.type == AdvertTypeBaidu) {
+        advertIDInfo = [advertIDInfo objectForKey:@"Baidu"];
+    }else if (advertModel.type == AdvertTypeBaiduNative) {
+        advertIDInfo = [advertIDInfo objectForKey:@"BaiduNative"];
+    }else if (advertModel.type == AdvertTypeGDT) {
+        advertIDInfo = [advertIDInfo objectForKey:@"GDTLaunch"];
+    }else if (advertModel.type == AdvertTypeGDTNative) {
+        advertIDInfo = [advertIDInfo objectForKey:@"GDTNative"];
+    }else if (advertModel.type == AdvertTypeInMobiSDKNative) {
+        advertIDInfo = [advertIDInfo objectForKey:@"InMobiSDKNative"];
+    }else if (advertModel.type == AdvertTypeChanceSDK) {
+        advertIDInfo = [advertIDInfo objectForKey:@"ChangSiNative"];
+    }
+    NSLogInfo(@"%@",advertIDInfo);
+    NSDictionary *advertIDJson = [advertIDInfo objectForKey:@"advertID"];
+    NSString *advertID = [advertIDJson objectForKey:[self advertRequestPlace]];
+    advertModel.adId = advertID;
+}
