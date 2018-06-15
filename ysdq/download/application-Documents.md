@@ -7,14 +7,14 @@ change_20170303， 是一年前对存储地址及策略做的调整，应当可�
 
 #### 下载相关目录名：
 1. DQVideoDowloadInfo.plist
-2. DQFileDownloadTempresumeDatas.plist
+2. DQFileDownloadTempresumeDatas.plist //断点缓存资源存储plist文件。
 3. DQVideonDownloadCache  //下载资源存放目录。
     规则文件命名：
     Document/DQFileDownloadCache/[NSString stringWithFormat:@"aid_%@_porder_%@_%@",video.aid,video.order,videoName]/[video.m3u8UrlArray indexOfObject:url]+type(M3U8-"",MP4-".mp4",Unknown-"")
 4. DQFileDownloadCache
     规则文件命名：
     Document/DQFileDownloadCache/[url.absoluteString md5]
-5. DQFileDownloadTemp
+5. DQFileDownloadTemp  冗余路劲，可对相关代码做删除。
 
 
 #### 调整前后对比：
