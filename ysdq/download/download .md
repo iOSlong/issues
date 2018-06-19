@@ -104,21 +104,73 @@ old:  /Library/DQVideonDownloadCache
            
 
 ### 流程
+#### 一、 添加下载任务，并启动下载任务
+* 业务类：视频下载管理类 **VideoDownloadManager**
+* 相关数据类：
+    1. VideoForDownload 
+        > 视频下载单位，与视频一一对应，并处理对应下载任务。
+        
+* 函数操控流程：
+    1. 设置支持下载同步任务数：VideoDownloadManager.maxDownloadTaskNumber = 1;
+    2. 添加下载任务：[VideoDownloadManager.addDownloadVideo:video];
+    3. 启动下载任务：
+        1. [VideoDownloadManager.startDownloadVideo:video retryStatus:DownloadRetryStatusNone];
+            > 生成VideoForDownload,做相应初始化配置，并添加到管理队列。
+        
+        2. [VideoDownloadManager.reNewDownloadTasks]
+            > 刷新下载任务队列，以及刷新本地数据。
+            
+        3. VideoDownloadManager.downloadingVideo.startDownloadVideo
+            > 对应downloadingVideo调用开始下载视频的任务。
 
-1. VideoDownloadManager.maxDownloadTaskNumber = 1;
-2. VideoDownloadManager.addDownloadVideo:video];
-3. VideoDownloadManager.startDownloadVideo:video retryStatus:DownloadRetryStatusNone];
-4. VideoDownloadManager.reNewDownloadTasks]
-5. VideoDownloadManager.downloadingVideo.startDownloadVideo
+#### 二、获取下载地址，并根据地址进行分段下载
+* 业务类：视频下载类：**VideoForDownload**
+* 相关数据和功能类：
+    1. BZXParseHelper
+        > 获取下载六地址功能类
+    2. FileDownloadManager
+        > 下载任务管理类
 
-6. if(VideoFileTypeUnkonwn) VideoForDownload.fecthDownloadUrl  {获取到VideoForDownload.m3u8UrlArray}
-7. [VideoDownloadManager.videosMap setObject:video forKey:itemKey];
-8. else(M3U8|MP4|~) VideoForDownload.startDownloadSegment
+* 函数操控流程
+    1. 获取下载流地址：if(VideoFileTypeUnkonwn) VideoForDownload.fecthDownloadUrl  {获取到.m3u8UrlArray}
+        > BZXParseHelper工具类根据类信息获取下载流地址: VideoForDownload.m3u8UrlArray
+    
+    2. 流地址成功后更新视频下载管理列表数据: [VideoDownloadManager.videosMap setObject:video forKey:itemKey]; 
+    
+    3. 根据VideoForDownload的下载地址数组，开始进行按序分段下载。
+        > else(M3U8|MP4|~) VideoForDownload.startDownloadSegment
 
-9. BZXFileDownloadManager.downloadFileWithURL:url delegate:VideoDownloadManager
-10. 
+#### 三、资源下载，并进行代理同步、数据更新
+* 业务类：文件下载类：**FileDownloadManager**
+* 相关数据和功能类：
+    1. VideoForDownload
+        > 对应下载视频资源，代理下载资源回调，
+    2. FileDownloadManager
+        > 下载任务管理类，管理fileDownloader数据及对应的下载task网络任务。
+    3. FileDownloader 
+        > 对应着一个下载单位，作为一条下载内容业务数据的存储传递类。
 
 
+* 函数操控流程：
+    1. 下载管理类启动一条下载：FileDownloadManager.downloadFileWithURL:url delegate:VideoDownloadManager header:videoForDownload.header
+        > 参数为：下载地址url、代理videoForDownload、请求头videoForDownload.header
+    
+    2. 为对应下载url创建FileDownloader实例：
+        > 1. 生成资源文件路径，[FileDownloadManager.filePathForURL:url]
+        > 2. 穿甲FileDownloader：[FileDownloader alloc] initWithURL:url filePath:[self filePathForURL:url]
+        > 3. 将下载单元存储类添加到下载管理数组序列中，_downloaders.addobject:downloader
+    
+    3.  根据下载单元数据类，启动网络下载任务。 
+        > [self startDownLoadWithObject:downloader]
+        1. 查询已经存在的NSURLSessionDownloadTask
+            1. 根据下载地址url从现有任务序列(_downloadTasks)寻找，
+            2. 根据系在地址url寻找已有缓存数据resumeData，若resumeData存在则利用缓存数据找回[self downloadTaskWithResumeData:resumeData]
+        2. 没有找着NSURLSessionDownloadTask，则新建下载任务
+        3. 启动下载任务[currentDownLoadTask resume]，并将之添加到任务管理队列_downloadTasks[keyForUrl] = currentDownLoadTask。
+        4. 同步对应FileDownloader.tate状态。
+        
+    
+        
 
 #### 播放地址，下载地址？
 SAStreamOperationPlay,
