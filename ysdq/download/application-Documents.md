@@ -32,17 +32,6 @@ file:///private/var/mobile/Containers/Data/Application/50183365-627F-43E4-929A-F
 
 
 
-
-finishDownload：
-
-1. NSString *filePath =  currentDownloader.filePath = /var/mobile/Containers/Data/Application/172006B5-56E4-4528-871B-96575144A6CB/Documents/DQFileDownloadCache/dcbe3897ae0c5b75094254832971bbde
-2. downloadURL = file:///private/var/mobile/Containers/Data/Application/172006B5-56E4-4528-871B-96575144A6CB/Library/Caches/com.apple.nsurlsessiond/Downloads/com.ysdqTV.iphone.client/CFNetworkDownload_fQMi3Y.tmp
-
-3. 将下载缓存一致filePath：[[NSFileManager defaultManager] moveItemAtURL:downloadURL toURL:desURL error:&fileMoveErr]; 
-4. 代理函数：BZXFileDownloadManager:didFinishedOfURL:downloader:
-    downdFielPath =  /var/mobile/Containers/Data/Application/172006B5-56E4-4528-871B-96575144A6CB/Documents/DQFileDownloadCache/dcbe3897ae0c5b75094254832971bbde
-    filePath = /var/mobile/Containers/Data/Application/172006B5-56E4-4528-871B-96575144A6CB/Documents/DQVideoDownloadCache/aid_2_723251_porder_3_不伦食堂-第3集/0.mp4
-    [[NSFileManager defaultManager] moveItemAtPath:downdFielPath toPath:filePath error:&error];
     
     
 文件下载完成（FileDownloadManager）：
@@ -77,21 +66,6 @@ finishDownload：
  
  
  
-本周完成：
-1. iPad发版个推功能：
-    a. 个推应用iPad版本创建、Apple推送证书创建（iOS开发环境&iOS生产环境）
-    b. 个推对个人四及iPad等target的代码适配。
-    c. 辅助测试对iPad版本个推功能进行测试，追踪iPad个推标签推送失败问题
-未完成内容：
-2. 下载模块功能梳理摸索 70%
-    a. 分支注释代码（可优化、可删除）      
-    b. 文档记录下载模块功能流程、业务逻辑     
-    c. 其他辅助文档建设（直观结构流程图等绘制）
-下周计划：
-1. 版本2.4.7需求提测及相关bug修复
-    a. 播放定时功能
-    b. 搜索纠错词功能
-2. 完成下载模块功能梳理
 
  
 

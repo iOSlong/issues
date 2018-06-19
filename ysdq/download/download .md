@@ -104,7 +104,8 @@ old:  /Library/DQVideonDownloadCache
            
 
 ### 流程
-#### 一、 添加下载任务，并启动下载任务
+
+#### 一、 添加视频下载，并启动视频下载任务
 * 业务类：视频下载管理类 **VideoDownloadManager**
 * 相关数据类：
     1. VideoForDownload 
@@ -112,8 +113,8 @@ old:  /Library/DQVideonDownloadCache
         
 * 函数操控流程：
     1. 设置支持下载同步任务数：VideoDownloadManager.maxDownloadTaskNumber = 1;
-    2. 添加下载任务：[VideoDownloadManager.addDownloadVideo:video];
-    3. 启动下载任务：
+    2. 添加下载视频：[VideoDownloadManager.addDownloadVideo:video];
+    3. 启动视频下载：
         1. [VideoDownloadManager.startDownloadVideo:video retryStatus:DownloadRetryStatusNone];
             > 生成VideoForDownload,做相应初始化配置，并添加到管理队列。
         
@@ -123,7 +124,7 @@ old:  /Library/DQVideonDownloadCache
         3. VideoDownloadManager.downloadingVideo.startDownloadVideo
             > 对应downloadingVideo调用开始下载视频的任务。
 
-#### 二、获取下载地址，并根据地址进行分段下载
+#### 二、获取下载地址，并根据地址启动分段下载
 * 业务类：视频下载类：**VideoForDownload**
 * 相关数据和功能类：
     1. BZXParseHelper
@@ -139,6 +140,10 @@ old:  /Library/DQVideonDownloadCache
     
     3. 根据VideoForDownload的下载地址数组，开始进行按序分段下载。
         > else(M3U8|MP4|~) VideoForDownload.startDownloadSegment
+    
+    4. 同步下载事件到VideoDownloadManager：
+        > 代理协议：@protocol BZXVideoForDownloadDelegate. 
+        
 
 #### 三、资源下载，并进行代理同步、数据更新
 * 业务类：文件下载类：**FileDownloadManager**
@@ -152,12 +157,12 @@ old:  /Library/DQVideonDownloadCache
 
 
 * 函数操控流程：
-    1. 下载管理类启动一条下载：FileDownloadManager.downloadFileWithURL:url delegate:VideoDownloadManager header:videoForDownload.header
+    1. 下载管理类启动一条下载任务：FileDownloadManager.downloadFileWithURL:url delegate:VideoDownloadManager header:videoForDownload.header
         > 参数为：下载地址url、代理videoForDownload、请求头videoForDownload.header
     
     2. 为对应下载url创建FileDownloader实例：
         > 1. 生成资源文件路径，[FileDownloadManager.filePathForURL:url]
-        > 2. 穿甲FileDownloader：[FileDownloader alloc] initWithURL:url filePath:[self filePathForURL:url]
+        > 2. 创建FileDownloader：[FileDownloader alloc] initWithURL:url filePath:[self filePathForURL:url]
         > 3. 将下载单元存储类添加到下载管理数组序列中，_downloaders.addobject:downloader
     
     3.  根据下载单元数据类，启动网络下载任务。 
@@ -168,6 +173,10 @@ old:  /Library/DQVideonDownloadCache
         2. 没有找着NSURLSessionDownloadTask，则新建下载任务
         3. 启动下载任务[currentDownLoadTask resume]，并将之添加到任务管理队列_downloadTasks[keyForUrl] = currentDownLoadTask。
         4. 同步对应FileDownloader.tate状态。
+    
+    4.  同步网络请求数据到VideoForDownload：
+        > 下载同步代理协议：@protocol BZXFileDownloadManagerDelegate
+
         
     
         
