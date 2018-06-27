@@ -19,7 +19,6 @@
 		B1FFE1B320E2522200F1700B /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FFE1B220E2522200F1700B /* BaseViewController.m */; };
 		B1FFE1B620E2524D00F1700B /* MPMediaPlayerScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FFE1B520E2524D00F1700B /* MPMediaPlayerScaleViewController.m */; };
 		B1FFE1B920E2525E00F1700B /* AVPlayerScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FFE1B820E2525E00F1700B /* AVPlayerScaleViewController.m */; };
-		B1FFE1BC20E3343A00F1700B /* cartoon.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B1FFE1BB20E3343A00F1700B /* cartoon.mp4 */; };
 		B1FFE1C120E370EF00F1700B /* AVPlayerLayerScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FFE1C020E370EF00F1700B /* AVPlayerLayerScaleViewController.m */; };
 		B1FFE1C320E377DF00F1700B /* WeChatSight15153.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B1FFE1C220E377DF00F1700B /* WeChatSight15153.mp4 */; };
 		C82187AB7D3D1E80DB0D31D9 /* libPods-PlayerFMYTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 867319EAA2E3158047DE69B9 /* libPods-PlayerFMYTests.a */; };
@@ -72,7 +71,6 @@
 		B1FFE1B520E2524D00F1700B /* MPMediaPlayerScaleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPMediaPlayerScaleViewController.m; sourceTree = "<group>"; };
 		B1FFE1B720E2525E00F1700B /* AVPlayerScaleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVPlayerScaleViewController.h; sourceTree = "<group>"; };
 		B1FFE1B820E2525E00F1700B /* AVPlayerScaleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVPlayerScaleViewController.m; sourceTree = "<group>"; };
-		B1FFE1BB20E3343A00F1700B /* cartoon.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = cartoon.mp4; sourceTree = "<group>"; };
 		B1FFE1BE20E3668800F1700B /* VideoSourceUrls.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoSourceUrls.h; sourceTree = "<group>"; };
 		B1FFE1BF20E370EF00F1700B /* AVPlayerLayerScaleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVPlayerLayerScaleViewController.h; sourceTree = "<group>"; };
 		B1FFE1C020E370EF00F1700B /* AVPlayerLayerScaleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVPlayerLayerScaleViewController.m; sourceTree = "<group>"; };
@@ -197,7 +195,6 @@
 			isa = PBXGroup;
 			children = (
 				B1FFE1C220E377DF00F1700B /* WeChatSight15153.mp4 */,
-				B1FFE1BB20E3343A00F1700B /* cartoon.mp4 */,
 				B1FFE1BE20E3668800F1700B /* VideoSourceUrls.h */,
 			);
 			path = videos;
@@ -309,7 +306,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1FFE1BC20E3343A00F1700B /* cartoon.mp4 in Resources */,
 				B1FFE1C320E377DF00F1700B /* WeChatSight15153.mp4 in Resources */,
 				B1FFE18C20E2506700F1700B /* LaunchScreen.storyboard in Resources */,
 				B1FFE18920E2506700F1700B /* Assets.xcassets in Resources */,
