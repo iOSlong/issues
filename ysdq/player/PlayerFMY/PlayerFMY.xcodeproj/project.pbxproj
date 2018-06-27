@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3031625878D43E714C5EC380 /* libPods-PlayerFMY.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1FA04DA3BF85A0FD73009C /* libPods-PlayerFMY.a */; };
+		922C512CF459702FD4C44D6D /* libPods-PlayerFMYUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4858E5EEAADF54B809E0ABDE /* libPods-PlayerFMYUITests.a */; };
 		B1FFE18120E2506600F1700B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FFE18020E2506600F1700B /* AppDelegate.m */; };
 		B1FFE18720E2506600F1700B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1FFE18520E2506600F1700B /* Main.storyboard */; };
 		B1FFE18920E2506700F1700B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1FFE18820E2506700F1700B /* Assets.xcassets */; };
@@ -17,6 +19,9 @@
 		B1FFE1B320E2522200F1700B /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FFE1B220E2522200F1700B /* BaseViewController.m */; };
 		B1FFE1B620E2524D00F1700B /* MPMediaPlayerScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FFE1B520E2524D00F1700B /* MPMediaPlayerScaleViewController.m */; };
 		B1FFE1B920E2525E00F1700B /* AVPlayerScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FFE1B820E2525E00F1700B /* AVPlayerScaleViewController.m */; };
+		B1FFE1BC20E3343A00F1700B /* cartoon.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B1FFE1BB20E3343A00F1700B /* cartoon.mp4 */; };
+		B1FFE1C120E370EF00F1700B /* AVPlayerLayerScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FFE1C020E370EF00F1700B /* AVPlayerLayerScaleViewController.m */; };
+		C82187AB7D3D1E80DB0D31D9 /* libPods-PlayerFMYTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 867319EAA2E3158047DE69B9 /* libPods-PlayerFMYTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +42,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08E0D2146D4D1B6D24023060 /* Pods-PlayerFMY.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayerFMY.release.xcconfig"; path = "Pods/Target Support Files/Pods-PlayerFMY/Pods-PlayerFMY.release.xcconfig"; sourceTree = "<group>"; };
+		2D1FA04DA3BF85A0FD73009C /* libPods-PlayerFMY.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PlayerFMY.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4858E5EEAADF54B809E0ABDE /* libPods-PlayerFMYUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PlayerFMYUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		489D9BE19F6ED749702280B8 /* Pods-PlayerFMYUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayerFMYUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PlayerFMYUITests/Pods-PlayerFMYUITests.release.xcconfig"; sourceTree = "<group>"; };
+		51DBE9766FA4CB5C0D69A88C /* Pods-PlayerFMYTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayerFMYTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PlayerFMYTests/Pods-PlayerFMYTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7139F4CB8535A9A3940AA454 /* Pods-PlayerFMY.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayerFMY.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PlayerFMY/Pods-PlayerFMY.debug.xcconfig"; sourceTree = "<group>"; };
+		854F77393B95E0018BCE205A /* Pods-PlayerFMYUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayerFMYUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PlayerFMYUITests/Pods-PlayerFMYUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		867319EAA2E3158047DE69B9 /* libPods-PlayerFMYTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PlayerFMYTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE5DC0BD51460E135D25A5F1 /* Pods-PlayerFMYTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayerFMYTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PlayerFMYTests/Pods-PlayerFMYTests.release.xcconfig"; sourceTree = "<group>"; };
 		B1FFE17C20E2506600F1700B /* PlayerFMY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayerFMY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1FFE17F20E2506600F1700B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B1FFE18020E2506600F1700B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -57,6 +71,10 @@
 		B1FFE1B520E2524D00F1700B /* MPMediaPlayerScaleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPMediaPlayerScaleViewController.m; sourceTree = "<group>"; };
 		B1FFE1B720E2525E00F1700B /* AVPlayerScaleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVPlayerScaleViewController.h; sourceTree = "<group>"; };
 		B1FFE1B820E2525E00F1700B /* AVPlayerScaleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVPlayerScaleViewController.m; sourceTree = "<group>"; };
+		B1FFE1BB20E3343A00F1700B /* cartoon.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = cartoon.mp4; sourceTree = "<group>"; };
+		B1FFE1BE20E3668800F1700B /* VideoSourceUrls.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoSourceUrls.h; sourceTree = "<group>"; };
+		B1FFE1BF20E370EF00F1700B /* AVPlayerLayerScaleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVPlayerLayerScaleViewController.h; sourceTree = "<group>"; };
+		B1FFE1C020E370EF00F1700B /* AVPlayerLayerScaleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVPlayerLayerScaleViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3031625878D43E714C5EC380 /* libPods-PlayerFMY.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C82187AB7D3D1E80DB0D31D9 /* libPods-PlayerFMYTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,12 +98,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				922C512CF459702FD4C44D6D /* libPods-PlayerFMYUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		64AA16217E4A0AAD90F39A38 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2D1FA04DA3BF85A0FD73009C /* libPods-PlayerFMY.a */,
+				867319EAA2E3158047DE69B9 /* libPods-PlayerFMYTests.a */,
+				4858E5EEAADF54B809E0ABDE /* libPods-PlayerFMYUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		75E4DDAFEBED12563442B18E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7139F4CB8535A9A3940AA454 /* Pods-PlayerFMY.debug.xcconfig */,
+				08E0D2146D4D1B6D24023060 /* Pods-PlayerFMY.release.xcconfig */,
+				51DBE9766FA4CB5C0D69A88C /* Pods-PlayerFMYTests.debug.xcconfig */,
+				AE5DC0BD51460E135D25A5F1 /* Pods-PlayerFMYTests.release.xcconfig */,
+				854F77393B95E0018BCE205A /* Pods-PlayerFMYUITests.debug.xcconfig */,
+				489D9BE19F6ED749702280B8 /* Pods-PlayerFMYUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B1FFE17320E2506600F1700B = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +135,8 @@
 				B1FFE19720E2506700F1700B /* PlayerFMYTests */,
 				B1FFE1A220E2506700F1700B /* PlayerFMYUITests */,
 				B1FFE17D20E2506600F1700B /* Products */,
+				75E4DDAFEBED12563442B18E /* Pods */,
+				64AA16217E4A0AAD90F39A38 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +153,7 @@
 		B1FFE17E20E2506600F1700B /* PlayerFMY */ = {
 			isa = PBXGroup;
 			children = (
+				B1FFE1BA20E3341100F1700B /* videos */,
 				B1FFE17F20E2506600F1700B /* AppDelegate.h */,
 				B1FFE18020E2506600F1700B /* AppDelegate.m */,
 				B1FFE1B120E2522200F1700B /* BaseViewController.h */,
@@ -115,6 +162,8 @@
 				B1FFE1B520E2524D00F1700B /* MPMediaPlayerScaleViewController.m */,
 				B1FFE1B720E2525E00F1700B /* AVPlayerScaleViewController.h */,
 				B1FFE1B820E2525E00F1700B /* AVPlayerScaleViewController.m */,
+				B1FFE1BF20E370EF00F1700B /* AVPlayerLayerScaleViewController.h */,
+				B1FFE1C020E370EF00F1700B /* AVPlayerLayerScaleViewController.m */,
 				B1FFE18520E2506600F1700B /* Main.storyboard */,
 				B1FFE18820E2506700F1700B /* Assets.xcassets */,
 				B1FFE18A20E2506700F1700B /* LaunchScreen.storyboard */,
@@ -142,6 +191,15 @@
 			path = PlayerFMYUITests;
 			sourceTree = "<group>";
 		};
+		B1FFE1BA20E3341100F1700B /* videos */ = {
+			isa = PBXGroup;
+			children = (
+				B1FFE1BB20E3343A00F1700B /* cartoon.mp4 */,
+				B1FFE1BE20E3668800F1700B /* VideoSourceUrls.h */,
+			);
+			path = videos;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -149,6 +207,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B1FFE1A820E2506700F1700B /* Build configuration list for PBXNativeTarget "PlayerFMY" */;
 			buildPhases = (
+				DEFE9B6336285156C36594C7 /* [CP] Check Pods Manifest.lock */,
 				B1FFE17820E2506600F1700B /* Sources */,
 				B1FFE17920E2506600F1700B /* Frameworks */,
 				B1FFE17A20E2506600F1700B /* Resources */,
@@ -166,6 +225,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B1FFE1AB20E2506700F1700B /* Build configuration list for PBXNativeTarget "PlayerFMYTests" */;
 			buildPhases = (
+				90CCF81B9E66EE32475EEDE9 /* [CP] Check Pods Manifest.lock */,
 				B1FFE19020E2506700F1700B /* Sources */,
 				B1FFE19120E2506700F1700B /* Frameworks */,
 				B1FFE19220E2506700F1700B /* Resources */,
@@ -184,6 +244,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B1FFE1AE20E2506700F1700B /* Build configuration list for PBXNativeTarget "PlayerFMYUITests" */;
 			buildPhases = (
+				5D5B4EEAF3BD3CB1B5CD8071 /* [CP] Check Pods Manifest.lock */,
 				B1FFE19B20E2506700F1700B /* Sources */,
 				B1FFE19C20E2506700F1700B /* Frameworks */,
 				B1FFE19D20E2506700F1700B /* Resources */,
@@ -245,6 +306,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1FFE1BC20E3343A00F1700B /* cartoon.mp4 in Resources */,
 				B1FFE18C20E2506700F1700B /* LaunchScreen.storyboard in Resources */,
 				B1FFE18920E2506700F1700B /* Assets.xcassets in Resources */,
 				B1FFE18720E2506600F1700B /* Main.storyboard in Resources */,
@@ -267,6 +329,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5D5B4EEAF3BD3CB1B5CD8071 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PlayerFMYUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		90CCF81B9E66EE32475EEDE9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PlayerFMYTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DEFE9B6336285156C36594C7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PlayerFMY-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B1FFE17820E2506600F1700B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -277,6 +396,7 @@
 				B1FFE1B920E2525E00F1700B /* AVPlayerScaleViewController.m in Sources */,
 				B1FFE1B620E2524D00F1700B /* MPMediaPlayerScaleViewController.m in Sources */,
 				B1FFE18120E2506600F1700B /* AppDelegate.m in Sources */,
+				B1FFE1C120E370EF00F1700B /* AVPlayerLayerScaleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,7 +502,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -434,7 +554,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -443,10 +563,12 @@
 		};
 		B1FFE1A920E2506700F1700B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7139F4CB8535A9A3940AA454 /* Pods-PlayerFMY.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PlayerFMY/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -459,10 +581,12 @@
 		};
 		B1FFE1AA20E2506700F1700B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 08E0D2146D4D1B6D24023060 /* Pods-PlayerFMY.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PlayerFMY/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -475,6 +599,7 @@
 		};
 		B1FFE1AC20E2506700F1700B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51DBE9766FA4CB5C0D69A88C /* Pods-PlayerFMYTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -493,6 +618,7 @@
 		};
 		B1FFE1AD20E2506700F1700B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE5DC0BD51460E135D25A5F1 /* Pods-PlayerFMYTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -511,6 +637,7 @@
 		};
 		B1FFE1AF20E2506700F1700B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 854F77393B95E0018BCE205A /* Pods-PlayerFMYUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PlayerFMYUITests/Info.plist;
@@ -528,6 +655,7 @@
 		};
 		B1FFE1B020E2506700F1700B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 489D9BE19F6ED749702280B8 /* Pods-PlayerFMYUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PlayerFMYUITests/Info.plist;

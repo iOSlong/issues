@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VideoSourceUrls.h"
 
 @interface BaseViewController : UIViewController
+
+@property (nonatomic, assign) NSInteger sureIndex;
 
 @end

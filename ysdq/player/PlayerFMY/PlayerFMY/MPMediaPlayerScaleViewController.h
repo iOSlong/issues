@@ -9,5 +9,7 @@
 #import "BaseViewController.h"
 
 @interface MPMediaPlayerScaleViewController : BaseViewController
+@property (weak, nonatomic) IBOutlet UIView *videoView;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *scaleSegment;
 
 @end
