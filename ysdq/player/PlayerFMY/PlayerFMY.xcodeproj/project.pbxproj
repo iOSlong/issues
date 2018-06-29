@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3031625878D43E714C5EC380 /* libPods-PlayerFMY.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1FA04DA3BF85A0FD73009C /* libPods-PlayerFMY.a */; };
 		922C512CF459702FD4C44D6D /* libPods-PlayerFMYUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4858E5EEAADF54B809E0ABDE /* libPods-PlayerFMYUITests.a */; };
+		B13297EE20E609A0001E9D38 /* WeChatSight15153.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B13297EC20E609A0001E9D38 /* WeChatSight15153.mp4 */; };
+		B13297EF20E609A0001E9D38 /* fat_rabbit.mov in Resources */ = {isa = PBXBuildFile; fileRef = B13297ED20E609A0001E9D38 /* fat_rabbit.mov */; };
 		B1FFE18120E2506600F1700B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FFE18020E2506600F1700B /* AppDelegate.m */; };
 		B1FFE18720E2506600F1700B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1FFE18520E2506600F1700B /* Main.storyboard */; };
 		B1FFE18920E2506700F1700B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1FFE18820E2506700F1700B /* Assets.xcassets */; };
@@ -50,6 +52,8 @@
 		854F77393B95E0018BCE205A /* Pods-PlayerFMYUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayerFMYUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PlayerFMYUITests/Pods-PlayerFMYUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		867319EAA2E3158047DE69B9 /* libPods-PlayerFMYTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PlayerFMYTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE5DC0BD51460E135D25A5F1 /* Pods-PlayerFMYTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayerFMYTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PlayerFMYTests/Pods-PlayerFMYTests.release.xcconfig"; sourceTree = "<group>"; };
+		B13297EC20E609A0001E9D38 /* WeChatSight15153.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = WeChatSight15153.mp4; sourceTree = "<group>"; };
+		B13297ED20E609A0001E9D38 /* fat_rabbit.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = fat_rabbit.mov; sourceTree = "<group>"; };
 		B1FFE17C20E2506600F1700B /* PlayerFMY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayerFMY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1FFE17F20E2506600F1700B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B1FFE18020E2506600F1700B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -192,6 +196,8 @@
 		B1FFE1BA20E3341100F1700B /* videos */ = {
 			isa = PBXGroup;
 			children = (
+				B13297ED20E609A0001E9D38 /* fat_rabbit.mov */,
+				B13297EC20E609A0001E9D38 /* WeChatSight15153.mp4 */,
 				B1FFE1BE20E3668800F1700B /* VideoSourceUrls.h */,
 			);
 			path = videos;
@@ -303,7 +309,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B13297EF20E609A0001E9D38 /* fat_rabbit.mov in Resources */,
 				B1FFE18C20E2506700F1700B /* LaunchScreen.storyboard in Resources */,
+				B13297EE20E609A0001E9D38 /* WeChatSight15153.mp4 in Resources */,
 				B1FFE18920E2506700F1700B /* Assets.xcassets in Resources */,
 				B1FFE18720E2506600F1700B /* Main.storyboard in Resources */,
 			);

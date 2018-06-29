@@ -81,22 +81,9 @@
 
 
 - (void)setupAVPlayer {
-//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"backspace" ofType:@"mov"];
-//    NSURL *sourceMovieURL = [NSURL fileURLWithPath:filePath];
+    
+    NSURL *videoUrl = self.videoUrls[arc4random()%3];
 
-    
-    static int  index = 0;
-    // 创建本地URL（也可创建基于网络的URL)
-    NSURL *videoUrl = nil;
-    if (index %2 == 0) {
-        videoUrl = [[NSBundle mainBundle] URLForResource:@"WeChatSight15153" withExtension:@"mp4"];
-        self.title = @"local cartoon mp4";
-    }else{
-        videoUrl = [NSURL URLWithString:VIDEO_URL_KOREA_DRAMA_MP4];
-        self.title = @"net korea drama";
-    }
-    index ++;
-    
     
     AVPlayerViewController *playerVC = [[AVPlayerViewController alloc]init];
     
@@ -113,6 +100,11 @@
     self.playerVC = playerVC;
 #endif
     
+}
+- (IBAction)changeEpisodeSegment:(UISegmentedControl *)sender {
+    NSURL *videoUrl = self.videoUrls[sender.selectedSegmentIndex];
+    self.playerVC.player = [[AVPlayer alloc]initWithURL:videoUrl];
+    [self.playerVC player];
 }
 
 

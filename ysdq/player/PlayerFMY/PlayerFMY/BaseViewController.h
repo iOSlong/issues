@@ -12,5 +12,5 @@
 @interface BaseViewController : UIViewController
 
 @property (nonatomic, assign) NSInteger sureIndex;
-
+@property (nonatomic, strong) NSArray *videoUrls;
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "MPMediaPlayerScaleViewController.h"
 @interface AppDelegate ()
 
 @end

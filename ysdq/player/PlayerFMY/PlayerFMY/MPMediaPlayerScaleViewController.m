@@ -25,6 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+
     _fullWidth  = [UIScreen mainScreen].bounds.size.width - 40;
     _fullHeight = [UIScreen mainScreen].bounds.size.width - 40;
     _locationY  = self.slideHeight.frame.origin.y + self.slideHeight.frame.size.height + 30;
@@ -75,18 +76,8 @@
 }
 
 - (void)setUpMPMediaController {
-    static int  index = 0;
     // 创建本地URL（也可创建基于网络的URL)
-    NSURL *videoUrl = nil;
-    if (index %2 == 0) {
-        videoUrl = [[NSBundle mainBundle] URLForResource:@"cartoon" withExtension:@"mp4"];
-        self.title = @"local cartoon mp4";
-    }else{
-        videoUrl = [NSURL URLWithString:VIDEO_URL_KOREA_DRAMA_MP4];
-        self.title = @"net korea drama";
-    }
-    index ++;
-    
+    NSURL *videoUrl = self.videoUrls[arc4random()%3];
     MPMoviePlayerController *moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:videoUrl];
     
     moviePlayer.controlStyle = MPMovieControlStyleEmbedded;
@@ -99,8 +90,13 @@
     [moviePlayer.view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.videoView);
     }];
-    
+
     self.videoPlayer = moviePlayer;
+}
+- (IBAction)changeEpisodeSegment:(UISegmentedControl *)sender {
+    NSURL *videoUrl = self.videoUrls[sender.selectedSegmentIndex];
+    self.videoPlayer.contentURL = videoUrl;
+    [self.videoPlayer play];
 }
 
 - (void)dealloc {

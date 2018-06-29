@@ -84,23 +84,14 @@
 
 - (void)setupAVPlayer {
     
-    static int  index = 0;
-    // 创建本地URL（也可创建基于网络的URL)
-    NSURL *videoUrl = nil;
-    if (index %2 == 0) {
-        videoUrl = [[NSBundle mainBundle] URLForResource:@"cartoon" withExtension:@"mp4"];
-        self.title = @"local cartoon mp4";
-    }else{
-        videoUrl = [NSURL URLWithString:VIDEO_URL_KOREA_DRAMA_MP4];
-        self.title = @"net korea drama";
-    }
-    index ++;
-    
+    NSURL *videoUrl = self.videoUrls[arc4random()%3];
+
     
     AVAsset *movieAsset
     = [AVURLAsset URLAssetWithURL:videoUrl options:nil];
     
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:movieAsset];
+    
     
     AVPlayer *player = [AVPlayer playerWithPlayerItem:playerItem];
     AVPlayerLayer *playerLayer = [AVPlayerLayer playerLayerWithPlayer:player];
@@ -111,6 +102,12 @@
     
     self.player = player;
     self.playerLayer = playerLayer;
+}
+- (IBAction)changeEpisodeSegment:(UISegmentedControl *)sender {
+    NSURL *videoUrl = self.videoUrls[sender.selectedSegmentIndex];
+    AVPlayer *player = [AVPlayer playerWithURL:videoUrl];
+    self.playerLayer.player = player;
+    [self.player play];
 }
 
 @end
