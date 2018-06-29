@@ -77,7 +77,7 @@
 
 - (void)setUpMPMediaController {
     // 创建本地URL（也可创建基于网络的URL)
-    NSURL *videoUrl = self.videoUrls[arc4random()%3];
+    NSURL *videoUrl = self.videoUrls[2];
     MPMoviePlayerController *moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:videoUrl];
     
     moviePlayer.controlStyle = MPMovieControlStyleEmbedded;

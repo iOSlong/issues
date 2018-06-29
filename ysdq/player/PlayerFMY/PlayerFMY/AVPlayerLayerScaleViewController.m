@@ -84,7 +84,7 @@
 
 - (void)setupAVPlayer {
     
-    NSURL *videoUrl = self.videoUrls[arc4random()%3];
+    NSURL *videoUrl = self.videoUrls[2];
 
     
     AVAsset *movieAsset
