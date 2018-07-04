@@ -8,6 +8,14 @@
 
 #import "ViewController.h"
 
+typedef NS_ENUM(NSUInteger, AppearType) {
+    AppearTypePushInNav,
+    AppearTypePush,
+    AppearTypePresentInNav,
+    AppearTypePresent
+};
+
 @interface HouseViewController : ViewController
 
+@property (nonatomic, assign) AppearType appearType;
 @end

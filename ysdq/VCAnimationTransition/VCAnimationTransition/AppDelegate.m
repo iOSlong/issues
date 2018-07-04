@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "HomeViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    NSMutableArray *navArr = [NSMutableArray array];
+    for (int i = 0; i < 4; i ++) {
+        HomeViewController *home = [HomeViewController new];
+        UINavigationController *nav =  [[UINavigationController alloc] initWithRootViewController:home];
+        NSString *title = [NSString stringWithFormat:@"%d",i];
+        home.title      = title;
+        nav.title       = title;
+        [navArr addObject:nav];
+    }
+    UITabBarController *tabC = [[UITabBarController alloc] init];
+    tabC.viewControllers = navArr;
+    self.window.rootViewController = tabC;
     return YES;
 }
 

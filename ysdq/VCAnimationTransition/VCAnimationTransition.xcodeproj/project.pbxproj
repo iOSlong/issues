@@ -15,6 +15,9 @@
 		B1B4936820ECCEDD003475BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B4936720ECCEDD003475BA /* main.m */; };
 		B1B4937220ECCEDD003475BA /* VCAnimationTransitionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B4937120ECCEDD003475BA /* VCAnimationTransitionTests.m */; };
 		B1B4937D20ECCEDD003475BA /* VCAnimationTransitionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B4937C20ECCEDD003475BA /* VCAnimationTransitionUITests.m */; };
+		B1B4938C20ECCF61003475BA /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B4938B20ECCF61003475BA /* HomeViewController.m */; };
+		B1B4938F20ECCFA0003475BA /* HouseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B4938E20ECCFA0003475BA /* HouseViewController.m */; };
+		B1B4939220ECCFE2003475BA /* HouseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B4939120ECCFE2003475BA /* HouseNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,12 @@
 		B1B4937820ECCEDD003475BA /* VCAnimationTransitionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VCAnimationTransitionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1B4937C20ECCEDD003475BA /* VCAnimationTransitionUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VCAnimationTransitionUITests.m; sourceTree = "<group>"; };
 		B1B4937E20ECCEDD003475BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1B4938A20ECCF61003475BA /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		B1B4938B20ECCF61003475BA /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		B1B4938D20ECCFA0003475BA /* HouseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HouseViewController.h; sourceTree = "<group>"; };
+		B1B4938E20ECCFA0003475BA /* HouseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HouseViewController.m; sourceTree = "<group>"; };
+		B1B4939020ECCFE2003475BA /* HouseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HouseNavigationController.h; sourceTree = "<group>"; };
+		B1B4939120ECCFE2003475BA /* HouseNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HouseNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +114,12 @@
 				B1B4935920ECCEDB003475BA /* AppDelegate.m */,
 				B1B4935B20ECCEDB003475BA /* ViewController.h */,
 				B1B4935C20ECCEDB003475BA /* ViewController.m */,
+				B1B4939020ECCFE2003475BA /* HouseNavigationController.h */,
+				B1B4939120ECCFE2003475BA /* HouseNavigationController.m */,
+				B1B4938A20ECCF61003475BA /* HomeViewController.h */,
+				B1B4938B20ECCF61003475BA /* HomeViewController.m */,
+				B1B4938D20ECCFA0003475BA /* HouseViewController.h */,
+				B1B4938E20ECCFA0003475BA /* HouseViewController.m */,
 				B1B4935E20ECCEDB003475BA /* Main.storyboard */,
 				B1B4936120ECCEDD003475BA /* Assets.xcassets */,
 				B1B4936320ECCEDD003475BA /* LaunchScreen.storyboard */,
@@ -263,8 +278,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1B4935D20ECCEDB003475BA /* ViewController.m in Sources */,
+				B1B4938F20ECCFA0003475BA /* HouseViewController.m in Sources */,
 				B1B4936820ECCEDD003475BA /* main.m in Sources */,
 				B1B4935A20ECCEDB003475BA /* AppDelegate.m in Sources */,
+				B1B4939220ECCFE2003475BA /* HouseNavigationController.m in Sources */,
+				B1B4938C20ECCF61003475BA /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

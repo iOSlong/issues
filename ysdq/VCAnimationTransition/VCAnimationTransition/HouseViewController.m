@@ -16,22 +16,37 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor lightGrayColor];
+    
+    UIButton *buttonPush1 = [UIButton buttonWithType:UIButtonTypeSystem];
+    [buttonPush1 setTitle:@"back" forState:UIControlStateNormal];
+    [buttonPush1 setFrame:CGRectMake(150, 70 + 60, 200, 30)];
+    buttonPush1.layer.borderColor   = [UIColor blueColor].CGColor;
+    buttonPush1.layer.borderWidth   = 2;
+    buttonPush1.layer.cornerRadius  = 5;
+    [buttonPush1 addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:buttonPush1];
+
+}
+- (void)buttonClicked:(UIButton *)btn {
+    switch (self.appearType) {
+        case AppearTypePush:
+            [self.navigationController popViewControllerAnimated:YES];
+            break;
+            case AppearTypePushInNav:
+            [self.navigationController popoverPresentationController];
+            break;
+            case AppearTypePresent:
+            [self dismissViewControllerAnimated:YES completion:nil];
+            break;
+            case AppearTypePresentInNav:
+            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+            break;
+        default:
+            break;
+    }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
