@@ -1,37 +1,17 @@
 //
-//  ViewController.m
+//  PushAnimationController.m
 //  VCAnimationTransition
 //
-//  Created by lxw on 2018/7/4.
+//  Created by lxw on 2018/7/5.
 //  Copyright © 2018年 lxw. All rights reserved.
 //
 
-#import "ViewController.h"
-#import "CustomAnimateTransitionPop.h"
 #import "PushAnimationController.h"
-@interface ViewController ()
-@property (nonatomic, strong) PushAnimationController *pushAnimationController;
-@end
+#import "CustomAnimateTransitionPop.h"
+#import "CustomAnimateTransitionPush.h"
 
-#define DefaultStruct 0
+@implementation PushAnimationController
 
-@implementation ViewController
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-#if DefaultStruct
-//    self.navigationController.delegate = self;
-#else
-    self.navigationController.delegate = self.pushAnimationController;
-#endif
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    self.pushAnimationController = [[PushAnimationController alloc] init];
-}
-#if DefaultStruct
 - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
                                   animationControllerForOperation:(UINavigationControllerOperation)operation
                                                fromViewController:(UIViewController *)fromVC
@@ -46,6 +26,5 @@
         return nil;
     }
 }
-#endif
 
 @end

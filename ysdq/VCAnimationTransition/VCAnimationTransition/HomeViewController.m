@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "HouseViewController.h"
 #import "HouseNavigationController.h"
+#import "PresentAnimationController.h"
 
 @interface HomeViewController ()
 @property (nonatomic, strong) HouseViewController *houseVC;
@@ -31,6 +32,10 @@
     return _houseNav;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
@@ -50,6 +55,7 @@
 }
 
 - (void)buttonClicked:(UIButton *)btn {
+    self.buttonAction = btn;
     SEL sels[4] = {@selector(pushHouseNav),@selector(pushHouseVC),@selector(presentHouseNav),@selector(presentHouseVC)};
     SEL actionSel = sels[btn.tag];
     [self performSelector:actionSel];
@@ -63,16 +69,19 @@
     [self presentViewController:alertVC animated:YES completion:nil];
 }
 - (void)pushHouseVC {
+    self.houseVC = [HouseViewController new];
     self.houseVC.appearType = AppearTypePush;
     [self.navigationController pushViewController:self.houseVC animated:YES];
 }
 - (void)presentHouseNav {
     self.houseVC.appearType = AppearTypePresentInNav;
+    self.houseNav.transitioningDelegate = [PresentViewControllerTransitioningDelegator transitionDelegatorfromVC:self ToVC:self.houseNav];
     [self presentViewController:self.houseNav animated:YES completion:nil];
 }
 - (void)presentHouseVC {
+    self.houseVC = [HouseViewController new];
     self.houseVC.appearType = AppearTypePresent;
+    self.houseVC.transitioningDelegate = [PresentViewControllerTransitioningDelegator transitionDelegatorfromVC:self ToVC:self.houseVC];
     [self presentViewController:self.houseVC animated:YES completion:nil];
 }
-
 @end

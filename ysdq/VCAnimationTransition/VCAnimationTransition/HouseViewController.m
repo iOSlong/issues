@@ -7,9 +7,10 @@
 //
 
 #import "HouseViewController.h"
+#import "PresentAnimationController.h"
 
 @interface HouseViewController ()
-
+@property(nonatomic,strong) UIPercentDrivenInteractiveTransition *interactiveTransition;
 @end
 
 @implementation HouseViewController
@@ -18,6 +19,10 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor lightGrayColor];
     
+    self.contentView = [[UIView alloc] initWithFrame:self.view.bounds];
+    self.contentView.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:self.contentView];
+    
     UIButton *buttonPush1 = [UIButton buttonWithType:UIButtonTypeSystem];
     [buttonPush1 setTitle:@"back" forState:UIControlStateNormal];
     [buttonPush1 setFrame:CGRectMake(150, 70 + 60, 200, 30)];
@@ -25,10 +30,32 @@
     buttonPush1.layer.borderWidth   = 2;
     buttonPush1.layer.cornerRadius  = 5;
     [buttonPush1 addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:buttonPush1];
+    [self.contentView addSubview:buttonPush1];
+    self.buttonBack = buttonPush1;
+    
+    
+    
+    UIButton *buttonP = [UIButton buttonWithType:UIButtonTypeSystem];
+    [buttonP setTitle:@"present One" forState:UIControlStateNormal];
+    [buttonP setFrame:CGRectMake(150, 170 + 60, 200, 30)];
+    buttonP.layer.borderColor   = [UIColor blueColor].CGColor;
+    buttonP.layer.borderWidth   = 2;
+    buttonP.layer.cornerRadius  = 5;
+    buttonP.tag = 10;
+    [buttonP addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.contentView addSubview:buttonP];
 
 }
 - (void)buttonClicked:(UIButton *)btn {
+    if (btn.tag == 10) {
+        HouseViewController *houseVC = [HouseViewController new];
+        houseVC.appearType = AppearTypePresent;
+        houseVC.view.backgroundColor = [UIColor colorWithRed:0.01 * (arc4random()%255) green:0.01 * (arc4random()%255) blue:0.01 * (arc4random()%255) alpha:1];
+        houseVC.transitioningDelegate = [PresentViewControllerTransitioningDelegator transitionDelegatorfromVC:self ToVC:houseVC];
+
+        [self presentViewController:houseVC animated:YES completion:nil];
+        return;
+    }
     switch (self.appearType) {
         case AppearTypePush:
             [self.navigationController popViewControllerAnimated:YES];

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ViewController : UIViewController
+#import "CustomAnimateTransitionPop.h"
+#import "CustomAnimateTransitionPush.h"
+@interface ViewController : UIViewController<UINavigationControllerDelegate>
 
 
 @end

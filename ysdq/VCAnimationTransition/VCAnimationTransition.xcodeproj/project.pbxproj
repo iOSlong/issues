@@ -18,6 +18,10 @@
 		B1B4938C20ECCF61003475BA /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B4938B20ECCF61003475BA /* HomeViewController.m */; };
 		B1B4938F20ECCFA0003475BA /* HouseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B4938E20ECCFA0003475BA /* HouseViewController.m */; };
 		B1B4939220ECCFE2003475BA /* HouseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B4939120ECCFE2003475BA /* HouseNavigationController.m */; };
+		B1B4939520EDBB6A003475BA /* PresentAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B4939420EDBB6A003475BA /* PresentAnimationController.m */; };
+		B1B4939B20EDFFC7003475BA /* CustomAnimateTransitionPop.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B4939A20EDFFC7003475BA /* CustomAnimateTransitionPop.m */; };
+		B1B4939E20EE02FD003475BA /* CustomAnimateTransitionPush.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B4939D20EE02FD003475BA /* CustomAnimateTransitionPush.m */; };
+		B1B493A120EE13D3003475BA /* PushAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B493A020EE13D3003475BA /* PushAnimationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +64,14 @@
 		B1B4938E20ECCFA0003475BA /* HouseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HouseViewController.m; sourceTree = "<group>"; };
 		B1B4939020ECCFE2003475BA /* HouseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HouseNavigationController.h; sourceTree = "<group>"; };
 		B1B4939120ECCFE2003475BA /* HouseNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HouseNavigationController.m; sourceTree = "<group>"; };
+		B1B4939320EDBB6A003475BA /* PresentAnimationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PresentAnimationController.h; sourceTree = "<group>"; };
+		B1B4939420EDBB6A003475BA /* PresentAnimationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PresentAnimationController.m; sourceTree = "<group>"; };
+		B1B4939920EDFFC6003475BA /* CustomAnimateTransitionPop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnimateTransitionPop.h; sourceTree = "<group>"; };
+		B1B4939A20EDFFC7003475BA /* CustomAnimateTransitionPop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnimateTransitionPop.m; sourceTree = "<group>"; };
+		B1B4939C20EE02FD003475BA /* CustomAnimateTransitionPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnimateTransitionPush.h; sourceTree = "<group>"; };
+		B1B4939D20EE02FD003475BA /* CustomAnimateTransitionPush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnimateTransitionPush.m; sourceTree = "<group>"; };
+		B1B4939F20EE13D3003475BA /* PushAnimationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PushAnimationController.h; sourceTree = "<group>"; };
+		B1B493A020EE13D3003475BA /* PushAnimationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PushAnimationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,12 +126,20 @@
 				B1B4935920ECCEDB003475BA /* AppDelegate.m */,
 				B1B4935B20ECCEDB003475BA /* ViewController.h */,
 				B1B4935C20ECCEDB003475BA /* ViewController.m */,
+				B1B4939F20EE13D3003475BA /* PushAnimationController.h */,
+				B1B493A020EE13D3003475BA /* PushAnimationController.m */,
+				B1B4939920EDFFC6003475BA /* CustomAnimateTransitionPop.h */,
+				B1B4939A20EDFFC7003475BA /* CustomAnimateTransitionPop.m */,
+				B1B4939C20EE02FD003475BA /* CustomAnimateTransitionPush.h */,
+				B1B4939D20EE02FD003475BA /* CustomAnimateTransitionPush.m */,
 				B1B4939020ECCFE2003475BA /* HouseNavigationController.h */,
 				B1B4939120ECCFE2003475BA /* HouseNavigationController.m */,
 				B1B4938A20ECCF61003475BA /* HomeViewController.h */,
 				B1B4938B20ECCF61003475BA /* HomeViewController.m */,
 				B1B4938D20ECCFA0003475BA /* HouseViewController.h */,
 				B1B4938E20ECCFA0003475BA /* HouseViewController.m */,
+				B1B4939320EDBB6A003475BA /* PresentAnimationController.h */,
+				B1B4939420EDBB6A003475BA /* PresentAnimationController.m */,
 				B1B4935E20ECCEDB003475BA /* Main.storyboard */,
 				B1B4936120ECCEDD003475BA /* Assets.xcassets */,
 				B1B4936320ECCEDD003475BA /* LaunchScreen.storyboard */,
@@ -277,9 +297,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1B4939520EDBB6A003475BA /* PresentAnimationController.m in Sources */,
 				B1B4935D20ECCEDB003475BA /* ViewController.m in Sources */,
 				B1B4938F20ECCFA0003475BA /* HouseViewController.m in Sources */,
+				B1B4939B20EDFFC7003475BA /* CustomAnimateTransitionPop.m in Sources */,
+				B1B493A120EE13D3003475BA /* PushAnimationController.m in Sources */,
 				B1B4936820ECCEDD003475BA /* main.m in Sources */,
+				B1B4939E20EE02FD003475BA /* CustomAnimateTransitionPush.m in Sources */,
 				B1B4935A20ECCEDB003475BA /* AppDelegate.m in Sources */,
 				B1B4939220ECCFE2003475BA /* HouseNavigationController.m in Sources */,
 				B1B4938C20ECCF61003475BA /* HomeViewController.m in Sources */,

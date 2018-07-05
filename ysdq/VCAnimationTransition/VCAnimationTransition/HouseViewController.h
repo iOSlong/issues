@@ -16,6 +16,7 @@ typedef NS_ENUM(NSUInteger, AppearType) {
 };
 
 @interface HouseViewController : ViewController
-
+@property (nonatomic, strong) UIView    *contentView;
+@property (nonatomic, strong) UIButton  *buttonBack;
 @property (nonatomic, assign) AppearType appearType;
 @end
