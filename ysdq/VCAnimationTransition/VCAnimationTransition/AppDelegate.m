@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     NSMutableArray *navArr = [NSMutableArray array];
-    for (int i = 0; i < 4; i ++) {
+    for (int i = 0; i < 5; i ++) {
         HomeViewController *home = [HomeViewController new];
         UINavigationController *nav =  [[UINavigationController alloc] initWithRootViewController:home];
         NSString *title = [NSString stringWithFormat:@"%d",i];

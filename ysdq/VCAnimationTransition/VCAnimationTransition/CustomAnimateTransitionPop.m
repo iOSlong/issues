@@ -24,9 +24,18 @@
 //    UIButton *button = toVC.buttonBack;
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
     
-    
+    // 注意这个地方的添加顺序是与push相反的。
     [containerView addSubview:toVC.view];
     [containerView addSubview:fromVC.view];
+    
+    //        fromVC.view.frame = CGRectMake(fromVC.view.frame.origin.x, 0, fromVC.view.frame.size.width, fromVC.view.frame.size.height);
+    [UIView animateWithDuration:0.7 animations:^{
+        fromVC.view.frame = CGRectMake(fromVC.view.frame.origin.x, fromVC.view.frame.size.height, fromVC.view.frame.size.width, fromVC.view.frame.size.height);
+    } completion:^(BOOL finished) {
+        [self.transitionContext completeTransition:YES];
+    }];
+    return;
+    
     
     
     UIBezierPath *finalPath = [UIBezierPath bezierPathWithOvalInRect:button.frame];

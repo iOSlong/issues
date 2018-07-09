@@ -14,10 +14,27 @@
 @end
 
 @implementation HouseViewController
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+//    [self.tabBarController.tabBar setHidden:YES];
+}
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+}
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+//    [self.tabBarController.tabBar setHidden:NO];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+
     self.view.backgroundColor = [UIColor lightGrayColor];
+    self.view.layer.borderColor = [UIColor redColor].CGColor;
+    self.viewIfLoaded.layer.borderWidth = 5;
     
     self.contentView = [[UIView alloc] initWithFrame:self.view.bounds];
     self.contentView.backgroundColor = [UIColor clearColor];
@@ -49,6 +66,7 @@
 - (void)buttonClicked:(UIButton *)btn {
     if (btn.tag == 10) {
         HouseViewController *houseVC = [HouseViewController new];
+        houseVC.hidesBottomBarWhenPushed = YES;
         houseVC.appearType = AppearTypePresent;
         houseVC.view.backgroundColor = [UIColor colorWithRed:0.01 * (arc4random()%255) green:0.01 * (arc4random()%255) blue:0.01 * (arc4random()%255) alpha:1];
         houseVC.transitioningDelegate = [PresentViewControllerTransitioningDelegator transitionDelegatorfromVC:self ToVC:houseVC];

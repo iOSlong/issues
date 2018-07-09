@@ -71,6 +71,7 @@
 - (void)pushHouseVC {
     self.houseVC = [HouseViewController new];
     self.houseVC.appearType = AppearTypePush;
+    self.houseVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:self.houseVC animated:YES];
 }
 - (void)presentHouseNav {
@@ -80,6 +81,7 @@
 }
 - (void)presentHouseVC {
     self.houseVC = [HouseViewController new];
+    self.houseVC.hidesBottomBarWhenPushed = YES;
     self.houseVC.appearType = AppearTypePresent;
     self.houseVC.transitioningDelegate = [PresentViewControllerTransitioningDelegator transitionDelegatorfromVC:self ToVC:self.houseVC];
     [self presentViewController:self.houseVC animated:YES completion:nil];
