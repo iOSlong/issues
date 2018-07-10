@@ -37,13 +37,13 @@
     [contView addSubview:fromVC.view];
     [contView addSubview:toVC.view];
     
-    toVC.view.frame = CGRectMake(toVC.view.frame.origin.x, 300, toVC.view.frame.size.width, toVC.view.frame.size.height);
-    [UIView animateWithDuration:0.7 animations:^{
-        toVC.view.frame = CGRectMake(toVC.view.frame.origin.x, 0, toVC.view.frame.size.width, toVC.view.frame.size.height);
-    } completion:^(BOOL finished) {
-        [self.transitionContext completeTransition:YES];
-    }];
-    return;
+//    toVC.view.frame = CGRectMake(toVC.view.frame.origin.x, 300, toVC.view.frame.size.width, toVC.view.frame.size.height);
+//    [UIView animateWithDuration:0.7 animations:^{
+//        toVC.view.frame = CGRectMake(toVC.view.frame.origin.x, 0, toVC.view.frame.size.width, toVC.view.frame.size.height);
+//    } completion:^(BOOL finished) {
+//        [self.transitionContext completeTransition:YES];
+//    }];
+//    return;
     
     
     

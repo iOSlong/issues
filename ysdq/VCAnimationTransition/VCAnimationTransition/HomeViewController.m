@@ -72,6 +72,7 @@
     self.houseVC = [HouseViewController new];
     self.houseVC.appearType = AppearTypePush;
     self.houseVC.hidesBottomBarWhenPushed = YES;
+    /*! 支持转场动画(包括自定义转场动画)，animated必须为YES*/
     [self.navigationController pushViewController:self.houseVC animated:YES];
 }
 - (void)presentHouseNav {

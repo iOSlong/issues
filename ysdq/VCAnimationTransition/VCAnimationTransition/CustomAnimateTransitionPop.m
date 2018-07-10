@@ -28,12 +28,32 @@
     [containerView addSubview:toVC.view];
     [containerView addSubview:fromVC.view];
     
-    //        fromVC.view.frame = CGRectMake(fromVC.view.frame.origin.x, 0, fromVC.view.frame.size.width, fromVC.view.frame.size.height);
-    [UIView animateWithDuration:0.7 animations:^{
-        fromVC.view.frame = CGRectMake(fromVC.view.frame.origin.x, fromVC.view.frame.size.height, fromVC.view.frame.size.width, fromVC.view.frame.size.height);
-    } completion:^(BOOL finished) {
-        [self.transitionContext completeTransition:YES];
-    }];
+//    [UIView animateWithDuration:0.7 animations:^{
+//        fromVC.view.frame = CGRectMake(fromVC.view.frame.origin.x, fromVC.view.frame.size.height, fromVC.view.frame.size.width, fromVC.view.frame.size.height);
+//    } completion:^(BOOL finished) {
+//        [self.transitionContext completeTransition:YES];
+//    }];
+//    return;
+    
+    
+    // MARK: animation-2
+    CGRect rectStar = fromVC.view.frame;
+    CGRect rectFinal = CGRectMake(fromVC.view.frame.origin.x, fromVC.view.frame.size.height, fromVC.view.frame.size.width, fromVC.view.frame.size.height);
+    UIBezierPath *maskStartBP1 =  [UIBezierPath bezierPathWithRect:rectStar];
+    UIBezierPath *maskFinalBP1 = [UIBezierPath bezierPathWithRect:rectFinal];
+    
+    CAShapeLayer *maskLayer1 = [CAShapeLayer layer];
+    maskLayer1.path = maskFinalBP1.CGPath; //将它的 path 指定为最终的 path 来避免在动画完成后会回弹
+    fromVC.view.layer.mask = maskLayer1;
+    
+    CABasicAnimation *maskLayerAnimation1 = [CABasicAnimation animationWithKeyPath:@"path"];
+    maskLayerAnimation1.fromValue = (__bridge id)(maskStartBP1.CGPath);
+    maskLayerAnimation1.toValue = (__bridge id)((maskFinalBP1.CGPath));
+    maskLayerAnimation1.duration = [self transitionDuration:transitionContext];
+    maskLayerAnimation1.timingFunction = [CAMediaTimingFunction  functionWithName:kCAMediaTimingFunctionDefault];
+    maskLayerAnimation1.delegate = self;
+    [maskLayer1 addAnimation:maskLayerAnimation1 forKey:@"path"];
+    
     return;
     
     
