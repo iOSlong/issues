@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BaseViewController : UIViewController
+typedef NS_ENUM(NSUInteger, ViewType) {
+    ViewTypeBracelet,
+    ViewTypeGradientLayer,
+    ViewTypeGradientAnimation
+};
 
+@interface BaseViewController : UIViewController
+@property (nonatomic, assign) ViewType viewType;
 - (CGRect)showFrameBracelet;
 
 @end

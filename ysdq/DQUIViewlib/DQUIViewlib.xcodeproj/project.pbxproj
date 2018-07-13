@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B16EC97620F843770046E688 /* SingleViewLibTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC97520F843770046E688 /* SingleViewLibTableViewController.m */; };
+		B16EC97A20F848DE0046E688 /* TBGradientLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC97820F848DE0046E688 /* TBGradientLayerView.m */; };
+		B16EC97D20F84D470046E688 /* GradientLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC97C20F84D470046E688 /* GradientLayerView.m */; };
 		B1BBF00C20F6F8E1005D59B2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BBF00B20F6F8E1005D59B2 /* AppDelegate.m */; };
 		B1BBF01220F6F8E1005D59B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1BBF01020F6F8E1005D59B2 /* Main.storyboard */; };
 		B1BBF01420F6F8E3005D59B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1BBF01320F6F8E3005D59B2 /* Assets.xcassets */; };
@@ -37,6 +40,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B16EC97420F843770046E688 /* SingleViewLibTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingleViewLibTableViewController.h; sourceTree = "<group>"; };
+		B16EC97520F843770046E688 /* SingleViewLibTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SingleViewLibTableViewController.m; sourceTree = "<group>"; };
+		B16EC97820F848DE0046E688 /* TBGradientLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBGradientLayerView.m; sourceTree = "<group>"; };
+		B16EC97920F848DE0046E688 /* TBGradientLayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBGradientLayerView.h; sourceTree = "<group>"; };
+		B16EC97B20F84D470046E688 /* GradientLayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GradientLayerView.h; sourceTree = "<group>"; };
+		B16EC97C20F84D470046E688 /* GradientLayerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GradientLayerView.m; sourceTree = "<group>"; };
+		B16EC98120F877190046E688 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		B1BBF00720F6F8E1005D59B2 /* DQUIViewlib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DQUIViewlib.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1BBF00A20F6F8E1005D59B2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B1BBF00B20F6F8E1005D59B2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -84,6 +94,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B16EC97720F845610046E688 /* gradient */ = {
+			isa = PBXGroup;
+			children = (
+				B16EC97920F848DE0046E688 /* TBGradientLayerView.h */,
+				B16EC97820F848DE0046E688 /* TBGradientLayerView.m */,
+				B16EC97B20F84D470046E688 /* GradientLayerView.h */,
+				B16EC97C20F84D470046E688 /* GradientLayerView.m */,
+			);
+			path = gradient;
+			sourceTree = "<group>";
+		};
+		B16EC97E20F875ED0046E688 /* header */ = {
+			isa = PBXGroup;
+			children = (
+				B16EC98120F877190046E688 /* PrefixHeader.pch */,
+			);
+			path = header;
+			sourceTree = "<group>";
+		};
 		B1BBEFFE20F6F8E1005D59B2 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +136,8 @@
 		B1BBF00920F6F8E1005D59B2 /* DQUIViewlib */ = {
 			isa = PBXGroup;
 			children = (
+				B16EC97E20F875ED0046E688 /* header */,
+				B16EC97720F845610046E688 /* gradient */,
 				B1BBF04220F6FA19005D59B2 /* bracelet */,
 				B1BBF00A20F6F8E1005D59B2 /* AppDelegate.h */,
 				B1BBF00B20F6F8E1005D59B2 /* AppDelegate.m */,
@@ -115,6 +146,8 @@
 				B1BBF01520F6F8E3005D59B2 /* LaunchScreen.storyboard */,
 				B1BBF01820F6F8E3005D59B2 /* Info.plist */,
 				B1BBF01920F6F8E3005D59B2 /* main.m */,
+				B16EC97420F843770046E688 /* SingleViewLibTableViewController.h */,
+				B16EC97520F843770046E688 /* SingleViewLibTableViewController.m */,
 				B1BBF03C20F6F9C2005D59B2 /* BaseViewController.h */,
 				B1BBF03D20F6F9C2005D59B2 /* BaseViewController.m */,
 				B1BBF03F20F6FA0F005D59B2 /* BraceletViewController.h */,
@@ -280,8 +313,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B16EC97620F843770046E688 /* SingleViewLibTableViewController.m in Sources */,
 				B1BBF03E20F6F9C2005D59B2 /* BaseViewController.m in Sources */,
+				B16EC97A20F848DE0046E688 /* TBGradientLayerView.m in Sources */,
 				B1BBF04520F6FA30005D59B2 /* BraceletView.m in Sources */,
+				B16EC97D20F84D470046E688 /* GradientLayerView.m in Sources */,
 				B1BBF01A20F6F8E3005D59B2 /* main.m in Sources */,
 				B1BBF00C20F6F8E1005D59B2 /* AppDelegate.m in Sources */,
 				B1BBF04120F6FA0F005D59B2 /* BraceletViewController.m in Sources */,
@@ -454,6 +490,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = /Users/lxw/Documents/fmy/issues/issues/ysdq/DQUIViewlib/DQUIViewlib/header/PrefixHeader.pch;
 				INFOPLIST_FILE = DQUIViewlib/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -470,6 +508,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = /Users/lxw/Documents/fmy/issues/issues/ysdq/DQUIViewlib/DQUIViewlib/header/PrefixHeader.pch;
 				INFOPLIST_FILE = DQUIViewlib/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
