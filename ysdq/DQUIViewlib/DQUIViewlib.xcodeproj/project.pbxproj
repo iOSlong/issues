@@ -10,6 +10,8 @@
 		B16EC97620F843770046E688 /* SingleViewLibTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC97520F843770046E688 /* SingleViewLibTableViewController.m */; };
 		B16EC97A20F848DE0046E688 /* TBGradientLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC97820F848DE0046E688 /* TBGradientLayerView.m */; };
 		B16EC97D20F84D470046E688 /* GradientLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC97C20F84D470046E688 /* GradientLayerView.m */; };
+		B16EC9A520FD8EBB0046E688 /* SegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC9A420FD8EBB0046E688 /* SegmentView.m */; };
+		B16EC9B220FDCDE80046E688 /* SelfNavigationBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC9B120FDCDE80046E688 /* SelfNavigationBarViewController.m */; };
 		B1BBF00C20F6F8E1005D59B2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BBF00B20F6F8E1005D59B2 /* AppDelegate.m */; };
 		B1BBF01220F6F8E1005D59B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1BBF01020F6F8E1005D59B2 /* Main.storyboard */; };
 		B1BBF01420F6F8E3005D59B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1BBF01320F6F8E3005D59B2 /* Assets.xcassets */; };
@@ -47,6 +49,10 @@
 		B16EC97B20F84D470046E688 /* GradientLayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GradientLayerView.h; sourceTree = "<group>"; };
 		B16EC97C20F84D470046E688 /* GradientLayerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GradientLayerView.m; sourceTree = "<group>"; };
 		B16EC98120F877190046E688 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		B16EC9A320FD8EBB0046E688 /* SegmentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SegmentView.h; sourceTree = "<group>"; };
+		B16EC9A420FD8EBB0046E688 /* SegmentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SegmentView.m; sourceTree = "<group>"; };
+		B16EC9B020FDCDE80046E688 /* SelfNavigationBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelfNavigationBarViewController.h; sourceTree = "<group>"; };
+		B16EC9B120FDCDE80046E688 /* SelfNavigationBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelfNavigationBarViewController.m; sourceTree = "<group>"; };
 		B1BBF00720F6F8E1005D59B2 /* DQUIViewlib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DQUIViewlib.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1BBF00A20F6F8E1005D59B2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B1BBF00B20F6F8E1005D59B2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -113,6 +119,15 @@
 			path = header;
 			sourceTree = "<group>";
 		};
+		B16EC9A220FD8E6C0046E688 /* segment */ = {
+			isa = PBXGroup;
+			children = (
+				B16EC9A320FD8EBB0046E688 /* SegmentView.h */,
+				B16EC9A420FD8EBB0046E688 /* SegmentView.m */,
+			);
+			path = segment;
+			sourceTree = "<group>";
+		};
 		B1BBEFFE20F6F8E1005D59B2 = {
 			isa = PBXGroup;
 			children = (
@@ -136,13 +151,14 @@
 		B1BBF00920F6F8E1005D59B2 /* DQUIViewlib */ = {
 			isa = PBXGroup;
 			children = (
-				B16EC97E20F875ED0046E688 /* header */,
+				B16EC9A220FD8E6C0046E688 /* segment */,
 				B16EC97720F845610046E688 /* gradient */,
 				B1BBF04220F6FA19005D59B2 /* bracelet */,
 				B1BBF00A20F6F8E1005D59B2 /* AppDelegate.h */,
 				B1BBF00B20F6F8E1005D59B2 /* AppDelegate.m */,
 				B1BBF01020F6F8E1005D59B2 /* Main.storyboard */,
 				B1BBF01320F6F8E3005D59B2 /* Assets.xcassets */,
+				B16EC97E20F875ED0046E688 /* header */,
 				B1BBF01520F6F8E3005D59B2 /* LaunchScreen.storyboard */,
 				B1BBF01820F6F8E3005D59B2 /* Info.plist */,
 				B1BBF01920F6F8E3005D59B2 /* main.m */,
@@ -152,6 +168,8 @@
 				B1BBF03D20F6F9C2005D59B2 /* BaseViewController.m */,
 				B1BBF03F20F6FA0F005D59B2 /* BraceletViewController.h */,
 				B1BBF04020F6FA0F005D59B2 /* BraceletViewController.m */,
+				B16EC9B020FDCDE80046E688 /* SelfNavigationBarViewController.h */,
+				B16EC9B120FDCDE80046E688 /* SelfNavigationBarViewController.m */,
 			);
 			path = DQUIViewlib;
 			sourceTree = "<group>";
@@ -317,9 +335,11 @@
 				B1BBF03E20F6F9C2005D59B2 /* BaseViewController.m in Sources */,
 				B16EC97A20F848DE0046E688 /* TBGradientLayerView.m in Sources */,
 				B1BBF04520F6FA30005D59B2 /* BraceletView.m in Sources */,
+				B16EC9B220FDCDE80046E688 /* SelfNavigationBarViewController.m in Sources */,
 				B16EC97D20F84D470046E688 /* GradientLayerView.m in Sources */,
 				B1BBF01A20F6F8E3005D59B2 /* main.m in Sources */,
 				B1BBF00C20F6F8E1005D59B2 /* AppDelegate.m in Sources */,
+				B16EC9A520FD8EBB0046E688 /* SegmentView.m in Sources */,
 				B1BBF04120F6FA0F005D59B2 /* BraceletViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

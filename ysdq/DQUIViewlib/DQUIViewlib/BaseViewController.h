@@ -11,7 +11,9 @@
 typedef NS_ENUM(NSUInteger, ViewType) {
     ViewTypeBracelet,
     ViewTypeGradientLayer,
-    ViewTypeGradientAnimation
+    ViewTypeGradientAnimation,
+    
+    ViewTypeGradientNavigationBar
 };
 
 @interface BaseViewController : UIViewController

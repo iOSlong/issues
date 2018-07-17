@@ -15,4 +15,5 @@
 @property (nonatomic) CGPoint endPoint;
 - (instancetype)initWithFrame:(CGRect)frame directionLandscape:(BOOL)landscape colorStar:(UIColor *)colorStar colorEnd:(UIColor *)colorEnd;
 + (instancetype)gradientLayerNavigationBar;
++ (UIImage *)gradientLayerNavigationImage;
 @end

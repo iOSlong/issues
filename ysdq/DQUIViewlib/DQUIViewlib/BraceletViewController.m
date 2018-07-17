@@ -21,6 +21,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithTitle:@"Push" style:UIBarButtonItemStylePlain target:self action:@selector(buttonItemClick:)];
+    self.navigationItem.rightBarButtonItem = barItem;
+}
+- (void)buttonItemClick:(UIBarButtonItem *)item {
+    UIViewController *vc = [[UIViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -31,7 +38,14 @@
         [self showGradientLayerView];
     } else if (self.viewType == ViewTypeGradientAnimation) {
         [self showGradientAnimationView];
+    } else if (self.viewType == ViewTypeGradientNavigationBar) {
+        [self showGradientNavigationBar];
     }
+}
+
+- (void)showGradientNavigationBar {
+    UIImage *image = [GradientLayerView gradientLayerNavigationImage];
+    [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
 }
 
 - (void)showGradientLayerView {
@@ -46,6 +60,10 @@
     glv2.backgroundColor = [UIColor yellowColor];
     [self.view addSubview:glv2];
 
+    UIImage *image = [GradientLayerView gradientLayerNavigationImage];
+    UIImageView *imageV = [[UIImageView alloc] initWithFrame:CGRectMake(5, 360, glvNav.frame.size.width - 10, glvNav.frame.size.height)];
+    [imageV setImage:image];
+    [self.view addSubview:imageV];
 }
 
 - (void)showGradientAnimationView {

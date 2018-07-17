@@ -8,15 +8,29 @@
 
 #import "SingleViewLibTableViewController.h"
 #import "BaseViewController.h"
+#import "SegmentView.h"
 
 @interface SingleViewLibTableViewController ()
-
+@property (nonatomic, strong) UISegmentedControl *segmentControl;
+@property (nonatomic, strong) SegmentView *segmentView;
 @end
 
 @implementation SingleViewLibTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.segmentControl = [[UISegmentedControl alloc] initWithFrame:CGRectMake(0, 0, 200, 40)];
+    [self.segmentControl insertSegmentWithTitle:@"One" atIndex:0 animated:NO];
+    [self.segmentControl insertSegmentWithTitle:@"Two" atIndex:1 animated:NO];
+    self.navigationItem.titleView = self.segmentControl;
+    
+    self.segmentView = [[SegmentView alloc] initWithItems:@[@"One",@"Two"]];
+    self.segmentView.backgroundColor = [UIColor lightGrayColor];
+    self.segmentView.frame = CGRectMake(0, 0, 200, 40);
+    self.navigationItem.titleView = self.segmentView;
+    
+    
+    
 }
 
 
@@ -30,6 +44,8 @@
         desVC.viewType = ViewTypeGradientAnimation;
     }else if ([segue.identifier isEqualToString:@"GradientLayer"]) {
         desVC.viewType = ViewTypeGradientLayer;
+    }else if ([segue.identifier isEqualToString:@"gradentNavigationBar"]){
+        desVC.viewType = ViewTypeGradientNavigationBar;
     }
 }
 

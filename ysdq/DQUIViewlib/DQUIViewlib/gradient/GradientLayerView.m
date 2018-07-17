@@ -8,6 +8,18 @@
 
 #import "GradientLayerView.h"
 
+
+
+UIImage *imageFromLayer(CALayer *layer) {
+    UIGraphicsBeginImageContext(layer.frame.size);
+    [layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    return image;
+}
+
+
+
+
 @interface GradientLayerView()
 @property (nonatomic, strong) CAGradientLayer *colorLayer;
 @end
@@ -26,7 +38,7 @@
 - (instancetype)initWithFrame:(CGRect)frame directionLandscape:(BOOL)landscape colorStar:(UIColor *)colorStar colorEnd:(UIColor *)colorEnd {
     self = [self initWithFrame:frame];
     if (self) {
-        _colors     = @[colorStar,colorEnd];
+        _colors     = @[colorStar?:[UIColor clearColor],colorEnd?:[UIColor clearColor]];
         _locations  = @[@0.0,@1.0];
         if (landscape) {
             _startPoint = CGPointMake(0, 0);
@@ -45,12 +57,20 @@
     return glv;
 }
 
++ (UIImage *)gradientLayerNavigationImage {
+    CGFloat barHeight = 64;
+    if (MIN([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) == 375) {
+        barHeight += 24;
+    }
+    GradientLayerView *glv = [[GradientLayerView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, barHeight) directionLandscape:YES colorStar:RGBCOLOR_HEX(0x19A8F0) colorEnd:RGBCOLOR_HEX(0x0049CB)];
+    return imageFromLayer(glv.colorLayer);
+}
+
 - (void)addGradientLayer {
     CAGradientLayer *colorLayer = [CAGradientLayer layer];
     _colorLayer = colorLayer;
     colorLayer.frame = (CGRect){CGPointZero, CGSizeMake(self.frame.size.width, self.frame.size.height)};
     [self.layer addSublayer:colorLayer];
-    
     [self refreshGradientLayer];
 }
 
