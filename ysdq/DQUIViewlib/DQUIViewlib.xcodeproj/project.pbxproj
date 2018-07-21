@@ -7,11 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0ED38CBD7DF1657AE0F23E49 /* libPods-DQUIViewlibTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD6FE0B03AE2609D44C3859 /* libPods-DQUIViewlibTests.a */; };
+		593FB80988D74370AB99C52A /* libPods-DQUIViewlib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B966A24DEFCE73E3B23FF0AD /* libPods-DQUIViewlib.a */; };
+		6EE4063C45D749D8716CBC09 /* libPods-DQUIViewlibUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1E3F50653C3287E5EBF2176 /* libPods-DQUIViewlibUITests.a */; };
 		B16EC97620F843770046E688 /* SingleViewLibTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC97520F843770046E688 /* SingleViewLibTableViewController.m */; };
 		B16EC97A20F848DE0046E688 /* TBGradientLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC97820F848DE0046E688 /* TBGradientLayerView.m */; };
 		B16EC97D20F84D470046E688 /* GradientLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC97C20F84D470046E688 /* GradientLayerView.m */; };
 		B16EC9A520FD8EBB0046E688 /* SegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC9A420FD8EBB0046E688 /* SegmentView.m */; };
 		B16EC9B220FDCDE80046E688 /* SelfNavigationBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC9B120FDCDE80046E688 /* SelfNavigationBarViewController.m */; };
+		B16EC9C120FF2D220046E688 /* DQNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC9C020FF2D220046E688 /* DQNavigationController.m */; };
+		B16EC9CA20FF370A0046E688 /* CustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC9C920FF370A0046E688 /* CustomNavigationBar.m */; };
+		B16EC9CE20FF47620046E688 /* SASView.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC9CC20FF47620046E688 /* SASView.m */; };
+		B16EC9D120FF47A90046E688 /* UIView+SARRS.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC9CF20FF47A90046E688 /* UIView+SARRS.m */; };
+		B18ADBB320FF57170096B8DA /* NavigationControllerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B18ADBB220FF57170096B8DA /* NavigationControllerListViewController.m */; };
+		B18ADBB620FF582D0096B8DA /* NavigationSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B18ADBB520FF582D0096B8DA /* NavigationSubViewController.m */; };
 		B1BBF00C20F6F8E1005D59B2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BBF00B20F6F8E1005D59B2 /* AppDelegate.m */; };
 		B1BBF01220F6F8E1005D59B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1BBF01020F6F8E1005D59B2 /* Main.storyboard */; };
 		B1BBF01420F6F8E3005D59B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1BBF01320F6F8E3005D59B2 /* Assets.xcassets */; };
@@ -42,6 +51,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2CA25E9DF46D3D4F31E74B6D /* Pods-DQUIViewlibUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DQUIViewlibUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DQUIViewlibUITests/Pods-DQUIViewlibUITests.release.xcconfig"; sourceTree = "<group>"; };
+		31BF2ABD343D802168872366 /* Pods-DQUIViewlibUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DQUIViewlibUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DQUIViewlibUITests/Pods-DQUIViewlibUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		50CC8F072E4C671532BA4BCA /* Pods-DQUIViewlibTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DQUIViewlibTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DQUIViewlibTests/Pods-DQUIViewlibTests.release.xcconfig"; sourceTree = "<group>"; };
 		B16EC97420F843770046E688 /* SingleViewLibTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingleViewLibTableViewController.h; sourceTree = "<group>"; };
 		B16EC97520F843770046E688 /* SingleViewLibTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SingleViewLibTableViewController.m; sourceTree = "<group>"; };
 		B16EC97820F848DE0046E688 /* TBGradientLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBGradientLayerView.m; sourceTree = "<group>"; };
@@ -53,6 +65,18 @@
 		B16EC9A420FD8EBB0046E688 /* SegmentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SegmentView.m; sourceTree = "<group>"; };
 		B16EC9B020FDCDE80046E688 /* SelfNavigationBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelfNavigationBarViewController.h; sourceTree = "<group>"; };
 		B16EC9B120FDCDE80046E688 /* SelfNavigationBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelfNavigationBarViewController.m; sourceTree = "<group>"; };
+		B16EC9BF20FF2D220046E688 /* DQNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DQNavigationController.h; sourceTree = "<group>"; };
+		B16EC9C020FF2D220046E688 /* DQNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DQNavigationController.m; sourceTree = "<group>"; };
+		B16EC9C820FF370A0046E688 /* CustomNavigationBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomNavigationBar.h; sourceTree = "<group>"; };
+		B16EC9C920FF370A0046E688 /* CustomNavigationBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomNavigationBar.m; sourceTree = "<group>"; };
+		B16EC9CC20FF47620046E688 /* SASView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASView.m; sourceTree = "<group>"; };
+		B16EC9CD20FF47620046E688 /* SASView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASView.h; sourceTree = "<group>"; };
+		B16EC9CF20FF47A90046E688 /* UIView+SARRS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SARRS.m"; sourceTree = "<group>"; };
+		B16EC9D020FF47A90046E688 /* UIView+SARRS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SARRS.h"; sourceTree = "<group>"; };
+		B18ADBB120FF57170096B8DA /* NavigationControllerListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationControllerListViewController.h; sourceTree = "<group>"; };
+		B18ADBB220FF57170096B8DA /* NavigationControllerListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationControllerListViewController.m; sourceTree = "<group>"; };
+		B18ADBB420FF582D0096B8DA /* NavigationSubViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationSubViewController.h; sourceTree = "<group>"; };
+		B18ADBB520FF582D0096B8DA /* NavigationSubViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationSubViewController.m; sourceTree = "<group>"; };
 		B1BBF00720F6F8E1005D59B2 /* DQUIViewlib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DQUIViewlib.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1BBF00A20F6F8E1005D59B2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B1BBF00B20F6F8E1005D59B2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -73,6 +97,12 @@
 		B1BBF04020F6FA0F005D59B2 /* BraceletViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BraceletViewController.m; sourceTree = "<group>"; };
 		B1BBF04320F6FA30005D59B2 /* BraceletView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BraceletView.h; sourceTree = "<group>"; };
 		B1BBF04420F6FA30005D59B2 /* BraceletView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BraceletView.m; sourceTree = "<group>"; };
+		B966A24DEFCE73E3B23FF0AD /* libPods-DQUIViewlib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DQUIViewlib.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1E3F50653C3287E5EBF2176 /* libPods-DQUIViewlibUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DQUIViewlibUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C79104D1D50D9F8C32E66F51 /* Pods-DQUIViewlib.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DQUIViewlib.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DQUIViewlib/Pods-DQUIViewlib.debug.xcconfig"; sourceTree = "<group>"; };
+		CFD6FE0B03AE2609D44C3859 /* libPods-DQUIViewlibTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DQUIViewlibTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9F8A396A225FEEDFAE9BEB8 /* Pods-DQUIViewlibTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DQUIViewlibTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DQUIViewlibTests/Pods-DQUIViewlibTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EE9D98BA438550A5D5946766 /* Pods-DQUIViewlib.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DQUIViewlib.release.xcconfig"; path = "Pods/Target Support Files/Pods-DQUIViewlib/Pods-DQUIViewlib.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				593FB80988D74370AB99C52A /* libPods-DQUIViewlib.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0ED38CBD7DF1657AE0F23E49 /* libPods-DQUIViewlibTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EE4063C45D749D8716CBC09 /* libPods-DQUIViewlibUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +161,32 @@
 			path = segment;
 			sourceTree = "<group>";
 		};
+		B16EC9BE20FF2CE30046E688 /* navigationController */ = {
+			isa = PBXGroup;
+			children = (
+				B16EC9BF20FF2D220046E688 /* DQNavigationController.h */,
+				B16EC9C020FF2D220046E688 /* DQNavigationController.m */,
+				B16EC9C820FF370A0046E688 /* CustomNavigationBar.h */,
+				B16EC9C920FF370A0046E688 /* CustomNavigationBar.m */,
+				B18ADBB120FF57170096B8DA /* NavigationControllerListViewController.h */,
+				B18ADBB220FF57170096B8DA /* NavigationControllerListViewController.m */,
+				B18ADBB420FF582D0096B8DA /* NavigationSubViewController.h */,
+				B18ADBB520FF582D0096B8DA /* NavigationSubViewController.m */,
+			);
+			path = navigationController;
+			sourceTree = "<group>";
+		};
+		B16EC9CB20FF47470046E688 /* sasview */ = {
+			isa = PBXGroup;
+			children = (
+				B16EC9CD20FF47620046E688 /* SASView.h */,
+				B16EC9CC20FF47620046E688 /* SASView.m */,
+				B16EC9D020FF47A90046E688 /* UIView+SARRS.h */,
+				B16EC9CF20FF47A90046E688 /* UIView+SARRS.m */,
+			);
+			path = sasview;
+			sourceTree = "<group>";
+		};
 		B1BBEFFE20F6F8E1005D59B2 = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +194,8 @@
 				B1BBF02220F6F8E3005D59B2 /* DQUIViewlibTests */,
 				B1BBF02D20F6F8E3005D59B2 /* DQUIViewlibUITests */,
 				B1BBF00820F6F8E1005D59B2 /* Products */,
+				C4ABB1402AEE3218FDDE2370 /* Pods */,
+				B51FFD726940C073CFD44B2D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,6 +212,8 @@
 		B1BBF00920F6F8E1005D59B2 /* DQUIViewlib */ = {
 			isa = PBXGroup;
 			children = (
+				B16EC9CB20FF47470046E688 /* sasview */,
+				B16EC9BE20FF2CE30046E688 /* navigationController */,
 				B16EC9A220FD8E6C0046E688 /* segment */,
 				B16EC97720F845610046E688 /* gradient */,
 				B1BBF04220F6FA19005D59B2 /* bracelet */,
@@ -201,6 +264,29 @@
 			path = bracelet;
 			sourceTree = "<group>";
 		};
+		B51FFD726940C073CFD44B2D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B966A24DEFCE73E3B23FF0AD /* libPods-DQUIViewlib.a */,
+				CFD6FE0B03AE2609D44C3859 /* libPods-DQUIViewlibTests.a */,
+				C1E3F50653C3287E5EBF2176 /* libPods-DQUIViewlibUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C4ABB1402AEE3218FDDE2370 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C79104D1D50D9F8C32E66F51 /* Pods-DQUIViewlib.debug.xcconfig */,
+				EE9D98BA438550A5D5946766 /* Pods-DQUIViewlib.release.xcconfig */,
+				E9F8A396A225FEEDFAE9BEB8 /* Pods-DQUIViewlibTests.debug.xcconfig */,
+				50CC8F072E4C671532BA4BCA /* Pods-DQUIViewlibTests.release.xcconfig */,
+				31BF2ABD343D802168872366 /* Pods-DQUIViewlibUITests.debug.xcconfig */,
+				2CA25E9DF46D3D4F31E74B6D /* Pods-DQUIViewlibUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -208,6 +294,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B1BBF03320F6F8E3005D59B2 /* Build configuration list for PBXNativeTarget "DQUIViewlib" */;
 			buildPhases = (
+				91F4290020E5A499C41A624B /* [CP] Check Pods Manifest.lock */,
 				B1BBF00320F6F8E1005D59B2 /* Sources */,
 				B1BBF00420F6F8E1005D59B2 /* Frameworks */,
 				B1BBF00520F6F8E1005D59B2 /* Resources */,
@@ -225,6 +312,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B1BBF03620F6F8E3005D59B2 /* Build configuration list for PBXNativeTarget "DQUIViewlibTests" */;
 			buildPhases = (
+				AB6149A424D88FAF2A53DC99 /* [CP] Check Pods Manifest.lock */,
 				B1BBF01B20F6F8E3005D59B2 /* Sources */,
 				B1BBF01C20F6F8E3005D59B2 /* Frameworks */,
 				B1BBF01D20F6F8E3005D59B2 /* Resources */,
@@ -243,6 +331,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B1BBF03920F6F8E3005D59B2 /* Build configuration list for PBXNativeTarget "DQUIViewlibUITests" */;
 			buildPhases = (
+				BE51FFE5845213DC73271BEB /* [CP] Check Pods Manifest.lock */,
 				B1BBF02620F6F8E3005D59B2 /* Sources */,
 				B1BBF02720F6F8E3005D59B2 /* Frameworks */,
 				B1BBF02820F6F8E3005D59B2 /* Resources */,
@@ -326,15 +415,78 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		91F4290020E5A499C41A624B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DQUIViewlib-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AB6149A424D88FAF2A53DC99 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DQUIViewlibTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BE51FFE5845213DC73271BEB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DQUIViewlibUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B1BBF00320F6F8E1005D59B2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B16EC9CE20FF47620046E688 /* SASView.m in Sources */,
 				B16EC97620F843770046E688 /* SingleViewLibTableViewController.m in Sources */,
+				B18ADBB320FF57170096B8DA /* NavigationControllerListViewController.m in Sources */,
 				B1BBF03E20F6F9C2005D59B2 /* BaseViewController.m in Sources */,
 				B16EC97A20F848DE0046E688 /* TBGradientLayerView.m in Sources */,
+				B18ADBB620FF582D0096B8DA /* NavigationSubViewController.m in Sources */,
+				B16EC9CA20FF370A0046E688 /* CustomNavigationBar.m in Sources */,
 				B1BBF04520F6FA30005D59B2 /* BraceletView.m in Sources */,
+				B16EC9C120FF2D220046E688 /* DQNavigationController.m in Sources */,
+				B16EC9D120FF47A90046E688 /* UIView+SARRS.m in Sources */,
 				B16EC9B220FDCDE80046E688 /* SelfNavigationBarViewController.m in Sources */,
 				B16EC97D20F84D470046E688 /* GradientLayerView.m in Sources */,
 				B1BBF01A20F6F8E3005D59B2 /* main.m in Sources */,
@@ -507,6 +659,7 @@
 		};
 		B1BBF03420F6F8E3005D59B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C79104D1D50D9F8C32E66F51 /* Pods-DQUIViewlib.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -525,6 +678,7 @@
 		};
 		B1BBF03520F6F8E3005D59B2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE9D98BA438550A5D5946766 /* Pods-DQUIViewlib.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -543,6 +697,7 @@
 		};
 		B1BBF03720F6F8E3005D59B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9F8A396A225FEEDFAE9BEB8 /* Pods-DQUIViewlibTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -561,6 +716,7 @@
 		};
 		B1BBF03820F6F8E3005D59B2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50CC8F072E4C671532BA4BCA /* Pods-DQUIViewlibTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -579,6 +735,7 @@
 		};
 		B1BBF03A20F6F8E3005D59B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31BF2ABD343D802168872366 /* Pods-DQUIViewlibUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = DQUIViewlibUITests/Info.plist;
@@ -596,6 +753,7 @@
 		};
 		B1BBF03B20F6F8E3005D59B2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2CA25E9DF46D3D4F31E74B6D /* Pods-DQUIViewlibUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = DQUIViewlibUITests/Info.plist;

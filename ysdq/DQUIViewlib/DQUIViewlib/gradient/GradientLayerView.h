@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+UIImage *imageFromLayer(CALayer *layer);
+
 
 @interface GradientLayerView : UIView
 @property (nonatomic) NSArray<UIColor *> *colors;

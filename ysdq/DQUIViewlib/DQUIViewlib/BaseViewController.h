@@ -12,6 +12,7 @@ typedef NS_ENUM(NSUInteger, ViewType) {
     ViewTypeBracelet,
     ViewTypeGradientLayer,
     ViewTypeGradientAnimation,
+    ViewTypeLayerImage,
     
     ViewTypeGradientNavigationBar
 };

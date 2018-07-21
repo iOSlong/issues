@@ -13,6 +13,15 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 #ifdef __OBJC__
+#import <Masonry.h>
+#import "SASView.h"
+#import "UIView+SARRS.h"
+#import "BaseViewController.h"
+
+
+
+#define CUSTOM_BAR_STYLE  0
+
 
 
 #define RGBCOLOR(r,g,b)                                     [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]

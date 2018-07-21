@@ -7,6 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "DQNavigationController.h"
+#import "NavigationControllerListViewController.h"
+
+
 
 @interface AppDelegate ()
 
@@ -17,8 +21,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+#if CUSTOM_BAR_STYLE
+    NavigationControllerListViewController *listVC = [NavigationControllerListViewController new];
+    DQNavigationController *navNV = [[DQNavigationController alloc] initWithRootViewController:listVC];
+    UITabBarController *tabVC = [[UITabBarController alloc] init];
+    tabVC.viewControllers = @[navNV];
+    self.window.rootViewController = tabVC;
+#else
     UINavigationBar *bar = [UINavigationBar appearance];
-
+#endif
+    
     //设置显示的颜色
 //    bar.barTintColor = [UIColor colorWithRed:62/255.0 green:173/255.0 blue:176/255.0 alpha:1.0];
 

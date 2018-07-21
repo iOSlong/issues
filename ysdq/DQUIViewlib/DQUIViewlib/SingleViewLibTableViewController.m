@@ -9,6 +9,9 @@
 #import "SingleViewLibTableViewController.h"
 #import "BaseViewController.h"
 #import "SegmentView.h"
+#import "SelfNavigationBarViewController.h"
+#import "DQNavigationController.h"
+#import "NavigationControllerListViewController.h"
 
 @interface SingleViewLibTableViewController ()
 @property (nonatomic, strong) UISegmentedControl *segmentControl;
@@ -33,7 +36,15 @@
     
 }
 
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 1) {
+        if (indexPath.row == 2) {
+            NavigationControllerListViewController *nbvc = [[NavigationControllerListViewController alloc] init];
+            DQNavigationController *nav = [[DQNavigationController alloc] initWithRootViewController:nbvc];
+            [self presentViewController:nav animated:YES completion:nil];
+        }
+    }
+}
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -46,6 +57,8 @@
         desVC.viewType = ViewTypeGradientLayer;
     }else if ([segue.identifier isEqualToString:@"gradentNavigationBar"]){
         desVC.viewType = ViewTypeGradientNavigationBar;
+    }else if ([segue.identifier isEqualToString:@"LayerImage"]){
+        desVC.viewType = ViewTypeLayerImage;
     }
 }
 

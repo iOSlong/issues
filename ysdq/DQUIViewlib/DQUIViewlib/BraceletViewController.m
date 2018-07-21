@@ -22,9 +22,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"子页面";
+    
     UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithTitle:@"Push" style:UIBarButtonItemStylePlain target:self action:@selector(buttonItemClick:)];
     self.navigationItem.rightBarButtonItem = barItem;
+//    self.navigationItem.rightBarButtonItem           = [self editButtonItem];
+    self.navigationController.navigationBar.tintColor = [UIColor purpleColor];
+    
+    BOOL barHidden = self.navigationController.navigationBar.hidden;
+    NSLog(@"%d",barHidden);
 }
+
 - (void)buttonItemClick:(UIBarButtonItem *)item {
     UIViewController *vc = [[UIViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
@@ -40,7 +48,46 @@
         [self showGradientAnimationView];
     } else if (self.viewType == ViewTypeGradientNavigationBar) {
         [self showGradientNavigationBar];
+    }else if (self.viewType == ViewTypeLayerImage) {
+        [self showLayerImage];
     }
+}
+
+
+//UIImage *imageFromLayer(CALayer *layer) {
+//    UIGraphicsBeginImageContext(layer.frame.size);
+//    [layer renderInContext:UIGraphicsGetCurrentContext()];
+//    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+//    return image;
+//}
+- (void)showLayerImage {
+    self.view.backgroundColor = RGBCOLOR_HEX(0x19A8F0);
+    UIImageView *layerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 100, 250, 32)];
+    layerImageView.layer.cornerRadius = 16;
+    layerImageView.layer.borderWidth = 1;
+    layerImageView.layer.borderColor = RGBCOLOR_HEX(0x2A95F7).CGColor;
+    layerImageView.layer.backgroundColor = RGBACOLOR_HEX(0xffffff, 0.3).CGColor;
+    [self.view addSubview:layerImageView];
+
+    CALayer *layer = [[CALayer alloc] init];
+    layer.frame = layerImageView.bounds;
+    layer.backgroundColor = RGBACOLOR_HEX(0xffffff, 0.3).CGColor;
+    UIImage *image = imageFromLayer(layer);
+//    layerImageView.image = image;
+    
+    
+    
+    
+    
+    UITextField *field = [[UITextField alloc] initWithFrame:CGRectMake(100, 200, layerImageView.bounds.size.width, layerImageView.bounds.size.height)];
+    [self.view addSubview:field];
+    field.layer.cornerRadius = layerImageView.bounds.size.height * 0.5;
+    field.background   = image;
+    field.layer.borderWidth = 0.5f;
+    //        field.layer.backgroundColor = COLOR_HEXA(0xffffff, 0.3).CGColor;//searchTextFiledBackgroudColor().CGColor;
+    //    field.layer.borderColor =  RGBCOLOR_HEX(0x2A95F7).CGColor;
+
+    
 }
 
 - (void)showGradientNavigationBar {

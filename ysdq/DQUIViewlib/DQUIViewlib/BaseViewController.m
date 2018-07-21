@@ -7,6 +7,7 @@
 //
 
 #import "BaseViewController.h"
+#import "CustomNavigationBar.h"
 
 @interface BaseViewController ()
 
@@ -17,10 +18,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-}
+    [self.navigationController.navigationBar setTitleTextAttributes: @{NSForegroundColorAttributeName:[UIColor redColor]}];
 
+    
+
+    [self.view showBorderLine];
+}
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor purpleColor];
+}
 - (CGRect)showFrameBracelet {
     return CGRectMake(100, 100, 100, 100);
 }
+
+
 
 @end
