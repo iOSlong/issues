@@ -21,20 +21,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.title = @"子页面";
-    
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.tintColor = [UIColor purpleColor];
+
     UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithTitle:@"Push" style:UIBarButtonItemStylePlain target:self action:@selector(buttonItemClick:)];
     self.navigationItem.rightBarButtonItem = barItem;
-//    self.navigationItem.rightBarButtonItem           = [self editButtonItem];
-    self.navigationController.navigationBar.tintColor = [UIColor purpleColor];
-    
     BOOL barHidden = self.navigationController.navigationBar.hidden;
     NSLog(@"%d",barHidden);
+    
+    
+    
 }
 
-- (void)buttonItemClick:(UIBarButtonItem *)item {
-    UIViewController *vc = [[UIViewController alloc] init];
+- (void)buttonItemClick:(id)item {
+    BraceletViewController *vc = [[BraceletViewController alloc] init];
+    vc.title = [self.title stringByAppendingString:@"*"];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

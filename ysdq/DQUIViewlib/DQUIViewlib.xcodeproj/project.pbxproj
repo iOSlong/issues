@@ -10,6 +10,9 @@
 		0ED38CBD7DF1657AE0F23E49 /* libPods-DQUIViewlibTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD6FE0B03AE2609D44C3859 /* libPods-DQUIViewlibTests.a */; };
 		593FB80988D74370AB99C52A /* libPods-DQUIViewlib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B966A24DEFCE73E3B23FF0AD /* libPods-DQUIViewlib.a */; };
 		6EE4063C45D749D8716CBC09 /* libPods-DQUIViewlibUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1E3F50653C3287E5EBF2176 /* libPods-DQUIViewlibUITests.a */; };
+		B12788E5210702AB00217376 /* NavBarShowHiddenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B12788E4210702AB00217376 /* NavBarShowHiddenViewController.m */; };
+		B12788F72109A83600217376 /* BLStopwatch.m in Sources */ = {isa = PBXBuildFile; fileRef = B12788F32109A83500217376 /* BLStopwatch.m */; };
+		B12788F92109A83600217376 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B12788F52109A83600217376 /* README.md */; };
 		B16EC97620F843770046E688 /* SingleViewLibTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC97520F843770046E688 /* SingleViewLibTableViewController.m */; };
 		B16EC97A20F848DE0046E688 /* TBGradientLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC97820F848DE0046E688 /* TBGradientLayerView.m */; };
 		B16EC97D20F84D470046E688 /* GradientLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC97C20F84D470046E688 /* GradientLayerView.m */; };
@@ -54,6 +57,11 @@
 		2CA25E9DF46D3D4F31E74B6D /* Pods-DQUIViewlibUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DQUIViewlibUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DQUIViewlibUITests/Pods-DQUIViewlibUITests.release.xcconfig"; sourceTree = "<group>"; };
 		31BF2ABD343D802168872366 /* Pods-DQUIViewlibUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DQUIViewlibUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DQUIViewlibUITests/Pods-DQUIViewlibUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		50CC8F072E4C671532BA4BCA /* Pods-DQUIViewlibTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DQUIViewlibTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DQUIViewlibTests/Pods-DQUIViewlibTests.release.xcconfig"; sourceTree = "<group>"; };
+		B12788E3210702AB00217376 /* NavBarShowHiddenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavBarShowHiddenViewController.h; sourceTree = "<group>"; };
+		B12788E4210702AB00217376 /* NavBarShowHiddenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavBarShowHiddenViewController.m; sourceTree = "<group>"; };
+		B12788F32109A83500217376 /* BLStopwatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLStopwatch.m; sourceTree = "<group>"; };
+		B12788F52109A83600217376 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B12788F62109A83600217376 /* BLStopwatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLStopwatch.h; sourceTree = "<group>"; };
 		B16EC97420F843770046E688 /* SingleViewLibTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingleViewLibTableViewController.h; sourceTree = "<group>"; };
 		B16EC97520F843770046E688 /* SingleViewLibTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SingleViewLibTableViewController.m; sourceTree = "<group>"; };
 		B16EC97820F848DE0046E688 /* TBGradientLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBGradientLayerView.m; sourceTree = "<group>"; };
@@ -133,6 +141,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B12788F12109A75400217376 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				B12788F22109A7EB00217376 /* BLStopwatch */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		B12788F22109A7EB00217376 /* BLStopwatch */ = {
+			isa = PBXGroup;
+			children = (
+				B12788F62109A83600217376 /* BLStopwatch.h */,
+				B12788F32109A83500217376 /* BLStopwatch.m */,
+				B12788F52109A83600217376 /* README.md */,
+			);
+			path = BLStopwatch;
+			sourceTree = "<group>";
+		};
 		B16EC97720F845610046E688 /* gradient */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +238,7 @@
 		B1BBF00920F6F8E1005D59B2 /* DQUIViewlib */ = {
 			isa = PBXGroup;
 			children = (
+				B12788F12109A75400217376 /* Vendor */,
 				B16EC9CB20FF47470046E688 /* sasview */,
 				B16EC9BE20FF2CE30046E688 /* navigationController */,
 				B16EC9A220FD8E6C0046E688 /* segment */,
@@ -231,6 +258,8 @@
 				B1BBF03D20F6F9C2005D59B2 /* BaseViewController.m */,
 				B1BBF03F20F6FA0F005D59B2 /* BraceletViewController.h */,
 				B1BBF04020F6FA0F005D59B2 /* BraceletViewController.m */,
+				B12788E3210702AB00217376 /* NavBarShowHiddenViewController.h */,
+				B12788E4210702AB00217376 /* NavBarShowHiddenViewController.m */,
 				B16EC9B020FDCDE80046E688 /* SelfNavigationBarViewController.h */,
 				B16EC9B120FDCDE80046E688 /* SelfNavigationBarViewController.m */,
 			);
@@ -395,6 +424,7 @@
 			files = (
 				B1BBF01720F6F8E3005D59B2 /* LaunchScreen.storyboard in Resources */,
 				B1BBF01420F6F8E3005D59B2 /* Assets.xcassets in Resources */,
+				B12788F92109A83600217376 /* README.md in Resources */,
 				B1BBF01220F6F8E1005D59B2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,7 +508,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B16EC9CE20FF47620046E688 /* SASView.m in Sources */,
+				B12788E5210702AB00217376 /* NavBarShowHiddenViewController.m in Sources */,
 				B16EC97620F843770046E688 /* SingleViewLibTableViewController.m in Sources */,
+				B12788F72109A83600217376 /* BLStopwatch.m in Sources */,
 				B18ADBB320FF57170096B8DA /* NavigationControllerListViewController.m in Sources */,
 				B1BBF03E20F6F9C2005D59B2 /* BaseViewController.m in Sources */,
 				B16EC97A20F848DE0046E688 /* TBGradientLayerView.m in Sources */,

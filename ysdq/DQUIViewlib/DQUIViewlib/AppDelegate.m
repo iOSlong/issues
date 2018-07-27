@@ -21,6 +21,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+//    [[BLStopwatch sharedStopwatch] splitWithDescription:@"didFinishLaunchBegain"];
+    [[BLStopwatch sharedStopwatch] splitWithType:BLStopwatchSplitTypeContinuous description:@"didFinishLaunchBegain"];
+    
 #if CUSTOM_BAR_STYLE
     NavigationControllerListViewController *listVC = [NavigationControllerListViewController new];
     DQNavigationController *navNV = [[DQNavigationController alloc] initWithRootViewController:listVC];
@@ -33,6 +36,8 @@
     
     //设置显示的颜色
 //    bar.barTintColor = [UIColor colorWithRed:62/255.0 green:173/255.0 blue:176/255.0 alpha:1.0];
+//    [[BLStopwatch sharedStopwatch] splitWithDescription:@"didFinishLaunchOver"];
+    [[BLStopwatch sharedStopwatch] splitWithType:BLStopwatchSplitTypeContinuous description:@"didFinishLaunchOver"];
 
     return YES;
 }

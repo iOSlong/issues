@@ -12,6 +12,7 @@
 #import "SelfNavigationBarViewController.h"
 #import "DQNavigationController.h"
 #import "NavigationControllerListViewController.h"
+#import "NavBarShowHiddenViewController.h"
 
 @interface SingleViewLibTableViewController ()
 @property (nonatomic, strong) UISegmentedControl *segmentControl;
@@ -22,6 +23,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    [[BLStopwatch sharedStopwatch] splitWithDescription:@"viewDidloadBegain"];
+    [[BLStopwatch sharedStopwatch] splitWithType:BLStopwatchSplitTypeContinuous description:@"viewDidloadBegain"];
+
     self.segmentControl = [[UISegmentedControl alloc] initWithFrame:CGRectMake(0, 0, 200, 40)];
     [self.segmentControl insertSegmentWithTitle:@"One" atIndex:0 animated:NO];
     [self.segmentControl insertSegmentWithTitle:@"Two" atIndex:1 animated:NO];
@@ -32,9 +36,11 @@
     self.segmentView.frame = CGRectMake(0, 0, 200, 40);
     self.navigationItem.titleView = self.segmentView;
     
-    
-    
+//    [[BLStopwatch sharedStopwatch] splitWithDescription:@"viewDidloadOver"];
+    [[BLStopwatch sharedStopwatch] splitWithType:BLStopwatchSplitTypeContinuous description:@"viewDidloadOver"];
+    [[BLStopwatch sharedStopwatch] stopAndPresentResultsThenReset];
 }
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 1) {
@@ -42,6 +48,10 @@
             NavigationControllerListViewController *nbvc = [[NavigationControllerListViewController alloc] init];
             DQNavigationController *nav = [[DQNavigationController alloc] initWithRootViewController:nbvc];
             [self presentViewController:nav animated:YES completion:nil];
+        }else if (indexPath.row == 3) {
+            NavBarShowHiddenViewController *nbshVC = [NavBarShowHiddenViewController new];
+            nbshVC.title = @"title";
+            [self.navigationController pushViewController:nbshVC animated:YES];
         }
     }
 }
@@ -49,6 +59,7 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     BaseViewController *desVC = segue.destinationViewController;
+    desVC.title = @"子页面";
     if ([segue.identifier isEqualToString:@"Bracelet"]) {
         desVC.viewType = ViewTypeBracelet;
     }else if ([segue.identifier isEqualToString:@"GradientAnimation"]) {

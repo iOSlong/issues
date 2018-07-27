@@ -17,8 +17,24 @@ typedef NS_ENUM(NSUInteger, ViewType) {
     ViewTypeGradientNavigationBar
 };
 
+typedef NS_ENUM(NSUInteger, NaviBarTime) {
+    NaviBarTimeNone,
+    NaviBarTimeViewDidLoad,
+    NaviBarTimeViewWillAppear,
+    NaviBarTimeViewDidAppear,
+    NaviBarTimeViewWillDisappear,
+    NaviBarTimeViewDidDisappear,
+};
+
+
 @interface BaseViewController : UIViewController
 @property (nonatomic, assign) ViewType viewType;
+@property (nonatomic, assign) NaviBarTime navShowTime;
+@property (nonatomic, assign) NaviBarTime navHiddenTime;
+@property (nonatomic, assign) BOOL navAnimation;
 - (CGRect)showFrameBracelet;
-
 @end
+
+
+
+
