@@ -13,6 +13,9 @@ typedef NS_ENUM(NSUInteger, ViewType) {
     ViewTypeGradientLayer,
     ViewTypeGradientAnimation,
     ViewTypeLayerImage,
+    ViewTypeRoundButton,
+    ViewTypeFloatButton,
+    ViewTypeBezierPath,
     
     ViewTypeGradientNavigationBar
 };

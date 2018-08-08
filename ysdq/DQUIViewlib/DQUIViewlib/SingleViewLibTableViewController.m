@@ -70,6 +70,10 @@
         desVC.viewType = ViewTypeGradientNavigationBar;
     }else if ([segue.identifier isEqualToString:@"LayerImage"]){
         desVC.viewType = ViewTypeLayerImage;
+    }else if ([segue.identifier isEqualToString:@"RoundButton"]) {
+        desVC.viewType = ViewTypeRoundButton;
+    }else if ([segue.identifier isEqualToString:@"BezierPathView"]){
+        desVC.viewType = ViewTypeBezierPath;
     }
 }
 

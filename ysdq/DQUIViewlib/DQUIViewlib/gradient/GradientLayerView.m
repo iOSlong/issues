@@ -57,6 +57,12 @@ UIImage *imageFromLayer(CALayer *layer) {
     return glv;
 }
 
+
+- (UIImage *)gradinetLayerImage {
+    return imageFromLayer(self.colorLayer);
+}
+
+
 + (UIImage *)gradientLayerNavigationImage {
     CGFloat barHeight = 64;
     if (MIN([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) == 375) {

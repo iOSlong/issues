@@ -10,6 +10,7 @@
 		0ED38CBD7DF1657AE0F23E49 /* libPods-DQUIViewlibTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD6FE0B03AE2609D44C3859 /* libPods-DQUIViewlibTests.a */; };
 		593FB80988D74370AB99C52A /* libPods-DQUIViewlib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B966A24DEFCE73E3B23FF0AD /* libPods-DQUIViewlib.a */; };
 		6EE4063C45D749D8716CBC09 /* libPods-DQUIViewlibUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1E3F50653C3287E5EBF2176 /* libPods-DQUIViewlibUITests.a */; };
+		B10FC4C5211AC392009715CA /* BezierPathView.m in Sources */ = {isa = PBXBuildFile; fileRef = B10FC4C4211AC392009715CA /* BezierPathView.m */; };
 		B12788E5210702AB00217376 /* NavBarShowHiddenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B12788E4210702AB00217376 /* NavBarShowHiddenViewController.m */; };
 		B12788F72109A83600217376 /* BLStopwatch.m in Sources */ = {isa = PBXBuildFile; fileRef = B12788F32109A83500217376 /* BLStopwatch.m */; };
 		B12788F92109A83600217376 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B12788F52109A83600217376 /* README.md */; };
@@ -24,6 +25,7 @@
 		B16EC9D120FF47A90046E688 /* UIView+SARRS.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC9CF20FF47A90046E688 /* UIView+SARRS.m */; };
 		B18ADBB320FF57170096B8DA /* NavigationControllerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B18ADBB220FF57170096B8DA /* NavigationControllerListViewController.m */; };
 		B18ADBB620FF582D0096B8DA /* NavigationSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B18ADBB520FF582D0096B8DA /* NavigationSubViewController.m */; };
+		B1A6AE7A21143DC400132D1F /* RoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A6AE7921143DC400132D1F /* RoundButton.m */; };
 		B1BBF00C20F6F8E1005D59B2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BBF00B20F6F8E1005D59B2 /* AppDelegate.m */; };
 		B1BBF01220F6F8E1005D59B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1BBF01020F6F8E1005D59B2 /* Main.storyboard */; };
 		B1BBF01420F6F8E3005D59B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1BBF01320F6F8E3005D59B2 /* Assets.xcassets */; };
@@ -57,6 +59,8 @@
 		2CA25E9DF46D3D4F31E74B6D /* Pods-DQUIViewlibUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DQUIViewlibUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DQUIViewlibUITests/Pods-DQUIViewlibUITests.release.xcconfig"; sourceTree = "<group>"; };
 		31BF2ABD343D802168872366 /* Pods-DQUIViewlibUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DQUIViewlibUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DQUIViewlibUITests/Pods-DQUIViewlibUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		50CC8F072E4C671532BA4BCA /* Pods-DQUIViewlibTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DQUIViewlibTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DQUIViewlibTests/Pods-DQUIViewlibTests.release.xcconfig"; sourceTree = "<group>"; };
+		B10FC4C3211AC392009715CA /* BezierPathView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BezierPathView.h; sourceTree = "<group>"; };
+		B10FC4C4211AC392009715CA /* BezierPathView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BezierPathView.m; sourceTree = "<group>"; };
 		B12788E3210702AB00217376 /* NavBarShowHiddenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavBarShowHiddenViewController.h; sourceTree = "<group>"; };
 		B12788E4210702AB00217376 /* NavBarShowHiddenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavBarShowHiddenViewController.m; sourceTree = "<group>"; };
 		B12788F32109A83500217376 /* BLStopwatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLStopwatch.m; sourceTree = "<group>"; };
@@ -85,6 +89,8 @@
 		B18ADBB220FF57170096B8DA /* NavigationControllerListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationControllerListViewController.m; sourceTree = "<group>"; };
 		B18ADBB420FF582D0096B8DA /* NavigationSubViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationSubViewController.h; sourceTree = "<group>"; };
 		B18ADBB520FF582D0096B8DA /* NavigationSubViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationSubViewController.m; sourceTree = "<group>"; };
+		B1A6AE7821143DC400132D1F /* RoundButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoundButton.h; sourceTree = "<group>"; };
+		B1A6AE7921143DC400132D1F /* RoundButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoundButton.m; sourceTree = "<group>"; };
 		B1BBF00720F6F8E1005D59B2 /* DQUIViewlib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DQUIViewlib.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1BBF00A20F6F8E1005D59B2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B1BBF00B20F6F8E1005D59B2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -141,6 +147,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B10FC4C2211AC379009715CA /* bezierPathView */ = {
+			isa = PBXGroup;
+			children = (
+				B10FC4C3211AC392009715CA /* BezierPathView.h */,
+				B10FC4C4211AC392009715CA /* BezierPathView.m */,
+			);
+			path = bezierPathView;
+			sourceTree = "<group>";
+		};
 		B12788F12109A75400217376 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +228,15 @@
 			path = sasview;
 			sourceTree = "<group>";
 		};
+		B1A6AE7721143DAF00132D1F /* RoundButton */ = {
+			isa = PBXGroup;
+			children = (
+				B1A6AE7821143DC400132D1F /* RoundButton.h */,
+				B1A6AE7921143DC400132D1F /* RoundButton.m */,
+			);
+			path = RoundButton;
+			sourceTree = "<group>";
+		};
 		B1BBEFFE20F6F8E1005D59B2 = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +262,8 @@
 		B1BBF00920F6F8E1005D59B2 /* DQUIViewlib */ = {
 			isa = PBXGroup;
 			children = (
+				B10FC4C2211AC379009715CA /* bezierPathView */,
+				B1A6AE7721143DAF00132D1F /* RoundButton */,
 				B12788F12109A75400217376 /* Vendor */,
 				B16EC9CB20FF47470046E688 /* sasview */,
 				B16EC9BE20FF2CE30046E688 /* navigationController */,
@@ -516,8 +542,10 @@
 				B16EC97A20F848DE0046E688 /* TBGradientLayerView.m in Sources */,
 				B18ADBB620FF582D0096B8DA /* NavigationSubViewController.m in Sources */,
 				B16EC9CA20FF370A0046E688 /* CustomNavigationBar.m in Sources */,
+				B1A6AE7A21143DC400132D1F /* RoundButton.m in Sources */,
 				B1BBF04520F6FA30005D59B2 /* BraceletView.m in Sources */,
 				B16EC9C120FF2D220046E688 /* DQNavigationController.m in Sources */,
+				B10FC4C5211AC392009715CA /* BezierPathView.m in Sources */,
 				B16EC9D120FF47A90046E688 /* UIView+SARRS.m in Sources */,
 				B16EC9B220FDCDE80046E688 /* SelfNavigationBarViewController.m in Sources */,
 				B16EC97D20F84D470046E688 /* GradientLayerView.m in Sources */,

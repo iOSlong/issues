@@ -10,6 +10,8 @@
 #import "BraceletView.h"
 #import "TBGradientLayerView.h"
 #import "GradientLayerView.h"
+#import "RoundButton.h"
+#import "BezierPathView.h"
 
 @interface BraceletViewController ()
 @property (nonatomic, strong) BraceletView  *braceletView;
@@ -36,6 +38,7 @@
 - (void)buttonItemClick:(id)item {
     BraceletViewController *vc = [[BraceletViewController alloc] init];
     vc.title = [self.title stringByAppendingString:@"*"];
+    vc.viewType = ViewTypeFloatButton;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -51,9 +54,89 @@
         [self showGradientNavigationBar];
     }else if (self.viewType == ViewTypeLayerImage) {
         [self showLayerImage];
+    }else if (self.viewType == ViewTypeRoundButton) {
+        [self showRoundButton];
+    }else if (self.viewType == ViewTypeFloatButton) {
+        [self showFloatButton];
+    }else if (self.viewType == ViewTypeBezierPath) {
+        [self showBezirPathView];
     }
 }
 
+- (void)showBezirPathView {
+    self.view.backgroundColor = [UIColor blackColor];
+    
+    BezierPathView *bezierPV1 = [[BezierPathView alloc] initWithFrame:CGRectMake(50, 100, self.view.bounds.size.width - 100, 100)];
+    [self.view addSubview:bezierPV1];
+
+    [bezierPV1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@50);
+        make.right.equalTo(self.view.mas_right).offset(-50);
+        make.top.equalTo(@70);
+        make.height.equalTo(@140);
+    }];
+    
+    CGFloat viewW = self.view.bounds.size.width - 100;
+    BezierPathView *bezierPV2 = [[BezierPathView alloc] initWithFrame:CGRectMake(50, 250, viewW, viewW)];
+
+    [bezierPV1 showBorderLine];
+    [bezierPV2 showBorderLine];
+    [self.view addSubview:bezierPV2];
+    
+    
+    UIImage *image = imageFromLayer(bezierPV1.layer);
+    UIImageView *imgv = [[UIImageView alloc] initWithImage:image];
+    imgv.frame = CGRectMake(50, 200, CGImageGetWidth(image.CGImage), CGImageGetHeight(image.CGImage));
+    [self.view addSubview:imgv];
+    [imgv showBorderLine];
+    
+}
+
+- (void)showFloatButton {
+    UIView *floatView = [[UIApplication sharedApplication].delegate.window viewDesTag:999];
+    if (!floatView) {
+        RoundButton *floatButton = [RoundButton buttonWithType:UIButtonTypeCustom];
+        floatButton.frame = CGRectMake(200, 200, 50, 50);
+        floatButton.layer.borderWidth = 5;
+        floatButton.layer.cornerRadius = 10;
+        floatButton.tag = 999;
+        [floatButton showBorderLine];
+        [floatButton setTitle:@"Drag" forState:UIControlStateNormal];
+        UIWindow *keyWindow = [UIApplication sharedApplication].delegate.window;
+        [keyWindow addSubview:floatButton];
+        UIPanGestureRecognizer *panG = [[UIPanGestureRecognizer alloc] initWithTarget:floatButton action:@selector(_pan:)];
+        panG.minimumNumberOfTouches = 1;
+        panG.maximumNumberOfTouches = 1;
+        [floatButton addGestureRecognizer:panG];
+    }
+}
+
+
+
+- (void)showRoundButton {
+//    1.
+    RoundButton *rbtn1 = [RoundButton roundButtonFrame:CGRectMake(100, 100, 200, 40) style:RoundButtonStyleCornerGray];
+    [self.view addSubview:rbtn1];
+    
+    
+    RoundButton *rbtn2 = [RoundButton roundButtonFrame:CGRectMake(100, 160, 200, 40) style:RoundButtonStyleCornerLeft];
+    [self.view addSubview:rbtn2];
+
+    
+    RoundButton *rbtn3 = [RoundButton roundButtonFrame:CGRectMake(100, 220, 200, 40) style:RoundButtonStyleCornerRight];
+    [self.view addSubview:rbtn3];
+    
+    
+    RoundButton *rbtn4 = [RoundButton roundButtonFrame:CGRectMake(100, 280, 200, 40) style:RoundButtonStyleCornerNone];
+    [self.view addSubview:rbtn4];
+
+    UIActivityIndicatorView *indicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(100, 340, 50, 50)];
+    indicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
+    [indicatorView showBorderLine];
+    indicatorView.color = [UIColor redColor];
+    [self.view addSubview:indicatorView];
+    [indicatorView startAnimating];
+}
 
 //UIImage *imageFromLayer(CALayer *layer) {
 //    UIGraphicsBeginImageContext(layer.frame.size);

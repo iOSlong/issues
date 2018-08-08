@@ -16,6 +16,8 @@ UIImage *imageFromLayer(CALayer *layer);
 @property (nonatomic) CGPoint startPoint;
 @property (nonatomic) CGPoint endPoint;
 - (instancetype)initWithFrame:(CGRect)frame directionLandscape:(BOOL)landscape colorStar:(UIColor *)colorStar colorEnd:(UIColor *)colorEnd;
+- (UIImage *)gradinetLayerImage;
+
 + (instancetype)gradientLayerNavigationBar;
 + (UIImage *)gradientLayerNavigationImage;
 @end

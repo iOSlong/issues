@@ -21,8 +21,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-//    [[BLStopwatch sharedStopwatch] splitWithDescription:@"didFinishLaunchBegain"];
-    [[BLStopwatch sharedStopwatch] splitWithType:BLStopwatchSplitTypeContinuous description:@"didFinishLaunchBegain"];
+//    [[BLStopwatch sharedStopwatch] splitWithDescription:@"didFinishLaunchBegin"];
+    [[BLStopwatch sharedStopwatch] splitWithType:BLStopwatchSplitTypeContinuous description:@"didFinishLaunchBegin"];
     
 #if CUSTOM_BAR_STYLE
     NavigationControllerListViewController *listVC = [NavigationControllerListViewController new];
