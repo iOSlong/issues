@@ -9,8 +9,9 @@
 #import "BezierPathView.h"
 
 @interface BezierPathView ()
-@property (nonatomic, strong)CAShapeLayer *shapeLayer;
-@property (nonatomic, strong)CAShapeLayer *shapeLayer2;
+@property (nonatomic, strong) CAShapeLayer *shapeLayer;
+@property (nonatomic, strong) CAShapeLayer *shapeLayer2;
+@property (nonatomic, strong) CAGradientLayer *gradientLayer;
 @end
 
 @implementation BezierPathView {
@@ -21,7 +22,6 @@
     CGFloat _borderW;
 }
 
-
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -29,14 +29,13 @@
         [self configureMathData];
         [self bezierPathViewRrapezoid];
         [self bezierPathViewRoundedRect];
-        
         [self layerGradientMask];
     }
     return self;
 }
 
 - (void)configureMathData {
-    _tangentL   = 20.0f;
+    _tangentL   = 0.1 * self.bounds.size.height;
     _offsetX    = 30.0f;
     _offsetY    = self.bounds.size.height - 40;
     _angle      = atan(_offsetY/_offsetX);
@@ -66,10 +65,8 @@
     [path moveToPoint:pStar];
     [path addLineToPoint:p_b1];
     [path addQuadCurveToPoint:p_b2 controlPoint:p_C1];
-    
     [path addLineToPoint:p_b3];
     [path addQuadCurveToPoint:p_b4 controlPoint:p_C2];
-    
     [path addLineToPoint:pEnd];
     return path;
 }
@@ -98,35 +95,34 @@
     }
     self.shapeLayer2.frame = self.bounds;
     self.shapeLayer2.path  = [self bezierPathRoundRect].CGPath;
-//    self.shapeLayer2.shadowColor = RGBACOLOR_HEX(0xC8C8C8, 1).CGColor;
-    self.shapeLayer2.shadowColor = RGBACOLOR_HEX(0xff0000, 1).CGColor;
-    self.shapeLayer2.shadowRadius = 2;
-    self.shapeLayer2.shadowPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, self.bounds.size.width + 5, self.bounds.size.height + 5) cornerRadius:5].CGPath;
 }
 
 - (void)layerGradientMask {
-    CAGradientLayer *_gradLayer = [CAGradientLayer layer];
-    NSArray *colors = [NSArray arrayWithObjects:
-                       (id)[[UIColor colorWithWhite:0 alpha:0] CGColor],
-                       (id)[[UIColor colorWithWhite:0 alpha:0.5] CGColor],
-                       (id)[[UIColor colorWithWhite:0 alpha:1] CGColor],
-                       nil];
-    [_gradLayer setColors:colors];
-    [_gradLayer setLocations:@[@0.0,@0.3,@1.0]];
-    //渐变起止点，point表示向量
-    [_gradLayer setStartPoint:CGPointMake(0.0f, 0.0f)];
-    [_gradLayer setEndPoint:CGPointMake(0.0f, 1.0f)];
-    
-    [_gradLayer setFrame:self.bounds];
-    
-    [self.layer setMask:_gradLayer];
+    if (!self.gradientLayer) {
+        CAGradientLayer *gradLayer = [CAGradientLayer layer];
+        NSArray *colors = [NSArray arrayWithObjects:
+                           (id)[[UIColor colorWithWhite:0 alpha:0] CGColor],
+                           (id)[[UIColor colorWithWhite:0 alpha:0.5] CGColor],
+                           (id)[[UIColor colorWithWhite:0 alpha:1] CGColor],
+                           nil];
+        [gradLayer setColors:colors];
+        [gradLayer setLocations:@[@0.0,@0.3,@1.0]];
+        [gradLayer setStartPoint:CGPointMake(0.0f, 0.0f)];
+        [gradLayer setEndPoint:CGPointMake(0.0f, 1.0f)];
+        self.gradientLayer = gradLayer;
+    }
+    [self.gradientLayer setFrame:self.bounds];
+    [self.layer setMask:self.gradientLayer];
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
     if (self.shapeLayer) {
         if (!CGRectEqualToRect(self.shapeLayer.bounds, self.bounds)) {
+            [self configureMathData];
             [self bezierPathViewRrapezoid];
+            [self bezierPathViewRoundedRect];
+            [self layerGradientMask];
         }
     }
 }

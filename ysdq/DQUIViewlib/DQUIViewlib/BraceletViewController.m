@@ -12,6 +12,7 @@
 #import "GradientLayerView.h"
 #import "RoundButton.h"
 #import "BezierPathView.h"
+#import "ControlView.h"
 
 @interface BraceletViewController ()
 @property (nonatomic, strong) BraceletView  *braceletView;
@@ -60,7 +61,18 @@
         [self showFloatButton];
     }else if (self.viewType == ViewTypeBezierPath) {
         [self showBezirPathView];
+    }else if (self.viewType == ViewTypeControlView) {
+        [self showControlView];
     }
+}
+
+- (void)showControlView {
+    ControlView *conV =  [[ControlView alloc] initWithFrame:CGRectMake(100, 200, 200, 30)];
+    [conV setTitle:@"试试正常效果" forState:UIControlStateNormal];
+    [conV setTitle:@"试试高亮" forState:UIControlStateHighlighted];
+    [conV setTitle:@"试试选中效果" forState:UIControlStateSelected];
+    [conV showBorderLine];
+    [self.view addSubview:conV];
 }
 
 - (void)showBezirPathView {

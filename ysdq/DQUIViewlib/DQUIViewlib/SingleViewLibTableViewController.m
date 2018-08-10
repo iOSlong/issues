@@ -74,6 +74,8 @@
         desVC.viewType = ViewTypeRoundButton;
     }else if ([segue.identifier isEqualToString:@"BezierPathView"]){
         desVC.viewType = ViewTypeBezierPath;
+    }else if ([segue.identifier isEqualToString:@"ControlView"]) {
+        desVC.viewType = ViewTypeControlView;
     }
 }
 

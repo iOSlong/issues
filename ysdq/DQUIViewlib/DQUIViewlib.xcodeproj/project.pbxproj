@@ -14,6 +14,7 @@
 		B12788E5210702AB00217376 /* NavBarShowHiddenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B12788E4210702AB00217376 /* NavBarShowHiddenViewController.m */; };
 		B12788F72109A83600217376 /* BLStopwatch.m in Sources */ = {isa = PBXBuildFile; fileRef = B12788F32109A83500217376 /* BLStopwatch.m */; };
 		B12788F92109A83600217376 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B12788F52109A83600217376 /* README.md */; };
+		B12AE745211C1CE9008AD800 /* ControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = B12AE744211C1CE9008AD800 /* ControlView.m */; };
 		B16EC97620F843770046E688 /* SingleViewLibTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC97520F843770046E688 /* SingleViewLibTableViewController.m */; };
 		B16EC97A20F848DE0046E688 /* TBGradientLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC97820F848DE0046E688 /* TBGradientLayerView.m */; };
 		B16EC97D20F84D470046E688 /* GradientLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC97C20F84D470046E688 /* GradientLayerView.m */; };
@@ -66,6 +67,8 @@
 		B12788F32109A83500217376 /* BLStopwatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLStopwatch.m; sourceTree = "<group>"; };
 		B12788F52109A83600217376 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B12788F62109A83600217376 /* BLStopwatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLStopwatch.h; sourceTree = "<group>"; };
+		B12AE743211C1CE9008AD800 /* ControlView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ControlView.h; sourceTree = "<group>"; };
+		B12AE744211C1CE9008AD800 /* ControlView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ControlView.m; sourceTree = "<group>"; };
 		B16EC97420F843770046E688 /* SingleViewLibTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingleViewLibTableViewController.h; sourceTree = "<group>"; };
 		B16EC97520F843770046E688 /* SingleViewLibTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SingleViewLibTableViewController.m; sourceTree = "<group>"; };
 		B16EC97820F848DE0046E688 /* TBGradientLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBGradientLayerView.m; sourceTree = "<group>"; };
@@ -174,6 +177,15 @@
 			path = BLStopwatch;
 			sourceTree = "<group>";
 		};
+		B12AE742211C1CBC008AD800 /* ControlView */ = {
+			isa = PBXGroup;
+			children = (
+				B12AE743211C1CE9008AD800 /* ControlView.h */,
+				B12AE744211C1CE9008AD800 /* ControlView.m */,
+			);
+			path = ControlView;
+			sourceTree = "<group>";
+		};
 		B16EC97720F845610046E688 /* gradient */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +274,7 @@
 		B1BBF00920F6F8E1005D59B2 /* DQUIViewlib */ = {
 			isa = PBXGroup;
 			children = (
+				B12AE742211C1CBC008AD800 /* ControlView */,
 				B10FC4C2211AC379009715CA /* bezierPathView */,
 				B1A6AE7721143DAF00132D1F /* RoundButton */,
 				B12788F12109A75400217376 /* Vendor */,
@@ -547,6 +560,7 @@
 				B16EC9C120FF2D220046E688 /* DQNavigationController.m in Sources */,
 				B10FC4C5211AC392009715CA /* BezierPathView.m in Sources */,
 				B16EC9D120FF47A90046E688 /* UIView+SARRS.m in Sources */,
+				B12AE745211C1CE9008AD800 /* ControlView.m in Sources */,
 				B16EC9B220FDCDE80046E688 /* SelfNavigationBarViewController.m in Sources */,
 				B16EC97D20F84D470046E688 /* GradientLayerView.m in Sources */,
 				B1BBF01A20F6F8E3005D59B2 /* main.m in Sources */,
