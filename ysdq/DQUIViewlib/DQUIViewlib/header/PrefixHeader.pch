@@ -18,6 +18,7 @@
 #import "UIView+SARRS.h"
 #import "BaseViewController.h"
 #import "BLStopwatch.h"
+#import <LKDBHelper/LKDBHelper.h>
 
 
 #define CUSTOM_BAR_STYLE  0

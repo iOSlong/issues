@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2E10C10CDAD2096280D8EE26978DA3C3"
+               BlueprintIdentifier = "35A52779856DA3740EC478A8D0872C75"
                BlueprintName = "Pods-DQUIViewlib"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libPods-DQUIViewlib.a">

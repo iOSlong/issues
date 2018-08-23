@@ -28,6 +28,7 @@ typedef NS_ENUM(NSInteger, BLStopwatchState) {
 @property (nonatomic, strong) NSMutableArray<NSDictionary<NSString *, NSNumber *> *> *mutableSplits;
 @property (nonatomic) BLStopwatchState state;
 @property (nonatomic) pthread_mutex_t lock;
+@property (nonatomic) WatchInfo *watchInfo;
 
 @end
 
@@ -50,10 +51,10 @@ typedef NS_ENUM(NSInteger, BLStopwatchState) {
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _mutableSplits = [NSMutableArray array];
+        _mutableSplits  = [NSMutableArray array];
+        _watchInfo = [WatchInfo new];
         pthread_mutex_init(&_lock, NULL);
     }
-
     return self;
 }
 
@@ -156,7 +157,35 @@ typedef NS_ENUM(NSInteger, BLStopwatchState) {
                           cancelButtonTitle:@"确定"
                           otherButtonTitles:nil] show];
     }
+    [self saveWatchInfo];
     [[BLStopwatch sharedStopwatch] reset];
+}
+
+
+#pragma mark - database control
+- (NSInteger )readWatchInfoLaunchCount {
+    NSArray<WatchInfo *> *infos = [WatchInfo searchWithSQL:@"select * from @t order by launchTimes desc LIMIT 1"];
+    WatchInfo *lastOne = infos.lastObject;
+    NSInteger launchTimes =  lastOne.launchTimes;
+    return launchTimes + 1;
+}
+/** 保存当前下载信息到本地 */
+- (void)saveWatchInfo {
+    NSInteger launchTimes = [self readWatchInfoLaunchCount];
+    if (launchTimes > 5) {
+        [WatchInfo clearAllWatchInfo];
+        launchTimes = 1;
+    }
+    self.watchInfo.launchTimes = launchTimes;
+    for (NSDictionary *info in self.mutableSplits) {
+        AppendItem *aItem  = [[AppendItem alloc] initWith:info];
+        [self.watchInfo.appendItems addObject:aItem];
+    }
+    
+    if ([self.watchInfo isSaveValidLaunch]) {
+        BOOL suc = [self.watchInfo saveToDB];
+        NSLog(@"%@ - save:%d",self.watchInfo, suc);
+    }
 }
 
 @end

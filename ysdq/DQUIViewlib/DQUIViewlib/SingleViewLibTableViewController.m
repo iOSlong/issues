@@ -23,8 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [[BLStopwatch sharedStopwatch] splitWithDescription:@"viewDidloadBegain"];
-    [[BLStopwatch sharedStopwatch] splitWithType:BLStopwatchSplitTypeContinuous description:@"viewDidloadBegain"];
+    [[BLStopwatch sharedStopwatch] splitWithType:BLStopwatchSplitTypeContinuous description:WATCH_VIEWDIDLOAD0];
 
     self.segmentControl = [[UISegmentedControl alloc] initWithFrame:CGRectMake(0, 0, 200, 40)];
     [self.segmentControl insertSegmentWithTitle:@"One" atIndex:0 animated:NO];
@@ -36,11 +35,14 @@
     self.segmentView.frame = CGRectMake(0, 0, 200, 40);
     self.navigationItem.titleView = self.segmentView;
     
-//    [[BLStopwatch sharedStopwatch] splitWithDescription:@"viewDidloadOver"];
-    [[BLStopwatch sharedStopwatch] splitWithType:BLStopwatchSplitTypeContinuous description:@"viewDidloadOver"];
-    [[BLStopwatch sharedStopwatch] stopAndPresentResultsThenReset];
+    [[BLStopwatch sharedStopwatch] splitWithType:BLStopwatchSplitTypeContinuous description:WATCH_VIEWDIDLOAD1];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [[BLStopwatch sharedStopwatch] splitWithType:BLStopwatchSplitTypeContinuous description:WATCH_VIEWDIDAPPEAR];
+    [[BLStopwatch sharedStopwatch] stopAndPresentResultsThenReset];
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 1) {
@@ -76,6 +78,8 @@
         desVC.viewType = ViewTypeBezierPath;
     }else if ([segue.identifier isEqualToString:@"ControlView"]) {
         desVC.viewType = ViewTypeControlView;
+    }else if ([segue.identifier isEqualToString:@"AirPlayView"]){
+        desVC.viewType = ViewTypeAirPlayView;
     }
 }
 

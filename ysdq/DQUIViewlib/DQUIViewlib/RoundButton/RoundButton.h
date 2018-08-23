@@ -17,4 +17,5 @@ typedef NS_ENUM(NSUInteger, RoundButtonStyle) {
 
 @interface RoundButton : UIButton
 + (instancetype)roundButtonFrame:(CGRect)frame style:(RoundButtonStyle)style;
+- (void)addHoldMethod;
 @end

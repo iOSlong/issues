@@ -8,6 +8,7 @@
 
 #import "RoundButton.h"
 #import "GradientLayerView.h"
+#import "AppDelegate.h"
 
 @interface RoundButton()
 @property (nonatomic, assign) RoundButtonStyle style;
@@ -123,6 +124,16 @@
     }
 }
 
+- (void)addHoldMethod {
+    [self addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+}
 
+- (void)buttonClick:(UIButton *)btn {
+   UIViewController *rootVC = [UIApplication sharedApplication].delegate.window.rootViewController;
+    UINavigationController *navigationC = (UINavigationController *)rootVC;
+    UIViewController *topVC = navigationC.topViewController;
+    UIViewController *holdVC = ((AppDelegate *)[UIApplication sharedApplication].delegate).holdVC;
+    [navigationC pushViewController:holdVC animated:YES];
+}
 
 @end

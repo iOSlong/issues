@@ -24,6 +24,8 @@
 		B16EC9CA20FF370A0046E688 /* CustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC9C920FF370A0046E688 /* CustomNavigationBar.m */; };
 		B16EC9CE20FF47620046E688 /* SASView.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC9CC20FF47620046E688 /* SASView.m */; };
 		B16EC9D120FF47A90046E688 /* UIView+SARRS.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC9CF20FF47A90046E688 /* UIView+SARRS.m */; };
+		B187F74121251EE4003AA637 /* AirPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = B187F74021251EE4003AA637 /* AirPlayView.m */; };
+		B187F744212D0EEE003AA637 /* WatchInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B187F743212D0EEE003AA637 /* WatchInfo.m */; };
 		B18ADBB320FF57170096B8DA /* NavigationControllerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B18ADBB220FF57170096B8DA /* NavigationControllerListViewController.m */; };
 		B18ADBB620FF582D0096B8DA /* NavigationSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B18ADBB520FF582D0096B8DA /* NavigationSubViewController.m */; };
 		B1A6AE7A21143DC400132D1F /* RoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A6AE7921143DC400132D1F /* RoundButton.m */; };
@@ -88,6 +90,10 @@
 		B16EC9CD20FF47620046E688 /* SASView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASView.h; sourceTree = "<group>"; };
 		B16EC9CF20FF47A90046E688 /* UIView+SARRS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SARRS.m"; sourceTree = "<group>"; };
 		B16EC9D020FF47A90046E688 /* UIView+SARRS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SARRS.h"; sourceTree = "<group>"; };
+		B187F73F21251EE4003AA637 /* AirPlayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AirPlayView.h; sourceTree = "<group>"; };
+		B187F74021251EE4003AA637 /* AirPlayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirPlayView.m; sourceTree = "<group>"; };
+		B187F742212D0EEE003AA637 /* WatchInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WatchInfo.h; sourceTree = "<group>"; };
+		B187F743212D0EEE003AA637 /* WatchInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WatchInfo.m; sourceTree = "<group>"; };
 		B18ADBB120FF57170096B8DA /* NavigationControllerListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationControllerListViewController.h; sourceTree = "<group>"; };
 		B18ADBB220FF57170096B8DA /* NavigationControllerListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationControllerListViewController.m; sourceTree = "<group>"; };
 		B18ADBB420FF582D0096B8DA /* NavigationSubViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationSubViewController.h; sourceTree = "<group>"; };
@@ -173,6 +179,8 @@
 				B12788F62109A83600217376 /* BLStopwatch.h */,
 				B12788F32109A83500217376 /* BLStopwatch.m */,
 				B12788F52109A83600217376 /* README.md */,
+				B187F742212D0EEE003AA637 /* WatchInfo.h */,
+				B187F743212D0EEE003AA637 /* WatchInfo.m */,
 			);
 			path = BLStopwatch;
 			sourceTree = "<group>";
@@ -240,6 +248,15 @@
 			path = sasview;
 			sourceTree = "<group>";
 		};
+		B187F73E21251EB9003AA637 /* AirPlayView */ = {
+			isa = PBXGroup;
+			children = (
+				B187F73F21251EE4003AA637 /* AirPlayView.h */,
+				B187F74021251EE4003AA637 /* AirPlayView.m */,
+			);
+			path = AirPlayView;
+			sourceTree = "<group>";
+		};
 		B1A6AE7721143DAF00132D1F /* RoundButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +291,7 @@
 		B1BBF00920F6F8E1005D59B2 /* DQUIViewlib */ = {
 			isa = PBXGroup;
 			children = (
+				B187F73E21251EB9003AA637 /* AirPlayView */,
 				B12AE742211C1CBC008AD800 /* ControlView */,
 				B10FC4C2211AC379009715CA /* bezierPathView */,
 				B1A6AE7721143DAF00132D1F /* RoundButton */,
@@ -547,7 +565,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B16EC9CE20FF47620046E688 /* SASView.m in Sources */,
+				B187F74121251EE4003AA637 /* AirPlayView.m in Sources */,
 				B12788E5210702AB00217376 /* NavBarShowHiddenViewController.m in Sources */,
+				B187F744212D0EEE003AA637 /* WatchInfo.m in Sources */,
 				B16EC97620F843770046E688 /* SingleViewLibTableViewController.m in Sources */,
 				B12788F72109A83600217376 /* BLStopwatch.m in Sources */,
 				B18ADBB320FF57170096B8DA /* NavigationControllerListViewController.m in Sources */,
@@ -672,7 +692,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -724,7 +744,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -737,9 +757,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6ZUV3Y67Z8;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = /Users/lxw/Documents/fmy/issues/issues/ysdq/DQUIViewlib/DQUIViewlib/header/PrefixHeader.pch;
 				INFOPLIST_FILE = DQUIViewlib/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -756,9 +778,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6ZUV3Y67Z8;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = /Users/lxw/Documents/fmy/issues/issues/ysdq/DQUIViewlib/DQUIViewlib/header/PrefixHeader.pch;
 				INFOPLIST_FILE = DQUIViewlib/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

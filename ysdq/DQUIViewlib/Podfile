@@ -8,7 +8,8 @@ target 'DQUIViewlib' do
   # Pods for DQUIViewlib
 
 pod 'Masonry'
-
+pod 'LKDBHelper'
+pod 'JSONModel'
 
   target 'DQUIViewlibTests' do
     inherit! :search_paths

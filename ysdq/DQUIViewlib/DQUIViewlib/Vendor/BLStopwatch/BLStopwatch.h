@@ -10,6 +10,7 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "WatchInfo.h"
 
 typedef NS_ENUM(NSInteger, BLStopwatchSplitType) {
     BLStopwatchSplitTypeMedian = 0, // 记录中间值.

@@ -13,6 +13,8 @@
 #import "RoundButton.h"
 #import "BezierPathView.h"
 #import "ControlView.h"
+#import "AirPlayView.h"
+#import "AppDelegate.h"
 
 @interface BraceletViewController ()
 @property (nonatomic, strong) BraceletView  *braceletView;
@@ -33,7 +35,26 @@
     NSLog(@"%d",barHidden);
     
     
-    
+    if (self.viewType == ViewTypeFloatButton) {
+        [self loadManaymanayThings];
+        [self showFloatButton];
+    }
+}
+
+- (void)loadManaymanayThings {
+    int countX = self.view.frame.size.width / 10;
+    for (int i = 0; i < 20000; i ++ ) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        button.frame = CGRectMake((i%countX) * 10, (i / countX + 1) * 10, 50, 50);
+        button.layer.borderColor = [UIColor redColor].CGColor;
+        button.layer.borderWidth = 1;
+        float colorR  =  arc4random()%255;
+        float colorG  =  arc4random()%255;
+        float colorB  =  arc4random()%255;
+        float alpha   =  (arc4random()%155 + 100) / 255.0;
+        button.backgroundColor = RGBACOLOR(colorR, colorG, colorB, alpha);
+        [self.view addSubview:button];
+    }
 }
 
 - (void)buttonItemClick:(id)item {
@@ -57,13 +78,19 @@
         [self showLayerImage];
     }else if (self.viewType == ViewTypeRoundButton) {
         [self showRoundButton];
-    }else if (self.viewType == ViewTypeFloatButton) {
-        [self showFloatButton];
     }else if (self.viewType == ViewTypeBezierPath) {
         [self showBezirPathView];
     }else if (self.viewType == ViewTypeControlView) {
         [self showControlView];
+    }else if (self.viewType == ViewTypeAirPlayView) {
+        [self showAirPlayView];
     }
+}
+
+- (void)showAirPlayView {
+    AirPlayView *airPV = [[AirPlayView alloc] initWithFrame:CGRectMake(100, 200, 100, 50)];
+    [airPV showBorderLine];
+    [self.view addSubview:airPV];
 }
 
 - (void)showControlView {
@@ -120,7 +147,9 @@
         panG.minimumNumberOfTouches = 1;
         panG.maximumNumberOfTouches = 1;
         [floatButton addGestureRecognizer:panG];
+        [floatButton addHoldMethod];
     }
+    ((AppDelegate *)[UIApplication sharedApplication].delegate).holdVC = self;
 }
 
 

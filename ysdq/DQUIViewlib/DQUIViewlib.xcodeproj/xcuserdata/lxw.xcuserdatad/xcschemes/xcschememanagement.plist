@@ -7,7 +7,25 @@
 		<key>DQUIViewlib.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>7</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>B1BBF00620F6F8E1005D59B2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B1BBF01E20F6F8E3005D59B2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B1BBF02920F6F8E3005D59B2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
