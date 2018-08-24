@@ -71,20 +71,29 @@
     }
     BOOL suc = [muArr writeToFile:[[WatchInfo documentPath] stringByAppendingPathComponent:@"infoFiles"] atomically:YES];
     if (suc) {
-        NSLog(@"%@",muArr);
+        NSLog(@"");
     }
     return muArr;
 }
 
 + (void)formatInfos:(NSArray<WatchInfo *> *)infos {
     NSMutableString *formatString = [NSMutableString string];
-    [formatString appendString:@"ORDER \b FL0 \b FL1 \b  VDL0 \b VDL1 \b  VDAP \n"];
+    for (AppendItem *item in [infos firstObject].appendItems) {
+        [formatString appendFormat:@"%@ \b",item.desc];
+    }
+    [formatString appendString:@"\n"];
+//    [formatString appendString:@"ORDER \b FL0 \b FL1 \b  VDL0 \b VDL1 \b  VDAP \n"];
     for (int i = 1; i <= infos.count; i ++) {
         WatchInfo *info = infos[i - 1];
         NSMutableString *rowString = [NSMutableString stringWithFormat:@"%d \b",i];
         [rowString appendString:[info rowFormatString]];
         [rowString appendString:@"\n"];
         [formatString appendString:rowString];
+    }
+    NSError *error = nil;
+    [formatString writeToFile:[[WatchInfo documentPath] stringByAppendingPathComponent:@"infotext"] atomically:YES encoding:NSUTF8StringEncoding error:&error];
+    if (error) {
+        NSLog(@"%@",error);
     }
     NSLog(@"\n%@",formatString);
 }

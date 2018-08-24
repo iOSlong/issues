@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DQUIViewlib/RoundButton/RoundButton.m"
-            timestampString = "556716701.464939"
+            timestampString = "556769666.024271"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "113"
@@ -74,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DQUIViewlib/RoundButton/RoundButton.m"
-            timestampString = "556716701.465009"
+            timestampString = "556769666.0243419"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "117"
@@ -96,22 +96,6 @@
             startingLineNumber = "154"
             endingLineNumber = "154"
             landmarkName = "-cancelTrackingWithEvent:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DQUIViewlib/Vendor/BLStopwatch/WatchInfo.m"
-            timestampString = "556716701.4651949"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "+formatInfos:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

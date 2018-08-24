@@ -169,10 +169,11 @@ typedef NS_ENUM(NSInteger, BLStopwatchState) {
     NSInteger launchTimes =  lastOne.launchTimes;
     return launchTimes + 1;
 }
+
 /** 保存当前下载信息到本地 */
 - (void)saveWatchInfo {
     NSInteger launchTimes = [self readWatchInfoLaunchCount];
-    if (launchTimes > 5) {
+    if (launchTimes > 10) {
         [WatchInfo clearAllWatchInfo];
         launchTimes = 1;
     }
@@ -184,8 +185,8 @@ typedef NS_ENUM(NSInteger, BLStopwatchState) {
     
     if ([self.watchInfo isSaveValidLaunch]) {
         BOOL suc = [self.watchInfo saveToDB];
-        NSLog(@"%@ - save:%d",self.watchInfo, suc);
     }
+    [self.watchInfo.appendItems removeAllObjects];
 }
 
 @end
