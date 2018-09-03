@@ -24,6 +24,7 @@
 		B16EC9CA20FF370A0046E688 /* CustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC9C920FF370A0046E688 /* CustomNavigationBar.m */; };
 		B16EC9CE20FF47620046E688 /* SASView.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC9CC20FF47620046E688 /* SASView.m */; };
 		B16EC9D120FF47A90046E688 /* UIView+SARRS.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC9CF20FF47A90046E688 /* UIView+SARRS.m */; };
+		B1858F5D2134F84F00ED7DBA /* logfile in Resources */ = {isa = PBXBuildFile; fileRef = B1858F5C2134F84F00ED7DBA /* logfile */; };
 		B187F74121251EE4003AA637 /* AirPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = B187F74021251EE4003AA637 /* AirPlayView.m */; };
 		B187F744212D0EEE003AA637 /* WatchInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B187F743212D0EEE003AA637 /* WatchInfo.m */; };
 		B18ADBB320FF57170096B8DA /* NavigationControllerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B18ADBB220FF57170096B8DA /* NavigationControllerListViewController.m */; };
@@ -90,6 +91,7 @@
 		B16EC9CD20FF47620046E688 /* SASView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASView.h; sourceTree = "<group>"; };
 		B16EC9CF20FF47A90046E688 /* UIView+SARRS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SARRS.m"; sourceTree = "<group>"; };
 		B16EC9D020FF47A90046E688 /* UIView+SARRS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SARRS.h"; sourceTree = "<group>"; };
+		B1858F5C2134F84F00ED7DBA /* logfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = logfile; sourceTree = "<group>"; };
 		B187F73F21251EE4003AA637 /* AirPlayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AirPlayView.h; sourceTree = "<group>"; };
 		B187F74021251EE4003AA637 /* AirPlayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirPlayView.m; sourceTree = "<group>"; };
 		B187F742212D0EEE003AA637 /* WatchInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WatchInfo.h; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				B12788F52109A83600217376 /* README.md */,
 				B187F742212D0EEE003AA637 /* WatchInfo.h */,
 				B187F743212D0EEE003AA637 /* WatchInfo.m */,
+				B1858F5C2134F84F00ED7DBA /* logfile */,
 			);
 			path = BLStopwatch;
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1858F5D2134F84F00ED7DBA /* logfile in Resources */,
 				B1BBF01720F6F8E3005D59B2 /* LaunchScreen.storyboard in Resources */,
 				B1BBF01420F6F8E3005D59B2 /* Assets.xcassets in Resources */,
 				B12788F92109A83600217376 /* README.md in Resources */,

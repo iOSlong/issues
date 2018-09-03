@@ -40,7 +40,7 @@ typedef NS_ENUM(NSInteger, BLStopwatchState) {
     dispatch_once(&onceToken, ^{
         stopwatch = [[BLStopwatch alloc] init];
     });
-
+    
     return stopwatch;
 }
 
@@ -72,7 +72,7 @@ typedef NS_ENUM(NSInteger, BLStopwatchState) {
         [output appendFormat:@"%@: %.3f\n", obj.allKeys.firstObject, obj.allValues.firstObject.doubleValue];
     }];
     pthread_mutex_unlock(&_lock);
-
+    
     return [output copy];
 }
 
@@ -101,21 +101,35 @@ typedef NS_ENUM(NSInteger, BLStopwatchState) {
     if (self.state != BLStopwatchStateRuning) {
         return;
     }
-
+    
+    //如果事件点重复，保留以一次的。
+    if ([self judgeDulpliacteDesc:description]) {
+        return;
+    }
+    
     NSTimeInterval temporaryTimeInterval = CACurrentMediaTime();
     CFTimeInterval splitTimeInterval = type == BLStopwatchSplitTypeMedian ? temporaryTimeInterval - self.temporaryTimeInterval : temporaryTimeInterval - self.startTimeInterval;
-
+    
     NSInteger count = self.mutableSplits.count + 1;
-
+    
     NSMutableString *finalDescription = [NSMutableString stringWithFormat:@"#%@", @(count)];
     if (description) {
         [finalDescription appendFormat:@" %@", description];
     }
-
+    
     pthread_mutex_lock(&_lock);
     [self.mutableSplits addObject:@{finalDescription : @(splitTimeInterval)}];
     pthread_mutex_unlock(&_lock);
     self.temporaryTimeInterval = temporaryTimeInterval;
+}
+
+- (BOOL)judgeDulpliacteDesc:(NSString *)description {
+    for (NSDictionary<NSString *,NSNumber *> *obj in self.mutableSplits) {
+        if ([obj.allKeys.firstObject containsString:description]) {
+            return YES;
+        }
+    }
+    return NO;
 }
 
 - (void)refreshMedianTime {
@@ -138,6 +152,9 @@ typedef NS_ENUM(NSInteger, BLStopwatchState) {
 }
 
 - (void)stopAndPresentResultsThenReset {
+    if (self.state == BLStopwatchStateStop) {
+        return;
+    }
     [[BLStopwatch sharedStopwatch] stop];
     NSString *version = [UIDevice currentDevice].systemVersion;
     if (version.intValue >= 9) {
@@ -159,6 +176,7 @@ typedef NS_ENUM(NSInteger, BLStopwatchState) {
     }
     [self saveWatchInfo];
     [[BLStopwatch sharedStopwatch] reset];
+    [WatchInfo readAllWatchInfo];
 }
 
 
@@ -173,7 +191,7 @@ typedef NS_ENUM(NSInteger, BLStopwatchState) {
 /** 保存当前下载信息到本地 */
 - (void)saveWatchInfo {
     NSInteger launchTimes = [self readWatchInfoLaunchCount];
-    if (launchTimes > 10) {
+    if (launchTimes > 20) {
         [WatchInfo clearAllWatchInfo];
         launchTimes = 1;
     }
@@ -185,8 +203,10 @@ typedef NS_ENUM(NSInteger, BLStopwatchState) {
     
     if ([self.watchInfo isSaveValidLaunch]) {
         BOOL suc = [self.watchInfo saveToDB];
+        if (suc) {
+            [self.watchInfo.appendItems removeAllObjects];
+        }
     }
-    [self.watchInfo.appendItems removeAllObjects];
 }
 
 @end

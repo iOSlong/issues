@@ -1,0 +1,61 @@
+Total pre-main time:  95.29 milliseconds (100.0%)
+         dylib loading time:  33.26 milliseconds (34.9%)
+        rebase/binding time:   4.34 milliseconds (4.5%)
+            ObjC setup time:  11.53 milliseconds (12.1%)
+           initializer time:  46.02 milliseconds (48.2%)
+           slowest intializers :
+             libSystem.B.dylib :   6.16 milliseconds (6.4%)
+   libBacktraceRecording.dylib :   5.89 milliseconds (6.1%)
+    libMainThreadChecker.dylib :  17.96 milliseconds (18.8%)
+                       ModelIO :   4.47 milliseconds (4.6%)
+                 MediaServices :   2.96 milliseconds (3.1%)
+                   DQUIViewlib :   1.91 milliseconds (2.0%)
+
+Total pre-main time:  96.60 milliseconds (100.0%)
+         dylib loading time:  32.18 milliseconds (33.3%)
+        rebase/binding time:   1.93 milliseconds (2.0%)
+            ObjC setup time:  10.67 milliseconds (11.0%)
+           initializer time:  51.67 milliseconds (53.4%)
+           slowest intializers :
+             libSystem.B.dylib :   6.74 milliseconds (6.9%)
+   libBacktraceRecording.dylib :   5.75 milliseconds (5.9%)
+    libMainThreadChecker.dylib :  21.70 milliseconds (22.4%)
+                       ModelIO :   5.27 milliseconds (5.4%)
+                 MediaServices :   4.66 milliseconds (4.8%)
+
+Total pre-main time:  98.36 milliseconds (100.0%)
+         dylib loading time:  36.11 milliseconds (36.7%)
+        rebase/binding time:   1.95 milliseconds (1.9%)
+            ObjC setup time:  11.31 milliseconds (11.5%)
+           initializer time:  48.84 milliseconds (49.6%)
+           slowest intializers :
+             libSystem.B.dylib :   6.53 milliseconds (6.6%)
+   libBacktraceRecording.dylib :   6.12 milliseconds (6.2%)
+    libMainThreadChecker.dylib :  19.34 milliseconds (19.6%)
+                       ModelIO :   5.77 milliseconds (5.8%)
+                 MediaServices :   3.39 milliseconds (3.4%)
+
+Total pre-main time:  85.39 milliseconds (100.0%)
+         dylib loading time:  30.92 milliseconds (36.2%)
+        rebase/binding time:   2.08 milliseconds (2.4%)
+            ObjC setup time:  10.05 milliseconds (11.7%)
+           initializer time:  42.19 milliseconds (49.4%)
+           slowest intializers :
+             libSystem.B.dylib :   5.11 milliseconds (5.9%)
+   libBacktraceRecording.dylib :   5.63 milliseconds (6.5%)
+    libMainThreadChecker.dylib :  17.32 milliseconds (20.2%)
+                       ModelIO :   4.51 milliseconds (5.2%)
+                 MediaServices :   2.72 milliseconds (3.1%)
+
+
+Average:
+Total pre-main time: 93.91
+===========
+
+0.2784	0.318	0.3886	0.3993	0.44980.2719	0.3139	0.3816	0.3927	0.44410.2728	0.3176	0.3851	0.3958	0.44560.2911	0.3366	0.405	0.4162	0.46640.2816	0.3322	0.3995	0.4108	0.45930.2722	0.3252	0.392	0.4037	0.45360.2787	0.3348	0.4025	0.4131	0.46240.1808	0.2344	0.3126	0.3253	0.38480.1849	0.2348	0.3113	0.323	0.38340.1897	0.2404	0.317	0.3297	0.39220.26	0.3273	0.5117	0.551	0.82940.2487	0.3067	0.3853	0.3967	0.4534
+
+Average:0.2509	0.301825	0.382683333	0.396441667	0.4687
+
+Model: iPhone 6: | iOS 11.0.1 (15A402) | Capacity: 26.7 GB (15.12 GB available)
+平均启动时长：(pre-main time)[0.94] + (appfinishLaunch_time + viewShow_time)[0.47] = 1.41s
+

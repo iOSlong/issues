@@ -1,0 +1,104 @@
+Model: iPhone 6s Plus | iOS 11.3.1 (15E302) | Capacity: 26.39 GB (3.12 GB available)
+
+sdsp-ext3:com.ysdqTV.iphone.client
+Total pre-main time: 1.2 seconds (100.0%)
+         dylib loading time:  99.83 milliseconds (7.7%)
+        rebase/binding time:  80.91 milliseconds (6.2%)
+            ObjC setup time: 220.36 milliseconds (17.0%)
+           initializer time: 891.87 milliseconds (68.9%)
+           slowest intializers :
+             libSystem.B.dylib :  10.28 milliseconds (0.7%)
+          libglInterpose.dylib : 188.25 milliseconds (14.5%)
+           FunTVServiceDynamic :  54.63 milliseconds (4.2%)
+                       PPTVSdk :  40.89 milliseconds (3.1%)
+                     sdsp-ext3 : 1.0 seconds (80.0%)
+
+
+Total pre-main time: 716.15 milliseconds (100.0%)
+         dylib loading time:  98.89 milliseconds (13.8%)
+        rebase/binding time:  53.06 milliseconds (7.4%)
+            ObjC setup time: 152.55 milliseconds (21.3%)
+           initializer time: 411.49 milliseconds (57.4%)
+           slowest intializers :
+             libSystem.B.dylib :  10.46 milliseconds (1.4%)
+    libMainThreadChecker.dylib :  14.76 milliseconds (2.0%)
+          libglInterpose.dylib :  96.56 milliseconds (13.4%)
+         libMTLInterpose.dylib :  18.12 milliseconds (2.5%)
+           FunTVServiceDynamic :  52.63 milliseconds (7.3%)
+                       PPTVSdk :  42.00 milliseconds (5.8%)
+                     sdsp-ext3 : 280.77 milliseconds (39.2%)
+
+Total pre-main time: 533.56 milliseconds (100.0%)
+         dylib loading time:  65.65 milliseconds (12.3%)
+        rebase/binding time:  43.62 milliseconds (8.1%)
+            ObjC setup time:  89.49 milliseconds (16.7%)
+           initializer time: 334.66 milliseconds (62.7%)
+           slowest intializers :
+             libSystem.B.dylib :  10.13 milliseconds (1.8%)
+    libMainThreadChecker.dylib :  12.64 milliseconds (2.3%)
+          libglInterpose.dylib :  78.99 milliseconds (14.8%)
+         libMTLInterpose.dylib :  15.91 milliseconds (2.9%)
+           FunTVServiceDynamic :  77.68 milliseconds (14.5%)
+                       PPTVSdk :  26.55 milliseconds (4.9%)
+                     sdsp-ext3 : 222.98 milliseconds (41.7%)
+
+Total pre-main time: 526.60 milliseconds (100.0%)
+         dylib loading time:  96.14 milliseconds (18.2%)
+        rebase/binding time:  42.97 milliseconds (8.1%)
+            ObjC setup time:  78.96 milliseconds (14.9%)
+           initializer time: 308.39 milliseconds (58.5%)
+           slowest intializers :
+             libSystem.B.dylib :   9.77 milliseconds (1.8%)
+    libMainThreadChecker.dylib :  13.01 milliseconds (2.4%)
+          libglInterpose.dylib :  82.79 milliseconds (15.7%)
+         libMTLInterpose.dylib :  15.37 milliseconds (2.9%)
+           FunTVServiceDynamic :  33.67 milliseconds (6.3%)
+                       PPTVSdk :  25.35 milliseconds (4.8%)
+                     sdsp-ext3 : 221.22 milliseconds (42.0%)
+
+Total pre-main time: 553.71 milliseconds (100.0%)
+         dylib loading time:  65.22 milliseconds (11.7%)
+        rebase/binding time:  80.02 milliseconds (14.4%)
+            ObjC setup time:  89.44 milliseconds (16.1%)
+           initializer time: 318.89 milliseconds (57.5%)
+           slowest intializers :
+             libSystem.B.dylib :   9.35 milliseconds (1.6%)
+    libMainThreadChecker.dylib :  12.97 milliseconds (2.3%)
+          libglInterpose.dylib :  82.26 milliseconds (14.8%)
+         libMTLInterpose.dylib :  25.34 milliseconds (4.5%)
+           FunTVServiceDynamic :  32.63 milliseconds (5.8%)
+                       PPTVSdk :  26.67 milliseconds (4.8%)
+                     sdsp-ext3 : 221.13 milliseconds (39.9%)
+
+Average:
+Total pre-main time: 582.505
+
+
+=====================
+#1 FL0	 #2 FL1 	#3 VDL0 	#4 VDL1 	 #5 VDAP 
+3.2784 	 5.5555 	 7.1235 	 7.6652 	 8.0213 
+2.1543 	 3.9903 	 5.1059 	 5.5660 	 5.6885 
+2.1505 	 3.7130 	 4.7058 	 4.9895 	 5.1802 
+2.1377 	 3.6323 	 4.6782 	 5.1280 	 5.4020 
+2.1261 	 3.6973 	 4.8148 	 5.3656 	 5.5216 
+2.1149 	 3.5932 	 4.5314 	 4.9159 	 5.1520 
+
+0.5521 	 1.7873 	 2.7558 	 3.0800 	 3.2291 
+0.5654 	 1.8069 	 2.7670 	 3.0004 	 3.2562 
+0.5588 	 1.7672 	 2.8366 	 3.1925 	 3.3447 
+0.5687 	 1.7606 	 2.7734 	 3.1004 	 3.2524 
+0.5685 	 1.7649 	 2.7068 	 3.0275 	 3.1818 
+0.6095 	 1.9363 	 3.1530 	 3.4252 	 3.6266 
+0.6435 	 1.9399 	 3.1201 	 3.4190 	 3.6297 
+0.5437 	 1.6991 	 2.6439 	 2.9033 	 3.0967 
+0.5462 	 1.7336 	 2.7827 	 3.1256 	 3.2733 
+0.5401 	 1.7401 	 2.7050 	 3.0083 	 3.1766 
+
+Average:
+2.32698	 4.03027	5.15993		5.605033333	5.82760.55877	 1.79359	2.82443		3.12822		3.30671
+
+
+Model: iPhone 6s Plus | iOS 11.3.1 (15E302) | Capacity: 26.39 GB (3.12 GB available)
+平均启动时长：(pre-main time) + (appfinishLaunch_time + viewShow_time) = 3.89s
+
+

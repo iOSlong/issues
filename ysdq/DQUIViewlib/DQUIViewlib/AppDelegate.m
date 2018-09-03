@@ -11,7 +11,6 @@
 #import "NavigationControllerListViewController.h"
 #import "WatchInfo.h"
 
-
 @interface AppDelegate ()
 
 @end
@@ -23,6 +22,8 @@
     // Override point for customization after application launch.
 //    [[BLStopwatch sharedStopwatch] splitWithDescription:@"didFinishLaunchBegin"];
     [[BLStopwatch sharedStopwatch] splitWithType:BLStopwatchSplitTypeContinuous description:WATCH_FINISHLAUNCH0];
+    
+    [WatchInfo logParse:nil];
     
     NSArray *infos =  [WatchInfo readAllWatchInfo];
 #if CUSTOM_BAR_STYLE

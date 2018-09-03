@@ -1,0 +1,99 @@
+Model: iPad (5th generation) (Model A1822)	iOS 10.3.3 (14G60)
+======
+======
+sdsp-ext3：com.ysdqTV.iphone.client
+==========
+Total pre-main time: 507.69 milliseconds (100.0%)
+         dylib loading time: 123.55 milliseconds (24.3%)
+        rebase/binding time:  67.01 milliseconds (13.2%)
+            ObjC setup time:  52.87 milliseconds (10.4%)
+           initializer time: 264.15 milliseconds (52.0%)
+           slowest intializers :
+             libSystem.B.dylib :   5.19 milliseconds (1.0%)
+          libglInterpose.dylib :  55.43 milliseconds (10.9%)
+         libMTLInterpose.dylib :  14.21 milliseconds (2.7%)
+           FunTVServiceDynamic :  39.99 milliseconds (7.8%)
+                       PPTVSdk :  33.05 milliseconds (6.5%)
+                     sdsp-ext3 : 204.88 milliseconds (40.3%)
+
+Total pre-main time: 508.18 milliseconds (100.0%)
+         dylib loading time: 122.35 milliseconds (24.0%)
+        rebase/binding time:  34.36 milliseconds (6.7%)
+            ObjC setup time:  78.49 milliseconds (15.4%)
+           initializer time: 272.88 milliseconds (53.6%)
+             libSystem.B.dylib :   9.97 milliseconds (1.9%)
+   libBacktraceRecording.dylib :  10.49 milliseconds (2.0%)
+          libglInterpose.dylib :  58.14 milliseconds (11.4%)
+         libMTLInterpose.dylib :  14.48 milliseconds (2.8%)
+           FunTVServiceDynamic :  50.03 milliseconds (9.8%)
+                       PPTVSdk :  40.42 milliseconds (7.9%)
+                     sdsp-ext3 : 176.18 milliseconds (34.6%)
+
+
+Total pre-main time: 426.66 milliseconds (100.0%)
+         dylib loading time: 126.05 milliseconds (29.5%)
+        rebase/binding time:  31.06 milliseconds (7.2%)
+            ObjC setup time:  37.27 milliseconds (8.7%)
+           initializer time: 232.18 milliseconds (54.4%)
+             libSystem.B.dylib :   4.53 milliseconds (1.0%)
+          libglInterpose.dylib :  40.17 milliseconds (9.4%)
+         libMTLInterpose.dylib :  23.23 milliseconds (5.4%)
+           FunTVServiceDynamic :  38.37 milliseconds (8.9%)
+                       PPTVSdk :  29.56 milliseconds (6.9%)
+ext3 : 171.02 milliseconds (40.0%)
+
+
+Total pre-main time: 478.87 milliseconds (100.0%)
+         dylib loading time: 119.89 milliseconds (25.0%)
+        rebase/binding time:  29.98 milliseconds (6.2%)
+            ObjC setup time:  52.04 milliseconds (10.8%)
+           initializer time: 276.86 milliseconds (57.8%)
+             libSystem.B.dylib :   6.31 milliseconds (1.3%)
+          libglInterpose.dylib :  64.05 milliseconds (13.3%)
+         libMTLInterpose.dylib :  15.13 milliseconds (3.1%)
+           FunTVServiceDynamic :  48.90 milliseconds (10.2%)
+                       PPTVSdk :  33.48 milliseconds (6.9%)
+                     sdsp-ext3 : 193.43 milliseconds (40.3%)
+
+Total pre-main time: 530.55 milliseconds (100.0%)
+         dylib loading time: 124.32 milliseconds (23.4%)
+        rebase/binding time:  51.60 milliseconds (9.7%)
+            ObjC setup time:  78.16 milliseconds (14.7%)
+           initializer time: 276.37 milliseconds (52.0%)
+             libSystem.B.dylib :   8.87 milliseconds (1.6%)
+          libglInterpose.dylib :  67.97 milliseconds (12.8%)
+         libMTLInterpose.dylib :  16.26 milliseconds (3.0%)
+           FunTVServiceDynamic :  45.09 milliseconds (8.4%)
+                       PPTVSdk :  36.66 milliseconds (6.9%)
+                     sdsp-ext3 : 175.35
+
+Total pre-main time: 527.10 milliseconds (100.0%)
+         dylib loading time: 119.42 milliseconds (22.6%)
+        rebase/binding time:  30.26 milliseconds (5.7%)
+            ObjC setup time:  54.97 milliseconds (10.4%)
+           initializer time: 322.35 milliseconds (61.1%)
+             libSystem.B.dylib :   6.42 milliseconds (1.2%)
+          libglInterpose.dylib :  74.21 milliseconds (14.0%)
+         libMTLInterpose.dylib :  14.44 milliseconds (2.7%)
+           FunTVServiceDynamic :  51.47 milliseconds (9.7%)
+                       PPTVSdk :  34.90 milliseconds (6.6%)
+                     sdsp-ext3 : 246.42 milliseconds (46.7%)
+
+#1 FL0 #2 FL1 #3 VDL0 #4 VDL1 #5 VDL1 #6 VDAP 
+1 0.1724 	 1.1609 	 1.9988 	 2.2500 	 2.3564 
+2 0.2245 	 1.2249 	 1.9797 	 2.2837 	 2.4212 
+3 0.0782 	 0.9002 	 1.5579 	 1.9697 	 2.1205 
+4 0.0803 	 0.9083 	 1.6249 	 1.7725 	 1.9384 
+5 0.0785 	 0.8729 	 1.6899 	 1.9461 	 2.1631 
+6 0.0826 	 0.8898 	 1.5338 	 1.9380 	 2.1901 
+7 0.0769 	 0.9040 	 1.5679 	 1.9514 	 2.0629 
+8 0.0763 	 0.8629 	 1.4998 	 1.7531 	 1.8298 
+
+ave：0.1087125	0.9654875	1.6815875	1.9830625	2.1353
+========================================================================
+ysdq_iPad:com.ysdqHD1.Le123PhoneClient
+=========
+
+
+
+

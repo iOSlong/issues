@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <JSONModel/JSONModel.h>
 
-
 #define WATCH_FINISHLAUNCH0     @"FL0"
 #define WATCH_FINISHLAUNCH1     @"FL1"
 #define WATCH_VIEWDIDLOAD0      @"VDL0"
@@ -34,5 +33,17 @@
 + (void)clearAllWatchInfo;
 + (NSArray *)readAllWatchInfo;
 - (BOOL)isSaveValidLaunch;
-
++ (void)logParse:(NSURL *)fileUrl;
 @end
+
+
+
+
+
+
+
+
+
+
+
+

@@ -8,6 +8,64 @@
 
 #import "WatchInfo.h"
 
+#define watchInfoFile  @"watchInfoFile"
+
+NSArray * logComponentsFrom(NSString *fileContent, NSString *prefix){
+    @try {
+        NSString *pattern = prefix;
+        NSRegularExpression *regexExp = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:nil];
+        NSArray *matches = [regexExp matchesInString:fileContent options:0 range:NSMakeRange(0, fileContent.length)];
+        
+        NSMutableArray  *logComponents = [NSMutableArray array];
+        for (int i = 0;  i < matches.count - 1 ; i++ ) {
+            NSTextCheckingResult *crH = matches[i];
+            NSTextCheckingResult *crT = matches[i+1];
+            NSRange rangeH = [crH range];
+            NSRange rangeT = [crT range];
+            NSRange groupRange = NSMakeRange(rangeH.location, rangeT.location - rangeH.location);
+            NSString *logGroup = [fileContent substringWithRange:groupRange];
+            [logComponents addObject:logGroup];
+            if (i+1 == matches.count - 1) {
+                [logComponents addObject:[fileContent substringFromIndex:rangeT.location]];
+            }
+        }
+        return logComponents;
+    } @catch (NSException *exception) {
+        NSLog(@"%@",exception);
+    }
+}
+
+NSString * purelyRowLog(NSString *rowlog) {
+    NSString *purely = [rowlog stringByReplacingOccurrencesOfString:@"\t" withString:@""];
+    purely = [rowlog stringByReplacingOccurrencesOfString:@"milliseconds" withString:@""];
+    return purely;
+}
+
+NSDictionary * parseInfoFromPre_mainLog(NSString *logcomponent) {
+    @try {
+        NSArray *logrows = [logcomponent componentsSeparatedByString:@"\n"];
+        NSMutableDictionary *validrowlog = [NSMutableDictionary dictionary];
+        for (NSString *rowlog in logrows) {
+            if ([rowlog containsString:@":"]) {
+                NSString *purelyRow = purelyRowLog(rowlog);
+                NSArray *rowcomponents = [purelyRow componentsSeparatedByString:@":"];
+                [validrowlog setObject:rowcomponents.lastObject forKey:rowcomponents.firstObject];
+            }
+        }
+        return validrowlog;
+    } @catch (NSException *exception) {
+        NSLog(@"%@",exception);
+    }
+}
+
+NSString *fileDocumentPath() {
+    NSArray  *directoryArr      = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentDirectory = directoryArr.firstObject;
+    return documentDirectory;
+}
+
+
+
 @implementation AppendItem
 - (instancetype)initWith:(NSDictionary<NSString *,NSNumber *> *)info {
     self = [super init];
@@ -31,18 +89,12 @@
 #pragma mark - WatchInfo
 @implementation WatchInfo
 
-+ (NSString *)documentPath {
-    NSArray  *directoryArr      = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentDirectory = directoryArr.firstObject;
-    return documentDirectory;
-}
-
 + (LKDBHelper *)getUsingLKDBHelper {
     static id db;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        NSString *dbPath = [[WatchInfo documentPath] stringByAppendingString:@"databases"];
-        dbPath = [dbPath stringByAppendingString:@"WatchInfo.db"];
+        NSString *dbPath = [fileDocumentPath() stringByAppendingPathComponent:watchInfoFile];
+        dbPath = [dbPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.db",NSStringFromClass([self class])]];
         db = [[LKDBHelper alloc] initWithDBPath:dbPath];
     });
     return db;
@@ -69,10 +121,6 @@
     for (WatchInfo *info in infos) {
         [muArr addObject:[info toJSONString]];
     }
-    BOOL suc = [muArr writeToFile:[[WatchInfo documentPath] stringByAppendingPathComponent:@"infoFiles"] atomically:YES];
-    if (suc) {
-        NSLog(@"");
-    }
     return muArr;
 }
 
@@ -82,7 +130,6 @@
         [formatString appendFormat:@"%@ \b",item.desc];
     }
     [formatString appendString:@"\n"];
-//    [formatString appendString:@"ORDER \b FL0 \b FL1 \b  VDL0 \b VDL1 \b  VDAP \n"];
     for (int i = 1; i <= infos.count; i ++) {
         WatchInfo *info = infos[i - 1];
         NSMutableString *rowString = [NSMutableString stringWithFormat:@"%d \b",i];
@@ -91,11 +138,8 @@
         [formatString appendString:rowString];
     }
     NSError *error = nil;
-    [formatString writeToFile:[[WatchInfo documentPath] stringByAppendingPathComponent:@"infotext"] atomically:YES encoding:NSUTF8StringEncoding error:&error];
-    if (error) {
-        NSLog(@"%@",error);
-    }
-    NSLog(@"\n%@",formatString);
+    NSString *dbPath = [fileDocumentPath() stringByAppendingPathComponent:watchInfoFile];
+    [formatString writeToFile:[dbPath stringByAppendingPathComponent:@"static_funtime"] atomically:YES encoding:NSUTF8StringEncoding error:&error];
 }
 
 + (void)clearAllWatchInfo {
@@ -136,6 +180,43 @@
     CFTimeInterval VDL1 = [self timeDock:WATCH_VIEWDIDLOAD1];
     CFTimeInterval VDAP = [self timeDock:WATCH_VIEWDIDAPPEAR];
     return [NSString stringWithFormat:@"%.4f \t %.4f \t %.4f \t %.4f \t %.4f ",FL0,FL1,VDL0,VDL1,VDAP];
+}
+
+#pragma mark - Pre-main log parse
++ (void)logParse:(NSURL *)fileUrl {
+    NSURL *url = fileUrl;
+    if (!url) {
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"logfile" ofType:nil];
+        url = [NSURL fileURLWithPath:path];
+    }
+    NSError *error = nil;
+    NSString *fileContent = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
+    if (!error) {
+        NSArray *logrows = logComponentsFrom(fileContent, @"Total pre-main");
+        NSMutableArray *logcomponents = [NSMutableArray arrayWithCapacity:logrows.count];
+        for (NSString *rowlog in logrows) {
+            [logcomponents addObject:parseInfoFromPre_mainLog(rowlog)];
+        }
+        [logcomponents sortUsingComparator:^NSComparisonResult(NSDictionary *obj1, NSDictionary *obj2) {
+            return obj1.allKeys.count < obj2.allKeys.count;
+        }];
+        NSDictionary *bigcomponent = logcomponents.firstObject;
+        NSMutableString *formatLog = [NSMutableString string];
+        [formatLog appendString:[bigcomponent.allKeys componentsJoinedByString:@"\t"]];
+        [formatLog appendString:@"\n"];
+        for (NSDictionary *logcomponent in logcomponents) {
+            for (NSString *key in bigcomponent.allKeys) {
+                [formatLog appendString:[logcomponent objectForKey:key]?:@"0"];
+                [formatLog appendString:@"\t"];
+            }
+            [formatLog appendString:@"\n"];
+        }
+
+        NSLog(@"%@",formatLog);
+        NSError *error = nil;
+        NSString *dbPath = [fileDocumentPath() stringByAppendingPathComponent:watchInfoFile];
+        [formatLog writeToFile:[dbPath stringByAppendingPathComponent:@"pre-main_static"] atomically:YES encoding:NSUTF8StringEncoding error:&error];
+    }
 }
 
 @end
