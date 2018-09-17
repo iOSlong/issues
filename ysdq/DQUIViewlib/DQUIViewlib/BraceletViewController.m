@@ -15,6 +15,7 @@
 #import "ControlView.h"
 #import "AirPlayView.h"
 #import "AppDelegate.h"
+#import "ApostropheAnimationView.h"
 
 @interface BraceletViewController ()
 @property (nonatomic, strong) BraceletView  *braceletView;
@@ -84,7 +85,21 @@
         [self showControlView];
     }else if (self.viewType == ViewTypeAirPlayView) {
         [self showAirPlayView];
+    }else if (self.viewType == ViewTypeApostropheAnimationView) {
+        [self showApostropheAnimationView];
     }
+}
+
+- (void)showApostropheAnimationView {
+    ApostropheAnimationView *apostropheV = [[ApostropheAnimationView alloc] initWithFrame:CGRectMake(100, 100, 200, 30)];
+    [self.view addSubview:apostropheV];
+    
+    BOOL noen = apostropheV.isTestBoolValue;
+    noen = apostropheV.testBoolValue;
+    apostropheV.testBoolValue = YES;
+    noen = apostropheV.isTestBoolValue;
+    noen = apostropheV.testBoolValue;
+    noen = NO;
 }
 
 - (void)showAirPlayView {

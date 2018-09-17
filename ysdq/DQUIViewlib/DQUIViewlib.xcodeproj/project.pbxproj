@@ -40,6 +40,7 @@
 		B1BBF03E20F6F9C2005D59B2 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BBF03D20F6F9C2005D59B2 /* BaseViewController.m */; };
 		B1BBF04120F6FA0F005D59B2 /* BraceletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BBF04020F6FA0F005D59B2 /* BraceletViewController.m */; };
 		B1BBF04520F6FA30005D59B2 /* BraceletView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BBF04420F6FA30005D59B2 /* BraceletView.m */; };
+		B1F5AEF3214F5C3B0060E50D /* ApostropheAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F5AEF2214F5C3B0060E50D /* ApostropheAnimationView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +123,8 @@
 		B1BBF04020F6FA0F005D59B2 /* BraceletViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BraceletViewController.m; sourceTree = "<group>"; };
 		B1BBF04320F6FA30005D59B2 /* BraceletView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BraceletView.h; sourceTree = "<group>"; };
 		B1BBF04420F6FA30005D59B2 /* BraceletView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BraceletView.m; sourceTree = "<group>"; };
+		B1F5AEF1214F5C3B0060E50D /* ApostropheAnimationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApostropheAnimationView.h; sourceTree = "<group>"; };
+		B1F5AEF2214F5C3B0060E50D /* ApostropheAnimationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApostropheAnimationView.m; sourceTree = "<group>"; };
 		B966A24DEFCE73E3B23FF0AD /* libPods-DQUIViewlib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DQUIViewlib.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1E3F50653C3287E5EBF2176 /* libPods-DQUIViewlibUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DQUIViewlibUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79104D1D50D9F8C32E66F51 /* Pods-DQUIViewlib.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DQUIViewlib.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DQUIViewlib/Pods-DQUIViewlib.debug.xcconfig"; sourceTree = "<group>"; };
@@ -294,6 +297,7 @@
 		B1BBF00920F6F8E1005D59B2 /* DQUIViewlib */ = {
 			isa = PBXGroup;
 			children = (
+				B1F5AEF0214F5C220060E50D /* ApostropheAnimationView */,
 				B187F73E21251EB9003AA637 /* AirPlayView */,
 				B12AE742211C1CBC008AD800 /* ControlView */,
 				B10FC4C2211AC379009715CA /* bezierPathView */,
@@ -351,6 +355,15 @@
 				B1BBF04420F6FA30005D59B2 /* BraceletView.m */,
 			);
 			path = bracelet;
+			sourceTree = "<group>";
+		};
+		B1F5AEF0214F5C220060E50D /* ApostropheAnimationView */ = {
+			isa = PBXGroup;
+			children = (
+				B1F5AEF1214F5C3B0060E50D /* ApostropheAnimationView.h */,
+				B1F5AEF2214F5C3B0060E50D /* ApostropheAnimationView.m */,
+			);
+			path = ApostropheAnimationView;
 			sourceTree = "<group>";
 		};
 		B51FFD726940C073CFD44B2D /* Frameworks */ = {
@@ -572,6 +585,7 @@
 				B187F74121251EE4003AA637 /* AirPlayView.m in Sources */,
 				B12788E5210702AB00217376 /* NavBarShowHiddenViewController.m in Sources */,
 				B187F744212D0EEE003AA637 /* WatchInfo.m in Sources */,
+				B1F5AEF3214F5C3B0060E50D /* ApostropheAnimationView.m in Sources */,
 				B16EC97620F843770046E688 /* SingleViewLibTableViewController.m in Sources */,
 				B12788F72109A83600217376 /* BLStopwatch.m in Sources */,
 				B18ADBB320FF57170096B8DA /* NavigationControllerListViewController.m in Sources */,
