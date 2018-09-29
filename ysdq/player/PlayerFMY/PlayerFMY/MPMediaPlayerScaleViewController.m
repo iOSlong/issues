@@ -74,14 +74,29 @@
 - (void)setVideoPlaySize:(CGSize)size {
     [self.videoView setFrame:CGRectMake(20, _locationY, size.width, size.height)];
 }
+- (IBAction)resetPlayer:(id)sender {
+    [self setUpMPMediaController];
+}
 
 - (void)setUpMPMediaController {
     // 创建本地URL（也可创建基于网络的URL)
     NSURL *videoUrl = self.videoUrls[2];
+    NSTimeInterval dateA = [[NSDate date] timeIntervalSince1970];
+
+    if (self.videoPlayer != nil) {
+        [self.videoPlayer stop];
+        [self.videoPlayer.view removeFromSuperview];
+        self.videoPlayer = nil;
+    }
+    
     MPMoviePlayerController *moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:videoUrl];
+    moviePlayer.repeatMode = MPMovieRepeatModeNone;
+    moviePlayer.shouldAutoplay = NO;
+    moviePlayer.movieSourceType = MPMovieSourceTypeUnknown;
+    moviePlayer.view.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     
-    moviePlayer.controlStyle = MPMovieControlStyleEmbedded;
-    
+//    moviePlayer.controlStyle = MPMovieControlStyleEmbedded;
+    moviePlayer.controlStyle = MPMovieControlStyleNone;
     // 设置该播放器的缩放模式
     moviePlayer.scalingMode = MPMovieScalingModeAspectFit;
     
@@ -92,8 +107,20 @@
     }];
 
     self.videoPlayer = moviePlayer;
+    
+    
+    
+    NSTimeInterval dateB = [[NSDate date] timeIntervalSince1970];
+    if (dateB - dateA >= 1) {
+        NSLog(@"耗时超过一秒！");
+        NSLog(@"\n %f, \n %f, \n",dateA, dateB);
+    }else {
+        NSLog(@"\n %f, \n %f, \n",dateA, dateB);
+    }
+
 }
 - (IBAction)changeEpisodeSegment:(UISegmentedControl *)sender {
+    [self setUpMPMediaController];
     NSURL *videoUrl = self.videoUrls[sender.selectedSegmentIndex];
     self.videoPlayer.contentURL = videoUrl;
     [self.videoPlayer play];

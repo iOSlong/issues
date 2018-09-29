@@ -307,6 +307,14 @@
                                     <action selector="changeEpisodeSegment:" destination="MqX-5q-xva" eventType="valueChanged" id="Urt-KG-5Zb"/>
                                 </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YQa-Jv-1mt">
+                                <rect key="frame" x="55" y="532" width="264" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="_setUpNewPlayer"/>
+                                <connections>
+                                    <action selector="resetPlayer:" destination="MqX-5q-xva" eventType="touchUpInside" id="HGL-dk-ygT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -622,7 +630,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yMu-dP-JyP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3012" y="2042"/>
+            <point key="canvasLocation" x="3012" y="2041.529235382309"/>
         </scene>
     </scenes>
 </document>

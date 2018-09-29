@@ -39,6 +39,6 @@ typedef NS_ENUM(NSUInteger, Dispatch_type) {
     Dispatch_type_group_async,
 };
 
-@interface FuncViewController : UIViewController
+@interface DispatchFuncViewController : UIViewController
 @property (nonatomic, assign) GCDFunc type;
 @end

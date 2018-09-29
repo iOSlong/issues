@@ -7,7 +7,7 @@
 //
 
 #import "HandleTableViewController.h"
-#import "FuncViewController.h"
+#import "DispatchFuncViewController.h"
 
 @interface HandleTableViewController ()
 
@@ -28,7 +28,7 @@
  */
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    FuncViewController *funcVC = segue.destinationViewController;
+    DispatchFuncViewController *funcVC = segue.destinationViewController;
     funcVC.title = @"gcd-func";
     if ([segue.identifier isEqualToString:@"sync-concurrent"]) {
         funcVC.type = GCDFuncSYNC_CONCURRENT;

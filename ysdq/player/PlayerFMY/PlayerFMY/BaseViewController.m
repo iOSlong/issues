@@ -18,7 +18,8 @@
     [super viewDidLoad];
     NSURL *videoUrl1 = [[NSBundle mainBundle] URLForResource:@"WeChatSight15153" withExtension:@"mp4"];
     NSURL *videoUrl2 = [[NSBundle mainBundle] URLForResource:@"fat_rabbit" withExtension:@"mov"];
-    NSURL *videoUrl3 = [NSURL URLWithString:VIDEO_URL_KOREA_DRAMA_MP4];
+//    NSURL *videoUrl3 = [NSURL URLWithString:VIDEO_URL_KOREA_DRAMA_MP4];
+    NSURL *videoUrl3 = [[NSBundle mainBundle] URLForResource:@"icebinfire" withExtension:@"mp4"];
     self.videoUrls = @[videoUrl1,videoUrl2,videoUrl3];
 }
 

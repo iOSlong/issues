@@ -15,6 +15,7 @@
 		B12788F72109A83600217376 /* BLStopwatch.m in Sources */ = {isa = PBXBuildFile; fileRef = B12788F32109A83500217376 /* BLStopwatch.m */; };
 		B12788F92109A83600217376 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B12788F52109A83600217376 /* README.md */; };
 		B12AE745211C1CE9008AD800 /* ControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = B12AE744211C1CE9008AD800 /* ControlView.m */; };
+		B16309E8215CD9A10027DA51 /* MPLoadTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B16309E7215CD9A10027DA51 /* MPLoadTestViewController.m */; };
 		B16EC97620F843770046E688 /* SingleViewLibTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC97520F843770046E688 /* SingleViewLibTableViewController.m */; };
 		B16EC97A20F848DE0046E688 /* TBGradientLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC97820F848DE0046E688 /* TBGradientLayerView.m */; };
 		B16EC97D20F84D470046E688 /* GradientLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC97C20F84D470046E688 /* GradientLayerView.m */; };
@@ -73,6 +74,8 @@
 		B12788F62109A83600217376 /* BLStopwatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLStopwatch.h; sourceTree = "<group>"; };
 		B12AE743211C1CE9008AD800 /* ControlView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ControlView.h; sourceTree = "<group>"; };
 		B12AE744211C1CE9008AD800 /* ControlView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ControlView.m; sourceTree = "<group>"; };
+		B16309E6215CD9A10027DA51 /* MPLoadTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPLoadTestViewController.h; sourceTree = "<group>"; };
+		B16309E7215CD9A10027DA51 /* MPLoadTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPLoadTestViewController.m; sourceTree = "<group>"; };
 		B16EC97420F843770046E688 /* SingleViewLibTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingleViewLibTableViewController.h; sourceTree = "<group>"; };
 		B16EC97520F843770046E688 /* SingleViewLibTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SingleViewLibTableViewController.m; sourceTree = "<group>"; };
 		B16EC97820F848DE0046E688 /* TBGradientLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBGradientLayerView.m; sourceTree = "<group>"; };
@@ -200,6 +203,15 @@
 			path = ControlView;
 			sourceTree = "<group>";
 		};
+		B16309E5215CD9790027DA51 /* VCS */ = {
+			isa = PBXGroup;
+			children = (
+				B16309E6215CD9A10027DA51 /* MPLoadTestViewController.h */,
+				B16309E7215CD9A10027DA51 /* MPLoadTestViewController.m */,
+			);
+			path = VCS;
+			sourceTree = "<group>";
+		};
 		B16EC97720F845610046E688 /* gradient */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,6 +327,7 @@
 				B16EC97E20F875ED0046E688 /* header */,
 				B1BBF01520F6F8E3005D59B2 /* LaunchScreen.storyboard */,
 				B1BBF01820F6F8E3005D59B2 /* Info.plist */,
+				B16309E5215CD9790027DA51 /* VCS */,
 				B1BBF01920F6F8E3005D59B2 /* main.m */,
 				B16EC97420F843770046E688 /* SingleViewLibTableViewController.h */,
 				B16EC97520F843770046E688 /* SingleViewLibTableViewController.m */,
@@ -589,6 +602,7 @@
 				B16EC97620F843770046E688 /* SingleViewLibTableViewController.m in Sources */,
 				B12788F72109A83600217376 /* BLStopwatch.m in Sources */,
 				B18ADBB320FF57170096B8DA /* NavigationControllerListViewController.m in Sources */,
+				B16309E8215CD9A10027DA51 /* MPLoadTestViewController.m in Sources */,
 				B1BBF03E20F6F9C2005D59B2 /* BaseViewController.m in Sources */,
 				B16EC97A20F848DE0046E688 /* TBGradientLayerView.m in Sources */,
 				B18ADBB620FF582D0096B8DA /* NavigationSubViewController.m in Sources */,

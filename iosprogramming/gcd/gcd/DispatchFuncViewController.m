@@ -7,17 +7,25 @@
 //
 // 参考文档： https://juejin.im/post/5a90de68f265da4e9b592b40
 
-#import "FuncViewController.h"
+#import "DispatchFuncViewController.h"
+#import "DispatchQueueManager.h"
 
-@interface FuncViewController ()
+@interface DispatchFuncViewController ()
 @property (nonatomic, assign) NSInteger ticketSurplusCount;
 @property (nonatomic, strong) dispatch_semaphore_t semaphoreLock;
 @end
 
-@implementation FuncViewController
+@implementation DispatchFuncViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    UIActivityIndicatorView *actIV = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    actIV.backgroundColor = [UIColor redColor];
+    actIV.frame = CGRectMake(100, 100, 100, 100);
+    [self.view addSubview:actIV];
+    [actIV startAnimating];
     
 }
 
@@ -142,14 +150,26 @@ void asyncQueueTasks(dispatch_queue_t queue, int taskNum) {
 /**
  * 同步执行 + 并发队列
  * 特点：在当前线程中执行任务，不会开启新线程，执行完一个任务，再执行下一个任务。
+ 
+ >> 所有任务都是在当前线程（主线程）中执行的，没有开启新的线程（同步执行不具备开启新线程的能力）。
+ >> 所有任务都在打印的syncConcurrent---begin和syncConcurrent---end之间执行的（同步任务需要等待队列的任务执行结束）。
+ >> 任务按顺序执行的。按顺序执行的原因：虽然并发队列可以开启多个线程，并且同时执行多个任务。但是因为本身不能创建新线程，只有当前线程这一个线程（同步任务不具备开启新线程的能力），所以也就不存在并发。而且当前线程只有等待当前队列中正在执行的任务执行完毕之后，才能继续接着执行下面的操作（同步任务需要等待队列的任务执行结束）。所以任务只能一个接一个按顺序执行，不能同时被执行。
+ 
  */
 - (void)dispatch_sync_concurrent {
     NSLog(@"currentThread---%@",[NSThread currentThread]);  // 打印当前线程
     NSLog(@"syncConcurrent---begin");
     
+   
     dispatch_queue_t queue = dispatch_queue_create("net.my.testQueue", DISPATCH_QUEUE_CONCURRENT);
-    
     syncQueueTasks(queue, 3);
+    
+    
+    for (int i = 4; i <= 6; i++) {
+        [[DispatchQueueManager shared] sync:^{
+            excuteTask(i);
+        } model:DispatchQueueModeConcurrent];
+    }
     
     NSLog(@"syncConcurrent---end");
 }
@@ -165,8 +185,14 @@ void asyncQueueTasks(dispatch_queue_t queue, int taskNum) {
     NSLog(@"asyncConcurrent---begin");
     
     dispatch_queue_t queue = dispatch_queue_create("net.my.testQueue", DISPATCH_QUEUE_CONCURRENT);
-    
     asyncQueueTasks(queue,3);
+    
+    
+    for (int i = 4; i <= 6; i++) {
+        [[DispatchQueueManager shared] async:^{
+            excuteTask(i);
+        } model:DispatchQueueModeConcurrent];
+    }
     
     NSLog(@"asyncConcurrent---end");
 }
@@ -181,8 +207,16 @@ void asyncQueueTasks(dispatch_queue_t queue, int taskNum) {
     NSLog(@"syncSerial---begin");
     
     dispatch_queue_t queue = dispatch_queue_create("net.my.testQueue", DISPATCH_QUEUE_SERIAL);
-    
     syncQueueTasks(queue, 5);
+    
+    
+    for (int i = 4; i <= 6; i++) {
+        [[DispatchQueueManager shared] sync:^{
+            excuteTask(i);
+        } model:DispatchQueueModeSerial];
+    }
+    
+
     
     NSLog(@"syncSerial---end");
 }
@@ -199,8 +233,21 @@ void asyncQueueTasks(dispatch_queue_t queue, int taskNum) {
     
     dispatch_queue_t queue = dispatch_queue_create("net.my.testQueue", DISPATCH_QUEUE_SERIAL);
     
-    asyncQueueTasks(queue, 10);
+    asyncQueueTasks(queue, 5);
     
+//    DispatchQueueModeYYQueuePool
+
+    
+    for (int i = 6; i <= 10; i++) {
+        [[DispatchQueueManager shared] addAsync:^{
+            excuteTask(i);
+        } model:DispatchQueueModeSerial];
+
+//        [[DispatchQueueManager shared] async:^{
+//            excuteTask(i);
+//        } model:DispatchQueueModeSerial];
+    }
+
     NSLog(@"asyncSerial---end");
 }
 
@@ -216,8 +263,14 @@ void asyncQueueTasks(dispatch_queue_t queue, int taskNum) {
     NSLog(@"syncMain---begin");
     
     dispatch_queue_t queue = dispatch_get_main_queue();
-    
+
     syncQueueTasks(queue, 3);
+
+    for (int i = 7; i <= 10; i++) {
+        [[DispatchQueueManager shared] sync:^{
+            excuteTask(i);
+        } model:DispatchQueueModeMainQueue];
+    }
     
     NSLog(@"syncMain---end");
 }
@@ -234,6 +287,13 @@ void asyncQueueTasks(dispatch_queue_t queue, int taskNum) {
     
     asyncQueueTasks(queue, 4);
     
+    
+    for (int i = 7; i <= 10; i++) {
+        [[DispatchQueueManager shared] async:^{
+            excuteTask(i);
+        } model:DispatchQueueModeMainQueue];
+    }
+
     NSLog(@"asyncMain---end");
 }
 
@@ -294,22 +354,41 @@ void asyncQueueTasks(dispatch_queue_t queue, int taskNum) {
     NSLog(@"currentThread---%@",[NSThread currentThread]);  // 打印当前线程
     NSLog(@"asyncMain---begin");
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+//    queue = dispatch_get_main_queue();
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), queue, ^{
         // 2.0秒后异步追加任务代码到主队列，并开始执行
-        NSLog(@"after---%@",[NSThread currentThread]);  // 打印当前线程
+        NSLog(@"after1---%@",[NSThread currentThread]);  // 打印当前线程
     });
+    
+    [[DispatchQueueManager shared] dispatch:^{
+        // 2.0秒后异步追加任务代码到主队列，并开始执行
+        NSLog(@"after2---%@",[NSThread currentThread]);  // 打印当前线程
+    } after:2 model:DispatchQueueModeDefault];
 }
 #pragma mark 10. dispatch_once
 /**
  * 一次性代码（只执行一次）dispatch_once
  */
 - (void)dispatch_oncefunc {
-    for (int i = 0; i < 10; i ++) {
-        static dispatch_once_t onceToken;
-        dispatch_once(&onceToken, ^{
-            // 只执行1次的代码(这里面默认是线程安全的)
-            NSLog(@"only once execute！");
-        });
+//    for (int i = 0; i < 10; i ++) {
+//        static dispatch_once_t onceToken;
+//        dispatch_once(&onceToken, ^{
+//            // 只执行1次的代码(这里面默认是线程安全的)
+//            NSLog(@"1. only once execute！");
+//        });
+//
+//        [DispatchQueueManager  dispatchOnce:^{
+//            NSLog(@"2. only once execute！");
+//        }];
+//    }
+    NSInteger modes[5] = {DispatchQueueModeMainQueue,DispatchQueueModeSerial,DispatchQueueModeConcurrent,DispatchQueueModeDefault,DispatchQueueModeYYQueuePool};
+    for (int j = 0; j < 3; j ++ ) {
+        for (int i = 0; i < 5; i ++) {
+            [[DispatchQueueManager shared] addAsync:^{
+                NSLog(@"%d ---%@",i,[NSThread currentThread]);  // 打印当前线程
+            } model:modes[i]];
+        }
     }
 }
 #pragma mark 11. dispatch_aplly
@@ -321,9 +400,19 @@ void asyncQueueTasks(dispatch_queue_t queue, int taskNum) {
 - (void)dispatch_apply {
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     //我们可以利用异步队列同时遍历。比如说遍历 0~5 这6个数字，for 循环的做法是每次取出一个元素，逐个遍历。dispatch_apply可以同时遍历多个数字。
+    queue = dispatch_queue_create("net.my.testQueue1", DISPATCH_QUEUE_CONCURRENT);
     
+//    queue = dispatch_get_main_queue();
+    /*
+     如果使用上面dispatch_get_main_queue()将会导致崩溃。
+     特点:1. 如果想要在主线程操作，可以使用谈价队列等待的方式，DISPATCH_QUEUE_SERIAL
+     补充:2. 如果过使用apply，那么不利用异步线程就显得多余了，所以最好还是利用开辟新线程时候使用。
+     */
+    queue = dispatch_queue_create("net.my.testQueue1", DISPATCH_QUEUE_SERIAL);
+
     NSLog(@"apply---begin");
     dispatch_apply(6, queue, ^(size_t index) {
+        [NSThread sleepForTimeInterval:1];
         NSLog(@"%zd---%@",index, [NSThread currentThread]);
     });
     NSLog(@"apply---end");
@@ -342,11 +431,22 @@ void asyncQueueTasks(dispatch_queue_t queue, int taskNum) {
     
     dispatch_queue_t global_queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     
-    queueTasks(1, 2, global_queue, group, Dispatch_type_group_async);
+    dispatch_queue_t queue1 = dispatch_get_main_queue();
+//    queueTasks(1, 2, global_queue, group, Dispatch_type_group_async);
     
-    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+    
+//    dispatch_group_async(group, dispatch_get_main_queue(), ^{
+//        queueTasks(1, 4, dispatch_get_main_queue(), nil, Dispatch_type_async);
+//    });
+    dispatch_group_async(group, global_queue, ^{
+        for (int i= 0; i < 3; i++) {
+            excuteTask(i);
+        }
+    });
+
+    dispatch_group_notify(group, queue1, ^{
         // 等前面的异步任务1、任务2都执行完毕后，回到主线程执行下边任务
-        excuteTask(3);
+        excuteTask(15);
         NSLog(@"group---end");
     });
     //    从dispatch_group_notify相关代码运行输出结果可以看出： 当所有任务都执行完成之后，才执行dispatch_group_notify block 中的任务。
@@ -505,9 +605,9 @@ void asyncQueueTasks(dispatch_queue_t queue, int taskNum) {
     self.ticketSurplusCount = 50;
     
     // queue1 代表北京火车票售卖窗口
-    dispatch_queue_t queue1 = dispatch_queue_create("net.bujige.testQueue1", DISPATCH_QUEUE_SERIAL);
+    dispatch_queue_t queue1 = dispatch_queue_create("net.my.testQueue1", DISPATCH_QUEUE_SERIAL);
     // queue2 代表上海火车票售卖窗口
-    dispatch_queue_t queue2 = dispatch_queue_create("net.bujige.testQueue2", DISPATCH_QUEUE_SERIAL);
+    dispatch_queue_t queue2 = dispatch_queue_create("net.my.testQueue2", DISPATCH_QUEUE_SERIAL);
     
     __weak typeof(self) weakSelf = self;
     dispatch_async(queue1, ^{
