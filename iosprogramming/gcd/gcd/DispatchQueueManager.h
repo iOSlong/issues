@@ -28,6 +28,8 @@ typedef NS_ENUM(NSUInteger, DispatchQueueMode) {
 - (void)async:(DispatchTask)task model:(DispatchQueueMode)queueMode;
 - (void)sync:(DispatchTask)task model:(DispatchQueueMode)queueMode;
 - (void)dispatch:(DispatchTask)task after:(int64_t)delayInSeconds model:(DispatchQueueMode)queueMode;
-- (void)group:(DispatchTask)task;
-
+- (void)groupAsync:(DispatchTask)task mode:(DispatchQueueMode)asyncQueue notiTask:(DispatchTask)task mode:(DispatchQueueMode)notiQueue;
+- (void)groupNotiTask:(DispatchTask)task mode:(DispatchQueueMode)notiMode;
+- (void)groupEnterAsync:(DispatchTask)task mode:(DispatchQueueMode)mode;
+- (void)groupEnterSync:(DispatchTask)task mode:(DispatchQueueMode)mode;
 @end

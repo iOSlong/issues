@@ -23,6 +23,10 @@ typedef struct {
 }
 
 
+// 也可以使用单列的方式，得到一个唯一使用的group。
+static dispatch_group_t _holdGroup;
+
+
 - (instancetype)initWithContext:(DispatchContext *)context {
     self = [super init];
     if (!context) return nil;
@@ -35,6 +39,7 @@ typedef struct {
     static DispatchQueueManager *manager;
     dispatch_once(&onceToken, ^{
         manager = [[DispatchQueueManager alloc] init];
+        _holdGroup = dispatch_group_create();
     });
     return manager;
 }
@@ -118,10 +123,30 @@ typedef struct {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC)), [self queueModel:queueMode], task);
 }
 
-- (void)group:(DispatchTask)task model:(DispatchQueueMode)queueMode {
-    dispatch_group_t group = dispatch_group_create();
-    dispatch_group_async(group, [self queueModel:queueMode], task);
+- (void)groupAsync:(DispatchTask)task mode:(DispatchQueueMode)asyncQueue notiTask:(DispatchTask)notiTask mode:(DispatchQueueMode)notiQueue {
+    dispatch_group_async(_holdGroup, [self queueModel:asyncQueue], task);
+    dispatch_group_notify(_holdGroup, [self queueModel:notiQueue], notiTask);
 }
+
+- (void)groupNotiTask:(DispatchTask)task mode:(DispatchQueueMode)notiMode {
+    dispatch_group_notify(_holdGroup, [self queueModel:notiMode], task);
+}
+
+- (void)groupEnterAsync:(DispatchTask)task mode:(DispatchQueueMode)mode {
+    dispatch_group_enter(_holdGroup);
+    dispatch_async([self queueModel:mode], ^{
+        task();
+        dispatch_group_leave(_holdGroup);
+    });
+}
+- (void)groupEnterSync:(DispatchTask)task mode:(DispatchQueueMode)mode {
+    dispatch_group_enter(_holdGroup);
+    dispatch_sync([self queueModel:mode], ^{
+        task();
+        dispatch_group_leave(_holdGroup);
+    });
+}
+
 
 
 

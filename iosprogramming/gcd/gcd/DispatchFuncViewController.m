@@ -27,7 +27,16 @@
     [self.view addSubview:actIV];
     [actIV startAnimating];
     
+    int context = 10;
+    dispatch_async_f(dispatch_get_global_queue(0, 0), &context, test);
+    
 }
+void test(void*context)
+{
+    int *c = context;
+    NSLog(@"%d", *c);
+}
+
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -420,6 +429,23 @@ void asyncQueueTasks(dispatch_queue_t queue, int taskNum) {
 
 #pragma mark -
 #pragma mark 12. dispatch_group_notify
+
+void dosomething() {
+    queueTasks(1, 2, dispatch_get_main_queue(), nil, Dispatch_type_async);
+}
+
+- (void)dosomething {
+    queueTasks(10, 11, dispatch_get_main_queue(), nil, Dispatch_type_async);
+}
+
+void notiFunc(void *context) {
+    int *c = context;
+    NSLog(@"%d, %s", *c, context);
+    excuteTask(15);
+    NSLog(@"group---end");
+}
+
+
 /**
  * 队列组 dispatch_group_notify
  */
@@ -427,33 +453,83 @@ void asyncQueueTasks(dispatch_queue_t queue, int taskNum) {
     NSLog(@"currentThread---%@",[NSThread currentThread]);  // 打印当前线程
     NSLog(@"group---begin");
     
+#if 1 //native
     dispatch_group_t group =  dispatch_group_create();
     
     dispatch_queue_t global_queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     
     dispatch_queue_t queue1 = dispatch_get_main_queue();
-//    queueTasks(1, 2, global_queue, group, Dispatch_type_group_async);
+    
+    queueTasks(1, 2, global_queue, group, Dispatch_type_group_async);
+    
+//    SEL dosomethingOC = @selector(dosomething);
+    
+    int  parm = 10;
+    dispatch_group_async_f(group, global_queue, nil, dosomething);
+//    dispatch_group_async_f(group, global_queue, nil, dosomethingOC);？
+    dispatch_group_notify_f(group, queue1, &parm, notiFunc);
     
     
 //    dispatch_group_async(group, dispatch_get_main_queue(), ^{
 //        queueTasks(1, 4, dispatch_get_main_queue(), nil, Dispatch_type_async);
 //    });
-    dispatch_group_async(group, global_queue, ^{
-        for (int i= 0; i < 3; i++) {
-            excuteTask(i);
-        }
+    
+#if 0
+    dispatch_group_async(group, dispatch_get_main_queue(), ^{
+//        dispatch_sync(dispatch_get_main_queue(), ^{
+            for (int i= 0; i < 2; i++) {
+                excuteTask(i);
+            }
+//        });
     });
-
-    dispatch_group_notify(group, queue1, ^{
-        // 等前面的异步任务1、任务2都执行完毕后，回到主线程执行下边任务
+    
+    //对比wait， 不会阻塞当前线程。
+    dispatch_group_notify(group, global_queue, ^{
         excuteTask(15);
         NSLog(@"group---end");
     });
-    //    从dispatch_group_notify相关代码运行输出结果可以看出： 当所有任务都执行完成之后，才执行dispatch_group_notify block 中的任务。
     
+    dispatch_group_async(group, global_queue, ^{
+        for (int i= 0; i < 2; i++) {
+            excuteTask(i);
+        }
+    });
+    
+    dispatch_group_notify(group, queue1, ^{
+        // 等前面的异步任务1、任务2都执行完毕后，回到主线程执行下边任务
+        dispatch_async(dispatch_get_main_queue(), ^{
+            excuteTask(15);
+            NSLog(@"group---end");
+        });
+    });
+#endif
+    
+#else
+    NSLog(@"hahahaha");
+    [[DispatchQueueManager shared] groupAsync:^{
+        for (int i= 0; i < 3; i++) {
+            excuteTask(i);
+        }
+    } mode:DispatchQueueModeDefault notiTask:^{
+            for (int i = 0; i < 20; ++i) {
+                NSLog(@"%d---%@",i, [NSThread currentThread]);       // 打印当前线程
+            }
+            NSLog(@"group---end");
+    } mode:DispatchQueueModeMainQueue];
+    
+    
+    [[DispatchQueueManager shared] groupNotiTask:^{
+        excuteTask(100);
+    } mode:DispatchQueueModeConcurrent];
+    
+#endif
+    
+    
+    //    从dispatch_group_notify相关代码运行输出结果可以看出： 当所有任务都执行完成之后，才执行dispatch_group_notify block 中的任务。
 }
 
 #pragma mark 13. dispatch_wait
+static dispatch_group_t _group;
 /**
  * 队列组 dispatch_group_wait
  */
@@ -461,17 +537,23 @@ void asyncQueueTasks(dispatch_queue_t queue, int taskNum) {
     NSLog(@"currentThread---%@",[NSThread currentThread]);  // 打印当前线程
     NSLog(@"group---begin");
     
-    dispatch_group_t group =  dispatch_group_create();
+     _group =  dispatch_group_create();
     
     dispatch_queue_t global_queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     
-    queueTasks(1, 1, global_queue, group, Dispatch_type_group_async);
-    queueTasks(2, 2, global_queue, group, Dispatch_type_group_async);
+    queueTasks(1, 1, global_queue, _group, Dispatch_type_group_async);
+    queueTasks(2, 2, global_queue, _group, Dispatch_type_group_async);
     
+    NSLog(@"continue ----");
     // 等待上面的任务全部完成后，会往下继续执行（会阻塞当前线程）
-    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+    [self _group_wait];
     
     NSLog(@"group---end");
+}
+
+- (void)_group_wait {
+    dispatch_group_wait(_group, DISPATCH_TIME_FOREVER);
+    NSLog(@"group---end2");
 }
 
 #pragma mark 14. dispatch_enter_leave
@@ -482,32 +564,70 @@ void asyncQueueTasks(dispatch_queue_t queue, int taskNum) {
     NSLog(@"currentThread---%@",[NSThread currentThread]);  // 打印当前线程
     NSLog(@"group---begin");
     
+#if 1 //native
+
     dispatch_group_t group = dispatch_group_create();
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
     dispatch_group_enter(group);
-    dispatch_async(queue, ^{
+    dispatch_sync(queue, ^{
         // 追加任务1
         excuteTask(1);
         dispatch_group_leave(group);
     });
     
-    dispatch_group_enter(group);
-    dispatch_async(queue, ^{
-        // 追加任务2
-        excuteTask(2);
-        dispatch_group_leave(group);
-    });
+    
     
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
         // 等前面的异步操作都执行完毕后，回到主线程.
         excuteTask(3);
-        NSLog(@"group---end");
+        NSLog(@"group---end1");
     });
     
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_group_enter(group);
+        dispatch_async(queue, ^{
+            // 追加任务2
+            excuteTask(4);
+            dispatch_group_leave(group);
+        });
+    });
+
     // 等待上面的任务全部完成后，会往下继续执行（会阻塞当前线程）
     dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
     
-    NSLog(@"group---end");
+    NSLog(@"group---end2");
+    
+    
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        // 等前面的异步操作都执行完毕后，回到主线程.
+        excuteTask(4);
+        NSLog(@"group---end1");
+    });
+
+#else
+    
+    [[DispatchQueueManager shared] groupEnterAsync:^{
+        excuteTask(1);
+    } mode:DispatchQueueModeConcurrent];
+    
+    [[DispatchQueueManager shared] groupNotiTask:^{
+        excuteTask(3);
+        NSLog(@"group---end1");
+    } mode:DispatchQueueModeMainQueue];
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[DispatchQueueManager shared] groupEnterAsync:^{
+            excuteTask(2);
+        } mode:DispatchQueueModeConcurrent];
+    });
+    
+    [[DispatchQueueManager shared] groupNotiTask:^{
+        excuteTask(4);
+        NSLog(@"group---end2");
+    } mode:DispatchQueueModeMainQueue];
+    
+#endif
     
     /*
      从dispatch_group_enter、dispatch_group_leave相关代码运行结果中可以看出：当所有任务执行完成之后，才执行 dispatch_group_notify 中的任务。这里的dispatch_group_enter、dispatch_group_leave组合，其实等同于dispatch_group_async。
