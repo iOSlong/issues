@@ -19,6 +19,7 @@ typedef NS_ENUM(NSUInteger, DispatchQueueMode) {
 };
 
 @interface DispatchQueueManager : NSObject
+
 //- (instancetype)init UNAVAILABLE_ATTRIBUTE;
 //+ (instancetype)new UNAVAILABLE_ATTRIBUTE;
 
@@ -31,5 +32,6 @@ typedef NS_ENUM(NSUInteger, DispatchQueueMode) {
 - (void)groupAsync:(DispatchTask)task mode:(DispatchQueueMode)asyncQueue notiTask:(DispatchTask)task mode:(DispatchQueueMode)notiQueue;
 - (void)groupNotiTask:(DispatchTask)task mode:(DispatchQueueMode)notiMode;
 - (void)groupEnterAsync:(DispatchTask)task mode:(DispatchQueueMode)mode;
-- (void)groupEnterSync:(DispatchTask)task mode:(DispatchQueueMode)mode;
+- (void)natomicTask:(DispatchTask)task;
+
 @end

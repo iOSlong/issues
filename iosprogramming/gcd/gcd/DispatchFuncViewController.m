@@ -10,6 +10,8 @@
 #import "DispatchFuncViewController.h"
 #import "DispatchQueueManager.h"
 
+#define Dispatch_native 0
+
 @interface DispatchFuncViewController ()
 @property (nonatomic, assign) NSInteger ticketSurplusCount;
 @property (nonatomic, strong) dispatch_semaphore_t semaphoreLock;
@@ -564,7 +566,7 @@ static dispatch_group_t _group;
     NSLog(@"currentThread---%@",[NSThread currentThread]);  // 打印当前线程
     NSLog(@"group---begin");
     
-#if 1 //native
+#if 0 //native
 
     dispatch_group_t group = dispatch_group_create();
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
@@ -606,7 +608,6 @@ static dispatch_group_t _group;
     });
 
 #else
-    
     [[DispatchQueueManager shared] groupEnterAsync:^{
         excuteTask(1);
     } mode:DispatchQueueModeConcurrent];
@@ -631,6 +632,7 @@ static dispatch_group_t _group;
     
     /*
      从dispatch_group_enter、dispatch_group_leave相关代码运行结果中可以看出：当所有任务执行完成之后，才执行 dispatch_group_notify 中的任务。这里的dispatch_group_enter、dispatch_group_leave组合，其实等同于dispatch_group_async。
+     注意：使用group|enter_leave时候，需要使用async。
      */
 }
 #pragma mark -
@@ -720,16 +722,18 @@ static dispatch_group_t _group;
     NSLog(@"currentThread---%@",[NSThread currentThread]);  // 打印当前线程
     NSLog(@"semaphore---begin");
     
-    self.semaphoreLock = dispatch_semaphore_create(1);
-    
     self.ticketSurplusCount = 50;
+    __weak typeof(self) weakSelf = self;
+
+#if Dispatch_native
+    // 注意。value = 1,标识为一次只允许一个线程任务进行访问。
+    self.semaphoreLock = dispatch_semaphore_create(1);
     
     // queue1 代表北京火车票售卖窗口
     dispatch_queue_t queue1 = dispatch_queue_create("net.my.testQueue1", DISPATCH_QUEUE_SERIAL);
     // queue2 代表上海火车票售卖窗口
     dispatch_queue_t queue2 = dispatch_queue_create("net.my.testQueue2", DISPATCH_QUEUE_SERIAL);
     
-    __weak typeof(self) weakSelf = self;
     dispatch_async(queue1, ^{
         [weakSelf saleTicketSafe];
     });
@@ -737,6 +741,44 @@ static dispatch_group_t _group;
     dispatch_async(queue2, ^{
         [weakSelf saleTicketSafe];
     });
+    
+#else
+    
+    [[DispatchQueueManager shared] async:^{
+        while (1) {
+            [[DispatchQueueManager shared] natomicTask:^{
+                if (weakSelf.ticketSurplusCount > 0) {  //如果还有票，继续售卖
+                    weakSelf.ticketSurplusCount--;
+                    NSLog(@"%@", [NSString stringWithFormat:@"剩余票数：%ld 窗口：%@", (long)weakSelf.ticketSurplusCount, [NSThread currentThread]]);
+                    [NSThread sleepForTimeInterval:0.2];
+                } else { //如果已卖完，关闭售票窗口
+                    NSLog(@"所有火车票均已售完");
+                }
+            }];
+            if (weakSelf.ticketSurplusCount <= 0) {
+                break;
+            }
+        }
+    } model:DispatchQueueModeConcurrent];
+
+    [[DispatchQueueManager shared] async:^{
+        while (1) {
+            [[DispatchQueueManager shared] natomicTask:^{
+                if (weakSelf.ticketSurplusCount > 0) {  //如果还有票，继续售卖
+                    weakSelf.ticketSurplusCount--;
+                    NSLog(@"%@", [NSString stringWithFormat:@"剩余票数：%ld 窗口：%@", (long)weakSelf.ticketSurplusCount, [NSThread currentThread]]);
+                    [NSThread sleepForTimeInterval:0.2];
+                } else { //如果已卖完，关闭售票窗口
+                    NSLog(@"所有火车票均已售完");
+                }
+            }];
+            if (weakSelf.ticketSurplusCount <= 0) {
+                break;
+            }
+        }
+    } model:DispatchQueueModeConcurrent];
+#endif
+    
 }
 
 /**
@@ -744,6 +786,7 @@ static dispatch_group_t _group;
  */
 - (void)saleTicketSafe {
     while (1) {
+#if Dispatch_native
         // 相当于加锁
         dispatch_semaphore_wait(self.semaphoreLock, DISPATCH_TIME_FOREVER);
         
@@ -761,6 +804,21 @@ static dispatch_group_t _group;
         
         // 相当于解锁
         dispatch_semaphore_signal(self.semaphoreLock);
+        
+#else
+        [[DispatchQueueManager shared] natomicTask:^{
+            if (self.ticketSurplusCount > 0) {  //如果还有票，继续售卖
+                self.ticketSurplusCount--;
+                NSLog(@"%@", [NSString stringWithFormat:@"剩余票数：%ld 窗口：%@", (long)self.ticketSurplusCount, [NSThread currentThread]]);
+                [NSThread sleepForTimeInterval:0.2];
+            }else{
+                NSLog(@"所有火车票均已售完");
+            }
+        }];
+        if (self.ticketSurplusCount <= 0) {
+            break;
+        }
+#endif
     }
 }
 

@@ -26,6 +26,7 @@ typedef struct {
 // 也可以使用单列的方式，得到一个唯一使用的group。
 static dispatch_group_t _holdGroup;
 
+static dispatch_semaphore_t _semaphore;
 
 - (instancetype)initWithContext:(DispatchContext *)context {
     self = [super init];
@@ -34,14 +35,20 @@ static dispatch_group_t _holdGroup;
     return self;
 }
 
+
 + (instancetype)shared {
     static dispatch_once_t onceToken;
     static DispatchQueueManager *manager;
     dispatch_once(&onceToken, ^{
         manager = [[DispatchQueueManager alloc] init];
         _holdGroup = dispatch_group_create();
+        _semaphore = dispatch_semaphore_create(1);
     });
     return manager;
+}
+
+- (void)dismiss {
+    
 }
 
 - (dispatch_queue_t)addQueueModel:(DispatchQueueMode)mode {
@@ -139,12 +146,11 @@ static dispatch_group_t _holdGroup;
         dispatch_group_leave(_holdGroup);
     });
 }
-- (void)groupEnterSync:(DispatchTask)task mode:(DispatchQueueMode)mode {
-    dispatch_group_enter(_holdGroup);
-    dispatch_sync([self queueModel:mode], ^{
-        task();
-        dispatch_group_leave(_holdGroup);
-    });
+
+- (void)natomicTask:(DispatchTask)task {
+    dispatch_semaphore_wait(_semaphore, DISPATCH_TIME_FOREVER);
+    task();
+    dispatch_semaphore_signal(_semaphore);
 }
 
 
