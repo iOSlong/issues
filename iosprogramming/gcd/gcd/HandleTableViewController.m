@@ -9,6 +9,8 @@
 #import "HandleTableViewController.h"
 #import "DispatchFuncViewController.h"
 
+#import "AppTaskCoordinator.h"
+
 @interface HandleTableViewController ()
 
 @end
@@ -17,6 +19,42 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    AppTaskCoordinator *taskCoordinator = [AppTaskCoordinator new];
+    
+    /*链式调用示例 1*/
+    __weak __typeof(taskCoordinator)weakTask = taskCoordinator;
+    [taskCoordinator setProBlock:^AppTaskCoordinator *(int index, DispatchQueueMode mode) {
+        __strong __typeof(weakTask)strongTask = weakTask;
+        NSLog(@"excute : %d:  thread:---%@", index, [NSThread currentThread]);
+        return strongTask;
+    }];
+    taskCoordinator.proBlock(4, DispatchQueueModeSerial).proBlock(5, DispatchQueueModeYYQueuePool).proBlock(6, DispatchQueueModeMainQueue).proBlock(7, DispatchQueueModeConcurrent).proBlock(8, DispatchQueueModeDefault);
+    
+    
+    /*链式调用示例 2*/
+    [[[[[taskCoordinator autoQueuePoolTask:^{
+        NSLog(@"autoQueuePoolTask  thread:---%@",[NSThread currentThread]);
+    }] concurrentQueueTask:^{
+        NSLog(@"concurrentQueueTask  thread:---%@",[NSThread currentThread]);
+    }] mainQueueTask:^{
+        NSLog(@"mainQueueTask  thread:---%@",[NSThread currentThread]);
+    }] appendTask:^{
+        NSLog(@"appendTask  thread:---%@",[NSThread currentThread]);
+    } mode:DispatchQueueModeSerial] mainTask:^{
+        NSLog(@"mainTask  thread:---%@",[NSThread currentThread]);
+    }];
+
+    
+    /*链式调用示例 3 - 测试堆栈调用顺序*/
+    [[[taskCoordinator mainTask:^{
+        NSLog(@"mainTask 100");
+    }] mainTask:^{
+        NSLog(@"mainTask 200");
+    }] mainTask:^{
+        NSLog(@"mainTask 300");
+    }];
+    
 }
 
 

@@ -19,6 +19,7 @@ typedef NS_ENUM(NSUInteger, ViewType) {
     ViewTypeControlView,
     ViewTypeAirPlayView,
     ViewTypeApostropheAnimationView,
+    ViewTypeReversalAnimationView,
     
     ViewTypeGradientNavigationBar
 };

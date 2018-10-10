@@ -122,6 +122,8 @@
         desVC.viewType = ViewTypeAirPlayView;
     }else if ([segue.identifier isEqualToString:@"ApostropheAnimationView"]){
         desVC.viewType = ViewTypeApostropheAnimationView;
+    }else if ([segue.identifier isEqualToString:@"ReversalAnimationView"]) {
+        desVC.viewType = ViewTypeReversalAnimationView;
     }
 }
 

@@ -242,23 +242,25 @@ void asyncQueueTasks(dispatch_queue_t queue, int taskNum) {
     NSLog(@"currentThread---%@",[NSThread currentThread]);  // 打印当前线程
     NSLog(@"asyncSerial---begin");
     
+#if Dispatch_native
     dispatch_queue_t queue = dispatch_queue_create("net.my.testQueue", DISPATCH_QUEUE_SERIAL);
     
     asyncQueueTasks(queue, 5);
     
 //    DispatchQueueModeYYQueuePool
 
-    
+#else
     for (int i = 6; i <= 10; i++) {
-        [[DispatchQueueManager shared] addAsync:^{
-            excuteTask(i);
-        } model:DispatchQueueModeSerial];
-
-//        [[DispatchQueueManager shared] async:^{
+//        [[DispatchQueueManager shared] addAsync:^{
 //            excuteTask(i);
 //        } model:DispatchQueueModeSerial];
-    }
 
+        [[DispatchQueueManager shared] async:^{
+            excuteTask(i);
+        } model:DispatchQueueModeSerial];
+    }
+#endif
+    
     NSLog(@"asyncSerial---end");
 }
 
@@ -396,7 +398,7 @@ void asyncQueueTasks(dispatch_queue_t queue, int taskNum) {
     NSInteger modes[5] = {DispatchQueueModeMainQueue,DispatchQueueModeSerial,DispatchQueueModeConcurrent,DispatchQueueModeDefault,DispatchQueueModeYYQueuePool};
     for (int j = 0; j < 3; j ++ ) {
         for (int i = 0; i < 5; i ++) {
-            [[DispatchQueueManager shared] addAsync:^{
+            [[DispatchQueueManager shared] async:^{
                 NSLog(@"%d ---%@",i,[NSThread currentThread]);  // 打印当前线程
             } model:modes[i]];
         }
@@ -608,10 +610,10 @@ static dispatch_group_t _group;
     });
 
 #else
-    [[DispatchQueueManager shared] groupEnterAsync:^{
-        excuteTask(1);
-    } mode:DispatchQueueModeConcurrent];
-    
+//    [[DispatchQueueManager shared] groupEnterAsync:^{
+//        excuteTask(1);
+//    } mode:DispatchQueueModeConcurrent];
+//    
     [[DispatchQueueManager shared] groupNotiTask:^{
         excuteTask(3);
         NSLog(@"group---end1");

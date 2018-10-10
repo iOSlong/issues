@@ -10,6 +10,7 @@
 		2DCD4E97263D9F46EC63F5D9 /* libPods-gcdTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCCC11BF7C71BEB8BC51D664 /* libPods-gcdTests.a */; };
 		40D17D1080F8742E75182F0E /* libPods-gcd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED6A4694136A0E3C9664DB2 /* libPods-gcd.a */; };
 		969B45E64D419A72B85FB20C /* libPods-gcdUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 830696F2A88060B5D9B46683 /* libPods-gcdUITests.a */; };
+		B1546101216C88F200B4EE1F /* AppTaskCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = B1546100216C88F200B4EE1F /* AppTaskCoordinator.m */; };
 		B1D5D285215A081500FF7CEB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D5D284215A081500FF7CEB /* AppDelegate.m */; };
 		B1D5D28B215A081500FF7CEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1D5D289215A081500FF7CEB /* Main.storyboard */; };
 		B1D5D28D215A081700FF7CEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1D5D28C215A081700FF7CEB /* Assets.xcassets */; };
@@ -47,6 +48,8 @@
 		7ED6A4694136A0E3C9664DB2 /* libPods-gcd.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-gcd.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		830696F2A88060B5D9B46683 /* libPods-gcdUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-gcdUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A107482DEDED1BFA4E93AA30 /* Pods-gcdUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gcdUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-gcdUITests/Pods-gcdUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B15460FF216C88F200B4EE1F /* AppTaskCoordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppTaskCoordinator.h; sourceTree = "<group>"; };
+		B1546100216C88F200B4EE1F /* AppTaskCoordinator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppTaskCoordinator.m; sourceTree = "<group>"; };
 		B1D5D280215A081500FF7CEB /* gcd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gcd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D5D283215A081500FF7CEB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B1D5D284215A081500FF7CEB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -143,6 +146,8 @@
 				B1D5D2B9215A08FA00FF7CEB /* DispatchFuncViewController.m */,
 				B1D5D2C2215BA24800FF7CEB /* DispatchQueueManager.h */,
 				B1D5D2C3215BA24800FF7CEB /* DispatchQueueManager.m */,
+				B15460FF216C88F200B4EE1F /* AppTaskCoordinator.h */,
+				B1546100216C88F200B4EE1F /* AppTaskCoordinator.m */,
 				B1D5D28C215A081700FF7CEB /* Assets.xcassets */,
 				B1D5D28E215A081700FF7CEB /* LaunchScreen.storyboard */,
 				B1D5D291215A081700FF7CEB /* Info.plist */,
@@ -373,6 +378,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1D5D2B7215A089400FF7CEB /* HandleTableViewController.m in Sources */,
+				B1546101216C88F200B4EE1F /* AppTaskCoordinator.m in Sources */,
 				B1D5D2C4215BA24800FF7CEB /* DispatchQueueManager.m in Sources */,
 				B1D5D293215A081700FF7CEB /* main.m in Sources */,
 				B1D5D2BA215A08FA00FF7CEB /* DispatchFuncViewController.m in Sources */,

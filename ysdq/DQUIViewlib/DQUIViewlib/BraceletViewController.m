@@ -16,8 +16,10 @@
 #import "AirPlayView.h"
 #import "AppDelegate.h"
 #import "ApostropheAnimationView.h"
+#import "ReversalAnimationView.h"
 
-@interface BraceletViewController ()
+@interface BraceletViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) BraceletView  *braceletView;
 @property (nonatomic, strong) UIView *animationGrandientView;
 @property (nonatomic, strong) TBGradientLayerView *animationGradientLayerView;
@@ -40,7 +42,28 @@
         [self loadManaymanayThings];
         [self showFloatButton];
     }
+    
+    CGFloat tableW = 60;
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width - tableW, 0, tableW, self.view.bounds.size.height) style:UITableViewStyleGrouped];
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
+    [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
+    [self.view addSubview:_tableView];
 }
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 100;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
+    cell.textLabel.text = [NSString stringWithFormat:@"r-%ld",(long)indexPath.row];
+    return cell;
+}
+
+
+
+
 
 - (void)loadManaymanayThings {
     int countX = self.view.frame.size.width / 10;
@@ -89,6 +112,8 @@
         [self showApostropheAnimationView];
     }
 }
+
+
 
 - (void)showApostropheAnimationView {
     ApostropheAnimationView *apostropheV = [[ApostropheAnimationView alloc] initWithFrame:CGRectMake(100, 100, 200, 30)];
@@ -294,5 +319,19 @@
     });
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [super touchesBegan:touches withEvent:event];
+    UITouch *touch = [[touches allObjects] lastObject];
+    CGPoint point = [touch locationInView:self.view];
+    if (point.y > self.view.bounds.size.height * 0.7) {
+        if (self.navigationController) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+    }else{
+        [self.view endEditing:YES];
+    }
+}
 
 @end

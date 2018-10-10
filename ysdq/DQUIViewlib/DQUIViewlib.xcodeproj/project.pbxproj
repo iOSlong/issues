@@ -15,6 +15,10 @@
 		B12788F72109A83600217376 /* BLStopwatch.m in Sources */ = {isa = PBXBuildFile; fileRef = B12788F32109A83500217376 /* BLStopwatch.m */; };
 		B12788F92109A83600217376 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B12788F52109A83600217376 /* README.md */; };
 		B12AE745211C1CE9008AD800 /* ControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = B12AE744211C1CE9008AD800 /* ControlView.m */; };
+		B1546106216D999500B4EE1F /* ReversalAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1546105216D999500B4EE1F /* ReversalAnimationView.m */; };
+		B1546109216DD04E00B4EE1F /* main_search_small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1546107216DD04D00B4EE1F /* main_search_small@3x.png */; };
+		B154610A216DD04E00B4EE1F /* main_search_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1546108216DD04E00B4EE1F /* main_search_small@2x.png */; };
+		B154610D216DFB7C00B4EE1F /* APIControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B154610C216DFB7C00B4EE1F /* APIControlViewController.m */; };
 		B16309E8215CD9A10027DA51 /* MPLoadTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B16309E7215CD9A10027DA51 /* MPLoadTestViewController.m */; };
 		B16EC97620F843770046E688 /* SingleViewLibTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC97520F843770046E688 /* SingleViewLibTableViewController.m */; };
 		B16EC97A20F848DE0046E688 /* TBGradientLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B16EC97820F848DE0046E688 /* TBGradientLayerView.m */; };
@@ -74,6 +78,12 @@
 		B12788F62109A83600217376 /* BLStopwatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLStopwatch.h; sourceTree = "<group>"; };
 		B12AE743211C1CE9008AD800 /* ControlView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ControlView.h; sourceTree = "<group>"; };
 		B12AE744211C1CE9008AD800 /* ControlView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ControlView.m; sourceTree = "<group>"; };
+		B1546104216D999500B4EE1F /* ReversalAnimationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReversalAnimationView.h; sourceTree = "<group>"; };
+		B1546105216D999500B4EE1F /* ReversalAnimationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReversalAnimationView.m; sourceTree = "<group>"; };
+		B1546107216DD04D00B4EE1F /* main_search_small@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main_search_small@3x.png"; sourceTree = "<group>"; };
+		B1546108216DD04E00B4EE1F /* main_search_small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main_search_small@2x.png"; sourceTree = "<group>"; };
+		B154610B216DFB7C00B4EE1F /* APIControlViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIControlViewController.h; sourceTree = "<group>"; };
+		B154610C216DFB7C00B4EE1F /* APIControlViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIControlViewController.m; sourceTree = "<group>"; };
 		B16309E6215CD9A10027DA51 /* MPLoadTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPLoadTestViewController.h; sourceTree = "<group>"; };
 		B16309E7215CD9A10027DA51 /* MPLoadTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPLoadTestViewController.m; sourceTree = "<group>"; };
 		B16EC97420F843770046E688 /* SingleViewLibTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingleViewLibTableViewController.h; sourceTree = "<group>"; };
@@ -203,6 +213,17 @@
 			path = ControlView;
 			sourceTree = "<group>";
 		};
+		B1546103216D997D00B4EE1F /* ReversalAnimationView */ = {
+			isa = PBXGroup;
+			children = (
+				B1546108216DD04E00B4EE1F /* main_search_small@2x.png */,
+				B1546107216DD04D00B4EE1F /* main_search_small@3x.png */,
+				B1546104216D999500B4EE1F /* ReversalAnimationView.h */,
+				B1546105216D999500B4EE1F /* ReversalAnimationView.m */,
+			);
+			path = ReversalAnimationView;
+			sourceTree = "<group>";
+		};
 		B16309E5215CD9790027DA51 /* VCS */ = {
 			isa = PBXGroup;
 			children = (
@@ -309,6 +330,7 @@
 		B1BBF00920F6F8E1005D59B2 /* DQUIViewlib */ = {
 			isa = PBXGroup;
 			children = (
+				B1546103216D997D00B4EE1F /* ReversalAnimationView */,
 				B1F5AEF0214F5C220060E50D /* ApostropheAnimationView */,
 				B187F73E21251EB9003AA637 /* AirPlayView */,
 				B12AE742211C1CBC008AD800 /* ControlView */,
@@ -333,6 +355,8 @@
 				B16EC97520F843770046E688 /* SingleViewLibTableViewController.m */,
 				B1BBF03C20F6F9C2005D59B2 /* BaseViewController.h */,
 				B1BBF03D20F6F9C2005D59B2 /* BaseViewController.m */,
+				B154610B216DFB7C00B4EE1F /* APIControlViewController.h */,
+				B154610C216DFB7C00B4EE1F /* APIControlViewController.m */,
 				B1BBF03F20F6FA0F005D59B2 /* BraceletViewController.h */,
 				B1BBF04020F6FA0F005D59B2 /* BraceletViewController.m */,
 				B12788E3210702AB00217376 /* NavBarShowHiddenViewController.h */,
@@ -508,6 +532,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1546109216DD04E00B4EE1F /* main_search_small@3x.png in Resources */,
+				B154610A216DD04E00B4EE1F /* main_search_small@2x.png in Resources */,
 				B1858F5D2134F84F00ED7DBA /* logfile in Resources */,
 				B1BBF01720F6F8E3005D59B2 /* LaunchScreen.storyboard in Resources */,
 				B1BBF01420F6F8E3005D59B2 /* Assets.xcassets in Resources */,
@@ -595,6 +621,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B16EC9CE20FF47620046E688 /* SASView.m in Sources */,
+				B154610D216DFB7C00B4EE1F /* APIControlViewController.m in Sources */,
 				B187F74121251EE4003AA637 /* AirPlayView.m in Sources */,
 				B12788E5210702AB00217376 /* NavBarShowHiddenViewController.m in Sources */,
 				B187F744212D0EEE003AA637 /* WatchInfo.m in Sources */,
@@ -613,6 +640,7 @@
 				B10FC4C5211AC392009715CA /* BezierPathView.m in Sources */,
 				B16EC9D120FF47A90046E688 /* UIView+SARRS.m in Sources */,
 				B12AE745211C1CE9008AD800 /* ControlView.m in Sources */,
+				B1546106216D999500B4EE1F /* ReversalAnimationView.m in Sources */,
 				B16EC9B220FDCDE80046E688 /* SelfNavigationBarViewController.m in Sources */,
 				B16EC97D20F84D470046E688 /* GradientLayerView.m in Sources */,
 				B1BBF01A20F6F8E3005D59B2 /* main.m in Sources */,

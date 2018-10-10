@@ -34,4 +34,7 @@ typedef NS_ENUM(NSUInteger, DispatchQueueMode) {
 - (void)groupEnterAsync:(DispatchTask)task mode:(DispatchQueueMode)mode;
 - (void)natomicTask:(DispatchTask)task;
 
+//@property (nonatomic, copy) DispatchQueueManager *(^ sas)(CGFloat num);
+
+
 @end
