@@ -18,5 +18,8 @@
 - (void)wobble2D;
 - (void)wobble3D;
 
-- (void)groupAnimation;
+- (void)groupAnimationHidden;
+- (void)groupAnimationShow;
+
+- (void)textfieldFist;
 @end

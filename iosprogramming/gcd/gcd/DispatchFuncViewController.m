@@ -9,12 +9,14 @@
 
 #import "DispatchFuncViewController.h"
 #import "DispatchQueueManager.h"
+#import "AppTaskCoordinator.h"
 
 #define Dispatch_native 0
 
 @interface DispatchFuncViewController ()
 @property (nonatomic, assign) NSInteger ticketSurplusCount;
 @property (nonatomic, strong) dispatch_semaphore_t semaphoreLock;
+@property (nonatomic, strong) AppTaskCoordinator *taskCoordinator;
 @end
 
 @implementation DispatchFuncViewController
@@ -110,10 +112,65 @@ void test(void*context)
         case GCDFunc_CANCEL_BLOCK:
             [self dispatch_cancel_block];
             break;
+            case GCDFunc_APP_TASK_SINGLE:
+            [self appTaskcoordinator_single];
+            break;
+            case GCDFunc_APP_TASK_COMBIN:
+            [self appTaskcoordinator_combine];
+            break;
         default:
             break;
     }
 }
+
+#pragma mark - APPTaskCoordinator
+- (void)appTaskcoordinator_single {
+    if (!_taskCoordinator) {
+        AppTaskCoordinator *taskCoordinator = [AppTaskCoordinator new];
+        _taskCoordinator = taskCoordinator;
+    }
+    /*链式调用示例 1*/
+    __weak __typeof(_taskCoordinator)weakTask = _taskCoordinator;
+    [_taskCoordinator setProBlock:^AppTaskCoordinator *(int index, DispatchQueueMode mode) {
+        __strong __typeof(weakTask)strongTask = weakTask;
+        NSLog(@"excute : %d:  thread:---%@", index, [NSThread currentThread]);
+        return strongTask;
+    }];
+    _taskCoordinator.proBlock(4, DispatchQueueModeSerial).proBlock(5, DispatchQueueModeYYQueuePool).proBlock(6, DispatchQueueModeMainQueue).proBlock(7, DispatchQueueModeConcurrent).proBlock(8, DispatchQueueModeDefault);
+}
+- (void)appTaskcoordinator_combine {
+    if (!_taskCoordinator) {
+        AppTaskCoordinator *taskCoordinator = [AppTaskCoordinator new];
+        _taskCoordinator = taskCoordinator;
+    }
+    /*链式调用示例 2*/
+    [[[[[_taskCoordinator autoQueuePoolTask:^{
+        sleep(2.0);
+        NSLog(@"autoQueuePoolTask  thread:---%@",[NSThread currentThread]);
+    }] concurrentQueueTask:^{
+        sleep(1.5);
+        NSLog(@"concurrentQueueTask  thread:---%@",[NSThread currentThread]);
+    }] mainQueueTask:^{
+        NSLog(@"mainQueueTask  thread:---%@",[NSThread currentThread]);
+    }] appendTask:^{
+        sleep(1.0);
+        NSLog(@"appendTask  thread:---%@",[NSThread currentThread]);
+    } mode:DispatchQueueModeSerial] mainTask:^{
+        NSLog(@"mainTask  thread:---%@",[NSThread currentThread]);
+    }];
+    
+    
+    /*链式调用示例 3 - 测试堆栈调用顺序*/
+    [[[_taskCoordinator mainTask:^{
+        NSLog(@"mainTask 100");
+    }] mainTask:^{
+        NSLog(@"mainTask 200");
+    }] mainTask:^{
+        NSLog(@"mainTask 300");
+    }];
+}
+
+
 
 void excuteTask(int task) {
     for (int i = 0; i < 2; ++i) {
@@ -610,10 +667,13 @@ static dispatch_group_t _group;
     });
 
 #else
-//    [[DispatchQueueManager shared] groupEnterAsync:^{
-//        excuteTask(1);
-//    } mode:DispatchQueueModeConcurrent];
-//    
+    [[DispatchQueueManager shared] groupEnterAsync:^{
+        excuteTask(1);
+ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            excuteTask(1);
+        });
+    } mode:DispatchQueueModeConcurrent];
+    //
     [[DispatchQueueManager shared] groupNotiTask:^{
         excuteTask(3);
         NSLog(@"group---end1");

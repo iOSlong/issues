@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+
+@protocol ApiControlEnable <NSObject>
+- (void)callMethodIndex:(NSInteger)index;
+@end
+
+
 typedef NS_ENUM(NSUInteger, ViewType) {
     ViewTypeBracelet,
     ViewTypeGradientLayer,
@@ -20,7 +26,8 @@ typedef NS_ENUM(NSUInteger, ViewType) {
     ViewTypeAirPlayView,
     ViewTypeApostropheAnimationView,
     ViewTypeReversalAnimationView,
-    
+    ViewTypeAnimationFieldBar,
+    ViewTypeFloatRectShadowView,
     ViewTypeGradientNavigationBar
 };
 

@@ -23,9 +23,20 @@
 //    [[BLStopwatch sharedStopwatch] splitWithDescription:@"didFinishLaunchBegin"];
     [[BLStopwatch sharedStopwatch] splitWithType:BLStopwatchSplitTypeContinuous description:WATCH_FINISHLAUNCH0];
     
+    UIImageView *imagev;
+    
+    [imagev setImage:nil];
+    
     [WatchInfo logParse:nil];
     
-    NSArray *infos =  [WatchInfo readAllWatchInfo];
+    NSDictionary *dict0 = @{@"key":@"value"};
+    NSString *one = [dict0 objectForKey:@"key"];
+    NSString *on1 = [dict0 objectForKey:@"key2"];
+    NSString *one2 = dict0[@"key"];
+    NSString *one3 = dict0[@"key2"];
+
+
+//    NSArray *infos =  [WatchInfo readAllWatchInfo];
 #if CUSTOM_BAR_STYLE
     NavigationControllerListViewController *listVC = [NavigationControllerListViewController new];
     DQNavigationController *navNV = [[DQNavigationController alloc] initWithRootViewController:listVC];

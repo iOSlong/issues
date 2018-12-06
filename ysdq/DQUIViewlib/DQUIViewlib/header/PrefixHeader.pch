@@ -19,6 +19,7 @@
 #import "BaseViewController.h"
 #import "BLStopwatch.h"
 #import <LKDBHelper/LKDBHelper.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 
 #define CUSTOM_BAR_STYLE  0

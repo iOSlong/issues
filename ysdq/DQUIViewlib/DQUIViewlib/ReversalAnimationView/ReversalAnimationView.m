@@ -8,7 +8,7 @@
 
 #import "ReversalAnimationView.h"
 
-#define fieldLeftMode 0
+#define fieldLeftMode 1
 
 @interface ReversalAnimationView()<CAAnimationDelegate>
 @property (nonatomic, strong) UIImageView *animationView;
@@ -49,15 +49,64 @@
     if (self) {
         _actionSeconds = 2;
         [self setupUIItems];
+        [self addKeyboardNotification];
     }
     return self;
 }
 
+- (void)addKeyboardNotification {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchWordChanged:) name:UITextFieldTextDidChangeNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didEndEditingNoti:) name:UITextFieldTextDidEndEditingNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keybordWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keybordWillHidden:) name:UIKeyboardWillHideNotification object:nil];
+
+
+}
+
+- (void)removeKeyboardNotification {
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillChangeFrameNotification
+                                                  object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillShowNotification
+                                                  object:nil];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)searchWordChanged:(NSNotification*)sender {
+    
+}
+
+- (void)didEndEditingNoti:(NSNotification*)sender {
+    [self resignFirstResponder];
+}
+
+- (void)keybordWillShow:(NSNotification *)sender {
+    [self groupAnimationHidden];
+}
+- (void)keybordWillHidden:(NSNotification *)sender {
+    self.textfield.tintColor = [UIColor clearColor];
+    self.textfield.leftViewMode = UITextFieldViewModeAlways;
+    [self groupAnimationShow];
+}
+
+
+
+
+
+
 - (void)setupUIItems {
-    _animationView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    _animationView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 40, 46)];
     _animationView.contentMode = UIViewContentModeCenter;
     _animationView.image = [UIImage imageNamed:@"main_search_small"];
-    [_animationView showBorderLineColor:[UIColor redColor]];
+    _animationView.layer.shadowOpacity = 0.6;
+    _animationView.layer.shadowColor = [UIColor blueColor].CGColor;
+//    [_animationView showBorderLineColor:[UIColor redColor]];
     
 
 #if !fieldLeftMode
@@ -66,18 +115,26 @@
 #else
     
     _textfield = [[UITextField alloc] init];
+    _textfield.tintColor = [UIColor clearColor];
     [self addSubview:_textfield];
     [_textfield mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.equalTo(self).offset(5);
-        make.height.equalTo(@40);
+        make.height.equalTo(@50);
     }];
     _textfield.placeholder = @"输入什么都可以";
     
-    _leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    [_leftView showBorderLineColor:[UIColor blueColor]];
+    
+#if 0
+    _leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40, 46)];
+//    [_leftView showBorderLineColor:[UIColor blueColor]];
     _textfield.leftView = _leftView;
     [_leftView addSubview:_animationView];
     _textfield.leftViewMode = UITextFieldViewModeUnlessEditing;
+#else
+    _textfield.leftView = _animationView;
+    _textfield.leftViewMode = UITextFieldViewModeAlways;
+#endif
+
 #endif
 
     
@@ -181,7 +238,9 @@
     }else if (index == 4) {
         [self wobble3D];
     }else if (index == 5) {
-        [self groupAnimation];
+        [self groupAnimationHidden];
+    }else if (index == 6) {
+        [self transform3DMakeScale:self.animationSwitch.isOn];
     }
 }
 
@@ -225,6 +284,19 @@
     }
 }
 
+- (void)transform3DMakeScale:(BOOL)animation {
+    CATransform3D scale = CATransform3DMakeScale(_angleArr[0]/M_PI, _angleArr[1]/M_PI, _angleArr[2]/M_PI);
+    if (animation) {
+        [UIView animateWithDuration:0.25 delay:0.1 options:UIViewAnimationOptionRepeat|UIViewAnimationOptionAutoreverse|UIViewAnimationOptionCurveEaseInOut|UIViewAnimationOptionAllowUserInteraction animations:^{
+            self.animationView.layer.transform = scale;
+        } completion:^(BOOL finished) {
+            
+        }];
+    }else{
+        self.animationView.layer.transform = scale;
+    }
+}
+
 - (void)wobble2D {
     [self beginWobble2D];
 }
@@ -232,8 +304,87 @@
     [self layerWobble];
 }
 
-- (void)groupAnimation {
+- (void)textfieldFist {
+    [self.textfield becomeFirstResponder];
+}
+
+- (void)groupAnimationShow {
+    CAKeyframeAnimation *animWobble     = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
+    animWobble.values = [NSArray arrayWithObjects:
+                         [NSValue valueWithCATransform3D:CATransform3DMakeRotation((M_PI/2.0), 0,1,0)],
+                         [NSValue valueWithCATransform3D:CATransform3DMakeRotation((M_PI/2.1), 0.1,1,0.1)],
+                         [NSValue valueWithCATransform3D:CATransform3DMakeRotation((M_PI/1.9), 0.1,1,0.1)],
+                         [NSValue valueWithCATransform3D:CATransform3DMakeRotation((M_PI/2.0), 0,1,0)],
+                         [NSValue valueWithCATransform3D:CATransform3DMakeRotation(0, 0,1,0)],
+                         nil];
+    animWobble.keyTimes = @[@(0),@(0.05),@(0.08),@(0.1),@(1)];
+    animWobble.autoreverses = NO;
+    animWobble.fillMode = kCAFillModeForwards;
+    animWobble.removedOnCompletion = NO;
     
+    CAAnimationGroup * _group = [CAAnimationGroup animation];
+    _group.animations = @[animWobble];
+    _group.duration = 1.2f;
+    _group.autoreverses = NO;
+    _group.fillMode = kCAFillModeForwards;
+    _group.removedOnCompletion = NO;
+    [_group setValue:@"animationGroupShow" forKey:@"AnimationKey"];
+    _group.delegate = self;
+    [self.animationView.layer addAnimation:_group forKey:nil];
+}
+
+- (void)groupAnimationHidden {
+#if 1
+    CAKeyframeAnimation *animWobble     = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
+    animWobble.values = [NSArray arrayWithObjects:
+                         [NSValue valueWithCATransform3D:CATransform3DMakeRotation(0, 0,1,0)],
+                         [NSValue valueWithCATransform3D:CATransform3DMakeRotation(0.2, 0.1,1,0.1)],
+                         [NSValue valueWithCATransform3D:CATransform3DMakeRotation(0.5, 0.2,1,0.2)],
+                         [NSValue valueWithCATransform3D:CATransform3DMakeRotation(-0.5, 0.2,1,0.2)],
+                         [NSValue valueWithCATransform3D:CATransform3DMakeRotation(0, 0,1,0)],
+                         [NSValue valueWithCATransform3D:CATransform3DMakeRotation((M_PI/2.0), 0,1,0)],
+                         nil];
+    animWobble.keyTimes = @[@(0),@(0.1),@(0.25),@(0.4),@(0.5),@(1)];
+    animWobble.autoreverses = NO;
+    animWobble.fillMode = kCAFillModeForwards;
+    animWobble.removedOnCompletion = NO;
+    
+   CAAnimationGroup * _group = [CAAnimationGroup animation];
+    _group.animations = @[animWobble];
+    _group.duration = 1.2f;
+    _group.autoreverses = NO;
+    _group.fillMode = kCAFillModeForwards;
+    _group.removedOnCompletion = NO;
+    [_group setValue:@"groupAnimationHidden" forKey:@"AnimationKey"];
+    _group.delegate = self;
+    [self.animationView.layer addAnimation:_group forKey:nil];
+    
+#else
+    CAKeyframeAnimation * scaleAnim = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
+    scaleAnim.values = @[[NSValue valueWithCATransform3D:CATransform3DIdentity],                       [NSValue valueWithCATransform3D:CATransform3DMakeScale(0.6, 0.6, 1.0)],                       [NSValue valueWithCATransform3D:CATransform3DMakeScale(0.6, 0.6, 1.0)],                       [NSValue valueWithCATransform3D:CATransform3DMakeScale(1, 1, 1.0)]                       ];
+    scaleAnim.keyTimes = @[@(0),@(0.3),@(0.7),@(1)];
+    scaleAnim.autoreverses = NO;
+    scaleAnim.fillMode = kCAFillModeForwards;
+    scaleAnim.removedOnCompletion = NO;
+    
+    CAKeyframeAnimation * posAnim = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+    posAnim.values = @[[NSValue valueWithCGPoint:self.animationView.layer.position],                       [NSValue valueWithCGPoint:self.animationView.layer.position],                       [NSValue valueWithCGPoint:CGPointMake(self.animationView.layer.position.x+200, 400)],[NSValue valueWithCGPoint:CGPointMake(self.animationView.layer.position.x+200, 400)]                       ];
+    posAnim.keyTimes = @[@(0),@(0.3),@(0.7),@(1)];
+    posAnim.autoreverses = NO;
+    posAnim.fillMode = kCAFillModeForwards;
+    posAnim.removedOnCompletion = NO;
+    
+    CAAnimationGroup * _group = [CAAnimationGroup animation];
+    _group = [CAAnimationGroup animation];
+    _group.animations = @[scaleAnim,posAnim];
+    _group.duration = 5.0f;
+    _group.autoreverses = NO;
+    _group.fillMode = kCAFillModeForwards;
+    _group.removedOnCompletion = NO;
+    _group.delegate = self;
+    [self.animationView.layer addAnimation:_group forKey:nil];
+    
+#endif
 }
 
 
@@ -269,7 +420,7 @@
      }];
 }
 
-- (void)layerWobble {
+- (CAKeyframeAnimation *)layerWobbleAnim {
     CAKeyframeAnimation *keyAnimation = [CAKeyframeAnimation animation];
     keyAnimation.values = [NSArray arrayWithObjects:
                            [NSValue valueWithCATransform3D:CATransform3DMakeRotation(0, 0,1,0)],
@@ -279,23 +430,18 @@
     
     keyAnimation.cumulative = NO;
     
-    keyAnimation.duration = 0.25;
+//    keyAnimation.duration = 0.25;
     
-    keyAnimation.repeatCount = 3;
+//    keyAnimation.repeatCount = 3;
     
     keyAnimation.autoreverses = YES;
-
+    
     keyAnimation.removedOnCompletion = YES;
     
-    keyAnimation.delegate = self;
-    [keyAnimation setValue:@"startlayerWobble" forKey:@"AnimationKey"];
-
-    [_animationView.layer addAnimation:keyAnimation forKey:@"transform"];
-
+    return keyAnimation;
 }
 
-- (void)layerRotation {
-    
+- (CAKeyframeAnimation *)layerRotationAnim {
     CAKeyframeAnimation *keyAnimation = [CAKeyframeAnimation animation];
     
     // 旋转角度， 其中的value表示图像旋转的最终位置
@@ -306,11 +452,28 @@
     
     keyAnimation.cumulative = NO;
     
-    keyAnimation.duration = 0.25;
+//    keyAnimation.duration = 0.25;
     
     keyAnimation.repeatCount = 1;
     
     keyAnimation.removedOnCompletion = NO;
+    
+    return keyAnimation;
+}
+
+- (void)layerWobble {
+    CAKeyframeAnimation *keyAnimation = [self layerWobbleAnim];
+
+    keyAnimation.delegate = self;
+    [keyAnimation setValue:@"startlayerWobble" forKey:@"AnimationKey"];
+
+    [_animationView.layer addAnimation:keyAnimation forKey:@"transform"];
+
+}
+
+- (void)layerRotation {
+    
+    CAKeyframeAnimation *keyAnimation = [self layerRotationAnim];
     
     keyAnimation.delegate = self;
 
@@ -321,20 +484,34 @@
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
     if (flag) {
         if ([[anim valueForKey:@"AnimationKey"] isEqualToString:@"startlayerWobble"]) {
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-#if fieldLeftMode
-                self.textfield.rightView = nil;
-                self.textfield.rightViewMode = UITextFieldViewModeNever;
-#endif
-                [self layerRotation];
-            });
+//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//#if fieldLeftMode
+//                self.textfield.rightView = nil;
+//                self.textfield.rightViewMode = UITextFieldViewModeNever;
+//#endif
+//                [self layerRotation];
+//            });
         } else if ([[anim valueForKey:@"AnimationKey"] isEqualToString:@"startlayerRotation"]) {
-            CATransform3D turnTrans = CATransform3DMakeRotation(M_PI/2.05, 0, 1, 0);
-            self.animationView.layer.transform = turnTrans;
-            return;
+//            CATransform3D turnTrans = CATransform3DMakeRotation(M_PI/2.05, 0, 1, 0);
+//            self.animationView.layer.transform = turnTrans;
+//            return;
             
+        } else if ([[anim valueForKey:@"AnimationKey"] isEqualToString:@"groupAnimationHidden"]) {
+            [self.textfield becomeFirstResponder];
+            self.textfield.leftViewMode = UITextFieldViewModeNever;
+            self.textfield.tintColor = [UIColor blueColor];
+        } else if ([[anim valueForKey:@"AnimationKey"] isEqualToString:@"groupAnimationShow"]) {
+            if (self.textfield.text.length) {
+                self.textfield.tintColor = [UIColor blueColor];
+            }else{
+                self.textfield.tintColor = [UIColor clearColor];
+            }
         }
     }
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.textfield resignFirstResponder];
 }
 
 @end

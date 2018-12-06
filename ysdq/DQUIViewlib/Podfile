@@ -10,6 +10,8 @@ target 'DQUIViewlib' do
 pod 'Masonry'
 pod 'LKDBHelper'
 pod 'JSONModel'
+pod 'SDWebImage', '~> 4.4.2'
+pod 'AFNetwork'
 
   target 'DQUIViewlibTests' do
     inherit! :search_paths
@@ -19,6 +21,10 @@ pod 'JSONModel'
   target 'DQUIViewlibUITests' do
     inherit! :search_paths
     # Pods for testing
+  end
+  
+  target 'ServiceEXT' do
+      inherit! :search_paths
   end
 
 end

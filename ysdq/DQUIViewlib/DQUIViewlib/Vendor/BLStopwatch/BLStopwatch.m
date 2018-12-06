@@ -152,6 +152,7 @@ typedef NS_ENUM(NSInteger, BLStopwatchState) {
 }
 
 - (void)stopAndPresentResultsThenReset {
+    return;
     if (self.state == BLStopwatchStateStop) {
         return;
     }

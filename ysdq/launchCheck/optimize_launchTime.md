@@ -26,6 +26,7 @@
     2. [GCD-使用此法做一个整理](https://juejin.im/post/5a90de68f265da4e9b592b40)
     3. DQ: NTYTasksExecutor | BZXDispatch | YYDispatchQueuePool
 
+
     
 2. 缓存效果处理
     1. 对部分request，添加init询问缓存逻辑。
@@ -37,6 +38,13 @@
     2. 再次init，找缓存
     
 4. TODO:将请求Request的回调放置在异步线程，在特定用法出再回归到主线程进行UI操作，
+
+5. AppDelegate 函数方法整理
+    1. 检验每一个函数的线程安全性
+    2. 从三个方面考虑进行分组函数处理 
+        1. 功能优先级角度：应用函数调用顺序
+        2. 业务类型角度：数据处理，SDK注册，界面启动，网络请求
+        3. 线程角度：主线程，异步线程。
 
 
 #### 启动请求
@@ -101,19 +109,74 @@
      --> [AppService fetchFavorateAlbumUpdateInfo]
     > 可以作调整，UI操作部分异步到主线程队列中等待执行。
     
-    
-
-
-
-
 
 4. BZXLocalDataUploadManager
     
 
-
 # TODO：
 ## 冗余文件
 LeXiuTanService
+pod 'NJKWebViewProgress'
+
+## 商讨任务执行分段？
+1. 根据启动业务将必须在首页出现前要完成的任务完成，作为maskLaunchBefore，
+2. 将可以在首页完成显示后再执行的任务暂时搁置，作为maskHoldOn。
+3. maskHoldOn 暂不执行的好处：
+    a. 腾出CPU资源占用，可以使得启动时别的任务执行更块。
+    b. 优化启动流畅，提升用户体验。
+    c. 此过程会掐中函数任务管理的分层标准，从而优化代码结构，有利于代码功能维护。
+4. maskHoldOn 执行世界确认？
+    a. 在开屏启动页面消失之后，此时从用户角度，见到启动页面开始倒计时，可以确定应用已经完成启动。
+    b. 完成首页第一个页面UI加载任务之后，此时多数时候是在a之前发生，由于启动页面的覆盖用户通常是不可见的。
+    > 以上两种，逻辑上a的发生是在b之后。
+    
+    
+## NTYPageViewController 处理。
+1. 页面首次加载只一页， 对视图的周期函数做好控制。
+
+### 处理流程：
+—— scrollViewDidEndDecelerating:
+—— moveToPage:
+    —— relayoutPagingViewControllers 
+        —— constructPagingViewControllers
+            —— UIView *pagingView = controller.view;
+            
+    
 
 
+
+
+
+
+
+## compare codes location
+### appdelegate:
+    [[BLStopwatch sharedStopwatch] splitWithType:BLStopwatchSplitTypeContinuous description:WATCH_FINISHLAUNCH0];
+    
+        [[BLStopwatch sharedStopwatch] splitWithType:BLStopwatchSplitTypeContinuous description:WATCH_FINISHLAUNCH1];
+
+    [[BLStopwatch sharedStopwatch] splitWithType:BLStopwatchSplitTypeContinuous description:WATCH_FEACHSERVER0];
+
+        [[BLStopwatch sharedStopwatch] splitWithType:BLStopwatchSplitTypeContinuous description:WATCH_FEACHSERVER1];
+        
+### HomeVC
+    [[BLStopwatch sharedStopwatch] splitWithType:BLStopwatchSplitTypeContinuous description:WATCH_VIEWDIDLOAD0];
+
+    [[BLStopwatch sharedStopwatch] splitWithType:BLStopwatchSplitTypeContinuous description:WATCH_FEACHSERVER2];
+
+        [[BLStopwatch sharedStopwatch] splitWithType:BLStopwatchSplitTypeContinuous description:WATCH_FEACHSERVER3];
+
+### RecommendVC
+
+    [[BLStopwatch sharedStopwatch] splitWithType:BLStopwatchSplitTypeContinuous description:WATCH_VIEWDIDLOAD1];
+
+    [[BLStopwatch sharedStopwatch] splitWithType:BLStopwatchSplitTypeContinuous description:WATCH_VIEWDIDAPPEAR];
+    [[BLStopwatch sharedStopwatch] stopAndPresentResultsThenReset];
+
+
+
+
+size 
+1. 【414 * 896】
+    iPhone 
 

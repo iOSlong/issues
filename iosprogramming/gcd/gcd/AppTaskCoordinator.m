@@ -61,7 +61,6 @@
                 self->_proBlock(index,mode);
             }
         } model:mode];
-        NSLog(@"task %d:  thread:---%@", index, [NSThread currentThread]);
         return self;
     };
 }

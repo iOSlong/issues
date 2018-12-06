@@ -124,6 +124,10 @@
         desVC.viewType = ViewTypeApostropheAnimationView;
     }else if ([segue.identifier isEqualToString:@"ReversalAnimationView"]) {
         desVC.viewType = ViewTypeReversalAnimationView;
+    }else if ([segue.identifier isEqualToString:@"ViewTypeAnimationFieldBar"]) {
+        desVC.viewType = ViewTypeAnimationFieldBar;
+    }else if ([segue.identifier isEqualToString:@"ViewTypeFloatRectShadowView"]) {
+        desVC.viewType = ViewTypeFloatRectShadowView;
     }
 }
 

@@ -29,7 +29,10 @@ typedef NS_ENUM(NSUInteger, GCDFunc) {
     GCDFunc_SEMAPHORE_SYNC          = 16,
     GCDFunc_SEMAPHORE_THREAD_SAFE   = 17,
     
-    GCDFunc_CANCEL_BLOCK            = 18
+    GCDFunc_CANCEL_BLOCK            = 18,
+    
+    GCDFunc_APP_TASK_SINGLE         = 19,
+    GCDFunc_APP_TASK_COMBIN         = 20,
 };
 
 

@@ -17,18 +17,26 @@
 #import "AppDelegate.h"
 #import "ApostropheAnimationView.h"
 #import "ReversalAnimationView.h"
+#import <AVFoundation/AVFoundation.h>
+#import "AirPlayViewTableViewCell.h"
+#import "SJAvatarBrowser/SJAvatarBrowser.h"
+#import "FloatRectShadowView.h"
 
 @interface BraceletViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) BraceletView  *braceletView;
 @property (nonatomic, strong) UIView *animationGrandientView;
 @property (nonatomic, strong) TBGradientLayerView *animationGradientLayerView;
+@property (nonatomic, strong) UIImageView *sdwebImgv;
+
 @end
 
 @implementation BraceletViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBar.tintColor = [UIColor purpleColor];
 
@@ -47,20 +55,39 @@
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width - tableW, 0, tableW, self.view.bounds.size.height) style:UITableViewStyleGrouped];
     _tableView.dataSource = self;
     _tableView.delegate = self;
-    [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
+    [_tableView registerClass:[AirPlayViewTableViewCell class]  forCellReuseIdentifier:@"AirPlayViewTableViewCell"];
     [self.view addSubview:_tableView];
+    [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.right.bottom.equalTo(self.view);
+        make.width.equalTo(@(60));
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 100;
+    return 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
+    AirPlayViewTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AirPlayViewTableViewCell" forIndexPath:indexPath];
     cell.textLabel.text = [NSString stringWithFormat:@"r-%ld",(long)indexPath.row];
+    if (indexPath.row == 8 && self.viewType == ViewTypeAirPlayView) {
+        AirPlayView *airPV = [[AirPlayView alloc] initWithFrame:CGRectMake(0, 0, 150, 40)];
+        [cell addSubview:airPV];
+    }else if (indexPath.row == 9){
+        [cell setViewModel:nil];
+    }
     return cell;
 }
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.row == 0) {
+        self.sdwebImgv = [[UIImageView alloc] initWithFrame:CGRectMake(0, 70, self.view.bounds.size.width * 0.5, self.view.bounds.size.width * 0.5)];
+        [self.view addSubview:self.sdwebImgv];
+        [self.sdwebImgv sd_setImageWithURL:[NSURL URLWithString:@"http://101.96.131.182:83/group1/M00/00/2C/rBBH-lvFhomAPOxIAAKUABbWw-8289.jpg"]];
+    } else if (indexPath.row == 1) {
+        [SJAvatarBrowser showImageView:self.sdwebImgv];
+    }
+}
 
 
 
@@ -110,9 +137,15 @@
         [self showAirPlayView];
     }else if (self.viewType == ViewTypeApostropheAnimationView) {
         [self showApostropheAnimationView];
+    }else if (self.viewType == ViewTypeFloatRectShadowView) {
+        [self showViewfloatRectShadowView];
     }
 }
 
+- (void)showViewfloatRectShadowView {
+    FloatRectShadowView *rectShadowView = [[FloatRectShadowView alloc] initWithFrame:CGRectMake(50, 150, 200, 240)];
+    [self.view addSubview:rectShadowView];
+}
 
 
 - (void)showApostropheAnimationView {
@@ -128,10 +161,61 @@
 }
 
 - (void)showAirPlayView {
-    AirPlayView *airPV = [[AirPlayView alloc] initWithFrame:CGRectMake(100, 200, 100, 50)];
+    AirPlayView *airPV = [[AirPlayView alloc] initWithFrame:CGRectMake(10, 400, 300, 50)];
     [airPV showBorderLine];
     [self.view addSubview:airPV];
+    
+    __weak __typeof(self)weakSelf = self;
+    [airPV setTapClick:^(NSInteger index) {
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        if (index == 2) {
+//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                [strongSelf isPresentAirPlayChooseWindow:YES];
+//            });
+
+        }
+    }];
 }
+
+#pragma mark
+- (BOOL)isPresentAirPlayChooseWindow:(BOOL)isAddTarget {
+    NSArray *windows = [UIApplication sharedApplication].windows;
+    for(UIWindow *w in windows) {
+        if([w isKindOfClass:NSClassFromString(@"_MPAVRoutingSheetSecureWindow")]) {
+            if(isAddTarget) {
+                ///<找到系统的 "取消按钮" 并捕捉事件
+                UIView *view = w.subviews.firstObject;
+                if([UIDevice currentDevice].systemVersion.floatValue < 11) {
+                    [self addTargetForView_iOS10:view];
+                }else {
+//                    [self addTargetForView_iOS11:view];
+                }
+            }
+            return YES;
+        }
+    }
+    return NO;
+}
+
+- (void)addTargetForView_iOS10:(UIView *)view {
+    for(UIView *v in view.subviews) {
+        if([v isKindOfClass:[UIButton class]]) {
+            //找到第一个button
+            [((UIButton *)v) addTarget:self action:@selector(airplayChooseViewDismiss:) forControlEvents:UIControlEventTouchUpInside];
+        }else if(v.subviews.count > 1 && ![v isKindOfClass:[UIButton class]]) {
+            for(UIView *sv in v.subviews) {
+                if([sv isKindOfClass:[UIButton class]]) {
+                    //2,3号button
+                    [((UIButton *)sv) addTarget:self action:@selector(airplayChooseViewDismiss:) forControlEvents:UIControlEventTouchUpInside];
+                }
+            }
+        }
+    }
+}
+
+
+
+
 
 - (void)showControlView {
     ControlView *conV =  [[ControlView alloc] initWithFrame:CGRectMake(100, 200, 200, 30)];

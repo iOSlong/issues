@@ -52,15 +52,27 @@
     [self.volumeView setShowsVolumeSlider:NO];
     [self addSubview:self.volumeView];
     [self.volumeView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.mas_centerX);
-        make.centerY.equalTo(self.mas_centerY);
+//        make.centerX.equalTo(self.mas_centerX);
+//        make.centerY.equalTo(self.mas_centerY);
+        make.edges.equalTo(self);
     }];
+    
+    UIButton *mpButton = nil;
     
     for (UIButton *button in self.volumeView.subviews) {
         if ([button isKindOfClass:[UIButton class]]) {
+            mpButton = button;
             [button addObserver:self forKeyPath:@"alpha" options:NSKeyValueObservingOptionNew context:nil];
+            break;
         }
     }
+    [mpButton addTarget:self action:@selector(airplayButtonTouchInSide:) forControlEvents:UIControlEventTouchUpInside];
+    [mpButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(mpButton.superview);
+    }];
+
+    
+   
 }
 - (void)setDisableAirPlayResponse:(BOOL)disableAirPlayResponse {
     _disableAirPlayResponse = disableAirPlayResponse;
@@ -94,17 +106,24 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if ([object isKindOfClass:[UIButton class]] ) {
         if([[change valueForKey:NSKeyValueChangeNewKey] intValue] == 1){
-            [(UIButton *)object setBounds:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-        }else{
+//            [(UIButton *)object setBounds:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+        } else {
             self.volumeView.hidden = NO;
             [object setAlpha:1];
         }
     }
 }
 
+- (void)airplayButtonTouchInSide:(UIButton *)btn {
+    NSLog(@"mptouchinside");
+    if (self.tapClick) {
+        self.tapClick(2);
+    }
+}
+
 - (void)viewTap:(UITapGestureRecognizer *)tapG {
     if (self.tapClick) {
-        self.tapClick();
+        self.tapClick(1);
     }
 }
 
