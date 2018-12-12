@@ -128,6 +128,8 @@
         desVC.viewType = ViewTypeAnimationFieldBar;
     }else if ([segue.identifier isEqualToString:@"ViewTypeFloatRectShadowView"]) {
         desVC.viewType = ViewTypeFloatRectShadowView;
+    } else if ([segue.identifier isEqualToString:@"ViewTypeSystemFontShow"]) {
+        desVC.viewType = ViewTypeSystemFontShow;
     }
 }
 

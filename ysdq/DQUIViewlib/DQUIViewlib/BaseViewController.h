@@ -28,7 +28,9 @@ typedef NS_ENUM(NSUInteger, ViewType) {
     ViewTypeReversalAnimationView,
     ViewTypeAnimationFieldBar,
     ViewTypeFloatRectShadowView,
-    ViewTypeGradientNavigationBar
+    ViewTypeGradientNavigationBar,
+    
+    ViewTypeSystemFontShow
 };
 
 typedef NS_ENUM(NSUInteger, NaviBarTime) {

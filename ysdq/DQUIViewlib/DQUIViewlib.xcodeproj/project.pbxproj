@@ -46,6 +46,8 @@
 		B196FC0C216F4AE000EFD452 /* AnimationViewTextFieldBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B196FC0B216F4AE000EFD452 /* AnimationViewTextFieldBar.m */; };
 		B196FC10216F556700EFD452 /* AnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B196FC0F216F556700EFD452 /* AnimationController.m */; };
 		B1A6AE7A21143DC400132D1F /* RoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A6AE7921143DC400132D1F /* RoundButton.m */; };
+		B1AD968C21C0E1C300050E5B /* DQCollectionViewFontCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1AD968A21C0E1C300050E5B /* DQCollectionViewFontCell.m */; };
+		B1AD968D21C0E1C300050E5B /* DQCollectionViewFontCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1AD968B21C0E1C300050E5B /* DQCollectionViewFontCell.xib */; };
 		B1BBF00C20F6F8E1005D59B2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BBF00B20F6F8E1005D59B2 /* AppDelegate.m */; };
 		B1BBF01220F6F8E1005D59B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1BBF01020F6F8E1005D59B2 /* Main.storyboard */; };
 		B1BBF01420F6F8E3005D59B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1BBF01320F6F8E3005D59B2 /* Assets.xcassets */; };
@@ -170,6 +172,9 @@
 		B196FC0F216F556700EFD452 /* AnimationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationController.m; sourceTree = "<group>"; };
 		B1A6AE7821143DC400132D1F /* RoundButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoundButton.h; sourceTree = "<group>"; };
 		B1A6AE7921143DC400132D1F /* RoundButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoundButton.m; sourceTree = "<group>"; };
+		B1AD968921C0E1C300050E5B /* DQCollectionViewFontCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DQCollectionViewFontCell.h; sourceTree = "<group>"; };
+		B1AD968A21C0E1C300050E5B /* DQCollectionViewFontCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DQCollectionViewFontCell.m; sourceTree = "<group>"; };
+		B1AD968B21C0E1C300050E5B /* DQCollectionViewFontCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DQCollectionViewFontCell.xib; sourceTree = "<group>"; };
 		B1BBF00720F6F8E1005D59B2 /* DQUIViewlib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DQUIViewlib.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1BBF00A20F6F8E1005D59B2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B1BBF00B20F6F8E1005D59B2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -429,6 +434,16 @@
 			path = RoundButton;
 			sourceTree = "<group>";
 		};
+		B1AD968821C0E18600050E5B /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				B1AD968921C0E1C300050E5B /* DQCollectionViewFontCell.h */,
+				B1AD968A21C0E1C300050E5B /* DQCollectionViewFontCell.m */,
+				B1AD968B21C0E1C300050E5B /* DQCollectionViewFontCell.xib */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
 		B1BBEFFE20F6F8E1005D59B2 = {
 			isa = PBXGroup;
 			children = (
@@ -456,6 +471,7 @@
 		B1BBF00920F6F8E1005D59B2 /* DQUIViewlib */ = {
 			isa = PBXGroup;
 			children = (
+				B1AD968821C0E18600050E5B /* cells */,
 				B171649521ABF030001504C1 /* initialize_VS_load */,
 				B1197326219AB89B00DBE446 /* floatRectShadowView */,
 				B1716E3B2175CAB200E50976 /* SJAvatarBrowser */,
@@ -698,6 +714,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1AD968D21C0E1C300050E5B /* DQCollectionViewFontCell.xib in Resources */,
 				B1546109216DD04E00B4EE1F /* main_search_small@3x.png in Resources */,
 				B154610A216DD04E00B4EE1F /* main_search_small@2x.png in Resources */,
 				B1858F5D2134F84F00ED7DBA /* logfile in Resources */,
@@ -845,6 +862,7 @@
 				B1716E2F21748C0800E50976 /* AirPlayViewTableViewCell.m in Sources */,
 				B1BBF03E20F6F9C2005D59B2 /* BaseViewController.m in Sources */,
 				B196FC0C216F4AE000EFD452 /* AnimationViewTextFieldBar.m in Sources */,
+				B1AD968C21C0E1C300050E5B /* DQCollectionViewFontCell.m in Sources */,
 				B16EC97A20F848DE0046E688 /* TBGradientLayerView.m in Sources */,
 				B18ADBB620FF582D0096B8DA /* NavigationSubViewController.m in Sources */,
 				B16EC9CA20FF370A0046E688 /* CustomNavigationBar.m in Sources */,

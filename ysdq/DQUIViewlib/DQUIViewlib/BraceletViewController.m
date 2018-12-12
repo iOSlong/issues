@@ -21,14 +21,16 @@
 #import "AirPlayViewTableViewCell.h"
 #import "SJAvatarBrowser/SJAvatarBrowser.h"
 #import "FloatRectShadowView.h"
+#import "DQCollectionViewFontCell.h"
 
-@interface BraceletViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface BraceletViewController ()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) BraceletView  *braceletView;
 @property (nonatomic, strong) UIView *animationGrandientView;
 @property (nonatomic, strong) TBGradientLayerView *animationGradientLayerView;
 @property (nonatomic, strong) UIImageView *sdwebImgv;
-
+@property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) NSMutableArray *sourceDataArr;
 @end
 
 @implementation BraceletViewController
@@ -50,7 +52,45 @@
         [self loadManaymanayThings];
         [self showFloatButton];
     }
+}
+
+#pragma mark - UICollectionView
+- (void)configureCollectionView {
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.minimumLineSpacing      = 2;
+    layout.minimumInteritemSpacing = 2;
+    _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
+    _collectionView.delegate    = self;
+    _collectionView.dataSource  = self;
     
+    [_collectionView registerNib:[UINib nibWithNibName:@"DQCollectionViewFontCell" bundle:nil] forCellWithReuseIdentifier:@"DQCollectionViewFontCell"];
+    [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class])];
+    [self.view addSubview:_collectionView];
+    [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.sourceDataArr.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell *cell = nil;
+    if (self.viewType == ViewTypeSystemFontShow) {
+        DQCollectionViewFontCell *fontCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"DQCollectionViewFontCell" forIndexPath:indexPath];
+        fontCell.keyInfo = self.sourceDataArr[indexPath.row];
+        cell = fontCell;
+    }
+    return cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(self.view.bounds.size.width * 0.49, 60);
+}
+
+#pragma mark - UITableView
+- (void)configureTalleView {
     CGFloat tableW = 60;
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width - tableW, 0, tableW, self.view.bounds.size.height) style:UITableViewStyleGrouped];
     _tableView.dataSource = self;
@@ -92,6 +132,8 @@
 
 
 
+
+#pragma mark - ViewTypes
 - (void)loadManaymanayThings {
     int countX = self.view.frame.size.width / 10;
     for (int i = 0; i < 20000; i ++ ) {
@@ -139,8 +181,24 @@
         [self showApostropheAnimationView];
     }else if (self.viewType == ViewTypeFloatRectShadowView) {
         [self showViewfloatRectShadowView];
+    }else if (self.viewType == ViewTypeSystemFontShow) {
+        [self showSystemFonts];
     }
 }
+
+- (void)showSystemFonts {
+    NSArray *fonts =  [UIFont familyNames];
+    self.sourceDataArr = [NSMutableArray arrayWithCapacity:fonts.count];
+    for (int i = 0; i < fonts.count; i ++) {
+        NSString *show = [NSString stringWithFormat:@"字体 %d ：%@ ", i, fonts];
+        NSDictionary *sourceData = @{DQFONTNAME:fonts[i],
+                                     DQTITLESHOW:show
+                                     };
+        [self.sourceDataArr addObject:sourceData];
+    }
+    [self configureCollectionView];
+}
+
 
 - (void)showViewfloatRectShadowView {
     FloatRectShadowView *rectShadowView = [[FloatRectShadowView alloc] initWithFrame:CGRectMake(50, 150, 200, 240)];
