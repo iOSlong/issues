@@ -130,7 +130,11 @@
         desVC.viewType = ViewTypeFloatRectShadowView;
     } else if ([segue.identifier isEqualToString:@"ViewTypeSystemFontShow"]) {
         desVC.viewType = ViewTypeSystemFontShow;
+    } else if ([segue.identifier isEqualToString:@"ViewTypeBarcodeView"]) {
+        desVC.viewType = ViewTypeBarcodeView;
     }
+    
+    
 }
 
 @end

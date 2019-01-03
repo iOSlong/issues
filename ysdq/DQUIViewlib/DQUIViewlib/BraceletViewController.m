@@ -22,6 +22,7 @@
 #import "SJAvatarBrowser/SJAvatarBrowser.h"
 #import "FloatRectShadowView.h"
 #import "DQCollectionViewFontCell.h"
+#import "DQBarcodeManager.h"
 
 @interface BraceletViewController ()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) UITableView *tableView;
@@ -31,13 +32,13 @@
 @property (nonatomic, strong) UIImageView *sdwebImgv;
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *sourceDataArr;
+@property (nonatomic, strong) UILabel *navigationTitleLabel;
 @end
 
 @implementation BraceletViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBar.tintColor = [UIColor purpleColor];
@@ -54,8 +55,21 @@
     }
 }
 
+- (void)loadTitleView {
+    self.navigationTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 221, 38)];
+    [self.navigationTitleLabel showBorderLine];
+    //注意文字格式。
+    UIFont *font = [UIFont fontWithName:@"MarkerFelt-Wide" size:19];
+    self.navigationTitleLabel.text = [NSString stringWithFormat:@"01234-%@",@"Marker Felt Wide"];
+    self.navigationTitleLabel.font = font;
+
+    self.navigationItem.titleView = self.navigationTitleLabel;
+}
+
 #pragma mark - UICollectionView
 - (void)configureCollectionView {
+    [self loadTitleView];
+    
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.minimumLineSpacing      = 2;
     layout.minimumInteritemSpacing = 2;
@@ -85,12 +99,25 @@
     return cell;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.viewType == ViewTypeSystemFontShow) {
+        NSDictionary *keyInfo = self.sourceDataArr[indexPath.row];
+        NSString *fontName  = [keyInfo objectForKey:DQFONTNAME];
+        NSString *show      = [keyInfo objectForKey:DQTITLESHOW];
+        UIFont *font = [UIFont fontWithName:fontName size:19];
+        self.navigationTitleLabel.text = [NSString stringWithFormat:@"01234-%@",show];
+        self.navigationTitleLabel.font = font;
+    }
+}
+
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake(self.view.bounds.size.width * 0.49, 60);
 }
 
 #pragma mark - UITableView
 - (void)configureTalleView {
+    [self loadTitleView];
+
     CGFloat tableW = 60;
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width - tableW, 0, tableW, self.view.bounds.size.height) style:UITableViewStyleGrouped];
     _tableView.dataSource = self;
@@ -183,14 +210,29 @@
         [self showViewfloatRectShadowView];
     }else if (self.viewType == ViewTypeSystemFontShow) {
         [self showSystemFonts];
+    }else if (self.viewType == ViewTypeBarcodeView) {
+        [self showBarcodeView];
     }
+}
+
+- (void)showBarcodeView {
+    self.view.backgroundColor = RGBCOLOR_HEX(0x0e1624);
+    UIView *parentView = [[UIView alloc] initWithFrame:CGRectMake(0, 100, 300, 100)];
+    parentView.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:parentView];
+    [parentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.view.mas_centerY);
+        make.left.right.equalTo(self.view);
+        make.height.equalTo(@100);
+    }];
+    [BZXBarcodeManager manageBarcodeViewInFullScreenDetail:parentView];
 }
 
 - (void)showSystemFonts {
     NSArray *fonts =  [UIFont familyNames];
     self.sourceDataArr = [NSMutableArray arrayWithCapacity:fonts.count];
     for (int i = 0; i < fonts.count; i ++) {
-        NSString *show = [NSString stringWithFormat:@"字体 %d ：%@ ", i, fonts];
+        NSString *show = [NSString stringWithFormat:@"%d:%@", i, fonts[i]];
         NSDictionary *sourceData = @{DQFONTNAME:fonts[i],
                                      DQTITLESHOW:show
                                      };
