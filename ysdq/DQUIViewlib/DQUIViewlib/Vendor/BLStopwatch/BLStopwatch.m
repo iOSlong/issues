@@ -29,6 +29,7 @@ typedef NS_ENUM(NSInteger, BLStopwatchState) {
 @property (nonatomic) BLStopwatchState state;
 @property (nonatomic) pthread_mutex_t lock;
 @property (nonatomic) WatchInfo *watchInfo;
+@property (nonatomic) BOOL havShowed;
 
 @end
 
@@ -40,7 +41,7 @@ typedef NS_ENUM(NSInteger, BLStopwatchState) {
     dispatch_once(&onceToken, ^{
         stopwatch = [[BLStopwatch alloc] init];
     });
-    
+
     return stopwatch;
 }
 
@@ -72,7 +73,7 @@ typedef NS_ENUM(NSInteger, BLStopwatchState) {
         [output appendFormat:@"%@: %.3f\n", obj.allKeys.firstObject, obj.allValues.firstObject.doubleValue];
     }];
     pthread_mutex_unlock(&_lock);
-    
+
     return [output copy];
 }
 
@@ -101,7 +102,7 @@ typedef NS_ENUM(NSInteger, BLStopwatchState) {
     if (self.state != BLStopwatchStateRuning) {
         return;
     }
-    
+
     //如果事件点重复，保留以一次的。
     if ([self judgeDulpliacteDesc:description]) {
         return;
@@ -109,9 +110,9 @@ typedef NS_ENUM(NSInteger, BLStopwatchState) {
     
     NSTimeInterval temporaryTimeInterval = CACurrentMediaTime();
     CFTimeInterval splitTimeInterval = type == BLStopwatchSplitTypeMedian ? temporaryTimeInterval - self.temporaryTimeInterval : temporaryTimeInterval - self.startTimeInterval;
-    
+
     NSInteger count = self.mutableSplits.count + 1;
-    
+
     NSMutableString *finalDescription = [NSMutableString stringWithFormat:@"#%@", @(count)];
     if (description) {
         [finalDescription appendFormat:@" %@", description];
@@ -152,24 +153,29 @@ typedef NS_ENUM(NSInteger, BLStopwatchState) {
 }
 
 - (void)stopAndPresentResultsThenReset {
-    return;
-    if (self.state == BLStopwatchStateStop) {
+    if (self.havShowed) {
         return;
     }
     [[BLStopwatch sharedStopwatch] stop];
     NSString *version = [UIDevice currentDevice].systemVersion;
     if (version.intValue >= 9) {
         UIAlertController *alertC = [[UIAlertController alloc] init];
-        [alertC setTitle:@"BLStopwatch 结果"];
+        [alertC setTitle:@"watch 结果"];
         [alertC setMessage:[[BLStopwatch sharedStopwatch] prettyPrintedSplits]];
         UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
             [alertC dismissViewControllerAnimated:YES completion:nil];
         }];
         [alertC addAction:action];
         UIWindow *window = [UIApplication sharedApplication].keyWindow;
-        [window.rootViewController presentViewController:alertC animated:YES completion:nil];
-    }else{
-        [[[UIAlertView alloc] initWithTitle:@"BLStopwatch 结果"
+        if (UIUserInterfaceIdiomPad ==[[UIDevice currentDevice] userInterfaceIdiom]) {
+            alertC.popoverPresentationController.sourceView = window.rootViewController.view;
+            [window.rootViewController presentViewController:alertC animated:YES completion:nil];
+        } else {
+            [window.rootViewController presentViewController:alertC animated:YES completion:nil];
+        }
+    
+    } else {
+        [[[UIAlertView alloc] initWithTitle:@"watch 结果"
                                     message:[[BLStopwatch sharedStopwatch] prettyPrintedSplits]
                                    delegate:nil
                           cancelButtonTitle:@"确定"
@@ -177,7 +183,8 @@ typedef NS_ENUM(NSInteger, BLStopwatchState) {
     }
     [self saveWatchInfo];
     [[BLStopwatch sharedStopwatch] reset];
-    [WatchInfo readAllWatchInfo];
+    [WatchInfo readAllWatchInfo];// 从这里去导出运行文件记录。
+    self.havShowed = YES;
 }
 
 
@@ -192,7 +199,7 @@ typedef NS_ENUM(NSInteger, BLStopwatchState) {
 /** 保存当前下载信息到本地 */
 - (void)saveWatchInfo {
     NSInteger launchTimes = [self readWatchInfoLaunchCount];
-    if (launchTimes > 20) {
+    if (launchTimes > 100) { //MARK: 保留一百条记录。
         [WatchInfo clearAllWatchInfo];
         launchTimes = 1;
     }

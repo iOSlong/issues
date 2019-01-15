@@ -11,6 +11,7 @@
 		40D17D1080F8742E75182F0E /* libPods-gcd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED6A4694136A0E3C9664DB2 /* libPods-gcd.a */; };
 		969B45E64D419A72B85FB20C /* libPods-gcdUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 830696F2A88060B5D9B46683 /* libPods-gcdUITests.a */; };
 		B1546101216C88F200B4EE1F /* AppTaskCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = B1546100216C88F200B4EE1F /* AppTaskCoordinator.m */; };
+		B1A75D4821EDC10500720C4C /* AppDelegateCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A75D4621EDC10500720C4C /* AppDelegateCoordinator.m */; };
 		B1D5D285215A081500FF7CEB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D5D284215A081500FF7CEB /* AppDelegate.m */; };
 		B1D5D28B215A081500FF7CEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1D5D289215A081500FF7CEB /* Main.storyboard */; };
 		B1D5D28D215A081700FF7CEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1D5D28C215A081700FF7CEB /* Assets.xcassets */; };
@@ -50,6 +51,8 @@
 		A107482DEDED1BFA4E93AA30 /* Pods-gcdUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gcdUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-gcdUITests/Pods-gcdUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B15460FF216C88F200B4EE1F /* AppTaskCoordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppTaskCoordinator.h; sourceTree = "<group>"; };
 		B1546100216C88F200B4EE1F /* AppTaskCoordinator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppTaskCoordinator.m; sourceTree = "<group>"; };
+		B1A75D4621EDC10500720C4C /* AppDelegateCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegateCoordinator.m; sourceTree = "<group>"; };
+		B1A75D4721EDC10500720C4C /* AppDelegateCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegateCoordinator.h; sourceTree = "<group>"; };
 		B1D5D280215A081500FF7CEB /* gcd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gcd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D5D283215A081500FF7CEB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B1D5D284215A081500FF7CEB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -146,6 +149,8 @@
 				B1D5D2B9215A08FA00FF7CEB /* DispatchFuncViewController.m */,
 				B1D5D2C2215BA24800FF7CEB /* DispatchQueueManager.h */,
 				B1D5D2C3215BA24800FF7CEB /* DispatchQueueManager.m */,
+				B1A75D4721EDC10500720C4C /* AppDelegateCoordinator.h */,
+				B1A75D4621EDC10500720C4C /* AppDelegateCoordinator.m */,
 				B15460FF216C88F200B4EE1F /* AppTaskCoordinator.h */,
 				B1546100216C88F200B4EE1F /* AppTaskCoordinator.m */,
 				B1D5D28C215A081700FF7CEB /* Assets.xcassets */,
@@ -377,6 +382,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1A75D4821EDC10500720C4C /* AppDelegateCoordinator.m in Sources */,
 				B1D5D2B7215A089400FF7CEB /* HandleTableViewController.m in Sources */,
 				B1546101216C88F200B4EE1F /* AppTaskCoordinator.m in Sources */,
 				B1D5D2C4215BA24800FF7CEB /* DispatchQueueManager.m in Sources */,

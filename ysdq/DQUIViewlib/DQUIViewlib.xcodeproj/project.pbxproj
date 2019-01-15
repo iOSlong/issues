@@ -16,7 +16,6 @@
 		B1197343219BCFD700DBE446 /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = B1197342219BCFD700DBE446 /* NotificationService.m */; };
 		B1197347219BCFD700DBE446 /* ServiceEXT.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B119733F219BCFD700DBE446 /* ServiceEXT.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B12788E5210702AB00217376 /* NavBarShowHiddenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B12788E4210702AB00217376 /* NavBarShowHiddenViewController.m */; };
-		B12788F72109A83600217376 /* BLStopwatch.m in Sources */ = {isa = PBXBuildFile; fileRef = B12788F32109A83500217376 /* BLStopwatch.m */; };
 		B12788F92109A83600217376 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B12788F52109A83600217376 /* README.md */; };
 		B12AE745211C1CE9008AD800 /* ControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = B12AE744211C1CE9008AD800 /* ControlView.m */; };
 		B1546106216D999500B4EE1F /* ReversalAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1546105216D999500B4EE1F /* ReversalAnimationView.m */; };
@@ -40,12 +39,14 @@
 		B1716E3E2175CB0E00E50976 /* SJAvatarBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = B1716E3D2175CB0E00E50976 /* SJAvatarBrowser.m */; };
 		B1858F5D2134F84F00ED7DBA /* logfile in Resources */ = {isa = PBXBuildFile; fileRef = B1858F5C2134F84F00ED7DBA /* logfile */; };
 		B187F74121251EE4003AA637 /* AirPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = B187F74021251EE4003AA637 /* AirPlayView.m */; };
-		B187F744212D0EEE003AA637 /* WatchInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B187F743212D0EEE003AA637 /* WatchInfo.m */; };
 		B18ADBB320FF57170096B8DA /* NavigationControllerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B18ADBB220FF57170096B8DA /* NavigationControllerListViewController.m */; };
 		B18ADBB620FF582D0096B8DA /* NavigationSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B18ADBB520FF582D0096B8DA /* NavigationSubViewController.m */; };
 		B196FC0C216F4AE000EFD452 /* AnimationViewTextFieldBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B196FC0B216F4AE000EFD452 /* AnimationViewTextFieldBar.m */; };
 		B196FC10216F556700EFD452 /* AnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B196FC0F216F556700EFD452 /* AnimationController.m */; };
 		B1A6AE7A21143DC400132D1F /* RoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A6AE7921143DC400132D1F /* RoundButton.m */; };
+		B1A75D4321EDBF5B00720C4C /* ControlHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A75D3F21EDBF5B00720C4C /* ControlHandle.m */; };
+		B1A75D4421EDBF5B00720C4C /* BLStopwatch.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A75D4021EDBF5B00720C4C /* BLStopwatch.m */; };
+		B1A75D4521EDBF5B00720C4C /* WatchInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A75D4221EDBF5B00720C4C /* WatchInfo.m */; };
 		B1AD968C21C0E1C300050E5B /* DQCollectionViewFontCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1AD968A21C0E1C300050E5B /* DQCollectionViewFontCell.m */; };
 		B1AD968D21C0E1C300050E5B /* DQCollectionViewFontCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1AD968B21C0E1C300050E5B /* DQCollectionViewFontCell.xib */; };
 		B1BBF00C20F6F8E1005D59B2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BBF00B20F6F8E1005D59B2 /* AppDelegate.m */; };
@@ -117,9 +118,7 @@
 		B1197344219BCFD700DBE446 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B12788E3210702AB00217376 /* NavBarShowHiddenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavBarShowHiddenViewController.h; sourceTree = "<group>"; };
 		B12788E4210702AB00217376 /* NavBarShowHiddenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavBarShowHiddenViewController.m; sourceTree = "<group>"; };
-		B12788F32109A83500217376 /* BLStopwatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLStopwatch.m; sourceTree = "<group>"; };
 		B12788F52109A83600217376 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		B12788F62109A83600217376 /* BLStopwatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLStopwatch.h; sourceTree = "<group>"; };
 		B12AE743211C1CE9008AD800 /* ControlView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ControlView.h; sourceTree = "<group>"; };
 		B12AE744211C1CE9008AD800 /* ControlView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ControlView.m; sourceTree = "<group>"; };
 		B1546104216D999500B4EE1F /* ReversalAnimationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReversalAnimationView.h; sourceTree = "<group>"; };
@@ -162,8 +161,6 @@
 		B1858F5C2134F84F00ED7DBA /* logfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = logfile; sourceTree = "<group>"; };
 		B187F73F21251EE4003AA637 /* AirPlayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AirPlayView.h; sourceTree = "<group>"; };
 		B187F74021251EE4003AA637 /* AirPlayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirPlayView.m; sourceTree = "<group>"; };
-		B187F742212D0EEE003AA637 /* WatchInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WatchInfo.h; sourceTree = "<group>"; };
-		B187F743212D0EEE003AA637 /* WatchInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WatchInfo.m; sourceTree = "<group>"; };
 		B18ADBB120FF57170096B8DA /* NavigationControllerListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationControllerListViewController.h; sourceTree = "<group>"; };
 		B18ADBB220FF57170096B8DA /* NavigationControllerListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationControllerListViewController.m; sourceTree = "<group>"; };
 		B18ADBB420FF582D0096B8DA /* NavigationSubViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationSubViewController.h; sourceTree = "<group>"; };
@@ -174,6 +171,12 @@
 		B196FC0F216F556700EFD452 /* AnimationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationController.m; sourceTree = "<group>"; };
 		B1A6AE7821143DC400132D1F /* RoundButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoundButton.h; sourceTree = "<group>"; };
 		B1A6AE7921143DC400132D1F /* RoundButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoundButton.m; sourceTree = "<group>"; };
+		B1A75D3D21EDBF5A00720C4C /* WatchInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchInfo.h; sourceTree = "<group>"; };
+		B1A75D3E21EDBF5B00720C4C /* ControlHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlHandle.h; sourceTree = "<group>"; };
+		B1A75D3F21EDBF5B00720C4C /* ControlHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlHandle.m; sourceTree = "<group>"; };
+		B1A75D4021EDBF5B00720C4C /* BLStopwatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLStopwatch.m; sourceTree = "<group>"; };
+		B1A75D4121EDBF5B00720C4C /* BLStopwatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLStopwatch.h; sourceTree = "<group>"; };
+		B1A75D4221EDBF5B00720C4C /* WatchInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchInfo.m; sourceTree = "<group>"; };
 		B1AD968921C0E1C300050E5B /* DQCollectionViewFontCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DQCollectionViewFontCell.h; sourceTree = "<group>"; };
 		B1AD968A21C0E1C300050E5B /* DQCollectionViewFontCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DQCollectionViewFontCell.m; sourceTree = "<group>"; };
 		B1AD968B21C0E1C300050E5B /* DQCollectionViewFontCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DQCollectionViewFontCell.xib; sourceTree = "<group>"; };
@@ -287,11 +290,13 @@
 		B12788F22109A7EB00217376 /* BLStopwatch */ = {
 			isa = PBXGroup;
 			children = (
-				B12788F62109A83600217376 /* BLStopwatch.h */,
-				B12788F32109A83500217376 /* BLStopwatch.m */,
 				B12788F52109A83600217376 /* README.md */,
-				B187F742212D0EEE003AA637 /* WatchInfo.h */,
-				B187F743212D0EEE003AA637 /* WatchInfo.m */,
+				B1A75D4121EDBF5B00720C4C /* BLStopwatch.h */,
+				B1A75D4021EDBF5B00720C4C /* BLStopwatch.m */,
+				B1A75D3E21EDBF5B00720C4C /* ControlHandle.h */,
+				B1A75D3F21EDBF5B00720C4C /* ControlHandle.m */,
+				B1A75D3D21EDBF5A00720C4C /* WatchInfo.h */,
+				B1A75D4221EDBF5B00720C4C /* WatchInfo.m */,
 				B1858F5C2134F84F00ED7DBA /* logfile */,
 			);
 			path = BLStopwatch;
@@ -868,12 +873,10 @@
 				B154610D216DFB7C00B4EE1F /* APIControlViewController.m in Sources */,
 				B187F74121251EE4003AA637 /* AirPlayView.m in Sources */,
 				B12788E5210702AB00217376 /* NavBarShowHiddenViewController.m in Sources */,
-				B187F744212D0EEE003AA637 /* WatchInfo.m in Sources */,
 				B1EE119B21C8D26E00F83680 /* DQBarcodeManager.m in Sources */,
 				B1F5AEF3214F5C3B0060E50D /* ApostropheAnimationView.m in Sources */,
 				B16EC97620F843770046E688 /* SingleViewLibTableViewController.m in Sources */,
 				B17164A521ABF74E001504C1 /* NSObject+Base.m in Sources */,
-				B12788F72109A83600217376 /* BLStopwatch.m in Sources */,
 				B18ADBB320FF57170096B8DA /* NavigationControllerListViewController.m in Sources */,
 				B196FC10216F556700EFD452 /* AnimationController.m in Sources */,
 				B17164A721ABF74E001504C1 /* DQObject.m in Sources */,
@@ -882,16 +885,19 @@
 				B1BBF03E20F6F9C2005D59B2 /* BaseViewController.m in Sources */,
 				B196FC0C216F4AE000EFD452 /* AnimationViewTextFieldBar.m in Sources */,
 				B1AD968C21C0E1C300050E5B /* DQCollectionViewFontCell.m in Sources */,
+				B1A75D4321EDBF5B00720C4C /* ControlHandle.m in Sources */,
 				B16EC97A20F848DE0046E688 /* TBGradientLayerView.m in Sources */,
 				B18ADBB620FF582D0096B8DA /* NavigationSubViewController.m in Sources */,
 				B16EC9CA20FF370A0046E688 /* CustomNavigationBar.m in Sources */,
 				B1716E3E2175CB0E00E50976 /* SJAvatarBrowser.m in Sources */,
 				B1A6AE7A21143DC400132D1F /* RoundButton.m in Sources */,
 				B1BBF04520F6FA30005D59B2 /* BraceletView.m in Sources */,
+				B1A75D4421EDBF5B00720C4C /* BLStopwatch.m in Sources */,
 				B1EE119A21C8D26E00F83680 /* DQBarcodeView.m in Sources */,
 				B16EC9C120FF2D220046E688 /* DQNavigationController.m in Sources */,
 				B1197329219AB8AC00DBE446 /* FloatRectShadowView.m in Sources */,
 				B10FC4C5211AC392009715CA /* BezierPathView.m in Sources */,
+				B1A75D4521EDBF5B00720C4C /* WatchInfo.m in Sources */,
 				B16EC9D120FF47A90046E688 /* UIView+SARRS.m in Sources */,
 				B12AE745211C1CE9008AD800 /* ControlView.m in Sources */,
 				B1546106216D999500B4EE1F /* ReversalAnimationView.m in Sources */,

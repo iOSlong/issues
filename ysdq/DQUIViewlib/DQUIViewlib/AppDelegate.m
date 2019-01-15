@@ -17,13 +17,44 @@
 
 @implementation AppDelegate
 
+- (void)setupRunloopObserver
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        CFRunLoopRef runloop = CFRunLoopGetCurrent();
+        
+        CFRunLoopObserverRef enterObserver;
+        enterObserver = CFRunLoopObserverCreate(CFAllocatorGetDefault(),
+                                                kCFRunLoopEntry | kCFRunLoopExit,
+                                                true,
+                                                -0x7FFFFFFF,
+                                                BBRunloopObserverCallBack, NULL);
+        CFRunLoopAddObserver(runloop, enterObserver, kCFRunLoopCommonModes);
+        CFRelease(enterObserver);
+    });
+}
+
+static void BBRunloopObserverCallBack(CFRunLoopObserverRef observer, CFRunLoopActivity activity, void *info) {
+    switch (activity) {
+        case kCFRunLoopEntry: {
+            NSLog(@"enter runloop...");
+        }
+            break;
+        case kCFRunLoopExit: {
+            NSLog(@"leave runloop...");
+        }
+            break;
+        default: break;
+    }
+}
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 //    [[BLStopwatch sharedStopwatch] splitWithDescription:@"didFinishLaunchBegin"];
     [[BLStopwatch sharedStopwatch] splitWithType:BLStopwatchSplitTypeContinuous description:WATCH_FINISHLAUNCH0];
     
-    [WatchInfo logParse:nil];
+//    [WatchInfo logParse:nil];
     
 
 //    NSArray *infos =  [WatchInfo readAllWatchInfo];
