@@ -14,4 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UILabel *titleLabel;
 @end
 
+
+@interface NSString (fontSize)
+- (CGSize)sizeWithFont:(UIFont *)font;
+@end
+
 NS_ASSUME_NONNULL_END

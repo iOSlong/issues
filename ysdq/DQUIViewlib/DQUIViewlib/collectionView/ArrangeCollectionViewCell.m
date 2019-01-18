@@ -7,6 +7,7 @@
 //
 
 #import "ArrangeCollectionViewCell.h"
+#import <CoreText/CoreText.h>
 
 @implementation ArrangeCollectionViewCell
 
@@ -42,5 +43,22 @@
     return attributes;
 }
 
+
+@end
+
+@implementation NSString (fontSize)
+
+- (CGSize)sizeWithFont:(UIFont *)font {
+    NSMutableAttributedString* attString = [[NSMutableAttributedString alloc] initWithString:self];
+    [attString addAttribute:NSFontAttributeName             //文字字体
+                      value:font?:[UIFont systemFontOfSize:17]
+                      range:NSMakeRange(0, self.length)];
+    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)attString);
+    CFRange visibleRange;
+    CGSize constraint = CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX);
+    CGSize newSize   = CTFramesetterSuggestFrameSizeWithConstraints(framesetter, CFRangeMake(0, [self length]), nil, constraint, &visibleRange);
+    CFRelease(framesetter);
+    return newSize;
+}
 
 @end
