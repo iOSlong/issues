@@ -23,7 +23,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self dosomethingHightCPUUSAGE1];
 
     [[BLStopwatch sharedStopwatch] splitWithType:BLStopwatchSplitTypeContinuous description:WATCH_VIEWDIDLOAD0];
 
@@ -39,44 +38,11 @@
     
     [[BLStopwatch sharedStopwatch] splitWithType:BLStopwatchSplitTypeContinuous description:WATCH_VIEWDIDLOAD1];
     
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        [self dosomethingHightCPUUSAGE2];
-//    });
-    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//        [self dosomethingHightCPUUSAGE3];
     });
     
 }
 
-- (void)dosomethingHightCPUUSAGE1 {
-    sleep(1);
-    for (int i = 0; i < 100 ; i ++) {
-        NSLog(@"----%@",[NSNumber numberWithInt:i]);
-        for (int j = 0; j < 200 ; j ++) {
-            NSLog(@"======%@",[NSNumber numberWithInt:j]);
-        }
-    }
-}
-
-- (void)dosomethingHightCPUUSAGE3 {
-    for (int i = 100; i < 200 ; i ++) {
-        NSLog(@"----%@",[NSNumber numberWithInt:i]);
-        for (int j = 300; j < 600 ; j ++) {
-            NSLog(@"======%@",[NSNumber numberWithInt:j]);
-        }
-    }
-    
-}
-
-- (void)dosomethingHightCPUUSAGE2 {
-    for (int i = 0; i < 100 ; i ++) {
-        NSLog(@"----%@",[NSNumber numberWithInt:i]);
-        for (int j = 0; j < 300 ; j ++) {
-            NSLog(@"======%@",[NSNumber numberWithInt:j]);
-        }
-    }
-}
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];

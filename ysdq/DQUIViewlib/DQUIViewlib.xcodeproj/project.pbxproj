@@ -47,6 +47,12 @@
 		B1A75D4321EDBF5B00720C4C /* ControlHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A75D3F21EDBF5B00720C4C /* ControlHandle.m */; };
 		B1A75D4421EDBF5B00720C4C /* BLStopwatch.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A75D4021EDBF5B00720C4C /* BLStopwatch.m */; };
 		B1A75D4521EDBF5B00720C4C /* WatchInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A75D4221EDBF5B00720C4C /* WatchInfo.m */; };
+		B1A75D5A21F175CE00720C4C /* ArrangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A75D5921F175CE00720C4C /* ArrangeView.m */; };
+		B1A75D5D21F17BAB00720C4C /* ArrangeItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A75D5C21F17BAB00720C4C /* ArrangeItemView.m */; };
+		B1A75D6121F1A93200720C4C /* CollectionThemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A75D6021F1A93200720C4C /* CollectionThemeViewController.m */; };
+		B1A75D6421F1AA8C00720C4C /* CodeListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A75D6321F1AA8C00720C4C /* CodeListTableViewController.m */; };
+		B1A75D6721F1ACA200720C4C /* ArrangeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A75D6621F1ACA200720C4C /* ArrangeCollectionViewCell.m */; };
+		B1A75D6A21F1B97800720C4C /* ArrangeCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A75D6921F1B97800720C4C /* ArrangeCollectionViewFlowLayout.m */; };
 		B1AD968C21C0E1C300050E5B /* DQCollectionViewFontCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1AD968A21C0E1C300050E5B /* DQCollectionViewFontCell.m */; };
 		B1AD968D21C0E1C300050E5B /* DQCollectionViewFontCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1AD968B21C0E1C300050E5B /* DQCollectionViewFontCell.xib */; };
 		B1BBF00C20F6F8E1005D59B2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BBF00B20F6F8E1005D59B2 /* AppDelegate.m */; };
@@ -177,6 +183,18 @@
 		B1A75D4021EDBF5B00720C4C /* BLStopwatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLStopwatch.m; sourceTree = "<group>"; };
 		B1A75D4121EDBF5B00720C4C /* BLStopwatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLStopwatch.h; sourceTree = "<group>"; };
 		B1A75D4221EDBF5B00720C4C /* WatchInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchInfo.m; sourceTree = "<group>"; };
+		B1A75D5821F175CE00720C4C /* ArrangeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArrangeView.h; sourceTree = "<group>"; };
+		B1A75D5921F175CE00720C4C /* ArrangeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArrangeView.m; sourceTree = "<group>"; };
+		B1A75D5B21F17BAB00720C4C /* ArrangeItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArrangeItemView.h; sourceTree = "<group>"; };
+		B1A75D5C21F17BAB00720C4C /* ArrangeItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArrangeItemView.m; sourceTree = "<group>"; };
+		B1A75D5F21F1A93200720C4C /* CollectionThemeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionThemeViewController.h; sourceTree = "<group>"; };
+		B1A75D6021F1A93200720C4C /* CollectionThemeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionThemeViewController.m; sourceTree = "<group>"; };
+		B1A75D6221F1AA8C00720C4C /* CodeListTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CodeListTableViewController.h; sourceTree = "<group>"; };
+		B1A75D6321F1AA8C00720C4C /* CodeListTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CodeListTableViewController.m; sourceTree = "<group>"; };
+		B1A75D6521F1ACA200720C4C /* ArrangeCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArrangeCollectionViewCell.h; sourceTree = "<group>"; };
+		B1A75D6621F1ACA200720C4C /* ArrangeCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArrangeCollectionViewCell.m; sourceTree = "<group>"; };
+		B1A75D6821F1B97800720C4C /* ArrangeCollectionViewFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArrangeCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		B1A75D6921F1B97800720C4C /* ArrangeCollectionViewFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArrangeCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		B1AD968921C0E1C300050E5B /* DQCollectionViewFontCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DQCollectionViewFontCell.h; sourceTree = "<group>"; };
 		B1AD968A21C0E1C300050E5B /* DQCollectionViewFontCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DQCollectionViewFontCell.m; sourceTree = "<group>"; };
 		B1AD968B21C0E1C300050E5B /* DQCollectionViewFontCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DQCollectionViewFontCell.xib; sourceTree = "<group>"; };
@@ -445,6 +463,30 @@
 			path = RoundButton;
 			sourceTree = "<group>";
 		};
+		B1A75D5721F1749500720C4C /* arrangeView */ = {
+			isa = PBXGroup;
+			children = (
+				B1A75D5821F175CE00720C4C /* ArrangeView.h */,
+				B1A75D5921F175CE00720C4C /* ArrangeView.m */,
+				B1A75D5B21F17BAB00720C4C /* ArrangeItemView.h */,
+				B1A75D5C21F17BAB00720C4C /* ArrangeItemView.m */,
+			);
+			path = arrangeView;
+			sourceTree = "<group>";
+		};
+		B1A75D5E21F1A8F900720C4C /* collectionView */ = {
+			isa = PBXGroup;
+			children = (
+				B1A75D5F21F1A93200720C4C /* CollectionThemeViewController.h */,
+				B1A75D6021F1A93200720C4C /* CollectionThemeViewController.m */,
+				B1A75D6521F1ACA200720C4C /* ArrangeCollectionViewCell.h */,
+				B1A75D6621F1ACA200720C4C /* ArrangeCollectionViewCell.m */,
+				B1A75D6821F1B97800720C4C /* ArrangeCollectionViewFlowLayout.h */,
+				B1A75D6921F1B97800720C4C /* ArrangeCollectionViewFlowLayout.m */,
+			);
+			path = collectionView;
+			sourceTree = "<group>";
+		};
 		B1AD968821C0E18600050E5B /* cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -482,6 +524,8 @@
 		B1BBF00920F6F8E1005D59B2 /* DQUIViewlib */ = {
 			isa = PBXGroup;
 			children = (
+				B1A75D5E21F1A8F900720C4C /* collectionView */,
+				B1A75D5721F1749500720C4C /* arrangeView */,
 				B1EE119521C8D23700F83680 /* barcode */,
 				B1AD968821C0E18600050E5B /* cells */,
 				B171649521ABF030001504C1 /* initialize_VS_load */,
@@ -512,6 +556,8 @@
 				B1BBF01920F6F8E3005D59B2 /* main.m */,
 				B16EC97420F843770046E688 /* SingleViewLibTableViewController.h */,
 				B16EC97520F843770046E688 /* SingleViewLibTableViewController.m */,
+				B1A75D6221F1AA8C00720C4C /* CodeListTableViewController.h */,
+				B1A75D6321F1AA8C00720C4C /* CodeListTableViewController.m */,
 				B1BBF03C20F6F9C2005D59B2 /* BaseViewController.h */,
 				B1BBF03D20F6F9C2005D59B2 /* BaseViewController.m */,
 				B154610B216DFB7C00B4EE1F /* APIControlViewController.h */,
@@ -871,6 +917,7 @@
 			files = (
 				B16EC9CE20FF47620046E688 /* SASView.m in Sources */,
 				B154610D216DFB7C00B4EE1F /* APIControlViewController.m in Sources */,
+				B1A75D6A21F1B97800720C4C /* ArrangeCollectionViewFlowLayout.m in Sources */,
 				B187F74121251EE4003AA637 /* AirPlayView.m in Sources */,
 				B12788E5210702AB00217376 /* NavBarShowHiddenViewController.m in Sources */,
 				B1EE119B21C8D26E00F83680 /* DQBarcodeManager.m in Sources */,
@@ -882,6 +929,7 @@
 				B17164A721ABF74E001504C1 /* DQObject.m in Sources */,
 				B16309E8215CD9A10027DA51 /* MPLoadTestViewController.m in Sources */,
 				B1716E2F21748C0800E50976 /* AirPlayViewTableViewCell.m in Sources */,
+				B1A75D6721F1ACA200720C4C /* ArrangeCollectionViewCell.m in Sources */,
 				B1BBF03E20F6F9C2005D59B2 /* BaseViewController.m in Sources */,
 				B196FC0C216F4AE000EFD452 /* AnimationViewTextFieldBar.m in Sources */,
 				B1AD968C21C0E1C300050E5B /* DQCollectionViewFontCell.m in Sources */,
@@ -893,7 +941,9 @@
 				B1A6AE7A21143DC400132D1F /* RoundButton.m in Sources */,
 				B1BBF04520F6FA30005D59B2 /* BraceletView.m in Sources */,
 				B1A75D4421EDBF5B00720C4C /* BLStopwatch.m in Sources */,
+				B1A75D5D21F17BAB00720C4C /* ArrangeItemView.m in Sources */,
 				B1EE119A21C8D26E00F83680 /* DQBarcodeView.m in Sources */,
+				B1A75D6421F1AA8C00720C4C /* CodeListTableViewController.m in Sources */,
 				B16EC9C120FF2D220046E688 /* DQNavigationController.m in Sources */,
 				B1197329219AB8AC00DBE446 /* FloatRectShadowView.m in Sources */,
 				B10FC4C5211AC392009715CA /* BezierPathView.m in Sources */,
@@ -902,8 +952,10 @@
 				B12AE745211C1CE9008AD800 /* ControlView.m in Sources */,
 				B1546106216D999500B4EE1F /* ReversalAnimationView.m in Sources */,
 				B16EC9B220FDCDE80046E688 /* SelfNavigationBarViewController.m in Sources */,
+				B1A75D6121F1A93200720C4C /* CollectionThemeViewController.m in Sources */,
 				B16EC97D20F84D470046E688 /* GradientLayerView.m in Sources */,
 				B1BBF01A20F6F8E3005D59B2 /* main.m in Sources */,
+				B1A75D5A21F175CE00720C4C /* ArrangeView.m in Sources */,
 				B1BBF00C20F6F8E1005D59B2 /* AppDelegate.m in Sources */,
 				B17164A621ABF74E001504C1 /* DQPersonModel.m in Sources */,
 				B16EC9A520FD8EBB0046E688 /* SegmentView.m in Sources */,
