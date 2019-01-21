@@ -34,13 +34,13 @@
 #pragma mark - UICollectionView
 - (void)configureCollectionView {
     
-//    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     ArrangeCollectionViewFlowLayout *layout = [[ArrangeCollectionViewFlowLayout alloc] init];
     
     layout.estimatedItemSize        = CGSizeMake(80, 38);
     layout.minimumLineSpacing       = 20;
     layout.minimumInteritemSpacing  = 8;
-    layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+    layout.sectionInset             = UIEdgeInsetsMake(10, 10, 10, 10);
+//    layout.arrangeAlignment         = ArrangeAlignmentCenter;
     
 
     _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];

@@ -14,6 +14,7 @@ typedef NS_ENUM(NSUInteger, ArrangeAlignment) {
     ArrangeAlignmentBalance,//默认平均分布
     ArrangeAlignmentLeft,   //左对齐
     ArrangeAlignmentRight,  //右对齐
+    ArrangeAlignmentCenter, //居中对齐
 };
 
 @interface ArrangeCollectionViewFlowLayout : UICollectionViewFlowLayout
