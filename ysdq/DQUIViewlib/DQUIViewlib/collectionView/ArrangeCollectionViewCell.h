@@ -15,8 +15,4 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
-@interface NSString (fontSize)
-- (CGSize)sizeWithFont:(UIFont *)font;
-@end
-
 NS_ASSUME_NONNULL_END

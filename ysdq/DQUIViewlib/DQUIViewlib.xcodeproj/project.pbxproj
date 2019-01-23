@@ -18,6 +18,11 @@
 		B12788E5210702AB00217376 /* NavBarShowHiddenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B12788E4210702AB00217376 /* NavBarShowHiddenViewController.m */; };
 		B12788F92109A83600217376 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B12788F52109A83600217376 /* README.md */; };
 		B12AE745211C1CE9008AD800 /* ControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = B12AE744211C1CE9008AD800 /* ControlView.m */; };
+		B12BBE7521F6F99B005A7540 /* PopAlertTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B12BBE7421F6F99B005A7540 /* PopAlertTableViewController.m */; };
+		B12BBE7821F6FEAB005A7540 /* PopAlertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B12BBE7721F6FEAB005A7540 /* PopAlertManager.m */; };
+		B12BBE7B21F70A75005A7540 /* CustomerPopAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B12BBE7A21F70A75005A7540 /* CustomerPopAlertViewController.m */; };
+		B12BBE7E21F70EDC005A7540 /* BasePopView.m in Sources */ = {isa = PBXBuildFile; fileRef = B12BBE7D21F70EDC005A7540 /* BasePopView.m */; };
+		B12BBE8121F712CC005A7540 /* MessageInputAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = B12BBE8021F712CC005A7540 /* MessageInputAlertView.m */; };
 		B1546106216D999500B4EE1F /* ReversalAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1546105216D999500B4EE1F /* ReversalAnimationView.m */; };
 		B1546109216DD04E00B4EE1F /* main_search_small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1546107216DD04D00B4EE1F /* main_search_small@3x.png */; };
 		B154610A216DD04E00B4EE1F /* main_search_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1546108216DD04E00B4EE1F /* main_search_small@2x.png */; };
@@ -127,6 +132,16 @@
 		B12788F52109A83600217376 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B12AE743211C1CE9008AD800 /* ControlView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ControlView.h; sourceTree = "<group>"; };
 		B12AE744211C1CE9008AD800 /* ControlView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ControlView.m; sourceTree = "<group>"; };
+		B12BBE7321F6F99B005A7540 /* PopAlertTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopAlertTableViewController.h; sourceTree = "<group>"; };
+		B12BBE7421F6F99B005A7540 /* PopAlertTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopAlertTableViewController.m; sourceTree = "<group>"; };
+		B12BBE7621F6FEAB005A7540 /* PopAlertManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopAlertManager.h; sourceTree = "<group>"; };
+		B12BBE7721F6FEAB005A7540 /* PopAlertManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopAlertManager.m; sourceTree = "<group>"; };
+		B12BBE7921F70A75005A7540 /* CustomerPopAlertViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomerPopAlertViewController.h; sourceTree = "<group>"; };
+		B12BBE7A21F70A75005A7540 /* CustomerPopAlertViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomerPopAlertViewController.m; sourceTree = "<group>"; };
+		B12BBE7C21F70EDC005A7540 /* BasePopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasePopView.h; sourceTree = "<group>"; };
+		B12BBE7D21F70EDC005A7540 /* BasePopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasePopView.m; sourceTree = "<group>"; };
+		B12BBE7F21F712CC005A7540 /* MessageInputAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageInputAlertView.h; sourceTree = "<group>"; };
+		B12BBE8021F712CC005A7540 /* MessageInputAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageInputAlertView.m; sourceTree = "<group>"; };
 		B1546104216D999500B4EE1F /* ReversalAnimationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReversalAnimationView.h; sourceTree = "<group>"; };
 		B1546105216D999500B4EE1F /* ReversalAnimationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReversalAnimationView.m; sourceTree = "<group>"; };
 		B1546107216DD04D00B4EE1F /* main_search_small@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main_search_small@3x.png"; sourceTree = "<group>"; };
@@ -329,6 +344,23 @@
 			path = ControlView;
 			sourceTree = "<group>";
 		};
+		B12BBE7221F6F96B005A7540 /* popAlertVeiw */ = {
+			isa = PBXGroup;
+			children = (
+				B12BBE7321F6F99B005A7540 /* PopAlertTableViewController.h */,
+				B12BBE7421F6F99B005A7540 /* PopAlertTableViewController.m */,
+				B12BBE7621F6FEAB005A7540 /* PopAlertManager.h */,
+				B12BBE7721F6FEAB005A7540 /* PopAlertManager.m */,
+				B12BBE7921F70A75005A7540 /* CustomerPopAlertViewController.h */,
+				B12BBE7A21F70A75005A7540 /* CustomerPopAlertViewController.m */,
+				B12BBE7C21F70EDC005A7540 /* BasePopView.h */,
+				B12BBE7D21F70EDC005A7540 /* BasePopView.m */,
+				B12BBE7F21F712CC005A7540 /* MessageInputAlertView.h */,
+				B12BBE8021F712CC005A7540 /* MessageInputAlertView.m */,
+			);
+			path = popAlertVeiw;
+			sourceTree = "<group>";
+		};
 		B1546103216D997D00B4EE1F /* ReversalAnimationView */ = {
 			isa = PBXGroup;
 			children = (
@@ -524,6 +556,7 @@
 		B1BBF00920F6F8E1005D59B2 /* DQUIViewlib */ = {
 			isa = PBXGroup;
 			children = (
+				B12BBE7221F6F96B005A7540 /* popAlertVeiw */,
 				B1A75D5E21F1A8F900720C4C /* collectionView */,
 				B1A75D5721F1749500720C4C /* arrangeView */,
 				B1EE119521C8D23700F83680 /* barcode */,
@@ -929,6 +962,8 @@
 				B17164A721ABF74E001504C1 /* DQObject.m in Sources */,
 				B16309E8215CD9A10027DA51 /* MPLoadTestViewController.m in Sources */,
 				B1716E2F21748C0800E50976 /* AirPlayViewTableViewCell.m in Sources */,
+				B12BBE8121F712CC005A7540 /* MessageInputAlertView.m in Sources */,
+				B12BBE7521F6F99B005A7540 /* PopAlertTableViewController.m in Sources */,
 				B1A75D6721F1ACA200720C4C /* ArrangeCollectionViewCell.m in Sources */,
 				B1BBF03E20F6F9C2005D59B2 /* BaseViewController.m in Sources */,
 				B196FC0C216F4AE000EFD452 /* AnimationViewTextFieldBar.m in Sources */,
@@ -946,11 +981,14 @@
 				B1A75D6421F1AA8C00720C4C /* CodeListTableViewController.m in Sources */,
 				B16EC9C120FF2D220046E688 /* DQNavigationController.m in Sources */,
 				B1197329219AB8AC00DBE446 /* FloatRectShadowView.m in Sources */,
+				B12BBE7E21F70EDC005A7540 /* BasePopView.m in Sources */,
 				B10FC4C5211AC392009715CA /* BezierPathView.m in Sources */,
 				B1A75D4521EDBF5B00720C4C /* WatchInfo.m in Sources */,
 				B16EC9D120FF47A90046E688 /* UIView+SARRS.m in Sources */,
+				B12BBE7821F6FEAB005A7540 /* PopAlertManager.m in Sources */,
 				B12AE745211C1CE9008AD800 /* ControlView.m in Sources */,
 				B1546106216D999500B4EE1F /* ReversalAnimationView.m in Sources */,
+				B12BBE7B21F70A75005A7540 /* CustomerPopAlertViewController.m in Sources */,
 				B16EC9B220FDCDE80046E688 /* SelfNavigationBarViewController.m in Sources */,
 				B1A75D6121F1A93200720C4C /* CollectionThemeViewController.m in Sources */,
 				B16EC97D20F84D470046E688 /* GradientLayerView.m in Sources */,

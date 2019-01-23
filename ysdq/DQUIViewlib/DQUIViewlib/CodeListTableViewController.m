@@ -8,6 +8,7 @@
 
 #import "CodeListTableViewController.h"
 #import "CollectionThemeViewController.h"
+#import "PopAlertTableViewController.h"
 
 @interface CodeListTableViewController ()
 @property (nonatomic, strong) NSArray *listItems;
@@ -20,7 +21,7 @@
     
     self.title = @"CodeListItem";
     
-    self.listItems = @[@"CollectionThemeViewController",@"demo"];
+    self.listItems = @[@"CollectionThemeViewController",@"PopAlertTableViewController"];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -50,8 +51,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *vcName = self.listItems[indexPath.row];
     UIViewController *desVc = [NSClassFromString(vcName) new];
-    desVc.title = vcName;
-    [self.navigationController pushViewController:desVc animated:YES];
+    if (desVc) {
+        desVc.title = vcName;
+        [self.navigationController pushViewController:desVc animated:YES];
+    }
 }
 
 /*

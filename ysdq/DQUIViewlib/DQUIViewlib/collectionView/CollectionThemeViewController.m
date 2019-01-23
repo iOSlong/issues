@@ -24,7 +24,7 @@
 
     self.view.backgroundColor  = [UIColor whiteColor];
     
-    self.dataArray = @[@"American",@"two",@"American",@"English",@"India",@"Chinese-man",@"morehelo",@"American university",@"two",@"American",@"English island",@"India-",@"Chinese",@"more"];
+    self.dataArray = @[@"American American American American American American ",@"two",@"American",@"English",@"India",@"Chinese-man",@"morehelo",@"American university",@"two",@"American",@"English island",@"India-",@"Chinese",@"more"];
     
     [self configureCollectionView];
     
@@ -40,7 +40,7 @@
     layout.minimumLineSpacing       = 20;
     layout.minimumInteritemSpacing  = 8;
     layout.sectionInset             = UIEdgeInsetsMake(10, 10, 10, 10);
-//    layout.arrangeAlignment         = ArrangeAlignmentCenter;
+    layout.arrangeAlignment         = ArrangeAlignmentLeft;
     
 
     _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];

@@ -10,8 +10,9 @@
 #import "DQNavigationController.h"
 #import "NavigationControllerListViewController.h"
 #import "WatchInfo.h"
+#import <UserNotifications/UserNotifications.h>
 
-@interface AppDelegate ()
+@interface AppDelegate ()<UNUserNotificationCenterDelegate>
 
 @end
 
@@ -54,6 +55,7 @@ static void BBRunloopObserverCallBack(CFRunLoopObserverRef observer, CFRunLoopAc
 //    [[BLStopwatch sharedStopwatch] splitWithDescription:@"didFinishLaunchBegin"];
     [[BLStopwatch sharedStopwatch] splitWithType:BLStopwatchSplitTypeContinuous description:WATCH_FINISHLAUNCH0];
     
+    [self setupPushNotifications:application];
 //    [WatchInfo logParse:nil];
     
 
@@ -73,6 +75,46 @@ static void BBRunloopObserverCallBack(CFRunLoopObserverRef observer, CFRunLoopAc
 //    [[BLStopwatch sharedStopwatch] splitWithDescription:@"didFinishLaunchOver"];
     [[BLStopwatch sharedStopwatch] splitWithType:BLStopwatchSplitTypeContinuous description:WATCH_FINISHLAUNCH1];
     return YES;
+}
+
+- (void)setupPushNotifications:(UIApplication*)application {
+#if TARGET_IPHONE_SIMULATOR
+    return;
+#else // if TARGET_IPHONE_SIMULATOR
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 10.0) {
+            // iOS 10
+        if (@available(iOS 10.0, *)) {
+            UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+            [application registerForRemoteNotifications];
+            center.delegate = self;
+        } else  if(@available(iOS 8.0, *)){
+            [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge categories:nil]];
+            [application registerForRemoteNotifications];
+        }else{
+            [application registerForRemoteNotifications];
+            [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge | UIUserNotificationTypeAlert categories:nil]];
+        }
+        
+            //上报推送通知权限是否开启。
+        [self appRemoteNotificationAuthorization:^(BOOL granted) {
+            NSLog(@"");
+        }];
+#endif   // if TARGET_IPHONE_SIMULATOR
+    }
+}
+- (void)appRemoteNotificationAuthorization:(void (^)(BOOL))complete {
+    if (@available(iOS 10.0, *)) {
+        [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert) completionHandler:^(BOOL granted, NSError *error) {
+            if (complete) {
+                complete(granted);
+            }
+        }];
+    } else  if(@available(iOS 8.0, *)){
+        UIUserNotificationSettings * setting = [[UIApplication sharedApplication] currentUserNotificationSettings];
+        if (complete) {
+            complete(setting.types != UIUserNotificationTypeNone);
+        }
+    }
 }
 
 
