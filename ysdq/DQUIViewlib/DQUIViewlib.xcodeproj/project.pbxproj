@@ -142,6 +142,7 @@
 		B12BBE7D21F70EDC005A7540 /* BasePopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasePopView.m; sourceTree = "<group>"; };
 		B12BBE7F21F712CC005A7540 /* MessageInputAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageInputAlertView.h; sourceTree = "<group>"; };
 		B12BBE8021F712CC005A7540 /* MessageInputAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageInputAlertView.m; sourceTree = "<group>"; };
+		B12BBEC221FEF0BF005A7540 /* DQUIViewlib.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DQUIViewlib.entitlements; sourceTree = "<group>"; };
 		B1546104216D999500B4EE1F /* ReversalAnimationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReversalAnimationView.h; sourceTree = "<group>"; };
 		B1546105216D999500B4EE1F /* ReversalAnimationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReversalAnimationView.m; sourceTree = "<group>"; };
 		B1546107216DD04D00B4EE1F /* main_search_small@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main_search_small@3x.png"; sourceTree = "<group>"; };
@@ -556,6 +557,7 @@
 		B1BBF00920F6F8E1005D59B2 /* DQUIViewlib */ = {
 			isa = PBXGroup;
 			children = (
+				B12BBEC221FEF0BF005A7540 /* DQUIViewlib.entitlements */,
 				B12BBE7221F6F96B005A7540 /* popAlertVeiw */,
 				B1A75D5E21F1A8F900720C4C /* collectionView */,
 				B1A75D5721F1749500720C4C /* arrangeView */,
@@ -772,6 +774,11 @@
 					};
 					B1BBF00620F6F8E1005D59B2 = {
 						CreatedOnToolsVersion = 9.4;
+						SystemCapabilities = {
+							com.apple.SafariKeychain = {
+								enabled = 1;
+							};
+						};
 					};
 					B1BBF01E20F6F8E3005D59B2 = {
 						CreatedOnToolsVersion = 9.4;
@@ -1219,6 +1226,7 @@
 			baseConfigurationReference = C79104D1D50D9F8C32E66F51 /* Pods-DQUIViewlib.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DQUIViewlib/DQUIViewlib.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6ZUV3Y67Z8;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1240,6 +1248,7 @@
 			baseConfigurationReference = EE9D98BA438550A5D5946766 /* Pods-DQUIViewlib.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DQUIViewlib/DQUIViewlib.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6ZUV3Y67Z8;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
