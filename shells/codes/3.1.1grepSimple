@@ -1,0 +1,5 @@
+#! /usr/bin
+who      #有谁登录了
+who | grep lxw
+who | grep -F J
+# 范例中-F选项，以查找固定字符串J，事实上，只要匹配的模式里含有睁着表达式的meta(metacharacter)

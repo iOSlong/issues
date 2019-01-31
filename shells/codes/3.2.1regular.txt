@@ -1,0 +1,8 @@
+tolstoyfmynametolsty
+myname showu hahaha
+tolstoy
+Tolstoyyouanderstand
+Tolstoy
+# cat 3.2.1regular.txt | grep [Tt]olstoy$  发现Tolstoy或者tolstoy结尾的句子
+my case end Tolstoy
+abcABCdefDEF
