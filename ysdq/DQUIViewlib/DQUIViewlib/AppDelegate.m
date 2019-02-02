@@ -99,8 +99,8 @@ static void BBRunloopObserverCallBack(CFRunLoopObserverRef observer, CFRunLoopAc
         [self appRemoteNotificationAuthorization:^(BOOL granted) {
             NSLog(@"");
         }];
-#endif   // if TARGET_IPHONE_SIMULATOR
     }
+#endif   // if TARGET_IPHONE_SIMULATOR
 }
 - (void)appRemoteNotificationAuthorization:(void (^)(BOOL))complete {
     if (@available(iOS 10.0, *)) {

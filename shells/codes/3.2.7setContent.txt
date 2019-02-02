@@ -1,0 +1,15 @@
+pipeline 中间使用sed，替代文本（replacement text）替换匹配的文本
+测试内容：
+1
+a
+2
+d
+4
+c
+3
+:
+d183dsjdfdjs
+7423
+23
+123
+d
