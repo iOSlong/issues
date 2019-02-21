@@ -23,6 +23,10 @@
 		B12BBE7B21F70A75005A7540 /* CustomerPopAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B12BBE7A21F70A75005A7540 /* CustomerPopAlertViewController.m */; };
 		B12BBE7E21F70EDC005A7540 /* BasePopView.m in Sources */ = {isa = PBXBuildFile; fileRef = B12BBE7D21F70EDC005A7540 /* BasePopView.m */; };
 		B12BBE8121F712CC005A7540 /* MessageInputAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = B12BBE8021F712CC005A7540 /* MessageInputAlertView.m */; };
+		B14339F22216699E00AF56C4 /* PresentRouterControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B14339F12216699E00AF56C4 /* PresentRouterControlViewController.m */; };
+		B1433A06221E810200AF56C4 /* CollectionViewListController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1433A05221E810200AF56C4 /* CollectionViewListController.m */; };
+		B1433A0A221E826400AF56C4 /* CollectionViewListCommonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1433A09221E826400AF56C4 /* CollectionViewListCommonCell.m */; };
+		B1433A0D221E873100AF56C4 /* CollectionViewListMultiItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1433A0C221E873100AF56C4 /* CollectionViewListMultiItemCell.m */; };
 		B1546106216D999500B4EE1F /* ReversalAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1546105216D999500B4EE1F /* ReversalAnimationView.m */; };
 		B1546109216DD04E00B4EE1F /* main_search_small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1546107216DD04D00B4EE1F /* main_search_small@3x.png */; };
 		B154610A216DD04E00B4EE1F /* main_search_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1546108216DD04E00B4EE1F /* main_search_small@2x.png */; };
@@ -143,6 +147,14 @@
 		B12BBE7F21F712CC005A7540 /* MessageInputAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageInputAlertView.h; sourceTree = "<group>"; };
 		B12BBE8021F712CC005A7540 /* MessageInputAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageInputAlertView.m; sourceTree = "<group>"; };
 		B12BBEC221FEF0BF005A7540 /* DQUIViewlib.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DQUIViewlib.entitlements; sourceTree = "<group>"; };
+		B14339F02216699E00AF56C4 /* PresentRouterControlViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PresentRouterControlViewController.h; sourceTree = "<group>"; };
+		B14339F12216699E00AF56C4 /* PresentRouterControlViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PresentRouterControlViewController.m; sourceTree = "<group>"; };
+		B1433A04221E810200AF56C4 /* CollectionViewListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewListController.h; sourceTree = "<group>"; };
+		B1433A05221E810200AF56C4 /* CollectionViewListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewListController.m; sourceTree = "<group>"; };
+		B1433A08221E826400AF56C4 /* CollectionViewListCommonCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewListCommonCell.h; sourceTree = "<group>"; };
+		B1433A09221E826400AF56C4 /* CollectionViewListCommonCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewListCommonCell.m; sourceTree = "<group>"; };
+		B1433A0B221E873100AF56C4 /* CollectionViewListMultiItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewListMultiItemCell.h; sourceTree = "<group>"; };
+		B1433A0C221E873100AF56C4 /* CollectionViewListMultiItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewListMultiItemCell.m; sourceTree = "<group>"; };
 		B1546104216D999500B4EE1F /* ReversalAnimationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReversalAnimationView.h; sourceTree = "<group>"; };
 		B1546105216D999500B4EE1F /* ReversalAnimationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReversalAnimationView.m; sourceTree = "<group>"; };
 		B1546107216DD04D00B4EE1F /* main_search_small@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main_search_small@3x.png"; sourceTree = "<group>"; };
@@ -362,6 +374,30 @@
 			path = popAlertVeiw;
 			sourceTree = "<group>";
 		};
+		B14339EF2216686800AF56C4 /* PresentVCMode */ = {
+			isa = PBXGroup;
+			children = (
+				B14339F02216699E00AF56C4 /* PresentRouterControlViewController.h */,
+				B14339F12216699E00AF56C4 /* PresentRouterControlViewController.m */,
+			);
+			path = PresentVCMode;
+			sourceTree = "<group>";
+		};
+		B1433A07221E822600AF56C4 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				B1A75D6521F1ACA200720C4C /* ArrangeCollectionViewCell.h */,
+				B1A75D6621F1ACA200720C4C /* ArrangeCollectionViewCell.m */,
+				B1A75D6821F1B97800720C4C /* ArrangeCollectionViewFlowLayout.h */,
+				B1A75D6921F1B97800720C4C /* ArrangeCollectionViewFlowLayout.m */,
+				B1433A08221E826400AF56C4 /* CollectionViewListCommonCell.h */,
+				B1433A09221E826400AF56C4 /* CollectionViewListCommonCell.m */,
+				B1433A0B221E873100AF56C4 /* CollectionViewListMultiItemCell.h */,
+				B1433A0C221E873100AF56C4 /* CollectionViewListMultiItemCell.m */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
 		B1546103216D997D00B4EE1F /* ReversalAnimationView */ = {
 			isa = PBXGroup;
 			children = (
@@ -510,12 +546,11 @@
 		B1A75D5E21F1A8F900720C4C /* collectionView */ = {
 			isa = PBXGroup;
 			children = (
+				B1433A07221E822600AF56C4 /* cells */,
 				B1A75D5F21F1A93200720C4C /* CollectionThemeViewController.h */,
 				B1A75D6021F1A93200720C4C /* CollectionThemeViewController.m */,
-				B1A75D6521F1ACA200720C4C /* ArrangeCollectionViewCell.h */,
-				B1A75D6621F1ACA200720C4C /* ArrangeCollectionViewCell.m */,
-				B1A75D6821F1B97800720C4C /* ArrangeCollectionViewFlowLayout.h */,
-				B1A75D6921F1B97800720C4C /* ArrangeCollectionViewFlowLayout.m */,
+				B1433A04221E810200AF56C4 /* CollectionViewListController.h */,
+				B1433A05221E810200AF56C4 /* CollectionViewListController.m */,
 			);
 			path = collectionView;
 			sourceTree = "<group>";
@@ -557,6 +592,7 @@
 		B1BBF00920F6F8E1005D59B2 /* DQUIViewlib */ = {
 			isa = PBXGroup;
 			children = (
+				B14339EF2216686800AF56C4 /* PresentVCMode */,
 				B12BBEC221FEF0BF005A7540 /* DQUIViewlib.entitlements */,
 				B12BBE7221F6F96B005A7540 /* popAlertVeiw */,
 				B1A75D5E21F1A8F900720C4C /* collectionView */,
@@ -959,6 +995,7 @@
 				B154610D216DFB7C00B4EE1F /* APIControlViewController.m in Sources */,
 				B1A75D6A21F1B97800720C4C /* ArrangeCollectionViewFlowLayout.m in Sources */,
 				B187F74121251EE4003AA637 /* AirPlayView.m in Sources */,
+				B1433A06221E810200AF56C4 /* CollectionViewListController.m in Sources */,
 				B12788E5210702AB00217376 /* NavBarShowHiddenViewController.m in Sources */,
 				B1EE119B21C8D26E00F83680 /* DQBarcodeManager.m in Sources */,
 				B1F5AEF3214F5C3B0060E50D /* ApostropheAnimationView.m in Sources */,
@@ -967,6 +1004,7 @@
 				B18ADBB320FF57170096B8DA /* NavigationControllerListViewController.m in Sources */,
 				B196FC10216F556700EFD452 /* AnimationController.m in Sources */,
 				B17164A721ABF74E001504C1 /* DQObject.m in Sources */,
+				B14339F22216699E00AF56C4 /* PresentRouterControlViewController.m in Sources */,
 				B16309E8215CD9A10027DA51 /* MPLoadTestViewController.m in Sources */,
 				B1716E2F21748C0800E50976 /* AirPlayViewTableViewCell.m in Sources */,
 				B12BBE8121F712CC005A7540 /* MessageInputAlertView.m in Sources */,
@@ -976,12 +1014,14 @@
 				B196FC0C216F4AE000EFD452 /* AnimationViewTextFieldBar.m in Sources */,
 				B1AD968C21C0E1C300050E5B /* DQCollectionViewFontCell.m in Sources */,
 				B1A75D4321EDBF5B00720C4C /* ControlHandle.m in Sources */,
+				B1433A0D221E873100AF56C4 /* CollectionViewListMultiItemCell.m in Sources */,
 				B16EC97A20F848DE0046E688 /* TBGradientLayerView.m in Sources */,
 				B18ADBB620FF582D0096B8DA /* NavigationSubViewController.m in Sources */,
 				B16EC9CA20FF370A0046E688 /* CustomNavigationBar.m in Sources */,
 				B1716E3E2175CB0E00E50976 /* SJAvatarBrowser.m in Sources */,
 				B1A6AE7A21143DC400132D1F /* RoundButton.m in Sources */,
 				B1BBF04520F6FA30005D59B2 /* BraceletView.m in Sources */,
+				B1433A0A221E826400AF56C4 /* CollectionViewListCommonCell.m in Sources */,
 				B1A75D4421EDBF5B00720C4C /* BLStopwatch.m in Sources */,
 				B1A75D5D21F17BAB00720C4C /* ArrangeItemView.m in Sources */,
 				B1EE119A21C8D26E00F83680 /* DQBarcodeView.m in Sources */,

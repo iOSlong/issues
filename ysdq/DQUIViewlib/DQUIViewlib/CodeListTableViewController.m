@@ -7,8 +7,8 @@
 //
 
 #import "CodeListTableViewController.h"
-#import "CollectionThemeViewController.h"
 #import "PopAlertTableViewController.h"
+#import "PresentVCMode/PresentRouterControlViewController.h"
 
 @interface CodeListTableViewController ()
 @property (nonatomic, strong) NSArray *listItems;
@@ -21,7 +21,7 @@
     
     self.title = @"CodeListItem";
     
-    self.listItems = @[@"CollectionThemeViewController",@"PopAlertTableViewController"];
+    self.listItems = @[@[@"CollectionViewListController",@"PopAlertTableViewController",@"PresentRouterControlViewController"],@[@"PresentRouterControlViewController"]];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -31,29 +31,39 @@
 }
 
 #pragma mark - Table view data source
-
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (section == 1) {
+        return @"Present-vc";
+    }else{
+        return @"Navigation-push";
+    }
+}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.listItems count];
+    return [self.listItems[section] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"listCell" forIndexPath:indexPath];
-    NSString *vcName = self.listItems[indexPath.row];
+    NSString *vcName = self.listItems[indexPath.section][indexPath.row];
     cell.textLabel.text = vcName;
     // Configure the cell...
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *vcName = self.listItems[indexPath.row];
+    NSString *vcName = self.listItems[indexPath.section][indexPath.row];
     UIViewController *desVc = [NSClassFromString(vcName) new];
     if (desVc) {
         desVc.title = vcName;
-        [self.navigationController pushViewController:desVc animated:YES];
+        if (indexPath.section == 1) {
+            [self presentViewController:desVc animated:YES completion:nil];
+        }else{
+            [self.navigationController pushViewController:desVc animated:YES];
+        }
     }
 }
 

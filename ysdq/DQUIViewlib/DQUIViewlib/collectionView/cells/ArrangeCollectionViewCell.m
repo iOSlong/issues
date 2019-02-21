@@ -16,6 +16,9 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
+        
+        self.layer.cornerRadius = 8;
+        [self showBorderLine];
         [self configureUIItems];
     }
     return self;
@@ -24,7 +27,7 @@
 - (void)configureUIItems {
     self.titleLabel = [[UILabel alloc] init];
     self.titleLabel.font = [UIFont systemFontOfSize:17];
-    self.titleLabel.numberOfLines = 0;
+    self.titleLabel.numberOfLines = 1;
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.titleLabel.lineBreakMode = NSLineBreakByTruncatingMiddle;
     [self addSubview:self.titleLabel];
@@ -36,7 +39,7 @@
 - (UICollectionViewLayoutAttributes *)preferredLayoutAttributesFittingAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
     UICollectionViewLayoutAttributes *attributes = [super preferredLayoutAttributesFittingAttributes:layoutAttributes];
     CGSize contentSize = [self sizeContentFit];
-    attributes.frame = CGRectMake(0, 0, contentSize.width , contentSize.height+30);
+    attributes.frame = CGRectMake(0, 0, contentSize.width + 4, contentSize.height + 10);
     return attributes;
 }
 

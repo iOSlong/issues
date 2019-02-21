@@ -50,13 +50,32 @@
                 [self setCellFrameWith:layoutAttributesTemp];
             }
         }
-            //如果下一个不cell在本行，则开始调整Frame位置
+        //如果下一个cell不在本行，则开始调整Frame位置
         else if( currentY != nextY) {
             [self setCellFrameWith:layoutAttributesTemp];
         }
     }
     return layoutAttributes;
 }
+
+
+-(NSInteger)horizontalScrollRowNumberWith:(NSMutableArray*)layoutAttributes {
+    NSInteger rowNum = 1;
+    for (int index = 0; index < layoutAttributes.count; index ++ ) {
+        UICollectionViewLayoutAttributes *currentAttr = layoutAttributes[index];
+        UICollectionViewLayoutAttributes *nextAttr = index + 1 == layoutAttributes.count ?
+        nil : layoutAttributes[index+1];
+       
+        CGFloat currentY = CGRectGetMaxY(currentAttr.frame);
+        CGFloat nextY = nextAttr == nil ? 0 : CGRectGetMaxY(nextAttr.frame);
+        if (currentY > nextY) {
+            rowNum = index + 1;
+            break;
+        }
+    }
+    return rowNum;
+}
+
 
 -(void)setCellFrameWith:(NSMutableArray*)layoutAttributes{
     CGFloat nowWidth = 0.0;
