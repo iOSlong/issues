@@ -27,6 +27,7 @@
 		B1433A06221E810200AF56C4 /* CollectionViewListController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1433A05221E810200AF56C4 /* CollectionViewListController.m */; };
 		B1433A0A221E826400AF56C4 /* CollectionViewListCommonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1433A09221E826400AF56C4 /* CollectionViewListCommonCell.m */; };
 		B1433A0D221E873100AF56C4 /* CollectionViewListMultiItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1433A0C221E873100AF56C4 /* CollectionViewListMultiItemCell.m */; };
+		B1433A5122263B8700AF56C4 /* EdgeBorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1433A5022263B8700AF56C4 /* EdgeBorderView.m */; };
 		B1546106216D999500B4EE1F /* ReversalAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1546105216D999500B4EE1F /* ReversalAnimationView.m */; };
 		B1546109216DD04E00B4EE1F /* main_search_small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1546107216DD04D00B4EE1F /* main_search_small@3x.png */; };
 		B154610A216DD04E00B4EE1F /* main_search_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1546108216DD04E00B4EE1F /* main_search_small@2x.png */; };
@@ -155,6 +156,8 @@
 		B1433A09221E826400AF56C4 /* CollectionViewListCommonCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewListCommonCell.m; sourceTree = "<group>"; };
 		B1433A0B221E873100AF56C4 /* CollectionViewListMultiItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewListMultiItemCell.h; sourceTree = "<group>"; };
 		B1433A0C221E873100AF56C4 /* CollectionViewListMultiItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewListMultiItemCell.m; sourceTree = "<group>"; };
+		B1433A4F22263B8700AF56C4 /* EdgeBorderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EdgeBorderView.h; sourceTree = "<group>"; };
+		B1433A5022263B8700AF56C4 /* EdgeBorderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EdgeBorderView.m; sourceTree = "<group>"; };
 		B1546104216D999500B4EE1F /* ReversalAnimationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReversalAnimationView.h; sourceTree = "<group>"; };
 		B1546105216D999500B4EE1F /* ReversalAnimationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReversalAnimationView.m; sourceTree = "<group>"; };
 		B1546107216DD04D00B4EE1F /* main_search_small@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main_search_small@3x.png"; sourceTree = "<group>"; };
@@ -398,6 +401,15 @@
 			path = cells;
 			sourceTree = "<group>";
 		};
+		B1433A4E22263B5700AF56C4 /* edgeBorderView */ = {
+			isa = PBXGroup;
+			children = (
+				B1433A4F22263B8700AF56C4 /* EdgeBorderView.h */,
+				B1433A5022263B8700AF56C4 /* EdgeBorderView.m */,
+			);
+			path = edgeBorderView;
+			sourceTree = "<group>";
+		};
 		B1546103216D997D00B4EE1F /* ReversalAnimationView */ = {
 			isa = PBXGroup;
 			children = (
@@ -592,6 +604,7 @@
 		B1BBF00920F6F8E1005D59B2 /* DQUIViewlib */ = {
 			isa = PBXGroup;
 			children = (
+				B1433A4E22263B5700AF56C4 /* edgeBorderView */,
 				B14339EF2216686800AF56C4 /* PresentVCMode */,
 				B12BBEC221FEF0BF005A7540 /* DQUIViewlib.entitlements */,
 				B12BBE7221F6F96B005A7540 /* popAlertVeiw */,
@@ -1026,6 +1039,7 @@
 				B1A75D5D21F17BAB00720C4C /* ArrangeItemView.m in Sources */,
 				B1EE119A21C8D26E00F83680 /* DQBarcodeView.m in Sources */,
 				B1A75D6421F1AA8C00720C4C /* CodeListTableViewController.m in Sources */,
+				B1433A5122263B8700AF56C4 /* EdgeBorderView.m in Sources */,
 				B16EC9C120FF2D220046E688 /* DQNavigationController.m in Sources */,
 				B1197329219AB8AC00DBE446 /* FloatRectShadowView.m in Sources */,
 				B12BBE7E21F70EDC005A7540 /* BasePopView.m in Sources */,

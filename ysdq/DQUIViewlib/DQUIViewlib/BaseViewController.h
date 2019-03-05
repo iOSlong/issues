@@ -25,11 +25,13 @@ typedef NS_ENUM(NSUInteger, ViewType) {
     ViewTypeControlView,
     ViewTypeAirPlayView,
     ViewTypeApostropheAnimationView,
-    ViewTypeReversalAnimationView,
-    ViewTypeAnimationFieldBar,
     ViewTypeFloatRectShadowView,
     ViewTypeGradientNavigationBar,
     ViewTypeBarcodeView,
+    
+    ViewTypeReversalAnimationView,
+    ViewTypeAnimationFieldBar,
+    ViewTypeEdgeBorderView,
     
     ViewTypeSystemFontShow
 };

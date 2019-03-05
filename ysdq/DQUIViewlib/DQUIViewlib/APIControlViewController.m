@@ -9,12 +9,14 @@
 #import "APIControlViewController.h"
 #import "ReversalAnimationView.h"
 #import "AnimationViewTextFieldBar/AnimationViewTextFieldBar.h"
+#import "edgeBorderView/EdgeBorderView.h"
 
 @interface APIControlViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray<NSString *> *dataArray;
 @property (nonatomic, strong) ReversalAnimationView *reversalAnimationView;
 @property (nonatomic, strong) UIView<ApiControlEnable> *controllView;
+@property (nonatomic, strong) EdgeBorderView *borderView;
 @end
 
 @implementation APIControlViewController
@@ -35,8 +37,24 @@
         [self showViewTypeReversalAnimationView];
     } else if (self.viewType == ViewTypeAnimationFieldBar) {
         [self showViewTypeAnimationFieldBar];
+    } else if (self.viewType == ViewTypeEdgeBorderView) {
+        [self showViewTypeEdgeborderView];
     }
     [self.tableView reloadData];
+}
+
+- (void)showViewTypeEdgeborderView {
+    self.dataArray = [NSMutableArray arrayWithArray:@[@"None",@"Top",@"Left",@"Bottom",@"Right",@"Top|Left",@"Top|Bottom",@"All"]];
+    EdgeBorderView *borderView = [[EdgeBorderView alloc] initWithFrame:CGRectMake(20, 100, 50, 50)];
+    self.borderView = borderView;
+    [borderView setBackgroundColor:[UIColor lightGrayColor]];
+    [self.view addSubview:borderView];
+    [borderView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).offset(20);
+        make.right.equalTo(self.view.mas_right).offset(-20);
+        make.top.equalTo(self.view.mas_top).offset(100);
+        make.height.equalTo(@50);
+    }];
 }
 
 - (void)showViewTypeAnimationFieldBar {
@@ -100,6 +118,8 @@
         [self.controllView callMethodIndex:indexPath.row];
     } else if (self.viewType == ViewTypeReversalAnimationView) {
         [self.reversalAnimationView callMethodIndex:indexPath.row];
+    }else if (self.viewType == ViewTypeEdgeBorderView) {
+        [self.borderView callMethodIndex:indexPath.row];
     }
 }
 
