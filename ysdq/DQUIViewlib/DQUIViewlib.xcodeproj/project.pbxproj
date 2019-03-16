@@ -23,6 +23,11 @@
 		B12BBE7B21F70A75005A7540 /* CustomerPopAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B12BBE7A21F70A75005A7540 /* CustomerPopAlertViewController.m */; };
 		B12BBE7E21F70EDC005A7540 /* BasePopView.m in Sources */ = {isa = PBXBuildFile; fileRef = B12BBE7D21F70EDC005A7540 /* BasePopView.m */; };
 		B12BBE8121F712CC005A7540 /* MessageInputAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = B12BBE8021F712CC005A7540 /* MessageInputAlertView.m */; };
+		B133165D223CDF950095A4B1 /* STMPartMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = B1331655223CDF930095A4B1 /* STMPartMaker.m */; };
+		B133165E223CDF950095A4B1 /* STMPartView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1331659223CDF940095A4B1 /* STMPartView.m */; };
+		B133165F223CDF950095A4B1 /* STMAssembleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B133165A223CDF940095A4B1 /* STMAssembleView.m */; };
+		B1331660223CDF950095A4B1 /* STMAssembleMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = B133165C223CDF950095A4B1 /* STMAssembleMaker.m */; };
+		B1331663223CE04A0095A4B1 /* STMAssembleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1331662223CE04A0095A4B1 /* STMAssembleViewController.m */; };
 		B14339F22216699E00AF56C4 /* PresentRouterControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B14339F12216699E00AF56C4 /* PresentRouterControlViewController.m */; };
 		B1433A06221E810200AF56C4 /* CollectionViewListController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1433A05221E810200AF56C4 /* CollectionViewListController.m */; };
 		B1433A0A221E826400AF56C4 /* CollectionViewListCommonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1433A09221E826400AF56C4 /* CollectionViewListCommonCell.m */; };
@@ -148,6 +153,16 @@
 		B12BBE7F21F712CC005A7540 /* MessageInputAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageInputAlertView.h; sourceTree = "<group>"; };
 		B12BBE8021F712CC005A7540 /* MessageInputAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageInputAlertView.m; sourceTree = "<group>"; };
 		B12BBEC221FEF0BF005A7540 /* DQUIViewlib.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DQUIViewlib.entitlements; sourceTree = "<group>"; };
+		B1331655223CDF930095A4B1 /* STMPartMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STMPartMaker.m; sourceTree = "<group>"; };
+		B1331656223CDF930095A4B1 /* STMPartMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STMPartMaker.h; sourceTree = "<group>"; };
+		B1331657223CDF930095A4B1 /* STMAssembleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STMAssembleView.h; sourceTree = "<group>"; };
+		B1331658223CDF940095A4B1 /* STMAssembleMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STMAssembleMaker.h; sourceTree = "<group>"; };
+		B1331659223CDF940095A4B1 /* STMPartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STMPartView.m; sourceTree = "<group>"; };
+		B133165A223CDF940095A4B1 /* STMAssembleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STMAssembleView.m; sourceTree = "<group>"; };
+		B133165B223CDF950095A4B1 /* STMPartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STMPartView.h; sourceTree = "<group>"; };
+		B133165C223CDF950095A4B1 /* STMAssembleMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STMAssembleMaker.m; sourceTree = "<group>"; };
+		B1331661223CE04A0095A4B1 /* STMAssembleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STMAssembleViewController.h; sourceTree = "<group>"; };
+		B1331662223CE04A0095A4B1 /* STMAssembleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STMAssembleViewController.m; sourceTree = "<group>"; };
 		B14339F02216699E00AF56C4 /* PresentRouterControlViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PresentRouterControlViewController.h; sourceTree = "<group>"; };
 		B14339F12216699E00AF56C4 /* PresentRouterControlViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PresentRouterControlViewController.m; sourceTree = "<group>"; };
 		B1433A04221E810200AF56C4 /* CollectionViewListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewListController.h; sourceTree = "<group>"; };
@@ -331,6 +346,7 @@
 		B12788F12109A75400217376 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				B1331654223CDF6A0095A4B1 /* STMAssemble */,
 				B12788F22109A7EB00217376 /* BLStopwatch */,
 			);
 			path = Vendor;
@@ -375,6 +391,23 @@
 				B12BBE8021F712CC005A7540 /* MessageInputAlertView.m */,
 			);
 			path = popAlertVeiw;
+			sourceTree = "<group>";
+		};
+		B1331654223CDF6A0095A4B1 /* STMAssemble */ = {
+			isa = PBXGroup;
+			children = (
+				B1331658223CDF940095A4B1 /* STMAssembleMaker.h */,
+				B133165C223CDF950095A4B1 /* STMAssembleMaker.m */,
+				B1331657223CDF930095A4B1 /* STMAssembleView.h */,
+				B133165A223CDF940095A4B1 /* STMAssembleView.m */,
+				B1331656223CDF930095A4B1 /* STMPartMaker.h */,
+				B1331655223CDF930095A4B1 /* STMPartMaker.m */,
+				B133165B223CDF950095A4B1 /* STMPartView.h */,
+				B1331659223CDF940095A4B1 /* STMPartView.m */,
+				B1331661223CE04A0095A4B1 /* STMAssembleViewController.h */,
+				B1331662223CE04A0095A4B1 /* STMAssembleViewController.m */,
+			);
+			path = STMAssemble;
 			sourceTree = "<group>";
 		};
 		B14339EF2216686800AF56C4 /* PresentVCMode */ = {
@@ -1013,6 +1046,7 @@
 				B1EE119B21C8D26E00F83680 /* DQBarcodeManager.m in Sources */,
 				B1F5AEF3214F5C3B0060E50D /* ApostropheAnimationView.m in Sources */,
 				B16EC97620F843770046E688 /* SingleViewLibTableViewController.m in Sources */,
+				B1331663223CE04A0095A4B1 /* STMAssembleViewController.m in Sources */,
 				B17164A521ABF74E001504C1 /* NSObject+Base.m in Sources */,
 				B18ADBB320FF57170096B8DA /* NavigationControllerListViewController.m in Sources */,
 				B196FC10216F556700EFD452 /* AnimationController.m in Sources */,
@@ -1024,6 +1058,8 @@
 				B12BBE7521F6F99B005A7540 /* PopAlertTableViewController.m in Sources */,
 				B1A75D6721F1ACA200720C4C /* ArrangeCollectionViewCell.m in Sources */,
 				B1BBF03E20F6F9C2005D59B2 /* BaseViewController.m in Sources */,
+				B1331660223CDF950095A4B1 /* STMAssembleMaker.m in Sources */,
+				B133165D223CDF950095A4B1 /* STMPartMaker.m in Sources */,
 				B196FC0C216F4AE000EFD452 /* AnimationViewTextFieldBar.m in Sources */,
 				B1AD968C21C0E1C300050E5B /* DQCollectionViewFontCell.m in Sources */,
 				B1A75D4321EDBF5B00720C4C /* ControlHandle.m in Sources */,
@@ -1038,6 +1074,7 @@
 				B1A75D4421EDBF5B00720C4C /* BLStopwatch.m in Sources */,
 				B1A75D5D21F17BAB00720C4C /* ArrangeItemView.m in Sources */,
 				B1EE119A21C8D26E00F83680 /* DQBarcodeView.m in Sources */,
+				B133165F223CDF950095A4B1 /* STMAssembleView.m in Sources */,
 				B1A75D6421F1AA8C00720C4C /* CodeListTableViewController.m in Sources */,
 				B1433A5122263B8700AF56C4 /* EdgeBorderView.m in Sources */,
 				B16EC9C120FF2D220046E688 /* DQNavigationController.m in Sources */,
@@ -1049,6 +1086,7 @@
 				B12BBE7821F6FEAB005A7540 /* PopAlertManager.m in Sources */,
 				B12AE745211C1CE9008AD800 /* ControlView.m in Sources */,
 				B1546106216D999500B4EE1F /* ReversalAnimationView.m in Sources */,
+				B133165E223CDF950095A4B1 /* STMPartView.m in Sources */,
 				B12BBE7B21F70A75005A7540 /* CustomerPopAlertViewController.m in Sources */,
 				B16EC9B220FDCDE80046E688 /* SelfNavigationBarViewController.m in Sources */,
 				B1A75D6121F1A93200720C4C /* CollectionThemeViewController.m in Sources */,

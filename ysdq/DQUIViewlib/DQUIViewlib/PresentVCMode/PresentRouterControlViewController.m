@@ -21,7 +21,7 @@
     
     // Do any additional setup after loading the view.
     UIButton *button1 = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 50)];
-    [button1 setTitleColor:[UIColor yellowColor] forState:UIControlStateNormal];
+    [button1 setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
     [button1 setTintColor:[UIColor blueColor]];
     [button1 setTitle:@"popOut" forState:UIControlStateNormal];
     [self.view addSubview:button1];
@@ -30,7 +30,7 @@
 
     
     UIButton *button2 = [[UIButton alloc] initWithFrame:CGRectMake(100, 300, 100, 50)];
-    [button2 setTitleColor:[UIColor yellowColor] forState:UIControlStateNormal];
+    [button2 setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
     [button2 setTintColor:[UIColor blueColor]];
     [button2 setTitle:@"RoutControlTest" forState:UIControlStateNormal];
     [self.view addSubview:button2];
@@ -57,7 +57,6 @@
             result = node;
             break;
         }
-        
             /// trans all
         [queue addObjectsFromArray:node.subviews];
     }
