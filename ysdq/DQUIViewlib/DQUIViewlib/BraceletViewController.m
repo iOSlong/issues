@@ -401,6 +401,22 @@
     indicatorView.color = [UIColor redColor];
     [self.view addSubview:indicatorView];
     [indicatorView startAnimating];
+    
+    
+    SASView *shadowButton = [[SASView alloc] initWithFrame:CGRectMake(100, 400, 200, 40)];
+//    [shadowButton showBorderLine];
+    shadowButton.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:shadowButton];
+    shadowButton.layer.cornerRadius = 20;
+    shadowButton.layer.shadowColor     = RGBACOLOR_HEX(0x000000, 0.2).CGColor;
+    shadowButton.layer.shadowOpacity   = 1;
+    shadowButton.layer.shadowRadius    = 7;
+    shadowButton.layer.shadowOffset    = CGSizeMake(0.0, 0.0);
+    
+    CGRect shadowFrame = CGRectMake(100, 0, 100, 40);
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:shadowFrame byRoundingCorners:UIRectCornerBottomRight | UIRectCornerTopRight cornerRadii:shadowFrame.size];
+    shadowButton.layer.shadowPath = maskPath.CGPath;
+
 }
 
 //UIImage *imageFromLayer(CALayer *layer) {

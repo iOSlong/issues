@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SASView : UIView
+- (void)shadowCorner:(UIRectCorner)corner offsetRatio:(CGPoint)point;
 @end
 
 
