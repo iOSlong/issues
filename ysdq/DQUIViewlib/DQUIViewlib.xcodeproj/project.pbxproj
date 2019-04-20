@@ -54,6 +54,10 @@
 		B1716E2F21748C0800E50976 /* AirPlayViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1716E2E21748C0800E50976 /* AirPlayViewTableViewCell.m */; };
 		B1716E3E2175CB0E00E50976 /* SJAvatarBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = B1716E3D2175CB0E00E50976 /* SJAvatarBrowser.m */; };
 		B1858F5D2134F84F00ED7DBA /* logfile in Resources */ = {isa = PBXBuildFile; fileRef = B1858F5C2134F84F00ED7DBA /* logfile */; };
+		B187A731226ABB0800AA1D79 /* SwitchControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = B187A730226ABB0800AA1D79 /* SwitchControlView.m */; };
+		B187A735226AC62000AA1D79 /* DrawHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B187A734226AC62000AA1D79 /* DrawHelper.m */; };
+		B187A73B226AF40800AA1D79 /* JTMaterialSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = B187A73A226AF40800AA1D79 /* JTMaterialSwitch.m */; };
+		B187A73E226AF4F900AA1D79 /* sunwu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B187A73D226AF4F900AA1D79 /* sunwu.jpg */; };
 		B187F74121251EE4003AA637 /* AirPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = B187F74021251EE4003AA637 /* AirPlayView.m */; };
 		B18ADBB320FF57170096B8DA /* NavigationControllerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B18ADBB220FF57170096B8DA /* NavigationControllerListViewController.m */; };
 		B18ADBB620FF582D0096B8DA /* NavigationSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B18ADBB520FF582D0096B8DA /* NavigationSubViewController.m */; };
@@ -214,6 +218,13 @@
 		B1716E3C2175CB0E00E50976 /* SJAvatarBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJAvatarBrowser.h; sourceTree = "<group>"; };
 		B1716E3D2175CB0E00E50976 /* SJAvatarBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJAvatarBrowser.m; sourceTree = "<group>"; };
 		B1858F5C2134F84F00ED7DBA /* logfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = logfile; sourceTree = "<group>"; };
+		B187A72F226ABB0800AA1D79 /* SwitchControlView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwitchControlView.h; sourceTree = "<group>"; };
+		B187A730226ABB0800AA1D79 /* SwitchControlView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwitchControlView.m; sourceTree = "<group>"; };
+		B187A733226AC62000AA1D79 /* DrawHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawHelper.h; sourceTree = "<group>"; };
+		B187A734226AC62000AA1D79 /* DrawHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawHelper.m; sourceTree = "<group>"; };
+		B187A739226AF40800AA1D79 /* JTMaterialSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTMaterialSwitch.h; sourceTree = "<group>"; };
+		B187A73A226AF40800AA1D79 /* JTMaterialSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTMaterialSwitch.m; sourceTree = "<group>"; };
+		B187A73D226AF4F900AA1D79 /* sunwu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sunwu.jpg; sourceTree = "<group>"; };
 		B187F73F21251EE4003AA637 /* AirPlayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AirPlayView.h; sourceTree = "<group>"; };
 		B187F74021251EE4003AA637 /* AirPlayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirPlayView.m; sourceTree = "<group>"; };
 		B18ADBB120FF57170096B8DA /* NavigationControllerListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationControllerListViewController.h; sourceTree = "<group>"; };
@@ -349,6 +360,7 @@
 		B12788F12109A75400217376 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				B187A738226AF3EE00AA1D79 /* JTMaterialSwith */,
 				B1331654223CDF6A0095A4B1 /* STMAssemble */,
 				B12788F22109A7EB00217376 /* BLStopwatch */,
 			);
@@ -551,6 +563,41 @@
 			path = SJAvatarBrowser;
 			sourceTree = "<group>";
 		};
+		B187A72E226ABADD00AA1D79 /* switchControl */ = {
+			isa = PBXGroup;
+			children = (
+				B187A72F226ABB0800AA1D79 /* SwitchControlView.h */,
+				B187A730226ABB0800AA1D79 /* SwitchControlView.m */,
+			);
+			path = switchControl;
+			sourceTree = "<group>";
+		};
+		B187A732226AC60400AA1D79 /* DrawHelper */ = {
+			isa = PBXGroup;
+			children = (
+				B187A733226AC62000AA1D79 /* DrawHelper.h */,
+				B187A734226AC62000AA1D79 /* DrawHelper.m */,
+			);
+			path = DrawHelper;
+			sourceTree = "<group>";
+		};
+		B187A738226AF3EE00AA1D79 /* JTMaterialSwith */ = {
+			isa = PBXGroup;
+			children = (
+				B187A739226AF40800AA1D79 /* JTMaterialSwitch.h */,
+				B187A73A226AF40800AA1D79 /* JTMaterialSwitch.m */,
+			);
+			path = JTMaterialSwith;
+			sourceTree = "<group>";
+		};
+		B187A73C226AF4E000AA1D79 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				B187A73D226AF4F900AA1D79 /* sunwu.jpg */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		B187F73E21251EB9003AA637 /* AirPlayView */ = {
 			isa = PBXGroup;
 			children = (
@@ -649,6 +696,9 @@
 		B1BBF00920F6F8E1005D59B2 /* DQUIViewlib */ = {
 			isa = PBXGroup;
 			children = (
+				B187A73C226AF4E000AA1D79 /* New Group */,
+				B187A732226AC60400AA1D79 /* DrawHelper */,
+				B187A72E226ABADD00AA1D79 /* switchControl */,
 				B138447E224B66010052C149 /* loginStackView */,
 				B1433A4E22263B5700AF56C4 /* edgeBorderView */,
 				B14339EF2216686800AF56C4 /* PresentVCMode */,
@@ -919,6 +969,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1AD968D21C0E1C300050E5B /* DQCollectionViewFontCell.xib in Resources */,
+				B187A73E226AF4F900AA1D79 /* sunwu.jpg in Resources */,
 				B1546109216DD04E00B4EE1F /* main_search_small@3x.png in Resources */,
 				B154610A216DD04E00B4EE1F /* main_search_small@2x.png in Resources */,
 				B1858F5D2134F84F00ED7DBA /* logfile in Resources */,
@@ -1056,6 +1107,7 @@
 				B187F74121251EE4003AA637 /* AirPlayView.m in Sources */,
 				B1433A06221E810200AF56C4 /* CollectionViewListController.m in Sources */,
 				B12788E5210702AB00217376 /* NavBarShowHiddenViewController.m in Sources */,
+				B187A731226ABB0800AA1D79 /* SwitchControlView.m in Sources */,
 				B1EE119B21C8D26E00F83680 /* DQBarcodeManager.m in Sources */,
 				B1F5AEF3214F5C3B0060E50D /* ApostropheAnimationView.m in Sources */,
 				B16EC97620F843770046E688 /* SingleViewLibTableViewController.m in Sources */,
@@ -1077,6 +1129,7 @@
 				B1AD968C21C0E1C300050E5B /* DQCollectionViewFontCell.m in Sources */,
 				B1A75D4321EDBF5B00720C4C /* ControlHandle.m in Sources */,
 				B1433A0D221E873100AF56C4 /* CollectionViewListMultiItemCell.m in Sources */,
+				B187A735226AC62000AA1D79 /* DrawHelper.m in Sources */,
 				B16EC97A20F848DE0046E688 /* TBGradientLayerView.m in Sources */,
 				B18ADBB620FF582D0096B8DA /* NavigationSubViewController.m in Sources */,
 				B1384481224B66360052C149 /* LoginStackView.m in Sources */,
@@ -1092,6 +1145,7 @@
 				B1A75D6421F1AA8C00720C4C /* CodeListTableViewController.m in Sources */,
 				B1433A5122263B8700AF56C4 /* EdgeBorderView.m in Sources */,
 				B16EC9C120FF2D220046E688 /* DQNavigationController.m in Sources */,
+				B187A73B226AF40800AA1D79 /* JTMaterialSwitch.m in Sources */,
 				B1197329219AB8AC00DBE446 /* FloatRectShadowView.m in Sources */,
 				B12BBE7E21F70EDC005A7540 /* BasePopView.m in Sources */,
 				B10FC4C5211AC392009715CA /* BezierPathView.m in Sources */,

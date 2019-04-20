@@ -32,6 +32,7 @@ typedef NS_ENUM(NSUInteger, ViewType) {
     ViewTypeReversalAnimationView,
     ViewTypeAnimationFieldBar,
     ViewTypeEdgeBorderView,
+    ViewTypeSwitchControlView,
     
     ViewTypeSystemFontShow
 };

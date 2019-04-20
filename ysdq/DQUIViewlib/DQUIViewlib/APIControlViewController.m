@@ -10,6 +10,7 @@
 #import "ReversalAnimationView.h"
 #import "AnimationViewTextFieldBar/AnimationViewTextFieldBar.h"
 #import "edgeBorderView/EdgeBorderView.h"
+#import "switchControl/SwitchControlView.h"
 
 @interface APIControlViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -23,7 +24,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupTable];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -39,8 +39,22 @@
         [self showViewTypeAnimationFieldBar];
     } else if (self.viewType == ViewTypeEdgeBorderView) {
         [self showViewTypeEdgeborderView];
+        [self setupTable];
+        [self.tableView reloadData];
+    }else if (self.viewType == ViewTypeSwitchControlView) {
+        [self showViewTypeSwitchControlView];
     }
-    [self.tableView reloadData];
+}
+
+- (void)showViewTypeSwitchControlView {
+    SwitchControlView *switchCV = [[SwitchControlView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    switchCV.backgroundColor = [UIColor lightGrayColor];
+    [self.view addSubview:switchCV];
+    [switchCV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view.mas_centerX);
+        make.centerY.equalTo(self.view.mas_centerY);
+        make.width.height.equalTo(@200);
+    }];
 }
 
 - (void)showViewTypeEdgeborderView {

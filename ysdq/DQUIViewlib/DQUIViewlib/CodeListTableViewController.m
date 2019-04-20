@@ -24,7 +24,7 @@
     
     self.listItems = @[@[@"CollectionViewListController",@"PopAlertTableViewController",@"PresentRouterControlViewController",@"STMAssembleViewController"],
   @[@"PresentRouterControlViewController"],
-                       @[@"ViewTypeEdgeBorderView"]];
+                       @[@"ViewTypeEdgeBorderView",@"SwitchControlView"]];
     
 }
 
@@ -58,7 +58,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *vcName = self.listItems[indexPath.section][indexPath.row];
     UIViewController *desVc = [NSClassFromString(vcName) new];
-    if (desVc) {
+    if ([desVc isKindOfClass:[UIViewController class]]) {
         desVc.title = vcName;
         if (indexPath.section == 1) {
             [self presentViewController:desVc animated:YES completion:nil];
@@ -69,6 +69,8 @@
         APIControlViewController *apiControlVC = [APIControlViewController new];
         if ([vcName isEqualToString:@"ViewTypeEdgeBorderView"]) {
             apiControlVC.viewType = ViewTypeEdgeBorderView;
+        }else if ([vcName isEqualToString:@"SwitchControlView"]) {
+            apiControlVC.viewType = ViewTypeSwitchControlView;
         }
         [self.navigationController pushViewController:apiControlVC animated:YES];
     }

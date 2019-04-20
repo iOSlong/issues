@@ -12,6 +12,7 @@ pod 'LKDBHelper'
 pod 'JSONModel'
 pod 'SDWebImage', '~> 4.4.2'
 pod 'AFNetwork'
+#pod 'JTMaterialSwitch'
 
   target 'DQUIViewlibTests' do
     inherit! :search_paths
