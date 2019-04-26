@@ -34,7 +34,8 @@ typedef NS_ENUM(NSUInteger, ViewType) {
     ViewTypeEdgeBorderView,
     ViewTypeSwitchControlView,
     
-    ViewTypeSystemFontShow
+    ViewTypeSystemFontShow,
+    ViewTypeSystemKVO
 };
 
 typedef NS_ENUM(NSUInteger, NaviBarTime) {

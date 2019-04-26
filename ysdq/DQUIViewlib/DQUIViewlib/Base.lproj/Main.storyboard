@@ -569,13 +569,25 @@
                                             <segue destination="rzN-0P-4vB" kind="show" identifier="ViewTypeSystemFontShow" id="Xec-pA-oPP"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="WfA-WK-21b">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="meb-x7-9Vv" style="IBUITableViewCellStyleDefault" id="WfA-WK-21b">
                                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WfA-WK-21b" id="dc3-eT-w0r">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="System-Model-KVO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="meb-x7-9Vv">
+                                                    <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="rzN-0P-4vB" kind="push" identifier="ViewTypeSystemKVO" id="ER1-im-x2g"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="G00-sh-BHy">
                                         <rect key="frame" x="0.0" y="88" width="375" height="44"/>
@@ -651,13 +663,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <navigationItem key="navigationItem" id="H37-2S-cE5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FvA-Gd-Lay" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3258" y="2195"/>
+            <point key="canvasLocation" x="2625" y="2195"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="ER1-im-x2g"/>
         <segue reference="0dz-E9-ygv"/>
         <segue reference="3Up-yi-UeI"/>
     </inferredMetricsTieBreakers>

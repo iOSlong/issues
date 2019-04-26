@@ -308,17 +308,28 @@ void asyncQueueTasks(dispatch_queue_t queue, int taskNum) {
 
 #else
     for (int i = 6; i <= 10; i++) {
-//        [[DispatchQueueManager shared] addAsync:^{
+        [[DispatchQueueManager shared] addAsync:^{
+            excuteTask(i);
+            [self mainQueue:i];
+        } model:DispatchQueueModeSerial];
+
+//        [[DispatchQueueManager shared] async:^{
 //            excuteTask(i);
 //        } model:DispatchQueueModeSerial];
-
-        [[DispatchQueueManager shared] async:^{
-            excuteTask(i);
-        } model:DispatchQueueModeSerial];
     }
 #endif
     
     NSLog(@"asyncSerial---end");
+}
+
+- (void)mainQueue:(int)task  {
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(100 + arc4random()%50, 100 + arc4random()%50, 10 + arc4random()%10, 10+arc4random()%10)];
+        NSArray *colors =  @[UIColor.redColor,UIColor.blueColor,UIColor.greenColor];
+        view.backgroundColor = [colors objectAtIndex:arc4random()%3];
+        [self.view addSubview:view];
+        NSLog(@"%d---%@",task, [NSThread currentThread]);       // 打印当前线程
+    });
 }
 
 #pragma mark 5. sync-main_queue

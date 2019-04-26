@@ -23,6 +23,7 @@
 #import "FloatRectShadowView.h"
 #import "DQCollectionViewFontCell.h"
 #import "DQBarcodeManager.h"
+#import "Student.h"
 
 @interface BraceletViewController ()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) UITableView *tableView;
@@ -33,6 +34,9 @@
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *sourceDataArr;
 @property (nonatomic, strong) UILabel *navigationTitleLabel;
+
+@property (nonatomic, strong) Student *myStu;
+@property (nonatomic, strong) UILabel *stuInfo;
 @end
 
 @implementation BraceletViewController
@@ -210,9 +214,59 @@
         [self showViewfloatRectShadowView];
     }else if (self.viewType == ViewTypeSystemFontShow) {
         [self showSystemFonts];
-    }else if (self.viewType == ViewTypeBarcodeView) {
+    }else if (self.viewType == ViewTypeSystemKVO) {
+        [self showSystemKVO];
+    }
+    
+    else if (self.viewType == ViewTypeBarcodeView) {
         [self showBarcodeView];
     }
+}
+
+- (void)showSystemKVO {
+    Student *stu = [Student demoStudent];
+    self.myStu = stu;
+
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 200, 280, 100)];
+    label.textColor = [UIColor redColor];
+    label.numberOfLines = 0;
+    label.text = [stu description];
+    [label showBorderLine];
+    self.stuInfo = label;
+    [self.view addSubview:label];
+    
+    UISegmentedControl *segC = [[UISegmentedControl alloc] initWithItems:@[@"name",@"age",@"sex",@"state"]];
+    segC.frame = CGRectMake(10, 320, 280, 30);
+    [segC showBorderLine];
+    [segC addTarget:self action:@selector(segmentValueChange:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:segC];
+    
+    [self.myStu addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionNew context:nil];
+    [self.myStu addObserver:self forKeyPath:@"age" options:NSKeyValueObservingOptionNew context:nil];
+    [self.myStu addObserver:self forKeyPath:@"isFemale" options:NSKeyValueObservingOptionNew context:nil];
+    [self.myStu addObserver:self forKeyPath:@"state" options:NSKeyValueObservingOptionNew context:nil];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    NSLog(@"keyPath :  %@", keyPath);
+    NSLog(@"%@ change  :  %@",object, change);
+    
+    self.stuInfo.text = [self.myStu description];
+}
+
+- (void)segmentValueChange:(UISegmentedControl *)segC {
+    if (segC.selectedSegmentIndex == 0) {
+        self.myStu.name = @[@"name1",@"name2",@"name3",@"name4",@"name5"][arc4random()%5];
+    } else if (segC.selectedSegmentIndex == 1) {
+        int age[5] = {1,2,3,4,5};
+        self.myStu.age = age[arc4random()%5];
+    } else if (segC.selectedSegmentIndex == 2) {
+        self.myStu.isFemale = arc4random()%2;
+    } else if (segC.selectedSegmentIndex == 3) {
+        NSInteger state[4] = {LocationCityStateNorth,LocationCityStateSouth,LocationCityStateWest,LocationCityStateEast};
+        self.myStu.state = state[arc4random()%4];
+    }
+    self.stuInfo.text = [self.myStu description];
 }
 
 - (void)showBarcodeView {
@@ -269,9 +323,9 @@
     [airPV setTapClick:^(NSInteger index) {
         __strong __typeof(weakSelf)strongSelf = weakSelf;
         if (index == 2) {
-//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//                [strongSelf isPresentAirPlayChooseWindow:YES];
-//            });
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [strongSelf isPresentAirPlayChooseWindow:YES];
+            });
 
         }
     }];

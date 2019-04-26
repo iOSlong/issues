@@ -28,6 +28,7 @@
 		B133165F223CDF950095A4B1 /* STMAssembleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B133165A223CDF940095A4B1 /* STMAssembleView.m */; };
 		B1331660223CDF950095A4B1 /* STMAssembleMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = B133165C223CDF950095A4B1 /* STMAssembleMaker.m */; };
 		B1331663223CE04A0095A4B1 /* STMAssembleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1331662223CE04A0095A4B1 /* STMAssembleViewController.m */; };
+		B1374D3922718C2600964A83 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = B1374D3822718C2600964A83 /* Student.m */; };
 		B1384481224B66360052C149 /* LoginStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1384480224B66360052C149 /* LoginStackView.m */; };
 		B14339F22216699E00AF56C4 /* PresentRouterControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B14339F12216699E00AF56C4 /* PresentRouterControlViewController.m */; };
 		B1433A06221E810200AF56C4 /* CollectionViewListController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1433A05221E810200AF56C4 /* CollectionViewListController.m */; };
@@ -168,6 +169,8 @@
 		B133165C223CDF950095A4B1 /* STMAssembleMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STMAssembleMaker.m; sourceTree = "<group>"; };
 		B1331661223CE04A0095A4B1 /* STMAssembleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STMAssembleViewController.h; sourceTree = "<group>"; };
 		B1331662223CE04A0095A4B1 /* STMAssembleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STMAssembleViewController.m; sourceTree = "<group>"; };
+		B1374D3722718C2600964A83 /* Student.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
+		B1374D3822718C2600964A83 /* Student.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
 		B138447F224B66360052C149 /* LoginStackView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginStackView.h; sourceTree = "<group>"; };
 		B1384480224B66360052C149 /* LoginStackView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginStackView.m; sourceTree = "<group>"; };
 		B14339F02216699E00AF56C4 /* PresentRouterControlViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PresentRouterControlViewController.h; sourceTree = "<group>"; };
@@ -425,6 +428,15 @@
 			path = STMAssemble;
 			sourceTree = "<group>";
 		};
+		B1374D3622718BE300964A83 /* DQModels */ = {
+			isa = PBXGroup;
+			children = (
+				B1374D3722718C2600964A83 /* Student.h */,
+				B1374D3822718C2600964A83 /* Student.m */,
+			);
+			path = DQModels;
+			sourceTree = "<group>";
+		};
 		B138447E224B66010052C149 /* loginStackView */ = {
 			isa = PBXGroup;
 			children = (
@@ -590,12 +602,12 @@
 			path = JTMaterialSwith;
 			sourceTree = "<group>";
 		};
-		B187A73C226AF4E000AA1D79 /* New Group */ = {
+		B187A73C226AF4E000AA1D79 /* pictures */ = {
 			isa = PBXGroup;
 			children = (
 				B187A73D226AF4F900AA1D79 /* sunwu.jpg */,
 			);
-			path = "New Group";
+			path = pictures;
 			sourceTree = "<group>";
 		};
 		B187F73E21251EB9003AA637 /* AirPlayView */ = {
@@ -696,7 +708,8 @@
 		B1BBF00920F6F8E1005D59B2 /* DQUIViewlib */ = {
 			isa = PBXGroup;
 			children = (
-				B187A73C226AF4E000AA1D79 /* New Group */,
+				B1374D3622718BE300964A83 /* DQModels */,
+				B187A73C226AF4E000AA1D79 /* pictures */,
 				B187A732226AC60400AA1D79 /* DrawHelper */,
 				B187A72E226ABADD00AA1D79 /* switchControl */,
 				B138447E224B66010052C149 /* loginStackView */,
@@ -1103,6 +1116,7 @@
 			files = (
 				B16EC9CE20FF47620046E688 /* SASView.m in Sources */,
 				B154610D216DFB7C00B4EE1F /* APIControlViewController.m in Sources */,
+				B1374D3922718C2600964A83 /* Student.m in Sources */,
 				B1A75D6A21F1B97800720C4C /* ArrangeCollectionViewFlowLayout.m in Sources */,
 				B187F74121251EE4003AA637 /* AirPlayView.m in Sources */,
 				B1433A06221E810200AF56C4 /* CollectionViewListController.m in Sources */,
