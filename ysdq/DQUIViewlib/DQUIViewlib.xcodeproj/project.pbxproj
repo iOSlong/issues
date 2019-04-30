@@ -869,6 +869,7 @@
 				B1BBF00520F6F8E1005D59B2 /* Resources */,
 				B119734B219BCFD700DBE446 /* Embed App Extensions */,
 				B19B490621A6AE7300B96C45 /* ShellScript */,
+				366F0FEC1490F211EB549645 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1010,6 +1011,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		366F0FEC1490F211EB549645 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DQUIViewlib/Pods-DQUIViewlib-resources.sh",
+				"${PODS_ROOT}/Bytedance-UnionAD/Bytedance-UnionAd/Frameworks/BUAdSDK.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/BUAdSDK.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DQUIViewlib/Pods-DQUIViewlib-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		78A26281B834E08F3A936D00 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1069,11 +1088,7 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-			);
-			outputFileListPaths = (
 			);
 			outputPaths = (
 			);

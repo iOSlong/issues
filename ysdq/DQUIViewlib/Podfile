@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '8.0'
 
 target 'DQUIViewlib' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
@@ -13,6 +13,7 @@ pod 'JSONModel'
 pod 'SDWebImage', '~> 4.4.2'
 pod 'AFNetwork'
 #pod 'JTMaterialSwitch'
+pod 'Bytedance-UnionAD'
 
   target 'DQUIViewlibTests' do
     inherit! :search_paths

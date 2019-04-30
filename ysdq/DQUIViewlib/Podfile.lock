@@ -16,6 +16,7 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - Bytedance-UnionAD (1.9.8.5)
   - FMDB (2.7.2):
     - FMDB/standard (= 2.7.2)
   - FMDB/standard (2.7.2)
@@ -31,6 +32,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetwork
+  - Bytedance-UnionAD
   - JSONModel
   - LKDBHelper
   - Masonry
@@ -40,6 +42,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetwork
     - AFNetworking
+    - Bytedance-UnionAD
     - FMDB
     - JSONModel
     - LKDBHelper
@@ -49,12 +52,13 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetwork: 0dbdb2ffb4a7770b3d1802dc85b50ab31263f2c2
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  Bytedance-UnionAD: a977fe9f56cd0832ea2e0c88ed9944f560e52935
   FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
   JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
   LKDBHelper: 9a276ba51f2e16263d46a9517e16cc9b03472664
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
 
-PODFILE CHECKSUM: 6f4cae86ddfffdd05a1733c4445922af2a7cb5b7
+PODFILE CHECKSUM: de8fdc3e745c27fd2cb39c47adbbd802081305b8
 
 COCOAPODS: 1.5.3
