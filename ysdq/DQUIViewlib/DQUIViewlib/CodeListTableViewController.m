@@ -28,6 +28,19 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    NSLog(@"%@",NSStringFromSelector(_cmd));
+}
+- (void)viewDidAppear:(BOOL)animated {
+    NSLog(@"%@",NSStringFromSelector(_cmd));
+}
+- (void)viewWillDisappear:(BOOL)animated {
+    NSLog(@"%@",NSStringFromSelector(_cmd));
+}
+- (void)viewDidDisappear:(BOOL)animated {
+    NSLog(@"%@",NSStringFromSelector(_cmd));
+}
+
 #pragma mark - Table view data source
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (section == 1) {
