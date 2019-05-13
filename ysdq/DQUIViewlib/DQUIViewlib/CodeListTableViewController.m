@@ -23,8 +23,9 @@
     self.title = @"CodeListItem";
     
     self.listItems = @[@[@"CollectionViewListController",@"PopAlertTableViewController",@"PresentRouterControlViewController",@"STMAssembleViewController"],
-  @[@"PresentRouterControlViewController"],
-                       @[@"ViewTypeEdgeBorderView",@"SwitchControlView"]];
+                       @[@"PresentRouterControlViewController"],
+                       @[@"ViewTypeEdgeBorderView",@"SwitchControlView"],
+                       @[@"NSMutableArray-changeDo"]];
     
 }
 
@@ -49,11 +50,13 @@
         return @"Navigation-push";
     }else if (section == 2) {
         return @"Custom-Views";
+    }else if (section == 3) {
+        return @"Data_Structure";
     }
     return nil;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -84,6 +87,8 @@
             apiControlVC.viewType = ViewTypeEdgeBorderView;
         }else if ([vcName isEqualToString:@"SwitchControlView"]) {
             apiControlVC.viewType = ViewTypeSwitchControlView;
+        }else if ([vcName isEqualToString:@"NSMutableArray-changeDo"]) {
+            apiControlVC.viewType = ViewTypeSystemNSMutableArray;
         }
         [self.navigationController pushViewController:apiControlVC animated:YES];
     }

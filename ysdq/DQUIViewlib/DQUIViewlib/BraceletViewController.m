@@ -542,11 +542,15 @@
     [self.animationGrandientView addSubview:self.animationGradientLayerView];
     
     __weak __typeof(self)weakSelf = self;
-    [NSTimer scheduledTimerWithTimeInterval:3 repeats:YES block:^(NSTimer * _Nonnull timer) {
-        __strong __typeof(weakSelf)strongSelf = weakSelf;
-        strongSelf.animationGradientLayerView.increaseColorRed  = arc4random()%2;
-        strongSelf.animationGradientLayerView.showGradientLayer = YES;
-    }];
+    if (@available(iOS 10.0, *)) {
+        [NSTimer scheduledTimerWithTimeInterval:3 repeats:YES block:^(NSTimer * _Nonnull timer) {
+            __strong __typeof(weakSelf)strongSelf = weakSelf;
+            strongSelf.animationGradientLayerView.increaseColorRed  = arc4random()%2;
+            strongSelf.animationGradientLayerView.showGradientLayer = YES;
+        }];
+    } else {
+            // Fallback on earlier versions
+    }
 }
 
 

@@ -34,6 +34,7 @@ typedef NS_ENUM(NSUInteger, ViewType) {
     ViewTypeEdgeBorderView,
     ViewTypeSwitchControlView,
     
+    ViewTypeSystemNSMutableArray,
     ViewTypeSystemFontShow,
     ViewTypeSystemKVO
 };

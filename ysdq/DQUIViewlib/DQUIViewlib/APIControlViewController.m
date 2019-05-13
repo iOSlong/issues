@@ -43,8 +43,38 @@
         [self.tableView reloadData];
     }else if (self.viewType == ViewTypeSwitchControlView) {
         [self showViewTypeSwitchControlView];
+    }else if (self.viewType == ViewTypeSystemNSMutableArray ){
+        [self checkNSMutableArray];
     }
 }
+
+- (void)checkNSMutableArray {
+    NSMutableArray *muArray = [NSMutableArray arrayWithObjects:@"hello",@"kitty",@"more",@"happy", nil];
+    NSLog(@"muArray:%p",muArray);
+    
+    [muArray insertObject:@"newGuy" atIndex:2];
+    NSLog(@"muArray:%p",muArray);
+    
+    NSString *holdOne = @"holdOne";
+    NSLog(@"item:%p",holdOne);
+    holdOne = @"holdOne2";
+    [muArray addObject:holdOne];
+    NSLog(@"muArray:%p",muArray);
+    NSLog(@"item:%p",holdOne);
+
+    [muArray replaceObjectAtIndex:2 withObject:holdOne];
+    NSLog(@"muArray:%p",muArray);
+    
+    id item = [muArray objectAtIndex:2];
+    NSLog(@"item:%p",item);
+    
+    item = @"holdOneChange";
+    NSLog(@"item:%p",item);
+    NSLog(@"muArray:%@",muArray);
+    NSLog(@"item:%p",holdOne);
+
+}
+
 
 - (void)showViewTypeSwitchControlView {
     SwitchControlView *switchCV = [[SwitchControlView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
