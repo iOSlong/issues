@@ -465,7 +465,7 @@
     shadowButton.layer.shadowColor     = RGBACOLOR_HEX(0x000000, 0.2).CGColor;
     shadowButton.layer.shadowOpacity   = 1;
     shadowButton.layer.shadowRadius    = 7;
-    shadowButton.layer.shadowOffset    = CGSizeMake(0.0, 0.0);
+    shadowButton.layer.shadowOffset    = CGSizeMake(0.0, 10.0);
     
     CGRect shadowFrame = CGRectMake(100, 0, 100, 40);
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:shadowFrame byRoundingCorners:UIRectCornerBottomRight | UIRectCornerTopRight cornerRadii:shadowFrame.size];
