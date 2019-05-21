@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F825760DF235DF762A78A2EA38985F98"
-               BlueprintName = "Pods-DQUIViewlib"
+               BlueprintIdentifier = "175B076ED45EB1A3E40F58BA14036467"
+               BlueprintName = "MBProgressHUD"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libPods-DQUIViewlib.a">
+               BuildableName = "libMBProgressHUD.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

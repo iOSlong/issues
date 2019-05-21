@@ -36,7 +36,8 @@ typedef NS_ENUM(NSUInteger, ViewType) {
     
     ViewTypeSystemNSMutableArray,
     ViewTypeSystemFontShow,
-    ViewTypeSystemKVO
+    ViewTypeSystemKVO,
+    ViewTypeNS_FORMAT_FUNCTION
 };
 
 typedef NS_ENUM(NSUInteger, NaviBarTime) {

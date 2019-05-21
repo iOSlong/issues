@@ -11,6 +11,7 @@
 #import "AnimationViewTextFieldBar/AnimationViewTextFieldBar.h"
 #import "edgeBorderView/EdgeBorderView.h"
 #import "switchControl/SwitchControlView.h"
+#import "FormatArgumentShow.h"
 
 @interface APIControlViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -41,11 +42,20 @@
         [self showViewTypeEdgeborderView];
         [self setupTable];
         [self.tableView reloadData];
-    }else if (self.viewType == ViewTypeSwitchControlView) {
+    } else if (self.viewType == ViewTypeSwitchControlView) {
         [self showViewTypeSwitchControlView];
-    }else if (self.viewType == ViewTypeSystemNSMutableArray ){
+    } else if (self.viewType == ViewTypeSystemNSMutableArray ){
         [self checkNSMutableArray];
+    } else if (self.viewType == ViewTypeNS_FORMAT_FUNCTION) {
+        [self studyFormat_function];
     }
+}
+
+- (void)studyFormat_function {
+    [FormatArgumentShow formatArgumentsShow];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [hud.detailsLabel setText:@"查看日志打印"];
+    [hud hideAnimated:YES afterDelay:3.0f];
 }
 
 - (void)checkNSMutableArray {

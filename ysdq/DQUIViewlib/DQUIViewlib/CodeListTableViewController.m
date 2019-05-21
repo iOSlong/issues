@@ -25,7 +25,8 @@
     self.listItems = @[@[@"CollectionViewListController",@"PopAlertTableViewController",@"PresentRouterControlViewController",@"STMAssembleViewController"],
                        @[@"PresentRouterControlViewController"],
                        @[@"ViewTypeEdgeBorderView",@"SwitchControlView"],
-                       @[@"NSMutableArray-changeDo"]];
+                       @[@"NSMutableArray-changeDo"],
+                       @[@"NS_FORMAT_FUNCTION"]];
     
 }
 
@@ -46,17 +47,19 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (section == 1) {
         return @"Present-vc";
-    }else if(section == 0){
+    } else if(section == 0){
         return @"Navigation-push";
-    }else if (section == 2) {
+    } else if (section == 2) {
         return @"Custom-Views";
-    }else if (section == 3) {
+    } else if (section == 3) {
         return @"Data_Structure";
+    } else if (section == 4) {
+        return @"function_args_Format";
     }
     return nil;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 4;
+    return [self.listItems count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -72,10 +75,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *vcName = self.listItems[indexPath.section][indexPath.row];
-    UIViewController *desVc = [NSClassFromString(vcName) new];
+    NSString *itemName = self.listItems[indexPath.section][indexPath.row];
+    UIViewController *desVc = [NSClassFromString(itemName) new];
     if ([desVc isKindOfClass:[UIViewController class]]) {
-        desVc.title = vcName;
+        desVc.title = itemName;
         if (indexPath.section == 1) {
             [self presentViewController:desVc animated:YES completion:nil];
         }else {
@@ -83,12 +86,14 @@
         }
     } else {
         APIControlViewController *apiControlVC = [APIControlViewController new];
-        if ([vcName isEqualToString:@"ViewTypeEdgeBorderView"]) {
+        if ([itemName isEqualToString:@"ViewTypeEdgeBorderView"]) {
             apiControlVC.viewType = ViewTypeEdgeBorderView;
-        }else if ([vcName isEqualToString:@"SwitchControlView"]) {
+        }else if ([itemName isEqualToString:@"SwitchControlView"]) {
             apiControlVC.viewType = ViewTypeSwitchControlView;
-        }else if ([vcName isEqualToString:@"NSMutableArray-changeDo"]) {
+        }else if ([itemName isEqualToString:@"NSMutableArray-changeDo"]) {
             apiControlVC.viewType = ViewTypeSystemNSMutableArray;
+        }else if ([itemName isEqualToString:@"NS_FORMAT_FUNCTION"]) {
+            apiControlVC.viewType = ViewTypeNS_FORMAT_FUNCTION;
         }
         [self.navigationController pushViewController:apiControlVC animated:YES];
     }

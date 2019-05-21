@@ -7,6 +7,7 @@ target 'DQUIViewlib' do
 
   # Pods for DQUIViewlib
 
+pod 'MBProgressHUD'
 pod 'Masonry'
 pod 'LKDBHelper'
 pod 'JSONModel'

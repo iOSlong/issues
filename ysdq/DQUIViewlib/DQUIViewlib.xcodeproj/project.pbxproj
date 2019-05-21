@@ -30,6 +30,7 @@
 		B1331663223CE04A0095A4B1 /* STMAssembleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1331662223CE04A0095A4B1 /* STMAssembleViewController.m */; };
 		B1374D3922718C2600964A83 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = B1374D3822718C2600964A83 /* Student.m */; };
 		B1384481224B66360052C149 /* LoginStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1384480224B66360052C149 /* LoginStackView.m */; };
+		B14226742292A36800B70E10 /* FormatArgumentShow.m in Sources */ = {isa = PBXBuildFile; fileRef = B14226732292A36800B70E10 /* FormatArgumentShow.m */; };
 		B14339F22216699E00AF56C4 /* PresentRouterControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B14339F12216699E00AF56C4 /* PresentRouterControlViewController.m */; };
 		B1433A06221E810200AF56C4 /* CollectionViewListController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1433A05221E810200AF56C4 /* CollectionViewListController.m */; };
 		B1433A0A221E826400AF56C4 /* CollectionViewListCommonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1433A09221E826400AF56C4 /* CollectionViewListCommonCell.m */; };
@@ -173,6 +174,8 @@
 		B1374D3822718C2600964A83 /* Student.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
 		B138447F224B66360052C149 /* LoginStackView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginStackView.h; sourceTree = "<group>"; };
 		B1384480224B66360052C149 /* LoginStackView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginStackView.m; sourceTree = "<group>"; };
+		B14226722292A36800B70E10 /* FormatArgumentShow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FormatArgumentShow.h; sourceTree = "<group>"; };
+		B14226732292A36800B70E10 /* FormatArgumentShow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormatArgumentShow.m; sourceTree = "<group>"; };
 		B14339F02216699E00AF56C4 /* PresentRouterControlViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PresentRouterControlViewController.h; sourceTree = "<group>"; };
 		B14339F12216699E00AF56C4 /* PresentRouterControlViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PresentRouterControlViewController.m; sourceTree = "<group>"; };
 		B1433A04221E810200AF56C4 /* CollectionViewListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewListController.h; sourceTree = "<group>"; };
@@ -446,6 +449,15 @@
 			path = loginStackView;
 			sourceTree = "<group>";
 		};
+		B14226712292A30B00B70E10 /* functionArguments */ = {
+			isa = PBXGroup;
+			children = (
+				B14226722292A36800B70E10 /* FormatArgumentShow.h */,
+				B14226732292A36800B70E10 /* FormatArgumentShow.m */,
+			);
+			path = functionArguments;
+			sourceTree = "<group>";
+		};
 		B14339EF2216686800AF56C4 /* PresentVCMode */ = {
 			isa = PBXGroup;
 			children = (
@@ -708,6 +720,7 @@
 		B1BBF00920F6F8E1005D59B2 /* DQUIViewlib */ = {
 			isa = PBXGroup;
 			children = (
+				B14226712292A30B00B70E10 /* functionArguments */,
 				B1374D3622718BE300964A83 /* DQModels */,
 				B187A73C226AF4E000AA1D79 /* pictures */,
 				B187A732226AC60400AA1D79 /* DrawHelper */,
@@ -1141,6 +1154,7 @@
 				B1F5AEF3214F5C3B0060E50D /* ApostropheAnimationView.m in Sources */,
 				B16EC97620F843770046E688 /* SingleViewLibTableViewController.m in Sources */,
 				B1331663223CE04A0095A4B1 /* STMAssembleViewController.m in Sources */,
+				B14226742292A36800B70E10 /* FormatArgumentShow.m in Sources */,
 				B17164A521ABF74E001504C1 /* NSObject+Base.m in Sources */,
 				B18ADBB320FF57170096B8DA /* NavigationControllerListViewController.m in Sources */,
 				B196FC10216F556700EFD452 /* AnimationController.m in Sources */,
