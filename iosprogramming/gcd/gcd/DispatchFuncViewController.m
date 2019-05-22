@@ -636,7 +636,7 @@ static dispatch_group_t _group;
     NSLog(@"currentThread---%@",[NSThread currentThread]);  // 打印当前线程
     NSLog(@"group---begin");
     
-#if 0 //native
+#if 1 //native
 
     dispatch_group_t group = dispatch_group_create();
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
@@ -823,7 +823,7 @@ static dispatch_group_t _group;
                 if (weakSelf.ticketSurplusCount > 0) {  //如果还有票，继续售卖
                     weakSelf.ticketSurplusCount--;
                     NSLog(@"%@", [NSString stringWithFormat:@"剩余票数：%ld 窗口：%@", (long)weakSelf.ticketSurplusCount, [NSThread currentThread]]);
-                    [NSThread sleepForTimeInterval:0.2];
+                    [NSThread sleepForTimeInterval:0.3];
                 } else { //如果已卖完，关闭售票窗口
                     NSLog(@"所有火车票均已售完");
                 }

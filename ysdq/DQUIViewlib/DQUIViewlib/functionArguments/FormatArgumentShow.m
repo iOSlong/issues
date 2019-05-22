@@ -115,9 +115,17 @@ void caseArcnt(void)
 
 
 @implementation FormatArgumentShow
-
+void printAge(int age) __attribute__((enable_if(age > 0  && age < 120, "不在五行中三界中?"))) {
+    NSLog(@"%d",age);
+}
 + (void)formatArgumentsShow {
     
+    printAge(100);
+    int a[5] = {100,100,119,1,9};
+    for (int i =0; i < 5; i ++) {
+//        printAge(a[i]);//No matching function for call to 'printAge'
+    }
+
     
     caseArcnt();
     
@@ -126,8 +134,41 @@ void caseArcnt(void)
     
 //    [[self class] deprecatedMethod1];
 //    [[self class] deprecatedMethod2];
-//            [[self class] deprecatedMethod3];
+//    [[self class] deprecatedMethod3];
 
+    [[self class] testFormat12:@"%@,%@,%d", @"arg1",@"arg2",100];
+    [[self class] testFormat13:@"string-index:%@,%@,%@" appendArgs: @"arg1",@"arg2",@"first-to-check",@100,@"end"];
+}
+/*
+ #define NS_FORMAT_FUNCTION(F,A) __attribute__((format(__NSString__, F, A)))
+ format属性可以给被声明的函数加上类似printf或者scanf的特征，它可以使编译器检查函数声明和函数实际调用参数之间的格式化字符串是否匹配。该功能十分有用，尤其是处理一些很难发现的bug。对于format参数的使用如下
+ format (archetype, string-index, first-to-check)
+ 第一参数需要传递“archetype”指定是哪种风格,这里是 NSString；“string-index”指定传入函数的第几个参数是格式化字符串；“first-to-check”指定第一个可变参数所在的索引.
+ */
+
++ (void)testFormat13:(NSString *)format appendArgs:(NSString *)appendArgs, ... __attribute__((format(__NSString__, 1, 3))){
+    va_list args;
+    NSMutableArray *getArgs = [NSMutableArray array];
+    [getArgs addObject:format];
+    va_start(args, appendArgs);
+    id  nextArg;
+    do{
+        nextArg = va_arg(args, id);
+        [getArgs addObject:nextArg];
+    }while ([nextArg isKindOfClass:[NSNumber class]] || ![nextArg isEqualToString:@"end"]);
+    NSLog(@"%@",getArgs);
+    
+        //由于，Data argument not used by format string , 下面代码回运行出错。
+//    NSString *appendStr = [[NSString alloc] initWithFormat:format arguments:args];
+//    NSLog(@"appendStr:\n%@",appendStr);
+    va_end(args);
+}
++ (void)testFormat12:(NSString *)format,... __attribute__((format(__NSString__, 1, 2))){
+    va_list args;
+    va_start(args, format);
+    NSString *appendStr = [[NSString alloc] initWithFormat:format arguments:args];
+    va_end(args);
+    NSLog(@"appendStr:\n%@",appendStr);
 }
 
 + (NSArray *)showFunctionParms:(NSString *)firstP,... {
@@ -135,11 +176,11 @@ void caseArcnt(void)
     va_list argumentList;
     if (firstP) {
         va_start(argumentList, firstP);                // 从firstP的下一个元素开始
-        NSString * eachObject = firstP;                   // 参数列表中的元素
+        id eachObject = firstP;                   // 参数列表中的元素
         do {
             [parms addObject:eachObject];            // 如果这个元素不是nil，就把它加进数组里
             // 返回参数列表中指针所指的参数，返回的类型是NSString *
-            eachObject = va_arg(argumentList, NSString *);
+            eachObject = va_arg(argumentList,  id);
         } while (eachObject); //参数中需要有一个结束标志，-1，nil，等都可以。
         va_end(argumentList);                           // 结束
     }
