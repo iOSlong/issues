@@ -33,6 +33,8 @@ typedef NS_ENUM(NSUInteger, ViewType) {
     ViewTypeAnimationFieldBar,
     ViewTypeEdgeBorderView,
     ViewTypeSwitchControlView,
+    ViewTypeViewHitTestEvent,
+    ViewTypeViewStackView,
     
     ViewTypeSystemNSMutableArray,
     ViewTypeSystemFontShow,

@@ -24,7 +24,7 @@
     
     self.listItems = @[@[@"CollectionViewListController",@"PopAlertTableViewController",@"PresentRouterControlViewController",@"STMAssembleViewController"],
                        @[@"PresentRouterControlViewController"],
-                       @[@"ViewTypeEdgeBorderView",@"SwitchControlView"],
+                       @[@"ViewTypeEdgeBorderView",@"SwitchControlView",@"ViewHitTestEvent",@"ViewTypeStackView"],
                        @[@"NSMutableArray-changeDo"],
                        @[@"NS_FORMAT_FUNCTION"]];
     
@@ -90,7 +90,11 @@
             apiControlVC.viewType = ViewTypeEdgeBorderView;
         }else if ([itemName isEqualToString:@"SwitchControlView"]) {
             apiControlVC.viewType = ViewTypeSwitchControlView;
-        }else if ([itemName isEqualToString:@"NSMutableArray-changeDo"]) {
+        }else if ([itemName isEqualToString:@"ViewHitTestEvent"]) {
+            apiControlVC.viewType = ViewTypeViewHitTestEvent;
+        }else if ([itemName isEqualToString:@"ViewTypeStackView"]){
+            apiControlVC.viewType = ViewTypeViewStackView;
+        } else if ([itemName isEqualToString:@"NSMutableArray-changeDo"]) {
             apiControlVC.viewType = ViewTypeSystemNSMutableArray;
         }else if ([itemName isEqualToString:@"NS_FORMAT_FUNCTION"]) {
             apiControlVC.viewType = ViewTypeNS_FORMAT_FUNCTION;

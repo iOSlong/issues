@@ -12,6 +12,8 @@
 #import "edgeBorderView/EdgeBorderView.h"
 #import "switchControl/SwitchControlView.h"
 #import "FormatArgumentShow.h"
+#import "viewHitTestEvent/HitTestView.h"
+#import "StackView/ShowStackView.h"
 
 @interface APIControlViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -42,13 +44,32 @@
         [self showViewTypeEdgeborderView];
         [self setupTable];
         [self.tableView reloadData];
-    } else if (self.viewType == ViewTypeSwitchControlView) {
+    }else if (self.viewType == ViewTypeSwitchControlView) {
         [self showViewTypeSwitchControlView];
-    } else if (self.viewType == ViewTypeSystemNSMutableArray ){
+    } else if (self.viewType == ViewTypeViewHitTestEvent) {
+        [self showViewTypeHitTestEvent];
+    }else if (self.viewType == ViewTypeViewStackView) {
+        [self showViewTypeStackView];
+    }
+    
+    else if (self.viewType == ViewTypeSystemNSMutableArray ){
         [self checkNSMutableArray];
     } else if (self.viewType == ViewTypeNS_FORMAT_FUNCTION) {
         [self studyFormat_function];
     }
+}
+
+- (void)showViewTypeStackView {
+    self.view.backgroundColor = [UIColor whiteColor];
+    ShowStackView *stackView = [[ShowStackView alloc] initWithFrame:CGRectMake(100, 100, 200, 200)];
+    [self.view addSubview:stackView];
+}
+
+- (void)showViewTypeHitTestEvent {
+    self.view.backgroundColor = [UIColor whiteColor];
+    HitTestView *testV = [[HitTestView alloc] initWithFrame:CGRectMake(100, 100, 200, 200)];
+    [testV showBorderLine];
+    [self.view addSubview:testV];
 }
 
 - (void)studyFormat_function {

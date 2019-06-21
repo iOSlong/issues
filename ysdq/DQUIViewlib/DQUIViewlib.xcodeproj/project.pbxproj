@@ -90,6 +90,8 @@
 		B1EE119A21C8D26E00F83680 /* DQBarcodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EE119621C8D26E00F83680 /* DQBarcodeView.m */; };
 		B1EE119B21C8D26E00F83680 /* DQBarcodeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EE119721C8D26E00F83680 /* DQBarcodeManager.m */; };
 		B1F5AEF3214F5C3B0060E50D /* ApostropheAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F5AEF2214F5C3B0060E50D /* ApostropheAnimationView.m */; };
+		B1FDE95722B34AC900D44E38 /* HitTestView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FDE95622B34AC900D44E38 /* HitTestView.m */; };
+		B1FDE96322B7672800D44E38 /* ShowStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FDE96222B7672800D44E38 /* ShowStackView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -290,6 +292,10 @@
 		B1EE119921C8D26E00F83680 /* DQBarcodeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQBarcodeManager.h; sourceTree = "<group>"; };
 		B1F5AEF1214F5C3B0060E50D /* ApostropheAnimationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApostropheAnimationView.h; sourceTree = "<group>"; };
 		B1F5AEF2214F5C3B0060E50D /* ApostropheAnimationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApostropheAnimationView.m; sourceTree = "<group>"; };
+		B1FDE95522B34AC900D44E38 /* HitTestView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HitTestView.h; sourceTree = "<group>"; };
+		B1FDE95622B34AC900D44E38 /* HitTestView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HitTestView.m; sourceTree = "<group>"; };
+		B1FDE96122B7672800D44E38 /* ShowStackView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowStackView.h; sourceTree = "<group>"; };
+		B1FDE96222B7672800D44E38 /* ShowStackView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowStackView.m; sourceTree = "<group>"; };
 		B852B113CD9A2B53F3053E91 /* libPods-ServiceEXT.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ServiceEXT.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B966A24DEFCE73E3B23FF0AD /* libPods-DQUIViewlib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DQUIViewlib.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1E3F50653C3287E5EBF2176 /* libPods-DQUIViewlibUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DQUIViewlibUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -720,6 +726,8 @@
 		B1BBF00920F6F8E1005D59B2 /* DQUIViewlib */ = {
 			isa = PBXGroup;
 			children = (
+				B1FDE95E22B7659D00D44E38 /* StackView */,
+				B1FDE95422B34A9C00D44E38 /* viewHitTestEvent */,
 				B14226712292A30B00B70E10 /* functionArguments */,
 				B1374D3622718BE300964A83 /* DQModels */,
 				B187A73C226AF4E000AA1D79 /* pictures */,
@@ -823,6 +831,24 @@
 				B1F5AEF2214F5C3B0060E50D /* ApostropheAnimationView.m */,
 			);
 			path = ApostropheAnimationView;
+			sourceTree = "<group>";
+		};
+		B1FDE95422B34A9C00D44E38 /* viewHitTestEvent */ = {
+			isa = PBXGroup;
+			children = (
+				B1FDE95522B34AC900D44E38 /* HitTestView.h */,
+				B1FDE95622B34AC900D44E38 /* HitTestView.m */,
+			);
+			path = viewHitTestEvent;
+			sourceTree = "<group>";
+		};
+		B1FDE95E22B7659D00D44E38 /* StackView */ = {
+			isa = PBXGroup;
+			children = (
+				B1FDE96122B7672800D44E38 /* ShowStackView.h */,
+				B1FDE96222B7672800D44E38 /* ShowStackView.m */,
+			);
+			path = StackView;
 			sourceTree = "<group>";
 		};
 		B51FFD726940C073CFD44B2D /* Frameworks */ = {
@@ -1162,6 +1188,7 @@
 				B14339F22216699E00AF56C4 /* PresentRouterControlViewController.m in Sources */,
 				B16309E8215CD9A10027DA51 /* MPLoadTestViewController.m in Sources */,
 				B1716E2F21748C0800E50976 /* AirPlayViewTableViewCell.m in Sources */,
+				B1FDE95722B34AC900D44E38 /* HitTestView.m in Sources */,
 				B12BBE8121F712CC005A7540 /* MessageInputAlertView.m in Sources */,
 				B12BBE7521F6F99B005A7540 /* PopAlertTableViewController.m in Sources */,
 				B1A75D6721F1ACA200720C4C /* ArrangeCollectionViewCell.m in Sources */,
@@ -1173,6 +1200,7 @@
 				B1A75D4321EDBF5B00720C4C /* ControlHandle.m in Sources */,
 				B1433A0D221E873100AF56C4 /* CollectionViewListMultiItemCell.m in Sources */,
 				B187A735226AC62000AA1D79 /* DrawHelper.m in Sources */,
+				B1FDE96322B7672800D44E38 /* ShowStackView.m in Sources */,
 				B16EC97A20F848DE0046E688 /* TBGradientLayerView.m in Sources */,
 				B18ADBB620FF582D0096B8DA /* NavigationSubViewController.m in Sources */,
 				B1384481224B66360052C149 /* LoginStackView.m in Sources */,
@@ -1435,7 +1463,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = /Users/lxw/Documents/fmy/issues/issues/ysdq/DQUIViewlib/DQUIViewlib/header/PrefixHeader.pch;
 				INFOPLIST_FILE = DQUIViewlib/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1457,7 +1485,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = /Users/lxw/Documents/fmy/issues/issues/ysdq/DQUIViewlib/DQUIViewlib/header/PrefixHeader.pch;
 				INFOPLIST_FILE = DQUIViewlib/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
