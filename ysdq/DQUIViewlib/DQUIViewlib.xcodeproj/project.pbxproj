@@ -30,6 +30,7 @@
 		B1331663223CE04A0095A4B1 /* STMAssembleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1331662223CE04A0095A4B1 /* STMAssembleViewController.m */; };
 		B1374D3922718C2600964A83 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = B1374D3822718C2600964A83 /* Student.m */; };
 		B1384481224B66360052C149 /* LoginStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1384480224B66360052C149 /* LoginStackView.m */; };
+		B14024AF22D718780045D097 /* MontserratAlternates-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = B14024AE22D718780045D097 /* MontserratAlternates-Black.otf */; };
 		B14226742292A36800B70E10 /* FormatArgumentShow.m in Sources */ = {isa = PBXBuildFile; fileRef = B14226732292A36800B70E10 /* FormatArgumentShow.m */; };
 		B14339F22216699E00AF56C4 /* PresentRouterControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B14339F12216699E00AF56C4 /* PresentRouterControlViewController.m */; };
 		B1433A06221E810200AF56C4 /* CollectionViewListController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1433A05221E810200AF56C4 /* CollectionViewListController.m */; };
@@ -176,6 +177,7 @@
 		B1374D3822718C2600964A83 /* Student.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
 		B138447F224B66360052C149 /* LoginStackView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginStackView.h; sourceTree = "<group>"; };
 		B1384480224B66360052C149 /* LoginStackView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginStackView.m; sourceTree = "<group>"; };
+		B14024AE22D718780045D097 /* MontserratAlternates-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-Black.otf"; sourceTree = "<group>"; };
 		B14226722292A36800B70E10 /* FormatArgumentShow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FormatArgumentShow.h; sourceTree = "<group>"; };
 		B14226732292A36800B70E10 /* FormatArgumentShow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormatArgumentShow.m; sourceTree = "<group>"; };
 		B14339F02216699E00AF56C4 /* PresentRouterControlViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PresentRouterControlViewController.h; sourceTree = "<group>"; };
@@ -455,6 +457,14 @@
 			path = loginStackView;
 			sourceTree = "<group>";
 		};
+		B14024AD22D7182B0045D097 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				B14024AE22D718780045D097 /* MontserratAlternates-Black.otf */,
+			);
+			path = libs;
+			sourceTree = "<group>";
+		};
 		B14226712292A30B00B70E10 /* functionArguments */ = {
 			isa = PBXGroup;
 			children = (
@@ -726,6 +736,7 @@
 		B1BBF00920F6F8E1005D59B2 /* DQUIViewlib */ = {
 			isa = PBXGroup;
 			children = (
+				B14024AD22D7182B0045D097 /* libs */,
 				B1FDE95E22B7659D00D44E38 /* StackView */,
 				B1FDE95422B34A9C00D44E38 /* viewHitTestEvent */,
 				B14226712292A30B00B70E10 /* functionArguments */,
@@ -1024,6 +1035,7 @@
 				B1AD968D21C0E1C300050E5B /* DQCollectionViewFontCell.xib in Resources */,
 				B187A73E226AF4F900AA1D79 /* sunwu.jpg in Resources */,
 				B1546109216DD04E00B4EE1F /* main_search_small@3x.png in Resources */,
+				B14024AF22D718780045D097 /* MontserratAlternates-Black.otf in Resources */,
 				B154610A216DD04E00B4EE1F /* main_search_small@2x.png in Resources */,
 				B1858F5D2134F84F00ED7DBA /* logfile in Resources */,
 				B1BBF01720F6F8E3005D59B2 /* LaunchScreen.storyboard in Resources */,

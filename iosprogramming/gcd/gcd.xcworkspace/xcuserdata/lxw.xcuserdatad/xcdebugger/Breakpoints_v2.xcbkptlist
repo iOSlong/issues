@@ -70,11 +70,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__50-[DispatchFuncViewController initTicketStatusSave]_block_invoke.301"
+                  symbolName = "__50-[DispatchFuncViewController initTicketStatusSave]_block_invoke_3"
                   moduleName = "gcd"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lxw/Documents/fmy/issues/issues/iosprogramming/gcd/gcd/DispatchFuncViewController.m"
-                  timestampString = "580125082.387712"
+                  timestampString = "584850245.59763"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "839"
@@ -85,31 +85,16 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__50-[DispatchFuncViewController initTicketStatusSave]_block_invoke_2.302"
+                  symbolName = "__50-[DispatchFuncViewController initTicketStatusSave]_block_invoke_4"
                   moduleName = "gcd"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lxw/Documents/fmy/issues/issues/iosprogramming/gcd/gcd/DispatchFuncViewController.m"
-                  timestampString = "580125082.390957"
+                  timestampString = "584850245.602589"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "840"
                   endingLineNumber = "840"
                   offsetFromSymbolStart = "16">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.304"
-                  moduleName = "gcd"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lxw/Documents/fmy/issues/issues/iosprogramming/gcd/gcd/DispatchFuncViewController.m"
-                  timestampString = "580125082.394205"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "839"
-                  endingLineNumber = "839"
-                  offsetFromSymbolStart = "12">
                </Location>
             </Locations>
          </BreakpointContent>

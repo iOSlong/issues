@@ -35,6 +35,7 @@ typedef NS_ENUM(NSUInteger, ViewType) {
     ViewTypeSwitchControlView,
     ViewTypeViewHitTestEvent,
     ViewTypeViewStackView,
+    ViewTypeCustomFont,
     
     ViewTypeSystemNSMutableArray,
     ViewTypeSystemFontShow,

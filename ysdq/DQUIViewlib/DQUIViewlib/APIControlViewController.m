@@ -50,6 +50,8 @@
         [self showViewTypeHitTestEvent];
     }else if (self.viewType == ViewTypeViewStackView) {
         [self showViewTypeStackView];
+    }else if (self.viewType == ViewTypeCustomFont) {
+        [self showViewTypeCustomFont];
     }
     
     else if (self.viewType == ViewTypeSystemNSMutableArray ){
@@ -57,6 +59,18 @@
     } else if (self.viewType == ViewTypeNS_FORMAT_FUNCTION) {
         [self studyFormat_function];
     }
+}
+
+- (void)showViewTypeCustomFont {
+    self.view.backgroundColor =[UIColor whiteColor];
+    UILabel *customLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 200, 100)];
+    [customLabel showBorderLine];
+    [self.view addSubview:customLabel];
+    customLabel.text = @"Hello World";
+    customLabel.font = [UIFont fontWithName:@"MontserratAlternates-Black" size:30];
+/*
+ https://developer.apple.com/documentation/uikit/text_display_and_fonts/adding_a_custom_font_to_your_app
+*/
 }
 
 - (void)showViewTypeStackView {
