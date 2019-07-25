@@ -84,7 +84,7 @@
 
 - (void)setupAVPlayer {
     
-    NSURL *videoUrl = self.videoUrls[2];
+    NSURL *videoUrl = self.videoUrls[1];
 
     
     AVAsset *movieAsset
