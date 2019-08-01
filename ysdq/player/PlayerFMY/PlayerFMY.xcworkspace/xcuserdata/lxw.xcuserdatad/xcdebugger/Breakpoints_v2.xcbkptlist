@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PlayerFMY/M3U8Server.m"
-            timestampString = "586351135.153679"
+            filePath = "PlayerFMY/AVPlayerM3UViewController.m"
+            timestampString = "586351526.553187"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
-            landmarkName = "-copybundleFileInDocument"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "-buttonPlayClick:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -35,13 +35,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PlayerFMY/AVPlayerM3UViewController.m"
-            timestampString = "586351135.154125"
+            filePath = "PlayerFMY/M3U8Server.m"
+            timestampString = "586351584.237317"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "-buttonPlayClick:"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "-setupHTTPServer"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
