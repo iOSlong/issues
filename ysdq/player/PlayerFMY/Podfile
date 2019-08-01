@@ -8,7 +8,7 @@ target 'PlayerFMY' do
   # Pods for PlayerFMY
 
 pod 'Masonry'
-
+pod 'CocoaHTTPServer', '~> 2.3'
 
   target 'PlayerFMYTests' do
     inherit! :search_paths
