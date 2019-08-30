@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "gcd/DispatchFuncViewController.m"
-            timestampString = "586148879.45961"
+            timestampString = "586423168.715772"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "828"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "gcd/DispatchFuncViewController.m"
-            timestampString = "586148879.459762"
+            timestampString = "586423168.71626"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "845"
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "gcd/DispatchFuncViewController.m"
-            timestampString = "586148879.4599"
+            timestampString = "586423168.7165641"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "840"
@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "gcd/DispatchFuncViewController.m"
-            timestampString = "586148879.460014"
+            timestampString = "586423168.716861"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "839"
@@ -74,7 +74,7 @@
                   moduleName = "gcd"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lxw/Documents/fmy/issues/issues/iosprogramming/gcd/gcd/DispatchFuncViewController.m"
-                  timestampString = "586148879.803048"
+                  timestampString = "586423168.8657939"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "839"
@@ -89,7 +89,7 @@
                   moduleName = "gcd"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lxw/Documents/fmy/issues/issues/iosprogramming/gcd/gcd/DispatchFuncViewController.m"
-                  timestampString = "586148879.8065031"
+                  timestampString = "586423168.871531"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "840"
@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "gcd/DispatchFuncViewController.m"
-            timestampString = "586148879.460135"
+            timestampString = "586423168.717129"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "822"
@@ -160,6 +160,22 @@
                   offsetFromSymbolStart = "12">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "gcd/DispatchFuncViewController.m"
+            timestampString = "586425794.285203"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "344"
+            endingLineNumber = "344"
+            landmarkName = "-dispatch_sync_main"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
