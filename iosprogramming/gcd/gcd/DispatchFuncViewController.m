@@ -648,6 +648,7 @@ static dispatch_group_t _group;
         dispatch_group_leave(group);
     });
     
+    dispatch_group_
     
     
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
@@ -676,6 +677,8 @@ static dispatch_group_t _group;
         excuteTask(4);
         NSLog(@"group---end1");
     });
+    
+    dispatch_cancel(dispatch_queue_get_label(0,0));
 
 #else
     [[DispatchQueueManager shared] groupEnterAsync:^{

@@ -99,8 +99,8 @@
     }];
     self.playerVC = playerVC;
 #endif
-    
 }
+
 - (IBAction)changeEpisodeSegment:(UISegmentedControl *)sender {
     NSURL *videoUrl = self.videoUrls[sender.selectedSegmentIndex];
     self.playerVC.player = [[AVPlayer alloc]initWithURL:videoUrl];
