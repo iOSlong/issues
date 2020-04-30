@@ -18,15 +18,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    NSLog(@"");
-    
-    NSMutableDictionary         *requests = [NSMutableDictionary dictionaryWithCapacity:0];
-    [requests setObject:@"key0" forKey:@"val0"];
-    requests[@"key1"] = @"val1";
-    requests[@"key2"] = @"val2";
-    NSLog(@"%@",requests);
-
-    
   
    
     

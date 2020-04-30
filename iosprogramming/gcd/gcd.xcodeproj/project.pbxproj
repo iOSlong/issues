@@ -22,6 +22,9 @@
 		B1D5D2B7215A089400FF7CEB /* HandleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D5D2B6215A089400FF7CEB /* HandleTableViewController.m */; };
 		B1D5D2BA215A08FA00FF7CEB /* DispatchFuncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D5D2B9215A08FA00FF7CEB /* DispatchFuncViewController.m */; };
 		B1D5D2C4215BA24800FF7CEB /* DispatchQueueManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D5D2C3215BA24800FF7CEB /* DispatchQueueManager.m */; };
+		B1F8F11A245ABD2C00BEEAA3 /* OperationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F8F119245ABD2B00BEEAA3 /* OperationTableViewController.m */; };
+		B1F8F11D245ABDDB00BEEAA3 /* OperationFuncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F8F11C245ABDDB00BEEAA3 /* OperationFuncViewController.m */; };
+		B1F8F126245AD93200BEEAA3 /* LXOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F8F125245AD93200BEEAA3 /* LXOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +76,12 @@
 		B1D5D2B9215A08FA00FF7CEB /* DispatchFuncViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DispatchFuncViewController.m; sourceTree = "<group>"; };
 		B1D5D2C2215BA24800FF7CEB /* DispatchQueueManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DispatchQueueManager.h; sourceTree = "<group>"; };
 		B1D5D2C3215BA24800FF7CEB /* DispatchQueueManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueManager.m; sourceTree = "<group>"; };
+		B1F8F118245ABD2B00BEEAA3 /* OperationTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OperationTableViewController.h; sourceTree = "<group>"; };
+		B1F8F119245ABD2B00BEEAA3 /* OperationTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OperationTableViewController.m; sourceTree = "<group>"; };
+		B1F8F11B245ABDDB00BEEAA3 /* OperationFuncViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OperationFuncViewController.h; sourceTree = "<group>"; };
+		B1F8F11C245ABDDB00BEEAA3 /* OperationFuncViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OperationFuncViewController.m; sourceTree = "<group>"; };
+		B1F8F124245AD93200BEEAA3 /* LXOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LXOperation.h; sourceTree = "<group>"; };
+		B1F8F125245AD93200BEEAA3 /* LXOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LXOperation.m; sourceTree = "<group>"; };
 		BCCC11BF7C71BEB8BC51D664 /* libPods-gcdTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-gcdTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD72E903DC7CEC5C28F8D4DD /* Pods-gcd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gcd.release.xcconfig"; path = "Pods/Target Support Files/Pods-gcd/Pods-gcd.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -153,6 +162,12 @@
 				B1A75D4621EDC10500720C4C /* AppDelegateCoordinator.m */,
 				B15460FF216C88F200B4EE1F /* AppTaskCoordinator.h */,
 				B1546100216C88F200B4EE1F /* AppTaskCoordinator.m */,
+				B1F8F118245ABD2B00BEEAA3 /* OperationTableViewController.h */,
+				B1F8F119245ABD2B00BEEAA3 /* OperationTableViewController.m */,
+				B1F8F11B245ABDDB00BEEAA3 /* OperationFuncViewController.h */,
+				B1F8F11C245ABDDB00BEEAA3 /* OperationFuncViewController.m */,
+				B1F8F124245AD93200BEEAA3 /* LXOperation.h */,
+				B1F8F125245AD93200BEEAA3 /* LXOperation.m */,
 				B1D5D28C215A081700FF7CEB /* Assets.xcassets */,
 				B1D5D28E215A081700FF7CEB /* LaunchScreen.storyboard */,
 				B1D5D291215A081700FF7CEB /* Info.plist */,
@@ -383,6 +398,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1A75D4821EDC10500720C4C /* AppDelegateCoordinator.m in Sources */,
+				B1F8F11A245ABD2C00BEEAA3 /* OperationTableViewController.m in Sources */,
+				B1F8F11D245ABDDB00BEEAA3 /* OperationFuncViewController.m in Sources */,
+				B1F8F126245AD93200BEEAA3 /* LXOperation.m in Sources */,
 				B1D5D2B7215A089400FF7CEB /* HandleTableViewController.m in Sources */,
 				B1546101216C88F200B4EE1F /* AppTaskCoordinator.m in Sources */,
 				B1D5D2C4215BA24800FF7CEB /* DispatchQueueManager.m in Sources */,
@@ -558,7 +576,8 @@
 			baseConfigurationReference = 66AFA52D4E1ED08678AD4259 /* Pods-gcd.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = KVCYRV8Z8U;
 				INFOPLIST_FILE = gcd/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -567,6 +586,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = fmy.gcd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = ZSpaceDevelopAll;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -576,7 +596,8 @@
 			baseConfigurationReference = CD72E903DC7CEC5C28F8D4DD /* Pods-gcd.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = KVCYRV8Z8U;
 				INFOPLIST_FILE = gcd/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -585,6 +606,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = fmy.gcd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = ZSpaceDevelopAll;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

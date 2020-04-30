@@ -647,9 +647,7 @@ static dispatch_group_t _group;
         excuteTask(1);
         dispatch_group_leave(group);
     });
-    
-    dispatch_group_
-    
+        
     
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
         // 等前面的异步操作都执行完毕后，回到主线程.
@@ -678,8 +676,6 @@ static dispatch_group_t _group;
         NSLog(@"group---end1");
     });
     
-    dispatch_cancel(dispatch_queue_get_label(0,0));
-
 #else
     [[DispatchQueueManager shared] groupEnterAsync:^{
         excuteTask(1);
