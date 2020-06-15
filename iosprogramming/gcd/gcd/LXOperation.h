@@ -8,9 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+@class LXOperation;
+@protocol LXOperationDelegate <NSObject>
+- (void)albumAnalyzeDidCompletionOperation:(LXOperation *_Nullable)operation;
+@end
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LXOperation : NSOperation
+@property (nonatomic, weak) id<LXOperationDelegate>delegate;
 @end
 
 
@@ -21,6 +27,17 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithData:(id)data;
 - (instancetype)initWithBlock:(void(^)(void))block;
 
+@end
+
+
+
+@interface ConcurrentOperation : LXOperation {
+    BOOL executing;
+    BOOL finished;
+}
+@property (nonatomic, readonly)NSArray *photoTasks;
+- (instancetype)initWithAlbum:(id)album;
+- (void)completeOperation;
 @end
 
 
